@@ -1,9 +1,12 @@
 <p align="center"><img src="https://cldup.com/7umchwdUBh.png" /></p>
 <h3 align="center">API creation made simple, secure and fast.</h3>
 <p align="center">The most advanced open-source Content Management Framework to build powerful API with no effort.</p>
+
+***
+
 <br />
 
-Looking for examples to understand how Strapi works? You're in the right place! In this repository, you will find a list of apps using Strapi.
+**Looking for examples** to understand how Strapi works? **You're in the right place!** <br />
 
 ## Examples
 
