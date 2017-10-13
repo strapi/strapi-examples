@@ -1,0 +1,12 @@
+{
+  "name": "Hello World - Example",
+  "description": "Show multiple way to say hello to the world.",
+  "favicon": {
+    "path": "favicon.ico",
+    "maxAge": 86400000
+  },
+  "public": {
+    "path": "./public",
+    "maxAge": 60000
+  }
+}
