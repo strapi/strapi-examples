@@ -1,0 +1,33 @@
+{
+  "data": [{
+    "name": "Original NY Plain Cheesecake",
+    "description": "What all New York- style cheesecakes aspire to be. Creamy but not heavy, light without falling apart as you take a forkful, and of course, that rich flavor. Rated “Best Overall” by the Wall Street Journal.",
+    "price": "39.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/o/r/original_ny_plain_cheesecake.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/original-ny-plain-cheesecake"
+  }, {
+    "name": "Key Lime Pie Cheesecake",
+    "description": "Our Original New York Cheesecake with a graham crust and with a layer of homemade key lime pie baked on top. This beautiful and seasonal cake is both tart and sweet and perfectly complemented by our creamy cheesecake, is topped with fresh whipped cream. Delicious and refreshing!",
+    "price": "45.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/k/e/key_lime_web.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/keylimecheesecake"
+  }, {
+    "name": "Strawberry Cheesecake",
+    "description": "The original Worlds Most Fabulous Cheesecake is topped with fresh strawberry pie filling and baked into a graham crust. Finished with our macaroon crunch.",
+    "price": "49.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/t/strawberry_cheesecake.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/strawberry-cheesecake"
+  }, {
+    "name": "Raspberry Swirl",
+    "description": "C’est magnifique... the delicately delicious whirl of real French raspberry puree in delightful contrast with the smooth richness of Junior’s cheesecake.",
+    "price": "39.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/a/raspberry_swirl.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/raspberry-swirl"
+  }, {
+    "name": "Red Velvet Cheesecake",
+    "description": "A traditional favorite with a Junior's twist. Homemade moist Red Velvet cake is layered with our Original New York cheesecake and our famous cream cheese icing. Adorned with even more icing and cake crumbs.",
+    "price": "45.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/a/raspberry_swirl.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/red-velvet-cheesecake"
+  }]
+}
