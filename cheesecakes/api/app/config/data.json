@@ -29,5 +29,35 @@
     "price": "45.95",
     "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/r/a/raspberry_swirl.jpg",
     "link": "https://www.juniorscheesecake.com/all-items/red-velvet-cheesecake"
+  }, {
+    "name": "Brownie Marble Swirl",
+    "description": "Don‘t tell the kids about this one until you‘ve had your fill. Tasty chocolate brownie mix and cheesecake with a chocolate brownie bottom.",
+    "price": "39.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/r/brownie_marble_swirl.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/brownie-marble-swirl"
+  }, {
+    "name": "Cherry Crumb",
+    "description": "It‘s cherry blossom time the year ‘round with this luscious cherry filled, crumbly streusel-topped cheesecake.",
+    "price": "39.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/3/_/3_l.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/cherry-crumb"
+  }, {
+    "name": "White Chocolate Raspberry",
+    "description": "Our Original New York Cheesecake is blended with premium white chocolate and swirled with fresh raspberry puree and baked atop a chocolate cookie crust. The entire cake is decorated with a raspberry mirror and finished with a white chocolate mousse border for fresh raspberry and white chocolate in every bite.",
+    "price": "45.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/w/h/white_chocolate_raspberry.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/white-chocolate-raspberry"
+  }, {
+    "name": "Lemon Coconut Cheesecake",
+    "description": "Our Original New York cheesecake is topped with fresh lemon custard crème, layered with yellow chiffon cake and finished with real buttercream frosting and fresh coconut.",
+    "price": "45.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/2/1/21_l.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/lemon-coconut-cheesecake"
+  }, {
+    "name": "Carrot Cake Cheesecake",
+    "description": "Our Original New York cheesecake is layered with a traditional carrot cake, made with fresh carrots and cinammon. Frosted with Juniors own cream cheese frosting.",
+    "price": "45.95",
+    "picture": "https://www.juniorscheesecake.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/2/2/22_l.jpg",
+    "link": "https://www.juniorscheesecake.com/all-items/carrot-cake-cheesecake"
   }]
 }

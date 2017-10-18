@@ -11,11 +11,13 @@
     "eslint-plugin-react": "^6.8.0"
   },
   "dependencies": {
+    "ejs": "^2.5.7",
     "lodash": "4.x.x",
     "strapi": "3.0.0-alpha.6.3",
-    "strapi-mongoose": "3.0.0-alpha.6.3",
     "strapi-generate": "3.0.0-alpha.6.3",
-    "strapi-generate-api": "3.0.0-alpha.6.3"
+    "strapi-generate-api": "3.0.0-alpha.6.3",
+    "strapi-mongoose": "^3.0.0-alpha.6.3",
+    "strapi-views": "^3.0.0-alpha.6.3"
   },
   "main": "./server.js",
   "scripts": {
