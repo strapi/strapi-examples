@@ -93,13 +93,19 @@
 						Showing <span class="woocommerce-result-count-show"></span> results</p>
 					<form class="woocommerce-ordering" method="get">
 						<select name="orderby" class="orderby">
-							<option value="_sort=id" >Sort by newness</option>
-							<option value="_sort=price:asc" >Sort by price: low to high</option>
-							<option value="_sort=price:desc" >Sort by price: high to low</option>
+							<option value="id" >Sort by newness</option>
+							<option value="price:asc" >Sort by price: low to high</option>
+							<option value="price:desc" >Sort by price: high to low</option>
 						</select>
 					</form>
 
 					<ul class="products"></ul>
+
+					<nav class="woocommerce-pagination">
+						<ul class="page-numbers">
+
+						</ul>
+					</nav>
 				</main>
 				<!-- .content -->
 			</div>

@@ -16,8 +16,7 @@
     "strapi": "3.0.0-alpha.6.3",
     "strapi-generate": "3.0.0-alpha.6.3",
     "strapi-generate-api": "3.0.0-alpha.6.3",
-    "strapi-mongoose": "^3.0.0-alpha.6.3",
-    "strapi-views": "^3.0.0-alpha.6.3"
+    "strapi-mongoose": "^3.0.0-alpha.6.3"
   },
   "main": "./server.js",
   "scripts": {

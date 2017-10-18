@@ -1,6 +1,10 @@
 var $ = jQuery;
 
 $(document).ready(() => {
+  const url = new URL(window.location.href);
+  const page = parseInt(url.searchParams.get('page')) || 1;
+  const sort = url.searchParams.get('sort') || 'id';
+
   const request = (params = '') => {
     $('.products').html('');
 
@@ -22,8 +26,6 @@ $(document).ready(() => {
 
           $('.products').append(dom);
         }
-
-        $('.woocommerce-result-count-show').html(data.length);
       },
       catch: (err) => {
         console.log(err);
@@ -33,8 +35,32 @@ $(document).ready(() => {
 
   $('.orderby').on('change', function (e) {
     const value = $(this).val();
-    request(value);
+    window.location = `/?sort=${value}&page=${page}`;
   });
 
-  request($('.orderby').val());
+  $(`option[value="${sort}"]`).attr('selected', true);
+
+  request(`_sort=${sort}&_start=${(page - 1) * 4}&_limit=4`);
+
+  $.ajax({
+    url: `/cake/count`,
+    method: 'GET',
+    success: (data) => {
+      const pages = Math.ceil(data / 4);
+
+      for (let i = 1; i <= pages; i++) {
+        const item = (i === page) ? `<li><span class="page-numbers current">${i}</span></li>` : `<li><a class="page-numbers" href="?sort=${sort}&page=${i}">${i}</a></li>`
+        $('ul.page-numbers').append(item);
+      }
+
+      if (page + 1 <= pages) {
+        $('ul.page-numbers').append(`<li><a class="next page-numbers" href="?sort=${sort}&page=${page + 1}">→</a></li>`);
+      }
+
+      $('.woocommerce-result-count-show').html(`${(page - 1) * 4 + 1} - ${(page - 1) * 4 + 4} of ${data}`);
+    },
+    catch: (err) => {
+      console.log(err);
+    }
+  });
 });

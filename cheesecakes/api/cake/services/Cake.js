@@ -74,5 +74,15 @@ module.exports = {
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
     return Cake.findOneAndRemove(params, {});
-  }
+  },
+
+  /**
+   * Promise to count cakes.
+   *
+   * @return {Promise}
+   */
+
+  count: async (ctx) => {
+    return Cake.count();
+  },
 };
