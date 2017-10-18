@@ -4,6 +4,7 @@ $(document).ready(() => {
   const url = new URL(window.location.href);
   const id = url.searchParams.get('id');
 
+  // Get single cake data and template product.html file.
   $.ajax({
     url: `/cake/${id}`,
     method: 'GET',
