@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/info",
+      "handler": "App.info",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -22,4 +22,13 @@ $(document).ready(() => {
     }
   });
 
+  // Set header infos
+  $.ajax({
+    url: '/info',
+    method: 'GET',
+    success: (data) => {
+      $('.site-title a').html(data.name);
+      $('.site-description span').html(data.description);
+    }
+  });
 });

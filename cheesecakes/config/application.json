@@ -1,6 +1,6 @@
 {
-  "name": "Default Application",
-  "description": "This API is going to be awesome!",
+  "name": "Cheesecake factory",
+  "description": "Strapi example application",
   "favicon": {
     "path": "favicon.ico",
     "maxAge": 86400000
