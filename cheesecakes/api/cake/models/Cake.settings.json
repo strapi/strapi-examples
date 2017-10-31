@@ -30,6 +30,10 @@
     "category": {
       "model": "category",
       "via": "cakes"
+    },
+    "reviews": {
+      "collection": "review",
+      "via": "cake"
     }
   }
 }

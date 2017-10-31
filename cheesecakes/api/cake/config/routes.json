@@ -11,13 +11,13 @@
     {
       "method": "GET",
       "path": "/cake/count",
-       "handler": "Cake.count",		
-       "config": {
-         "policies": []
-       }
-     },
-     {
-       "method": "GET",
+      "handler": "Cake.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/cake/:_id",
       "handler": "Cake.findOne",
       "config": {

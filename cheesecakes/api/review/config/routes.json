@@ -2,40 +2,40 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/category",
-      "handler": "Category.find",
+      "path": "/review",
+      "handler": "Review.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/category/:_id",
-      "handler": "Category.findOne",
+      "path": "/review/:_id",
+      "handler": "Review.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/category",
-      "handler": "Category.create",
+      "path": "/review",
+      "handler": "Review.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/category/:_id",
-      "handler": "Category.update",
+      "path": "/review/:_id",
+      "handler": "Review.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/category/:_id",
-      "handler": "Category.destroy",
+      "path": "/review/:_id",
+      "handler": "Review.destroy",
       "config": {
         "policies": []
       }

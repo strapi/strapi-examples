@@ -7,10 +7,12 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "cakes": {
-      "collection": "cake",
+      "model": "cake",
       "via": "category"
     }
   }
