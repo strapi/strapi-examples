@@ -71,18 +71,5 @@ module.exports = {
 
     // Send 200 `ok`
     ctx.send(data);
-  },
-
-  /**
-   * Retrieve number of cakes.
-   *
-   * @return {Integer}
-   */
-
-  count: async (ctx) => {
-    const data = await strapi.services.cake.count();
-
-    // Send 200 `ok`
-    ctx.send(data);
-  },
+  }
 };

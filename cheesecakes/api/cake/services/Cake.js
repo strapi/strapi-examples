@@ -26,7 +26,7 @@ module.exports = {
       .sort(convertedParams.sort)
       .skip(convertedParams.start)
       .limit(convertedParams.limit)
-      .populate(_.keys(_.pickBy(strapi.models.cake.attributes, { autoPopulate: true })).join(' '));
+      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
   },
 
   /**
@@ -38,7 +38,7 @@ module.exports = {
   fetch: (params) => {
     return Cake
       .findOne(params)
-      .populate(_.keys(_.pickBy(strapi.models.cake.attributes, { autoPopulate: true })).join(' '));
+      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
   },
 
   /**
@@ -47,8 +47,10 @@ module.exports = {
    * @return {Promise}
    */
 
-  add: (values) => {
-    return Cake.create(values);
+  add: async (values) => {
+    const data = await Cake.create(_.omit(values, _.keys(_.groupBy(strapi.models.cake.associations, 'alias'))));
+    await strapi.hook.mongoose.load().manageRelations(strapi.models, Cake, _.merge(_.clone(data), { values }));
+    return data;
   },
 
   /**
@@ -57,10 +59,11 @@ module.exports = {
    * @return {Promise}
    */
 
-  edit: (params, values) => {
+  edit: async (params, values) => {
     // Note: The current method will return the full response of Mongo.
     // To get the updated object, you have to execute the `findOne()` method
     // or use the `findOneOrUpdate()` method with `{ new:true }` option.
+    await strapi.hook.mongoose.load().manageRelations(strapi.models, Cake, _.merge(_.clone(params), { values }));
     return Cake.update(params, values, { multi: true });
   },
 
@@ -70,19 +73,22 @@ module.exports = {
    * @return {Promise}
    */
 
-  remove: params => {
+  remove: async params => {
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    return Cake.findOneAndRemove(params, {});
-  },
+    const data = await Cake.findOneAndRemove(params, {})
+      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
 
-  /**
-   * Promise to count cakes.
-   *
-   * @return {Promise}
-   */
+    _.forEach(Cake.associations, async association => {
+      const search = (_.endsWith(association.nature, 'One')) ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
+      const update = (_.endsWith(association.nature, 'One')) ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
 
-  count: async (ctx) => {
-    return Cake.count();
-  },
+      await strapi.models[association.model || association.collection].update(
+        search,
+        update,
+        { multi: true });
+    });
+
+    return data;
+  }
 };
