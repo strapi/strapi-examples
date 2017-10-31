@@ -14,7 +14,8 @@ $(document).ready(() => {
       $('.woocommerce-product-details__short-description p').html(data.description);
       $('.single_add_to_cart_button').attr('href', data.link);
       $('.woocommerce-product-gallery__image img').attr('src', data.picture);
-
+      const category = (data.category) ? data.category.name : 'None';
+      $('.posted_in').append(`Category: ${category}`);
     },
     catch: (err) => {
       console.log(err);

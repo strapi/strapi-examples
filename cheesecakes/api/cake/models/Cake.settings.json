@@ -26,6 +26,10 @@
     "link": {
       "type": "string",
       "required": true
+    },
+    "category": {
+      "model": "category",
+      "via": "cakes"
     }
   }
 }
