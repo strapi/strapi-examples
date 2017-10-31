@@ -90,5 +90,15 @@ module.exports = {
     });
 
     return data;
+  },
+
+  /**
+   * Promise to count cakes.
+   *
+   * @return {Promise}
+   */
+
+  count: async (ctx) => {
+    return Cake.count();
   }
 };
