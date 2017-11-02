@@ -9,6 +9,9 @@
 - Use policies (soon)
 - Rendering ejs views (soon)
 
+> This application need local installation of version alpha.7.<br>
+> After that make npm link of strapi node modules.
+
 ## Setup
 
 **1 —** Clone the repository.
