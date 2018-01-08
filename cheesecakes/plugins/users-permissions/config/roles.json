@@ -362,7 +362,7 @@
           "controllers": {
             "app": {
               "info": {
-                "enabled": false,
+                "enabled": true,
                 "policy": ""
               },
               "identity": {

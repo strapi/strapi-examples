@@ -41,10 +41,6 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    // Force approuved to false;
-    let value = ctx.request.body;
-    value.approuved = false;
-
     const data = await strapi.services.review.add(ctx.request.body);
 
     // Send 201 `created`

@@ -17,7 +17,7 @@ module.exports = {
   info: (ctx) => {
     ctx.send({
       name: strapi.config.name,
-     description: strapi.config.description
+      description: strapi.config.description
    });
   }
 };

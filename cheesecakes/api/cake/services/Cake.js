@@ -26,11 +26,7 @@ module.exports = {
       .sort(convertedParams.sort)
       .skip(convertedParams.start)
       .limit(convertedParams.limit)
-      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '))
-      .populate({
-        path: 'reviews',
-        match: { approuved: true}
-      });
+      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
   },
 
   /**
@@ -41,12 +37,8 @@ module.exports = {
 
   fetch: (params) => {
     return Cake
-      .findOne(params)
-      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '))
-      .populate({
-        path: 'reviews',
-        match: { approuved: true}
-      });
+      .findOne(_.pick(params, _.keys(Cake.schema.paths)))
+      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
   },
 
   /**
@@ -57,7 +49,7 @@ module.exports = {
 
   add: async (values) => {
     const data = await Cake.create(_.omit(values, _.keys(_.groupBy(strapi.models.cake.associations, 'alias'))));
-    await strapi.hook.mongoose.load().manageRelations(strapi.models, Cake, _.merge(_.clone(data), { values }));
+    await strapi.hook.mongoose.manageRelations('cake', _.merge(_.clone(data), { values }));
     return data;
   },
 
@@ -71,7 +63,7 @@ module.exports = {
     // Note: The current method will return the full response of Mongo.
     // To get the updated object, you have to execute the `findOne()` method
     // or use the `findOneOrUpdate()` method with `{ new:true }` option.
-    await strapi.hook.mongoose.load().manageRelations(strapi.models, Cake, _.merge(_.clone(params), { values }));
+    await strapi.hook.mongoose.manageRelations('cake', _.merge(_.clone(params), { values }));
     return Cake.update(params, values, { multi: true });
   },
 
