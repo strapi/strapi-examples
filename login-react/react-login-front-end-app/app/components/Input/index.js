@@ -7,7 +7,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { get, isEmpty, map, mapKeys, isObject, reject, includes, upperFirst } from 'lodash';
-import { FormattedMessage } from 'react-intl';
 import './styles.scss';
 
 class Input extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -100,7 +99,7 @@ class Input extends React.Component { // eslint-disable-line react/prefer-statel
       return (
         map(this.state.errors, (error, key) => {
           const displayError = isObject(error) && error.id
-            ? <FormattedMessage {...error} values={{ errorMessage: error.errorMessage }} />
+            ? <span>{error.id}</span>
             : error;
           return (
             <div key={key} className={`form-control-feedback invalid-feedback ${divStyle}`} style={{ display: 'block' }}>{displayError}</div>
@@ -151,9 +150,9 @@ class Input extends React.Component { // eslint-disable-line react/prefer-statel
           {this.props.label}
         </label>
         <div className="input-group input inputEmail" style={{ marginBottom: '1rem'}}>
-          <span className={`input-group-addon addonEmail ${!this.props.deactivateErrorHighlight && !isEmpty(this.state.errors) && !this.state.isFocus ? styles.errorAddon: ''}`} />
+          <span className="input-group-addon addonEmail" />
           <input
-            className={`form-control ${!this.props.deactivateErrorHighlight && !isEmpty(this.state.errors) ? `form-control-danger is-invalid ${styles.error}`: ''}`}
+            className={`form-control ${!this.props.deactivateErrorHighlight && !isEmpty(this.state.errors) ? `form-control-danger is-invalid error`: ''}`}
             onChange={this.props.onChange}
             value={this.props.value}
             name={this.props.name}
@@ -268,7 +267,7 @@ class Input extends React.Component { // eslint-disable-line react/prefer-statel
 
     const emailRegex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     // handle i18n
-    const requiredError = { id: 'components.Input.error.validation.required' };
+    const requiredError = { id: 'This value is required' };
 
     mapKeys(this.props.validations, (validationValue, validationKey) => {
       switch (validationKey) {
@@ -279,7 +278,7 @@ class Input extends React.Component { // eslint-disable-line react/prefer-statel
           break;
         case 'regex':
           if (!new RegExp(validationValue).test(value)) {
-            errors.push({ id: 'components.Input.error.validation.regex' });
+            errors.push({ id: 'Does not match the regex' });
           }
           break;
         default:
@@ -288,7 +287,7 @@ class Input extends React.Component { // eslint-disable-line react/prefer-statel
     });
 
     if (this.props.type === 'email' && !emailRegex.test(value)) {
-      errors.push({ id: 'components.Input.error.validation.email' });
+      errors.push({ id: 'This is not an email' });
     }
 
     if (includes(errors, requiredError)) {

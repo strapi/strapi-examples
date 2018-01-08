@@ -19,7 +19,7 @@ import Logo from 'images/logo_strapi.png';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
-import { onChange, setForm } from './actions';
+import { onChange, setForm, submit } from './actions';
 
 import form from './form.json';
 import makeSelectAuthPage from './selectors';
@@ -29,13 +29,34 @@ import './styles.scss';
 
 export class AuthPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
-    const params = this.props.location.search ? replace(this.props.location.search, '?code=', '') : this.props.match.params.id;
-    this.props.setForm(this.props.match.params.authType, params);
+    this.setForm(this.props);
+  }
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.match.params.authType !== this.props.match.params.authType) {
+      this.setForm(nextProps);
+    }
+
+    if (nextProps.submitSuccess) {
+      switch (this.props.match.params.authType) {
+        case 'login':
+        case 'reset-password':
+        case 'register':
+          this.props.history.push('/');
+          break;
+        default:
+      }
+    }
+  }
+
+  setForm = (props) => {
+    const params = props.location.search ? replace(props.location.search, '?code=', '') : props.match.params.id;
+    this.props.setForm(props.match.params.authType, params);
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit');
+    this.props.submit();
   }
 
   renderLink = () => {
@@ -66,7 +87,7 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
   render() {
     const divStyle = this.props.match.params.authType === 'register' ? { marginTop: '3.2rem' } : { marginTop: '.9rem' };
     const inputs = get(form, this.props.match.params.authType) || [];
-  
+    console.log(this.props);
     return (
       <div className="authPage">
         <div className="wrapper">
@@ -143,6 +164,7 @@ function mapDispatchToProps(dispatch) {
     {
       onChange,
       setForm,
+      submit,
     },
     dispatch
   );

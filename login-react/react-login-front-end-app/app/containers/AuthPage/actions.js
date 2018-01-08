@@ -5,12 +5,22 @@
  */
 
 import {
+  HIDE_LOGIN_ERRORS_INPUT,
   ON_CHANGE,
   SET_FORM,
+  SUBMIT,
+  SUBMIT_ERROR,
+  SUBMIT_SUCCEEDED,
 } from './constants';
 
+export function hideLoginErrorsInput(value) {
+  return {
+    type: HIDE_LOGIN_ERRORS_INPUT,
+    value,
+  };
+}
+
 export function onChange({ target }) {
-  console.log('t', target);
   return {
     type: ON_CHANGE,
     key: target.name,
@@ -64,5 +74,25 @@ export function setForm(formType, email) {
     type: SET_FORM,
     data,
     formType,
+  };
+}
+
+export function submit() {
+  return {
+    type: SUBMIT,
+  };
+}
+
+export function submitError(formErrors) {
+  console.log(formErrors);
+  return {
+    type: SUBMIT_ERROR,
+    formErrors,
+  };
+}
+
+export function submitSucceeded() {
+  return {
+    type: SUBMIT_SUCCEEDED,
   };
 }
