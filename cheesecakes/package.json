@@ -13,17 +13,14 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "lodash": "4.x.x",
-    "strapi": "3.0.0-alpha.6.3",
-    "strapi-generate": "3.0.0-alpha.6.3",
-    "strapi-generate-api": "3.0.0-alpha.6.3",
-    "strapi-mongoose": "^3.0.0-alpha.6.3"
+    "strapi": "3.0.0-alpha.7.3",
+    "strapi-mongoose": "^3.0.0-alpha.7.3"
   },
   "main": "./server.js",
   "scripts": {
     "start": "node server.js",
     "strapi": "node_modules/strapi/bin/strapi.js",
-    "lint": "node_modules/.bin/eslint api/**/*.js config/**/*.js plugins/**/*.js",
-    "postinstall": "node node_modules/strapi-utils/script/plugin-install.js"
+    "lint": "node_modules/.bin/eslint api/**/*.js config/**/*.js plugins/**/*.js"
   },
   "author": {
     "name": "jimlaurie",
