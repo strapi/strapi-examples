@@ -18,7 +18,7 @@ import './styles.scss';
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="wrapper">
+      <div className="container">
         <div>
           <h1>
             <FormattedMessage {...messages.header} />
