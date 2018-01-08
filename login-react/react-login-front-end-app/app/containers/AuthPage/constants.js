@@ -4,4 +4,5 @@
  *
  */
 
-export const DEFAULT_ACTION = 'app/AuthPage/DEFAULT_ACTION';
+export const ON_CHANGE = 'app/AuthPage/ON_CHANGE';
+export const SET_FORM = 'app/AuthPage/SET_FORM';

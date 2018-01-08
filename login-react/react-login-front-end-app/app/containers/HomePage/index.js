@@ -26,6 +26,9 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
           <p>
             This is the HomePage of your app therefore the access is not restricted
           </p>
+          <p>
+            Try to access a protected url by either changing the url from the browser or by clicking on the <Link to={'/${Math.random}'}>link</Link>
+          </p>
         </div>
       </div>
     );
