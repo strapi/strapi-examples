@@ -37,7 +37,7 @@ module.exports = {
 
   fetch: (params) => {
     return Review
-      .findOne(params)
+      .findOne(_.pick(params, _.keys(Review.schema.paths)))
       .populate(_.keys(_.groupBy(_.reject(strapi.models.review.associations, {autoPopulate: false}), 'alias')).join(' '));
   },
 
@@ -49,7 +49,7 @@ module.exports = {
 
   add: async (values) => {
     const data = await Review.create(_.omit(values, _.keys(_.groupBy(strapi.models.review.associations, 'alias'))));
-    await strapi.hook.mongoose.load().manageRelations(strapi.models, Review, _.merge(_.clone(data), { values }));
+    await strapi.hook.mongoose.manageRelations('review', _.merge(_.clone(data), { values }));
     return data;
   },
 
@@ -63,7 +63,7 @@ module.exports = {
     // Note: The current method will return the full response of Mongo.
     // To get the updated object, you have to execute the `findOne()` method
     // or use the `findOneOrUpdate()` method with `{ new:true }` option.
-    await strapi.hook.mongoose.load().manageRelations(strapi.models, Review, _.merge(_.clone(params), { values }));
+    await strapi.hook.mongoose.manageRelations('review', _.merge(_.clone(params), { values }));
     return Review.update(params, values, { multi: true });
   },
 
