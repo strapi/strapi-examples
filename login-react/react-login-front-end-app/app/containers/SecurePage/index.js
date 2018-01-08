@@ -1,6 +1,6 @@
 /**
  *
- * AuthPage
+ * SecurePage
  *
  */
 
@@ -9,34 +9,33 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import { Link } from 'react-router-dom';
+
+import WithAuth from 'containers/WithAuth';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectAuthPage from './selectors';
+import makeSelectSecurePage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import './styles.scss';
 
-export class AuthPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class SecurePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="authPage">
-        <div className="wrapper">
-          <div className="headerContainer">
-            Login
-          </div>
-        </div>
+      <div>
+        <h1>Now that you are logged in you have access to this page</h1>
+        <Link to={`/${Math.random()}`}>Go to another protected url</Link>
       </div>
     );
   }
 }
 
-AuthPage.propTypes = {
+SecurePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  authpage: makeSelectAuthPage(),
+  securepage: makeSelectSecurePage(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -47,11 +46,11 @@ function mapDispatchToProps(dispatch) {
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({ key: 'authPage', reducer });
-const withSaga = injectSaga({ key: 'authPage', saga });
+const withReducer = injectReducer({ key: 'securePage', reducer });
+const withSaga = injectSaga({ key: 'securePage', saga });
 
 export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(AuthPage);
+)(WithAuth(SecurePage));

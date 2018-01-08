@@ -17,6 +17,7 @@ import { Switch, Route } from 'react-router-dom';
 import AuthPage from 'containers/AuthPage';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import SecurePage from 'containers/SecurePage';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/auth/:authType/:id?" component={AuthPage} />
+        <Route exact path="/:foo" component={SecurePage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
