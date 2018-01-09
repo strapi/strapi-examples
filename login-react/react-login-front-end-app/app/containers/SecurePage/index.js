@@ -1,7 +1,7 @@
 /**
  *
  * SecurePage
- *
+ * Container that is accessible only if the user is logged in
  */
 
 import React from 'react';
@@ -11,6 +11,7 @@ import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { Link } from 'react-router-dom';
 
+// HoC that blocks the navigation if the user is not logged in
 import WithAuth from 'containers/WithAuth';
 
 import injectSaga from 'utils/injectSaga';

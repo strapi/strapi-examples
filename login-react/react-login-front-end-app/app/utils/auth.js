@@ -7,6 +7,10 @@ const parse = JSON.parse;
 const stringify = JSON.stringify;
 
 const auth = {
+  /**
+   * Remove an item from the used storage
+   * @param  {String} key [description]
+   */
   clear(key) {
     if (localStorage && localStorage.getItem(key)) {
       return localStorage.removeItem(key);
@@ -19,6 +23,9 @@ const auth = {
     return null;
   },
 
+  /**
+   * Clear all app storage
+   */
   clearAppStorage() {
     if (localStorage) {
       localStorage.clear();
@@ -37,6 +44,11 @@ const auth = {
     return auth.clear(userInfo);
   },
 
+  /**
+   * Returns data from storage
+   * @param  {String} key Item to get from the storage
+   * @return {String|Object}     Data from the storage
+   */
   get(key) {
     if (localStorage && localStorage.getItem(key)) {
       return parse(localStorage.getItem(key)) || null;
@@ -57,6 +69,12 @@ const auth = {
     return auth.get(userInfo);
   },
 
+  /**
+   * Set data in storage
+   * @param {String|Object}  value    The data to store
+   * @param {String}  key
+   * @param {Boolean} isLocalStorage  Defines if we need to store in localStorage or sessionStorage
+   */
   set(value, key, isLocalStorage) {
     if (isEmpty(value)) {
       return null;

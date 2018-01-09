@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { bindActionCreators, compose } from 'redux';
-import { findIndex, get, map, replace } from 'lodash';
+import { get, map, replace } from 'lodash';
 import { Link } from 'react-router-dom';
 
 import Button from 'components/Button';
@@ -33,10 +33,12 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
   }
 
   componentWillUpdate(nextProps) {
+    // Update the form depending on the URL's params
     if (nextProps.match.params.authType !== this.props.match.params.authType) {
       this.setForm(nextProps);
     }
 
+    // Redirect the user to HomePage after login
     if (nextProps.submitSuccess) {
       switch (this.props.match.params.authType) {
         case 'login':
@@ -50,16 +52,19 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
     }
   }
 
+  /**
+   * Create the form depending on the URL
+   * @param {Object} props
+   */
   setForm = (props) => {
     const params = props.location.search ? replace(props.location.search, '?code=', '') : props.match.params.id;
     this.props.setForm(props.match.params.authType, params);
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.submit();
-  }
-
+  /**
+   * Check the URL's params to render the appropriate links
+   * @return {Element} Returns navigation links
+   */
   renderLink = () => {
     if (this.props.match.params.authType === 'login') {
       return (
@@ -106,20 +111,19 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
             ) : ''}
           </div>
           <div className="formContainer" style={divStyle}>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                this.props.submit();
+              }}
+            >
               <div className="container-fluid">
-                {this.props.match.params.authType === 'login' ? (
-                  <div className="errorsContainer">
-                    Errors to display
-                  </div>
-                ) : ''}
                 <div className="row" style={{ textAlign: 'start' }}>
                   {map(inputs, (input, key) => (
                     <Input
                       autoFocus={key === 0}
                       customBootstrapClass={get(input, 'customBootstrapClass')}
-                      didCheckErrors={this.props.didCheckErrors}
-                      errors={get(this.props.formErrors, [findIndex(this.props.formErrors, ['name', input.name]), 'errors'])}
+                      didCheckErrors={false}
+                      errors={[]}
                       key={get(input, 'name')}
                       label={get(input, 'label')}
                       name={get(input, 'name')}
@@ -128,7 +132,6 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
                       type={get(input, 'type')}
                       validations={{ required: true }}
                       value={get(this.props.modifiedData, get(input, 'name'))}
-                      noErrorsDescription={this.props.noErrorsDescription}
                     />
                   ))}
                   <div className="col-md-12 buttonContainer">
@@ -153,8 +156,14 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
 }
 
 AuthPage.propTypes = {
+  formType: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   setForm: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired,
+  submitSuccess: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = makeSelectAuthPage();

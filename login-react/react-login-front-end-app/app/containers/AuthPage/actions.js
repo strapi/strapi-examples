@@ -5,21 +5,17 @@
  */
 
 import {
-  HIDE_LOGIN_ERRORS_INPUT,
   ON_CHANGE,
   SET_FORM,
   SUBMIT,
-  SUBMIT_ERROR,
   SUBMIT_SUCCEEDED,
 } from './constants';
 
-export function hideLoginErrorsInput(value) {
-  return {
-    type: HIDE_LOGIN_ERRORS_INPUT,
-    value,
-  };
-}
-
+/**
+ * Modifies the input's value
+ * @param  {Object} target input's data
+ * @return {Object}
+ */
 export function onChange({ target }) {
   return {
     type: ON_CHANGE,
@@ -28,6 +24,11 @@ export function onChange({ target }) {
   };
 }
 
+/**
+ * Generates the form depending on the URL's params
+ * @param {string} formType Login, register,...
+ * @param {string|undefined} email    Used to set the user's email to reset his password
+ */
 export function setForm(formType, email) {
   let data;
 
@@ -77,17 +78,13 @@ export function setForm(formType, email) {
   };
 }
 
+/**
+ * Sends the request to the API
+ * @return {string}
+ */
 export function submit() {
   return {
     type: SUBMIT,
-  };
-}
-
-export function submitError(formErrors) {
-  console.log(formErrors);
-  return {
-    type: SUBMIT_ERROR,
-    formErrors,
   };
 }
 

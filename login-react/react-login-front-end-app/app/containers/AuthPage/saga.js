@@ -1,13 +1,15 @@
-import { get, includes, isArray, set } from 'lodash';
+import { set } from 'lodash';
 import { call, fork, takeLatest, put, select } from 'redux-saga/effects';
+
+// Utils
 import auth from 'utils/auth';
 import request from 'utils/request';
 
 import { makeSelectFormType, makeSelectModifiedData } from './selectors';
-import { hideLoginErrorsInput, submitError, submitSucceeded } from './actions';
+import { submitSucceeded } from './actions';
 import { SUBMIT } from './constants';
 
-export function* submitForm(action) {
+export function* submitForm() {
   try {
     const formType = yield select(makeSelectFormType());
     const body = yield select(makeSelectModifiedData());
@@ -34,6 +36,7 @@ export function* submitForm(action) {
     const response = yield call(request, requestURL, { method: 'POST', body });
 
     if (response.jwt) {
+      // Set the user's credentials
       yield call(auth.setToken, response.jwt, body.rememberMe);
       yield call(auth.setUserInfo, response.user, body.rememberMe);
     }

@@ -10,15 +10,14 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 
 // Design
 import Button from 'components/Button';
+
 // Utils
 import auth from 'utils/auth';
 
-import messages from './messages';
 import './styles.scss';
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function

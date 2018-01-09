@@ -266,7 +266,6 @@ class Input extends React.Component { // eslint-disable-line react/prefer-statel
     let errors = [];
 
     const emailRegex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-    // handle i18n
     const requiredError = { id: 'This value is required' };
 
     mapKeys(this.props.validations, (validationValue, validationKey) => {
@@ -303,7 +302,6 @@ Input.propTypes = {
     PropTypes.bool,
     PropTypes.string,
   ]),
-  addRequiredInputDesign: PropTypes.bool,
   autoFocus: PropTypes.bool,
   customBootstrapClass: PropTypes.string,
   deactivateErrorHighlight: PropTypes.bool,
@@ -313,10 +311,6 @@ Input.propTypes = {
   inputDescription: PropTypes.string,
   label: PropTypes.string.isRequired,
   labelValues: PropTypes.object,
-  linkContent: PropTypes.shape({
-    link: PropTypes.string,
-    description: PropTypes.string,
-  }),
   name: PropTypes.string.isRequired,
   noErrorsDescription: PropTypes.bool,
   onBlur: PropTypes.oneOfType([
@@ -329,9 +323,6 @@ Input.propTypes = {
     PropTypes.func,
   ]),
   placeholder: PropTypes.string,
-  search: PropTypes.bool,
-  selectOptions: PropTypes.array,
-  selectOptionsFetchSucceeded: PropTypes.bool,
   tabIndex: PropTypes.string,
   title: PropTypes.string,
   type: PropTypes.string.isRequired,
@@ -345,7 +336,6 @@ Input.propTypes = {
 
 Input.defaultProps = {
   addon: false,
-  addRequiredInputDesign: false,
   autoFocus: false,
   deactivateErrorHighlight: false,
   didCheckErrors: false,
@@ -353,14 +343,10 @@ Input.defaultProps = {
   errors: [],
   inputDescription: '',
   labelValues: {},
-  linkContent: {},
   noErrorsDescription: false,
   onBlur: false,
   onFocus: () => {},
   placeholder: '',
-  search: false,
-  selectOptions: [],
-  selectOptionsFetchSucceeded: false,
   tabIndex: '0',
   value: ''
 };
