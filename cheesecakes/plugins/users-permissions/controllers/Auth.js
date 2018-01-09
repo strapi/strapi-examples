@@ -165,6 +165,7 @@ module.exports = {
     if (adminUsers.length === 0) {
       params.role = '0';
     } else {
+      // Change default user role to 'Client'
       params.role = '2';
     }
 

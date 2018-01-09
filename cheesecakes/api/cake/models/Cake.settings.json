@@ -32,7 +32,7 @@
       "via": "cakes"
     },
     "reviews": {
-      "model": "review",
+      "collection": "review",
       "via": "cake"
     }
   }

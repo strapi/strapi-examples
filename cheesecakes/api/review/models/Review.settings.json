@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "review",
   "info": {
     "name": "review",
     "description": ""
@@ -9,7 +9,7 @@
     "content": {
       "type": "text"
     },
-    "approuved": {
+    "approved": {
       "type": "boolean",
       "required": true
     },

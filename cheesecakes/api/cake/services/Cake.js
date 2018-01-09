@@ -36,9 +36,26 @@ module.exports = {
    */
 
   fetch: (params) => {
+    // Deep populate reviews to get author username
+    const populate = [{
+      path: 'reviews',
+      model: 'Review',
+      match: {
+        approved: true
+      },
+      populate: {
+        path: 'author',
+        model: 'User'
+      }
+    },
+    {
+      path: 'categories',
+      model: 'Category'
+    }];
+
     return Cake
       .findOne(_.pick(params, _.keys(Cake.schema.paths)))
-      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
+      .populate(populate);
   },
 
   /**

@@ -27,7 +27,7 @@ $(document).ready(() => {
             <div id="comment-29" class="comment_container">
               <div class="comment-text">
                 <p class="meta">
-                  <strong class="woocommerce-review__author" itemprop="author">${review.pseudo}</strong>
+                  <strong class="woocommerce-review__author" itemprop="author">${review.author ? review.author.username : 'Unknow'}</strong>
                 </p>
 
                 <div class="description">
@@ -57,23 +57,85 @@ $(document).ready(() => {
   $('#commentform').on('submit', function (e) {
     e.preventDefault();
 
+    if (!auth) {
+      return $('.message-form').html('You have to be authenticated to submit a review !');
+    }
+
     const pseudo = $('#author').val();
     const content = $('#comment').val();
 
     $.ajax({
-      url: '/review',
+      url: '/review/submit',
       method: 'POST',
+      headers: {
+        Authorization: `Bearer ${auth.jwt}`
+      },
       data: {
-        pseudo,
         content,
         cake: id
       },
       success: (data) => {
-        $('#author').val('');
         $('#comment').val('');
 
-        $('.message-form').html('Review have been submited. Waiting for approuvment !');
+        $('.message-form').html('Review has been submited. Waiting for approvment !');
       }
     });
   });
+
+  // Manage authentification to submit review
+  let auth = localStorage.getItem('auth');
+
+  if (auth) {
+    auth = JSON.parse(auth);
+    $('[action="auth"]').remove();
+    $('#author').val(auth.user.username);
+  } else {
+    $('[action="login"]').on('click', () => {
+      const identifier = prompt('Login:');
+      const password = prompt('Password:');
+
+      $.ajax({
+        url: '/auth/local',
+        method: 'POST',
+        data: {
+          identifier,
+          password
+        },
+        success: (data) => {
+          $('[action="auth"]').remove();
+          auth = data;
+          localStorage.setItem('auth', JSON.stringify(auth));
+          $('#author').val(auth.user.username);
+        },
+        error: (data) => {
+          alert(data.responseJSON.message);
+        }
+      });
+    });
+
+    $('[action="register"]').on('click', () => {
+      const username = prompt('Username:');
+      const email = prompt('Email:');
+      const password = prompt('Password:');
+
+      $.ajax({
+        url: '/auth/local/register',
+        method: 'POST',
+        data: {
+          username,
+          email,
+          password
+        },
+        success: (data) => {
+          $('[action="auth"]').remove();
+          auth = data;
+          localStorage.setItem('auth', JSON.stringify(auth));
+          $('#author').val(auth.user.username);
+        },
+        error: (data) => {
+          alert(data.responseJSON.message);
+        }
+      });
+    });
+  }
 });

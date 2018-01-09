@@ -54,7 +54,9 @@ module.exports = {
    */
 
   submit: async (ctx) => {
-    ctx.request.body.approuved = false;
+    // Set by default variables on submit new review
+    ctx.request.body.approved = false;
+    ctx.request.body.author = ctx.state.user.id;
 
     const data = await strapi.services.review.add(ctx.request.body);
 
