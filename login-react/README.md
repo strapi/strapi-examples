@@ -19,7 +19,7 @@ npm install
 ```bash
 npm start
 ```
-[Go to](http://localhost:3000)
+[Open the app in your browser](http://localhost:3000)
 
 **4 -** In a new terminal window start mongo to register your first user
 ```bash
@@ -48,7 +48,7 @@ We have 3 containers associated with routes :
 
 ### Protecting a route
 
-In the example only logged users can access the [SecurePage](./react-login-front-end-app/app/containers/SecurePage/index.js) container. To do so we have a React Higher Order Component [WithAuth](./react-login-front-end-app/app/containers/WithAuth/index.js) that checks if the user is logged in before accessing the route and redirects him to the `AuthPage` if he is not.
+In the example, only logged in users can access the [SecurePage](./react-login-front-end-app/app/containers/SecurePage/index.js) container. To do so we have a React Higher Order Component [WithAuth](./react-login-front-end-app/app/containers/WithAuth/index.js) that checks if the user is logged in before accessing the route and redirects him to the [AuthPage container](./react-login-front-end-app/app/containers/AuthPage/index.js) if he is not.
 
 
 With this HoC it's really easy to prevent a user from accessing a protected route for example:
