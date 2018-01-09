@@ -45,6 +45,7 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
           this.props.history.push('/');
           break;
         default:
+          // Do nothing
       }
     }
   }
@@ -60,34 +61,33 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
   }
 
   renderLink = () => {
+    if (this.props.match.params.authType === 'login') {
+      return (
+        <div>
+          <Link to="/auth/forgot-password">
+            Forgot Password
+          </Link>
+          &nbsp;or&nbsp;
+          <Link to="/auth/register">
+            register
+          </Link>
+        </div>
+      );
+    }
 
-  if (this.props.match.params.authType === 'login') {
     return (
       <div>
-        <Link to="/auth/forgot-password">
-          Forgot Password
-        </Link>
-        &nbsp;or&nbsp;
-        <Link to="/auth/register">
-          register
+        <Link to="/auth/login">
+          Ready to signin
         </Link>
       </div>
     );
   }
 
-  return (
-    <div>
-      <Link to="/auth/login">
-        Ready to signin
-      </Link>
-    </div>
-  );
-}
-
   render() {
     const divStyle = this.props.match.params.authType === 'register' ? { marginTop: '3.2rem' } : { marginTop: '.9rem' };
     const inputs = get(form, this.props.match.params.authType) || [];
-    console.log(this.props);
+
     return (
       <div className="authPage">
         <div className="wrapper">

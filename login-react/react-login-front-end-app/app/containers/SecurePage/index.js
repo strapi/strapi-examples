@@ -22,9 +22,14 @@ import saga from './saga';
 export class SecurePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
+      <div style={{ paddingTop: '30px', textAlign: 'center' }}>
         <h1>Now that you are logged in you have access to this page</h1>
-        <Link to={`/${Math.random()}`}>Go to another protected url</Link>
+        <p>
+          <Link to={`/${Math.random()}`}>Go to another protected url</Link>
+        </p>
+        <p>
+          <Link to="/">Back to HomePage</Link>
+        </p>
       </div>
     );
   }
