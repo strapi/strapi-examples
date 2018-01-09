@@ -13,7 +13,7 @@
 - **[Hello World](./hello-world) -** *Basic app to say hello to everyone* <br />
    `Tags` routes, controllers, i18n
 - **[Cheesecakes](./cheesecakes) -** *e-commerce application* <br />
-   `Tags` routes, controllers, models, service, relations
+   `Tags` routes, controllers, models, services, relations, auth
 - **[React Authentication Flow](./login-react) -** *Basic React App that implements the authentication flow* <br />
    `Tags` auth, react
 
