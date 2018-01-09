@@ -6,10 +6,6 @@
     "description": ""
   },
   "attributes": {
-    "pseudo": {
-      "type": "string",
-      "required": true
-    },
     "content": {
       "type": "text"
     },
@@ -20,6 +16,11 @@
     "cake": {
       "model": "cake",
       "via": "reviews"
+    },
+    "author": {
+      "model": "user",
+      "via": "comments",
+      "plugin": "users-permissions"
     }
   }
 }
