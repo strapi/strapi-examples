@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/review/submit",
+      "handler": "Review.submit",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/review/:_id",
       "handler": "Review.update",

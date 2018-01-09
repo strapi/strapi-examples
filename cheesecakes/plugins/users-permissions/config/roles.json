@@ -96,6 +96,10 @@
               "identity": {
                 "enabled": true,
                 "policy": ""
+              },
+              "submit": {
+                "enabled": true,
+                "policy": ""
               }
             }
           }
@@ -448,6 +452,10 @@
                 "policy": ""
               },
               "identity": {
+                "enabled": false,
+                "policy": ""
+              },
+              "submit": {
                 "enabled": false,
                 "policy": ""
               }
@@ -804,6 +812,10 @@
               },
               "identity": {
                 "enabled": false,
+                "policy": ""
+              },
+              "submit": {
+                "enabled": true,
                 "policy": ""
               }
             }
