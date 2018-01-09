@@ -1,25 +1,26 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "review",
   "info": {
     "name": "review",
     "description": ""
   },
   "attributes": {
-    "pseudo": {
-      "type": "string",
-      "required": true
-    },
     "content": {
       "type": "text"
     },
-    "approuved": {
+    "approved": {
       "type": "boolean",
       "required": true
     },
     "cake": {
       "model": "cake",
       "via": "reviews"
+    },
+    "author": {
+      "model": "user",
+      "via": "comments",
+      "plugin": "users-permissions"
     }
   }
 }

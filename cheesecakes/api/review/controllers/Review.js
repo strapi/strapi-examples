@@ -48,6 +48,23 @@ module.exports = {
   },
 
   /**
+   * Submit a/an review record.
+   *
+   * @return {Object}
+   */
+
+  submit: async (ctx) => {
+    // Set by default variables on submit new review
+    ctx.request.body.approved = false;
+    ctx.request.body.author = ctx.state.user.id;
+
+    const data = await strapi.services.review.add(ctx.request.body);
+
+    // Send 201 `created`
+    ctx.created(data);
+  },
+
+  /**
    * Update a/an review record.
    *
    * @return {Object}

@@ -1,7 +1,7 @@
 {
   "name": "cheesecakes",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A Strapi application.",
   "devDependencies": {
     "babel-eslint": "^7.1.1",
@@ -38,5 +38,7 @@
     "node": ">= 7.0.0",
     "npm": ">= 3.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "strapi": "3.0.0-alpha.7.3",
+  "node": "8.2.1"
 }

@@ -36,6 +36,10 @@
     "role": {
       "type": "integer",
       "configurable": false
+    },
+    "comments": {
+      "collection": "review",
+      "via": "author"
     }
   },
   "connection": "default"

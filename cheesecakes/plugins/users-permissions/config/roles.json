@@ -96,6 +96,10 @@
               "identity": {
                 "enabled": true,
                 "policy": ""
+              },
+              "submit": {
+                "enabled": true,
+                "policy": ""
               }
             }
           }
@@ -141,6 +145,10 @@
         "content-type-builder": {
           "controllers": {
             "contenttypebuilder": {
+              "identity": {
+                "enabled": true,
+                "policy": ""
+              },
               "getModels": {
                 "enabled": true,
                 "policy": ""
@@ -170,10 +178,6 @@
                 "policy": ""
               },
               "checkTableExists": {
-                "enabled": true,
-                "policy": ""
-              },
-              "identity": {
                 "enabled": true,
                 "policy": ""
               }
@@ -450,6 +454,10 @@
               "identity": {
                 "enabled": false,
                 "policy": ""
+              },
+              "submit": {
+                "enabled": false,
+                "policy": ""
               }
             }
           }
@@ -495,23 +503,11 @@
         "content-type-builder": {
           "controllers": {
             "contenttypebuilder": {
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              },
               "getModels": {
-                "enabled": false,
-                "policy": ""
-              },
-              "updateModel": {
-                "enabled": false,
-                "policy": ""
-              },
-              "checkTableExists": {
-                "enabled": false,
-                "policy": ""
-              },
-              "autoReload": {
-                "enabled": false,
-                "policy": ""
-              },
-              "createModel": {
                 "enabled": false,
                 "policy": ""
               },
@@ -519,15 +515,27 @@
                 "enabled": false,
                 "policy": ""
               },
+              "getConnections": {
+                "enabled": false,
+                "policy": ""
+              },
+              "createModel": {
+                "enabled": false,
+                "policy": ""
+              },
+              "updateModel": {
+                "enabled": false,
+                "policy": ""
+              },
               "deleteModel": {
                 "enabled": false,
                 "policy": ""
               },
-              "identity": {
+              "autoReload": {
                 "enabled": false,
                 "policy": ""
               },
-              "getConnections": {
+              "checkTableExists": {
                 "enabled": false,
                 "policy": ""
               }
@@ -681,6 +689,368 @@
               },
               "init": {
                 "enabled": true,
+                "policy": ""
+              },
+              "index": {
+                "enabled": false,
+                "policy": ""
+              },
+              "createRole": {
+                "enabled": false,
+                "policy": ""
+              },
+              "deleteProvider": {
+                "enabled": false,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              },
+              "updateRole": {
+                "enabled": false,
+                "policy": ""
+              }
+            }
+          }
+        }
+      },
+      "users": []
+    },
+    "2": {
+      "name": "Client",
+      "description": "",
+      "permissions": {
+        "application": {
+          "controllers": {
+            "app": {
+              "info": {
+                "enabled": true,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              }
+            },
+            "cake": {
+              "find": {
+                "enabled": true,
+                "policy": ""
+              },
+              "findOne": {
+                "enabled": true,
+                "policy": ""
+              },
+              "create": {
+                "enabled": false,
+                "policy": ""
+              },
+              "update": {
+                "enabled": false,
+                "policy": ""
+              },
+              "destroy": {
+                "enabled": false,
+                "policy": ""
+              },
+              "count": {
+                "enabled": true,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              }
+            },
+            "category": {
+              "find": {
+                "enabled": true,
+                "policy": ""
+              },
+              "findOne": {
+                "enabled": true,
+                "policy": ""
+              },
+              "create": {
+                "enabled": false,
+                "policy": ""
+              },
+              "update": {
+                "enabled": false,
+                "policy": ""
+              },
+              "destroy": {
+                "enabled": false,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              }
+            },
+            "review": {
+              "find": {
+                "enabled": true,
+                "policy": ""
+              },
+              "findOne": {
+                "enabled": true,
+                "policy": ""
+              },
+              "create": {
+                "enabled": false,
+                "policy": ""
+              },
+              "update": {
+                "enabled": false,
+                "policy": ""
+              },
+              "destroy": {
+                "enabled": false,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              },
+              "submit": {
+                "enabled": true,
+                "policy": ""
+              }
+            }
+          }
+        },
+        "content-manager": {
+          "controllers": {
+            "contentmanager": {
+              "models": {
+                "enabled": false,
+                "policy": ""
+              },
+              "find": {
+                "enabled": false,
+                "policy": ""
+              },
+              "count": {
+                "enabled": false,
+                "policy": ""
+              },
+              "findOne": {
+                "enabled": false,
+                "policy": ""
+              },
+              "create": {
+                "enabled": false,
+                "policy": ""
+              },
+              "update": {
+                "enabled": false,
+                "policy": ""
+              },
+              "delete": {
+                "enabled": false,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              }
+            }
+          }
+        },
+        "content-type-builder": {
+          "controllers": {
+            "contenttypebuilder": {
+              "getModels": {
+                "enabled": false,
+                "policy": ""
+              },
+              "updateModel": {
+                "enabled": false,
+                "policy": ""
+              },
+              "checkTableExists": {
+                "enabled": false,
+                "policy": ""
+              },
+              "autoReload": {
+                "enabled": false,
+                "policy": ""
+              },
+              "createModel": {
+                "enabled": false,
+                "policy": ""
+              },
+              "getModel": {
+                "enabled": false,
+                "policy": ""
+              },
+              "deleteModel": {
+                "enabled": false,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              },
+              "getConnections": {
+                "enabled": false,
+                "policy": ""
+              }
+            }
+          }
+        },
+        "email": {
+          "controllers": {}
+        },
+        "settings-manager": {
+          "controllers": {
+            "settingsmanager": {
+              "environments": {
+                "enabled": false,
+                "policy": ""
+              },
+              "deleteLanguage": {
+                "enabled": false,
+                "policy": ""
+              },
+              "updateDatabase": {
+                "enabled": false,
+                "policy": ""
+              },
+              "deleteDatabase": {
+                "enabled": false,
+                "policy": ""
+              },
+              "autoReload": {
+                "enabled": false,
+                "policy": ""
+              },
+              "update": {
+                "enabled": false,
+                "policy": ""
+              },
+              "databaseModel": {
+                "enabled": false,
+                "policy": ""
+              },
+              "createLanguage": {
+                "enabled": false,
+                "policy": ""
+              },
+              "get": {
+                "enabled": false,
+                "policy": ""
+              },
+              "createDatabase": {
+                "enabled": false,
+                "policy": ""
+              },
+              "databases": {
+                "enabled": false,
+                "policy": ""
+              },
+              "languages": {
+                "enabled": false,
+                "policy": ""
+              },
+              "database": {
+                "enabled": false,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              },
+              "menu": {
+                "enabled": false,
+                "policy": ""
+              }
+            }
+          }
+        },
+        "users-permissions": {
+          "controllers": {
+            "auth": {
+              "callback": {
+                "enabled": false,
+                "policy": ""
+              },
+              "changePassword": {
+                "enabled": false,
+                "policy": ""
+              },
+              "forgotPassword": {
+                "enabled": false,
+                "policy": ""
+              },
+              "register": {
+                "enabled": false,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              }
+            },
+            "user": {
+              "find": {
+                "enabled": false,
+                "policy": ""
+              },
+              "findOne": {
+                "enabled": false,
+                "policy": ""
+              },
+              "create": {
+                "enabled": false,
+                "policy": ""
+              },
+              "update": {
+                "enabled": false,
+                "policy": ""
+              },
+              "destroy": {
+                "enabled": false,
+                "policy": ""
+              },
+              "identity": {
+                "enabled": false,
+                "policy": ""
+              }
+            },
+            "userspermissions": {
+              "searchUsers": {
+                "enabled": false,
+                "policy": ""
+              },
+              "getRoutes": {
+                "enabled": false,
+                "policy": ""
+              },
+              "deleteRole": {
+                "enabled": false,
+                "policy": ""
+              },
+              "getPolicies": {
+                "enabled": false,
+                "policy": ""
+              },
+              "getRoles": {
+                "enabled": false,
+                "policy": ""
+              },
+              "getRole": {
+                "enabled": false,
+                "policy": ""
+              },
+              "getPermissions": {
+                "enabled": false,
+                "policy": ""
+              },
+              "init": {
+                "enabled": false,
                 "policy": ""
               },
               "index": {
