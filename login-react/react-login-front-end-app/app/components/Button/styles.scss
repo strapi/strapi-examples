@@ -1,0 +1,44 @@
+.button {
+  height: 30px;
+  position: relative;
+  border-radius: 3px;
+  margin-right: 18px;
+  cursor: pointer;
+  font-family: Lato;
+  -webkit-font-smoothing: antialiased;
+  &:focus {
+    outline: 0;
+  }
+  > i {
+    margin-right: 13px;
+    font-weight: 600;
+    padding-top: 1px;
+  }
+  &:hover {
+   &::after {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     border-radius: 3px;
+     content: '';
+     opacity: 0.1;
+     background: #FFFFFF;
+   }
+ }
+ &:disabled {
+   cursor: not-allowed;
+ }
+}
+
+.primary {
+  font-weight: 500;
+  min-width: 150px;
+  background: linear-gradient(315deg, #0097F6 0%, #005EEA 100%);
+  -webkit-font-smoothing: antialiased;
+  color: white;
+  &:active {
+   box-shadow: inset 1px 1px 3px rgba(0,0,0,.15);
+ }
+}

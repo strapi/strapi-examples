@@ -1,0 +1,46 @@
+{
+  "name": "login",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application.",
+  "main": "./server.js",
+  "scripts": {
+    "setup": "npm install --ignore-scripts && cd admin && npm run setup",
+    "start": "node server.js",
+    "strapi": "node_modules/strapi/bin/strapi.js",
+    "lint": "node_modules/.bin/eslint api/**/*.js config/**/*.js plugins/**/*.js",
+    "postinstall": "node node_modules/strapi/lib/utils/post-install.js"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-react": "^6.8.0"
+  },
+  "dependencies": {
+    "lodash": "4.x.x",
+    "strapi": "3.0.0-alpha.7.3",
+    "strapi-mongoose": "3.0.0-alpha.7.3"
+  },
+  "author": {
+    "name": "soupette",
+    "email": "",
+    "url": ""
+  },
+  "maintainers": [
+    {
+      "name": "soupette",
+      "email": "",
+      "url": ""
+    }
+  ],
+  "strapi": {
+    "uuid": "f5be49bb-c16f-4423-81cb-a06373cc25d4"
+  },
+  "engines": {
+    "node": ">= 7.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "license": "MIT"
+}
