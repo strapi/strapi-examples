@@ -36,17 +36,21 @@ You can see how we did it in the `/config/function/bootstrap.js` file. It calls 
 ## Rendering views
 
 When you are at `http://localhost:1337`, Strapi renders the `/public/index.html` file. In this file we inject `/public/css/style.css` and `/public/scripts/index.js`.
-When you click on a cheesecake item, Strapi renders `public/product.html`.
+When you click on a cheesecake item, Strapi renders `public/product.html`. Documentation link https://strapi.io/documentation/guides/public-assets.html.
 
 ## Filters
 
 In the `/public/scripts/index.js` you will see how to make a GET request using filter params on cakes.
-API endpoints are located at `/api/cake/config/routes.json`.
+API endpoints are located at `/api/cake/config/routes.json`. Documentation link https://strapi.io/documentation/guides/filters.html.
 
 ## Custom route
 
 By default the Content Type Builder doesn't provide a route to count data. So we create a new route in `/api/cake/config/routes.json` `GET /cake/count`. We have to put this route just before `GET /cake/:_id`.
 Then you have to create the associated controller's function and also in this particular case we have to create a service.
+
+## Authentication
+
+In `public/product.html` page we add login / register function to be able to submit a review. At the end of the `/public/scripts/product.js` file you will see how use auth routes. Documentation link https://strapi.io/documentation/guides/authentification.html.
 
 ## Admin
 
