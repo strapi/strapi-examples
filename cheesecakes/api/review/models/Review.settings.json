@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "review",
+    "description": ""
+  },
+  "attributes": {
+    "pseudo": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "text"
+    },
+    "approuved": {
+      "type": "boolean",
+      "required": true
+    },
+    "cake": {
+      "model": "cake",
+      "via": "reviews"
+    }
+  }
+}
