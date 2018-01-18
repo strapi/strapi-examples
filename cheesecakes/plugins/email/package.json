@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-email@alpha",
-  "_id": "strapi-plugin-email@3.0.0-alpha.7.3",
+  "_id": "strapi-plugin-email@3.0.0-alpha.8",
   "_inBundle": false,
-  "_integrity": "sha512-PZBzZ1sNg+5w1n/sZupas81+k7TkwAzfpmSwkRFcI42nsHeCKeHAQyrAR3Rd1l98TlvZGfBBp8sN1XoBi5Q1Xw==",
+  "_integrity": "sha512-OePXdI3bbyyfKlVktMO8tAJhzOxjC6MtaejhxloBCHsau2tur5MeXSERN/ojwOaGJm1OhD8uteVz6SXy5VCT4A==",
   "_location": "/strapi-plugin-email",
   "_phantomChildren": {},
   "_requested": {
@@ -18,10 +18,10 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.7.3.tgz",
-  "_shasum": "20fc31818c7e12c80bf168c8b7f541b109c9f514",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.8.tgz",
+  "_shasum": "19127ff7a3caa162d1a7131cd0c841ddd0906aec",
   "_spec": "strapi-plugin-email@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/cheesecakes",
+  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/projects/coucou",
   "author": {
     "name": "A Strapi developer"
   },
@@ -32,7 +32,7 @@
   "deprecated": false,
   "description": "This is the description of the plugin.",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.7.3"
+    "strapi-helper-plugin": "3.0.0-alpha.8"
   },
   "engines": {
     "node": ">= 7.0.0",
@@ -66,5 +66,5 @@
     "icon": "paper-plane",
     "description": "email.plugin.description"
   },
-  "version": "3.0.0-alpha.7.3"
+  "version": "3.0.0-alpha.8"
 }

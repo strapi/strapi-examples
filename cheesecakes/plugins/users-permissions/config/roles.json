@@ -298,6 +298,10 @@
               "identity": {
                 "enabled": true,
                 "policy": ""
+              },
+              "me": {
+                "enabled": true,
+                "policy": ""
               }
             },
             "userspermissions": {
@@ -655,6 +659,10 @@
               },
               "identity": {
                 "enabled": false,
+                "policy": ""
+              },
+              "me": {
+                "enabled": true,
                 "policy": ""
               }
             },
@@ -1017,6 +1025,10 @@
               },
               "identity": {
                 "enabled": false,
+                "policy": ""
+              },
+              "me": {
+                "enabled": true,
                 "policy": ""
               }
             },

@@ -2,36 +2,36 @@
   {
     "id": "content-manager",
     "source": {
-      "development": "http://localhost:1337/admin/content-manager/main.js",
-      "production": "http://localhost:1337/admin/content-manager/main.js"
+      "development": "/content-manager/main.js",
+      "production": "/content-manager/main.js"
     }
   },
   {
     "id": "content-type-builder",
     "source": {
-      "development": "http://localhost:1337/admin/content-type-builder/main.js",
-      "production": "http://localhost:1337/admin/content-type-builder/main.js"
+      "development": "/content-type-builder/main.js",
+      "production": "/content-type-builder/main.js"
     }
   },
   {
     "id": "email",
     "source": {
-      "development": "http://localhost:1337/admin/email/main.js",
-      "production": "http://localhost:1337/admin/email/main.js"
+      "development": "/email/main.js",
+      "production": "/email/main.js"
     }
   },
   {
     "id": "settings-manager",
     "source": {
-      "development": "http://localhost:1337/admin/settings-manager/main.js",
-      "production": "http://localhost:1337/admin/settings-manager/main.js"
+      "development": "/settings-manager/main.js",
+      "production": "/settings-manager/main.js"
     }
   },
   {
     "id": "users-permissions",
     "source": {
-      "development": "http://localhost:1337/admin/users-permissions/main.js",
-      "production": "http://localhost:1337/admin/users-permissions/main.js"
+      "development": "/users-permissions/main.js",
+      "production": "/users-permissions/main.js"
     }
   }
 ]

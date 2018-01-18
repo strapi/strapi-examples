@@ -26,9 +26,8 @@ module.exports = {
       values.provider = 'local';
     }
 
-    // Change default user role to 'Client'
     if (!values.role) {
-      values.role = '2';
+      values.role = '1';
     }
 
     // Use Content Manager business logic to handle relation.
