@@ -1,0 +1,70 @@
+{
+  "_from": "strapi-plugin-email@alpha",
+  "_id": "strapi-plugin-email@3.0.0-alpha.8",
+  "_inBundle": false,
+  "_integrity": "sha512-OePXdI3bbyyfKlVktMO8tAJhzOxjC6MtaejhxloBCHsau2tur5MeXSERN/ojwOaGJm1OhD8uteVz6SXy5VCT4A==",
+  "_location": "/strapi-plugin-email",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "strapi-plugin-email@alpha",
+    "name": "strapi-plugin-email",
+    "escapedName": "strapi-plugin-email",
+    "rawSpec": "alpha",
+    "saveSpec": null,
+    "fetchSpec": "alpha"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.8.tgz",
+  "_shasum": "19127ff7a3caa162d1a7131cd0c841ddd0906aec",
+  "_spec": "strapi-plugin-email@alpha",
+  "_where": "/Users/pierreburgy/Sites/sandbox/gatsby-strapi-tutorial/api",
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "sendmail": "^1.2.0"
+  },
+  "deprecated": false,
+  "description": "This is the description of the plugin.",
+  "devDependencies": {
+    "strapi-helper-plugin": "3.0.0-alpha.8"
+  },
+  "engines": {
+    "node": ">= 7.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "A Strapi developer"
+    }
+  ],
+  "name": "strapi-plugin-email",
+  "scripts": {
+    "analyze": "node node_modules/strapi-helper-plugin/lib/internals/scripts/analyze.js",
+    "analyze:clean": "node node_modules/strapi-helper-plugin/node_modules/.bin/rimraf stats.json",
+    "build": "node node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=production node node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "build:clean": "node node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
+    "build:dev": "node node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "generate": "node node_modules/plop/plop.js --plopfile node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
+    "lint": "node node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --config node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
+    "preanalyze": "npm run analyze:clean",
+    "prebuild": "npm run build:clean && npm run test",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run lint",
+    "prettier": "node node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
+    "start": "node node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node node_modules/strapi-helper-plugin/lib/server",
+    "test": "echo Tests are not implemented."
+  },
+  "strapi": {
+    "name": "Email",
+    "icon": "paper-plane",
+    "description": "email.plugin.description"
+  },
+  "version": "3.0.0-alpha.8"
+}
