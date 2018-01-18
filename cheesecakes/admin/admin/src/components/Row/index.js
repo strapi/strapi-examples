@@ -34,12 +34,12 @@ class Row extends React.Component {
     return (
       <ListRow>
         <div className={cn("col-md-11", styles.nameWrapper)}>
-          <div className={styles.icoContainer} style={{ marginRight: '30px' }}>
-            <i className={`fa fa-${this.props.plugin.icon}`} />
+          <div className={styles.icoContainer} style={{ marginRight: '14px' }}>
+            <img src={`${this.props.plugin.logo}`} alt="icon" />
           </div>
           <div className={styles.pluginContent}>
             <span>{this.props.plugin.name} —&nbsp;</span>
-            <FormattedMessage id={this.props.plugin.description} />
+            <FormattedMessage id={`${this.props.plugin.description}.short`} />
           </div>
         </div>
         <div className="col-md-1">

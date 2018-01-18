@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path');
 const stringify = JSON.stringify;
 const _ = require('lodash');
+const request = require('request');
 
 /**
  * UsersPermissions.js service
@@ -40,7 +41,25 @@ module.exports = {
     });
   },
 
-  getActions: () => {
+  getPlugins: (plugin, lang = 'en') => {
+    return new Promise((resolve, reject) => {
+      request({
+        uri: `https://marketplace.strapi.io/plugins?lang=${lang}`,
+        json: true,
+        headers: {
+          'cache-control': 'max-age=3600'
+        }
+      }, (err, response, body) => {
+        if (err) {
+          return reject(err);
+        }
+
+        resolve(body);
+      });
+    });
+  },
+
+  getActions: (plugins = []) => {
     const generateActions = (data) => (
       Object.keys(data).reduce((acc, key) => {
         acc[key] = { enabled: false, policy: '' };
@@ -60,7 +79,7 @@ module.exports = {
 
         return obj;
 
-      }, { controllers: {} });
+      }, { controllers: {}, information: plugins.find(plugin => plugin.id === key) || {} });
 
       return acc;
     }, {});
@@ -74,9 +93,16 @@ module.exports = {
     return _.merge(permissions, pluginsPermissions);;
   },
 
-  getRole: async (roleId) => {
-    const appRoles = strapi.plugins['users-permissions'].config.roles
+  getRole: async (roleId, plugins) => {
+    const appRoles = strapi.plugins['users-permissions'].config.roles;
+
     appRoles[roleId].users = await strapi.query('user', 'users-permissions').find(strapi.utils.models.convertParams('user', { role: roleId }));
+
+    Object.keys(appRoles[roleId].permissions)
+      .filter(name => name !== 'application')
+      .map(name => {
+        appRoles[roleId].permissions[name].information = plugins.find(plugin => plugin.id === name) || {};
+      });
 
     return appRoles[roleId];
   },
@@ -143,9 +169,10 @@ module.exports = {
               const isCallback = actionName === 'callback' && controllerName === 'auth' && pluginName === 'users-permissions' && roleId === '1';
               const isRegister = actionName === 'register' && controllerName === 'auth' && pluginName === 'users-permissions' && roleId === '1';
               const isPassword = actionName === 'forgotPassword' && controllerName === 'auth' && pluginName === 'users-permissions' && roleId === '1';
-              const isNewPassword = actionName === 'changePassword-password' && controllerName === 'auth' && pluginName === 'users-permissions' && roleId === '1';
+              const isNewPassword = actionName === 'changePassword' && controllerName === 'auth' && pluginName === 'users-permissions' && roleId === '1';
               const isInit = actionName === 'init' && controllerName === 'userspermissions';
-              const enabled = isCallback || isRegister || roleId === '0' || isInit || isPassword || isNewPassword;
+              const isMe = actionName === 'me' && controllerName === 'user' && pluginName === 'users-permissions';
+              const enabled = isCallback || isRegister || roleId === '0' || isInit || isPassword || isNewPassword || isMe;
 
               _.set(data, [roleId, 'permissions', pluginName, 'controllers', controllerName, actionName], { enabled, policy: '' })
             }
@@ -231,4 +258,92 @@ module.exports = {
       strapi.log.error(err);
     }
   },
+
+  syncSchema: (cb) => {
+    const Model = strapi.plugins['users-permissions'].models.user;
+
+    if (Model.orm !== 'bookshelf') {
+      return cb();
+    }
+
+    const tableName = Model.collectionName;
+
+    new Promise((resolve, reject) => {
+      strapi.connections[Model.connection].schema.hasTable(tableName)
+      .then(exist => {
+        if (!exist) {
+          strapi.log.warn(`
+⚠️  TABLE \`${tableName}\` DOESN'T EXIST
+
+1️⃣  EXECUTE THE FOLLOWING SQL QUERY
+
+CREATE TABLE "${tableName}" (
+  id ${Model.client === 'pg' ? 'SERIAL' : 'INT AUTO_INCREMENT'} NOT NULL PRIMARY KEY,
+  username text,
+  email text,
+  provider text,
+  role text,
+  ${Model.client === 'pg' ? '"resetPasswordToken"' : 'resetPasswordToken'} text,
+  password text,
+  updated_at ${Model.client === 'pg' ? 'timestamp with time zone' : 'timestamp'},
+  created_at ${Model.client === 'pg' ? 'timestamp with time zone' : 'timestamp'}
+);
+
+2️⃣  RESTART YOUR SERVER
+          `);
+
+          strapi.stop();
+        }
+
+        resolve();
+      });
+    })
+    .then(() => {
+      const attributes = _.cloneDeep(Model.attributes);
+      attributes.id = {
+        type: Model.client === 'pg' ? 'integer' : 'int'
+      };
+      attributes.updated_at = attributes.created_at = {
+        type: Model.client === 'pg' ? 'timestamp with time zone' : 'timestamp'
+      };
+
+      let commands = '';
+
+      const columnExist = (description, attribute) => {
+        return new Promise((resolve, reject) => {
+          strapi.connections[Model.connection].schema.hasColumn(tableName, attribute)
+          .then(exist => {
+            if (!exist) {
+              if (description.type === 'string') {
+                description.type = 'text';
+              }
+
+              commands += `\r\nALTER TABLE "${tableName}" ADD ${Model.client === 'pg' ? `"${attribute}"` : `${attribute}`} ${description.type};`;
+            }
+
+            resolve();
+          });
+        });
+      };
+
+      const testsColumns = Object.entries(attributes).map(([attribute, description]) => columnExist(description, attribute));
+      Promise.all(testsColumns)
+      .then(() => {
+        if (!_.isEmpty(commands)) {
+          strapi.log.warn(`
+⚠️  TABLE \`${tableName}\` HAS MISSING COLUMNS
+
+1️⃣  EXECUTE THE FOLLOWING SQL QUERIES
+${commands}
+
+2️⃣  RESTART YOUR SERVER
+          `);
+
+          strapi.stop();
+        }
+
+        cb();
+      });
+    });
+  }
 };

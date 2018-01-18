@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-content-manager@alpha",
-  "_id": "strapi-plugin-content-manager@3.0.0-alpha.7.3",
+  "_id": "strapi-plugin-content-manager@3.0.0-alpha.8",
   "_inBundle": false,
-  "_integrity": "sha512-h5X66M5vUyapblwGvmgQZaYk4k5oY+583V1wPOlU4qvmY0t3IZuRqT9JMYzGQPLi7vcY2E/5V6MlCFenGiHjvQ==",
+  "_integrity": "sha512-JFbzdszIZ2EeX+ZYzTb+PmhfPErLdDBayOAVpaJ5ZrcnwlowpUqA6dgnQXiD9JWyOZRO+tzpQg7G1UjtpD833A==",
   "_location": "/strapi-plugin-content-manager",
   "_phantomChildren": {},
   "_requested": {
@@ -18,10 +18,10 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.7.3.tgz",
-  "_shasum": "465d22ed8dd6b9859f328953f0f471c4319b2a82",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.8.tgz",
+  "_shasum": "dddd561126e0d8f64b3ccd24bf4adeaa392e44cf",
   "_spec": "strapi-plugin-content-manager@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/cheesecakes",
+  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/projects/coucou",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -35,7 +35,7 @@
   "description": "A powerful UI to easily manage your data.",
   "devDependencies": {
     "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.7.3"
+    "strapi-helper-plugin": "3.0.0-alpha.8"
   },
   "engines": {
     "node": ">= 8.0.0",
@@ -76,5 +76,5 @@
     "icon": "plug",
     "description": "content-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.7.3"
+  "version": "3.0.0-alpha.8"
 }

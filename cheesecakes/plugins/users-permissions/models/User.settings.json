@@ -37,7 +37,7 @@
       "type": "integer",
       "configurable": false
     },
-    "comments": {
+    "reviews": {
       "collection": "review",
       "via": "author"
     }

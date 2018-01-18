@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-settings-manager@alpha",
-  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.7.3",
+  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.8",
   "_inBundle": false,
-  "_integrity": "sha512-foAm4pQPuEc0bZ6iK21Tr3kLfioJy/1eimL6j4fBvAHvG1/h4nco5xzabiDQy2yF2rpaMqHtDQ2Jz4xZNmxWXA==",
+  "_integrity": "sha512-J3uutlztmCVJIu0vKGzUF/1meRwfIGg/R+B6irQ4Ze0Vm2BwBq47EoXxXrfiPSwXTJZH2G3votZHrgwvSaPR9A==",
   "_location": "/strapi-plugin-settings-manager",
   "_phantomChildren": {},
   "_requested": {
@@ -18,10 +18,10 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.7.3.tgz",
-  "_shasum": "167d3c6a5cb8520879928ec6e50e7f989da583c1",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.8.tgz",
+  "_shasum": "31439773f58bc0196b624097bacc22cc01f526d1",
   "_spec": "strapi-plugin-settings-manager@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/cheesecakes",
+  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/projects/coucou",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "flag-icon-css": "^2.8.0",
     "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.7.3"
+    "strapi-helper-plugin": "3.0.0-alpha.8"
   },
   "engines": {
     "node": ">= 8.0.0",
@@ -69,5 +69,5 @@
     "icon": "wrench",
     "description": "settings-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.7.3"
+  "version": "3.0.0-alpha.8"
 }
