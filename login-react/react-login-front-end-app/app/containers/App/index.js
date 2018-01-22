@@ -12,12 +12,13 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Redirect, Route } from 'react-router-dom';
 
 import AuthPage from 'containers/AuthPage';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import SecurePage from 'containers/SecurePage';
+import ProtectedRoute from 'containers/ProtectedRoute';
 
 export default function App() {
   return (
@@ -25,7 +26,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/auth/:authType/:id?" component={AuthPage} />
-        <Route exact path="/:foo" component={SecurePage} />
+        <ProtectedRoute exact path="/:foo" component={SecurePage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
