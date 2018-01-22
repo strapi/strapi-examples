@@ -12,7 +12,7 @@
  */
 
 import React from 'react';
-import { Switch, Redirect, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import AuthPage from 'containers/AuthPage';
 import HomePage from 'containers/HomePage/Loadable';

@@ -48,59 +48,26 @@ We have 3 containers associated with routes :
 
 ### Protecting a route
 
-In the example, only logged in users can access the [SecurePage](./react-login-front-end-app/app/containers/SecurePage/index.js) container. To do so we have a React Higher Order Component [WithAuth](./react-login-front-end-app/app/containers/WithAuth/index.js) that checks if the user is logged in before accessing the route and redirects him to the [AuthPage container](./react-login-front-end-app/app/containers/AuthPage/index.js) if he is not.
+In the example, only logged in users can access the [SecurePage](./react-login-front-end-app/app/containers/SecurePage/index.js) container. To do so we have a React Higher Order Component [ProtectedRoute](./react-login-front-end-app/app/containers/ProtectedRoute/index.js) that checks if the user is logged in before accessing the route and redirects him to the [AuthPage container](./react-login-front-end-app/app/containers/AuthPage/index.js) if he is not.
 
 
 With this HoC it's really easy to prevent a user from accessing a protected route for example:
 
-**1- With Redux**
+**In your route declaration** `./containers/App/index.js`
 ```js
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import { Switch, Route } from 'react-router-dom';
 
 // HoC that blocks the navigation if the user is not logged in
-import WithAuth from 'containers/WithAuth';
+import ProtectedRoute from 'containers/ProtectedRoute';
+import FooPage from 'containers/FooPage';
 
-// Utils
-import injectSaga from 'utils/injectSaga';
-import injectReducer from 'utils/injectReducer';
-import reducer from './reducer';
-import saga from './saga';
-
-export class FooPage extends React.Component {
-  // ...
+export default function App() {
+  return (
+    <Switch>
+      <ProtectedRoute exact path="/foo" component={FooPage} />
+    </Switch>
+  );
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
-
-const withConnect = connect(null, mapDispatchToProps);
-
-const withReducer = injectReducer({ key: 'securePage', reducer });
-const withSaga = injectSaga({ key: 'securePage', saga });
-
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect,
-)(WithAuth(FooPage));
-```
-
-**2- Without Redux**
-```js
-import React from 'react';
-
-// HoC that blocks the navigation if the user is not logged in
-import WithAuth from 'containers/WithAuth';
-
-
-export class FooPage extends React.Component {
-  // ...
-}
-
-export default WithAuth(FooPage);
 ```
