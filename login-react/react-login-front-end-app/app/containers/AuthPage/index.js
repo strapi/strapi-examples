@@ -92,6 +92,7 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
   render() {
     const divStyle = this.props.match.params.authType === 'register' ? { marginTop: '3.2rem' } : { marginTop: '.9rem' };
     const inputs = get(form, this.props.match.params.authType) || [];
+    const providers = ['facebook', 'github'];
 
     return (
       <div className="authPage">
@@ -114,13 +115,13 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-6">
-                  <a href="http://localhost:1337/connect/facebook">
-                    <Button primary type="button">Facebook</Button>
-                  </a>
-                  <div style={{ height: '5px'}} />
-                  <a href="http://localhost:1337/connect/github">
-                    <Button primary type="button">Github</Button>
-                  </a>
+                  {providers.map(value => (
+                    <a href={`http://localhost:1337/connect/${value}`} key={value}>
+                      <Button primary type="button">{value}</Button>
+                      <div style={{ height: '5px'}} />
+                    </a>
+
+                  ))}
                 </div>
               </div>
               <div className="row">
