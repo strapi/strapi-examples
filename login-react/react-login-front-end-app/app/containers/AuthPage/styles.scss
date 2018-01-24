@@ -68,7 +68,7 @@
 }
 
 .buttonContainer {
-  padding-top: 10px;
+  padding-top: 3px;
 }
 
 .linkContainer {
@@ -91,4 +91,37 @@
   > img {
     height: 34px;
   }
+}
+
+.separator {
+  width: 100%;
+  height: 2px;
+  margin: 10px 0;
+  background-color: rgba(14, 22, 34, 0.04);
+}
+
+.or-hr {
+  margin-bottom: 0;
+  position: relative;
+  top: 19px;
+  height: 0;
+  border: 0;
+  border-top: 1px solid #e4e6e8;
+}
+
+.or-div {
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+  background-color: #FFF;
+  font-size: 13px;
+}
+
+.or-container {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  clear: both;
+  color: #6a737c;
+  font-variant: small-caps;
 }

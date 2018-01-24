@@ -111,12 +111,31 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
             ) : ''}
           </div>
           <div className="formContainer" style={divStyle}>
-            <form onSubmit={(e) => {
-                e.preventDefault();
-                this.props.submit();
-              }}
-            >
-              <div className="container-fluid">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-md-6">
+                  <a href="http://localhost:1337/connect/facebook">
+                    <Button primary type="button">Facebook</Button>
+                  </a>
+                  <div style={{ height: '5px'}} />
+                  <a href="http://localhost:1337/connect/github">
+                    <Button primary type="button">Github</Button>
+                  </a>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="or-container">
+                    <hr className="or-hr" />
+                    <div className="or-div">OR</div>
+                  </div>
+                </div>
+              </div>
+              <form onSubmit={(e) => {
+                  e.preventDefault();
+                  this.props.submit();
+                }}
+              >
                 <div className="row" style={{ textAlign: 'start' }}>
                   {map(inputs, (input, key) => (
                     <Input
@@ -143,8 +162,9 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
                     />
                   </div>
                 </div>
-              </div>
-            </form>
+
+              </form>
+            </div>
           </div>
           <div className="linkContainer">
           {this.renderLink()}
