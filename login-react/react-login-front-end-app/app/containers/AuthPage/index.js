@@ -13,18 +13,23 @@ import { get, map, replace } from 'lodash';
 import { Link } from 'react-router-dom';
 
 import Button from 'components/Button';
+import FormDivider from 'components/FormDivider';
 import Input from 'components/Input';
 import Logo from 'images/logo_strapi.png';
+import SocialLink from 'components/SocialLink';
 
+// Utils
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
 import { onChange, setForm, submit } from './actions';
 
 import form from './form.json';
+
 import makeSelectAuthPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+
 import './styles.scss';
 
 export class AuthPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -79,7 +84,7 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
   render() {
     const divStyle = this.props.match.params.authType === 'register' ? { marginTop: '3.2rem' } : { marginTop: '.9rem' };
     const inputs = get(form, this.props.match.params.authType) || [];
-    const providers = ['facebook', 'github'];
+    const providers = ['facebook', 'github', 'google', 'twitter'];
 
     return (
       <div className="authPage">
@@ -101,24 +106,11 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
           <div className="formContainer" style={divStyle}>
             <div className="container-fluid">
               <div className="row">
-                <div className="col-md-6">
-                  {providers.map(value => (
-                    <a href={`http://localhost:1337/connect/${value}`} key={value}>
-                      <Button primary type="button">{value}</Button>
-                      <div style={{ height: '5px'}} />
-                    </a>
-
-                  ))}
-                </div>
-              </div>
-              <div className="row">
                 <div className="col-md-12">
-                  <div className="or-container">
-                    <hr className="or-hr" />
-                    <div className="or-div">OR</div>
-                  </div>
+                  {providers.map(provider => <SocialLink provider={provider} key={provider} />)}
                 </div>
               </div>
+              <FormDivider />
               <form onSubmit={(e) => {
                   e.preventDefault();
                   this.props.submit();
@@ -171,7 +163,6 @@ AuthPage.propTypes = {
   onChange: PropTypes.func.isRequired,
   setForm: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
-  submitSuccess: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = makeSelectAuthPage();

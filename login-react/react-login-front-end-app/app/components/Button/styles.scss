@@ -1,10 +1,12 @@
 .button {
   height: 30px;
+  min-width: 150px;
   position: relative;
   border-radius: 3px;
   margin-right: 18px;
   cursor: pointer;
   font-family: Lato;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   &:focus {
     outline: 0;
@@ -33,12 +35,24 @@
 }
 
 .primary {
-  font-weight: 500;
-  min-width: 150px;
   background: linear-gradient(315deg, #0097F6 0%, #005EEA 100%);
-  -webkit-font-smoothing: antialiased;
   color: white;
   &:active {
    box-shadow: inset 1px 1px 3px rgba(0,0,0,.15);
  }
+}
+
+.github {
+  background: #000;
+  color: white;
+}
+
+.google {
+  border: 1px solid #d6d9dc;
+  color: #535a60;
+}
+
+.twitter {
+  background:  #00aced;
+  color: #fff;
 }

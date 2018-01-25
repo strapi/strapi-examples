@@ -20,10 +20,16 @@ import reducer from './reducer';
 import saga from './saga';
 
 export class ConnectPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  // We only use this lifecycle because it's only mounted once and the saga already handle
+  // the redirections depending on the API response
+
+  // NOTE: YOU can delete this container and do the logic in the HomePage formContainer
+  // This implementation was just made for the sake of the example and to silmplify the logic
   componentDidMount() {
     const { match, location } = this.props;
     this.props.logUser(match.params.provider, location.search);
   }
+
   render() {
     return (
       <div>
