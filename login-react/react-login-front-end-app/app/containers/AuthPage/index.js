@@ -37,19 +37,6 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
     if (nextProps.match.params.authType !== this.props.match.params.authType) {
       this.setForm(nextProps);
     }
-
-    // Redirect the user to HomePage after login
-    if (nextProps.submitSuccess) {
-      switch (this.props.match.params.authType) {
-        case 'login':
-        case 'reset-password':
-        case 'register':
-          this.props.history.push('/');
-          break;
-        default:
-          // Do nothing
-      }
-    }
   }
 
   /**

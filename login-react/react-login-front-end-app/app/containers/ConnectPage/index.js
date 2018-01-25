@@ -25,7 +25,6 @@ export class ConnectPage extends React.Component { // eslint-disable-line react/
     this.props.logUser(match.params.provider, location.search);
   }
   render() {
-    console.log(this.props);
     return (
       <div>
         Retrieving your token and checking validity
@@ -35,7 +34,7 @@ export class ConnectPage extends React.Component { // eslint-disable-line react/
 }
 
 ConnectPage.propTypes = {
-  // dispatch: PropTypes.func.isRequired,
+  logUser: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

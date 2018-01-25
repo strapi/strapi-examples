@@ -1,8 +1,19 @@
-import { take, call, put, select, takeLatest, fork, cancel } from 'redux-saga/effects';
+import {
+  all,
+  call,
+  cancel,
+  fork,
+  take,
+  takeLatest,
+} from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { history } from 'app';
+
+// Utils
 import auth from 'utils/auth';
 import request from 'utils/request';
+
+// Constants
 import { LOG_USER } from './constants';
 
 export function* login(action) {
@@ -12,8 +23,10 @@ export function* login(action) {
 
     if (response.jwt) {
       // Set the user's credentials
-      yield call(auth.setToken, response.jwt, true);
-      yield call(auth.setUserInfo, response.user, true);
+      yield all([
+        call(auth.setToken, response.jwt, true),
+        call(auth.setUserInfo, response.user, true),
+      ]);
       yield call(forwardTo, '/');
     }
 
@@ -26,9 +39,13 @@ export function* login(action) {
 export default function* defaultSaga() {
   const loginWatcher = yield fork(takeLatest, LOG_USER, login);
   yield take(LOCATION_CHANGE);
-  yield cancel(loginWatcher)
+  yield cancel(loginWatcher);
 }
 
-function forwardTo (location) {
+/**
+ * Helper to handle navigation from sagas.
+ * @param  {Sting} location The path to navigate
+ */
+function forwardTo(location) {
   history.push(location)
 }

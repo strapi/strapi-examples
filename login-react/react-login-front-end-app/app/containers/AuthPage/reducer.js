@@ -8,13 +8,11 @@ import { fromJS, Map } from 'immutable';
 import {
   ON_CHANGE,
   SET_FORM,
-  SUBMIT_SUCCEEDED,
 } from './constants';
 
 const initialState = fromJS({
   formType: 'login',
   modifiedData: Map({}),
-  submitSuccess: false,
 });
 
 function authPageReducer(state = initialState, action) {
@@ -26,9 +24,6 @@ function authPageReducer(state = initialState, action) {
         .set('formType', action.formType)
         .set('submitSuccess', false)
         .set('modifiedData', Map(action.data));
-    case SUBMIT_SUCCEEDED:
-      return state
-        .update('submitSuccess', (v) => !v);
     default:
       return state;
   }
