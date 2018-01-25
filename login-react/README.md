@@ -44,6 +44,8 @@ cd my-project && strapi start
 
 **10 -** [Enable Twitter provider](./doc/twitter_setup.md)
 
+> Note you may see the `Redirect URL to add in your provider's configuration` is dynamic so make sure to enter the right path in your provider's app configurations.
+
 ## Front-end App Architecture
 
 We use the [React boilerplate](https://github.com/react-boilerplate/react-boilerplate) architecture to implement the authentication flow.

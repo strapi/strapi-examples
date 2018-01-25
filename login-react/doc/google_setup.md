@@ -9,7 +9,7 @@ In the Library section add Google + API and then in the credentials section set 
 
 ## API Setup
 
-[Go to](http://localhost:1337/admin/plugins/users-permissions/providers) and enable Google, enter your credentials.
+[Go to the Admin](http://localhost:1337/admin/plugins/users-permissions/providers), enable Google and enter your credentials.
 
 ![Admin Google Setup](../assets/admin_google_conf.png)
 

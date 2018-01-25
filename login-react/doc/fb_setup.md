@@ -15,11 +15,11 @@ Now that you have created your app on Facebook you need to configure the Faceboo
 
 [Go to ](http://localhost:1337/admin/plugins/users-permissions/providers) and fill the form like the following:
 
-![Admin FB setup](../assets/admin_fb_settings.png);
+![Admin FB setup](../assets/admin_fb_settings.png)
 
 > Don't forget to save your modifications...
 
 
-Now that the configuration is over [go to](http://localhost:3000/auth/login) and try to login with Facebook 😉
+Now that the configuration is over [go to the front-end app](http://localhost:3000/auth/login) and try to login with Facebook 😉
 
 > Fill an issue if it doesn't work (https://github.com/strapi/strapi-examples/issues/new)
