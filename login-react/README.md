@@ -26,36 +26,23 @@ npm start
 mongod
 ```
 
-**5 -** Go to the API app and start the server
+**5 -** Create an API with Strapi:
+In a new terminal window run these commands :
 ```bash
-cd login-react/strapi-api/login
-strapi start
+npm install strapi@alpha
+strapi new my-project
+cd my-project && strapi start
 ```
 
 **6 -** [Create the Admin user](http://localhost:1337/admin/plugins/users-permissions/auth/register) by registering your first user.
 
-**7 -** [Enable Facebook provider](http://localhost:1337/admin/plugins/users-permissions/providers) and do the following steps:
+**7 -** [Enable Facebook provider](./doc/fb_setup.md)
 
-- Go to [Facebook developers](https://developers.facebook.com/) and create an app called 'test'.
-- In the product section add `Facebook login`
-- Set 'http://localhost:3000' as your website URL
-- In the `Facebook login` > `Advanced settings` add: `http://localhost:1337/connect/facebook/callback` in the `Valid OAuth redirect URIs` field.
-- Copy your App id & App secret and go to [the admin](http://localhost:1337/admin/plugins/users-permissions/providers) and past it in the corresponding fields (and save).
+**8 -** [Enable GitHub provider](./doc/github_setup.md)
 
-**8 -** [Enable GitHub provider](http://localhost:1337/admin/plugins/users-permissions/providers) and do the following steps:
-- Install [ngrok](https://ngrok.com/2)
-- In a new terminal window run
+**9 -** [Enable Google provider](./doc/google_setup.md)
 
-```bash
-ngrok http 3000
-```
-
-- Copy URL displayed next to 'Forwarding' (it should look like this : `http://c8df7abd.ngrok.io`) add `/connect/github` to it and fill the `Redirect URL to your front-end app` input with it.
-  Add photo
-- Go to [Github](https://github.com/settings/developers) and create a new app and fill the informations like the following.
-  Add github photo
-- Enter your credentials in your Admin
-- And go to your ngrok url.
+**10 -** [Enable Twitter provider](./doc/twitter_setup.md)
 
 ## Front-end App Architecture
 

@@ -1,0 +1,17 @@
+# Google setup
+
+Go to the [Google developers console](https://console.developers.google.com/) and create a project.
+
+In the Library section add Google + API and then in the credentials section set the Authorized redirect URI to `http://localhost:1337/connect/google/callback`
+
+![Google setup](../assets/google_settings.png)
+
+
+## API Setup
+
+[Go to](http://localhost:1337/admin/plugins/users-permissions/providers) and enable Google, enter your credentials.
+
+![Admin Google Setup](../assets/admin_google_conf.png)
+
+
+> Go to localhost:3000 and try to sign up with google
