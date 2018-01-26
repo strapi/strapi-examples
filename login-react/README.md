@@ -53,8 +53,11 @@ We use the [React boilerplate](https://github.com/react-boilerplate/react-boiler
 ### Routing
 
 We have 3 containers associated with routes :
-- HomePage and AuthPage which are accessible without being logged in.
+- AuthPage accessible responsible for the authentication flow.
+- ConnectPage in charge of sending a request to the backend to retrieve the user's jwtToken when authenticating with a custom provider.
+- HomePage which is accessible without being logged in.
 - SecurePage that is accessible only if the user is logged in.
+- NotFoundPage the name is explicit.
 
 > [Check out the routing](./react-login-front-end-app/app/containers/App/index.js)
 
