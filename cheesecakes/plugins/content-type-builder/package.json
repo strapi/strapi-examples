@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-content-type-builder@alpha",
-  "_id": "strapi-plugin-content-type-builder@3.0.0-alpha.8",
+  "_id": "strapi-plugin-content-type-builder@3.0.0-alpha.9",
   "_inBundle": false,
-  "_integrity": "sha512-L6jEERFb3+6CGduzooXkFwh+/FaInqh8nOX8o9/pVVlWhTx0/QBDzQmAL1A3j5+I9tCBuhNRQ/GtvL0Ai7lHOw==",
+  "_integrity": "sha512-rCFTlEacmsk71y72Bkhl6YUDACqQIghRY88GGKLXy+haJ1NpcSekKX4S+GiQw9pi7OlMrfYIRHJMDisyw0RZKw==",
   "_location": "/strapi-plugin-content-type-builder",
   "_phantomChildren": {},
   "_requested": {
@@ -18,30 +18,34 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.0.0-alpha.8.tgz",
-  "_shasum": "f687356f35be4a4b10891184be438ae69f1be090",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.0.0-alpha.9.tgz",
+  "_shasum": "3757928b56cd2a1cf1e36bd275d2fff61ede060f",
   "_spec": "strapi-plugin-content-type-builder@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/projects/coucou",
+  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/test",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
     "url": "http://strapi.io"
   },
+  "bugs": {
+    "url": "https://github.com/strapi/strapi/issues"
+  },
   "bundleDependencies": false,
   "dependencies": {
     "pluralize": "^7.0.0",
-    "strapi-generate": "3.0.0-alpha.8",
-    "strapi-generate-api": "3.0.0-alpha.8"
+    "strapi-generate": "3.0.0-alpha.9",
+    "strapi-generate-api": "3.0.0-alpha.9"
   },
   "deprecated": false,
   "description": "Strapi plugin to create content type (API).",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.8"
+    "strapi-helper-plugin": "3.0.0-alpha.9"
   },
   "engines": {
     "node": ">= 8.0.0",
     "npm": ">= 3.0.0"
   },
+  "homepage": "https://github.com/strapi/strapi#readme",
   "license": "MIT",
   "maintainers": [
     {
@@ -51,6 +55,10 @@
     }
   ],
   "name": "strapi-plugin-content-type-builder",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/strapi/strapi.git"
+  },
   "scripts": {
     "analyze": "node ./node_modules/strapi-helper-plugin/lib/internals/scripts/analyze.js",
     "analyze:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf stats.json",
@@ -58,19 +66,18 @@
     "build:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
     "build:dev": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
     "generate": "node ./node_modules/plop/plop.js --plopfile node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
-    "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
+    "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern '/admin/build/' --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
     "preanalyze": "npm run analyze:clean",
     "prebuild": "npm run build:clean && npm run test",
     "prepublishOnly": "npm run build",
-    "pretest": "npm run lint",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
-    "test": "echo Tests are not implemented."
+    "test": "npm run lint"
   },
   "strapi": {
     "name": "Content Type Builder",
     "icon": "paint-brush",
     "description": "content-type-builder.plugin.description"
   },
-  "version": "3.0.0-alpha.8"
+  "version": "3.0.0-alpha.9"
 }

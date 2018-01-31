@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "lodash": "4.x.x",
-    "strapi": "3.0.0-alpha.8",
-    "strapi-mongoose": "3.0.0-alpha.8"
+    "strapi": "3.0.0-alpha.9",
+    "strapi-mongoose": "3.0.0-alpha.9"
   },
   "author": {
     "name": "jimlaurie",

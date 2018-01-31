@@ -16,8 +16,20 @@ import { createStructuredSelector } from 'reselect';
 import { Switch, Route } from 'react-router-dom';
 import { get, includes, isFunction, map, omit } from 'lodash';
 
+// Actions required for disabling and enabling the OverlayBlocker
+import {
+  disableGlobalOverlayBlocker,
+  enableGlobalOverlayBlocker,
+} from 'actions/overlayBlocker';
+
 import { pluginLoaded, updatePlugin } from 'containers/App/actions';
-import { selectHasUserPlugin, selectPlugins } from 'containers/App/selectors';
+import {
+  makeSelectBlockApp,
+  makeSelectShowGlobalAppBlocker,
+  selectHasUserPlugin,
+  selectPlugins,
+} from 'containers/App/selectors';
+
 import { hideNotification } from 'containers/NotificationProvider/actions';
 
 // Design
@@ -30,6 +42,7 @@ import LeftMenu from 'containers/LeftMenu';
 import ListPluginsPage from 'containers/ListPluginsPage';
 import Logout from 'components/Logout';
 import NotFoundPage from 'containers/NotFoundPage';
+import OverlayBlocker from 'components/OverlayBlocker';
 import PluginPage from 'containers/PluginPage';
 
 import auth from 'utils/auth';
@@ -41,6 +54,8 @@ export class AdminPage extends React.Component { // eslint-disable-line react/pr
 
   getChildContext = () => (
     {
+      disableGlobalOverlayBlocker: this.props.disableGlobalOverlayBlocker,
+      enableGlobalOverlayBlocker: this.props.enableGlobalOverlayBlocker,
       plugins: this.props.plugins,
       updatePlugin: this.props.updatePlugin,
     }
@@ -130,12 +145,15 @@ export class AdminPage extends React.Component { // eslint-disable-line react/pr
             </Switch>
           </Content>
         </div>
+        <OverlayBlocker isOpen={this.props.blockApp && this.props.showGlobalAppBlocker} />
       </div>
     );
   }
 }
 
 AdminPage.childContextTypes = {
+  disableGlobalOverlayBlocker: PropTypes.func,
+  enableGlobalOverlayBlocker: PropTypes.func,
   plugins: PropTypes.object,
   updatePlugin: PropTypes.func,
 };
@@ -149,24 +167,32 @@ AdminPage.defaultProps = {
 };
 
 AdminPage.propTypes = {
+  blockApp: PropTypes.bool.isRequired,
+  disableGlobalOverlayBlocker: PropTypes.func.isRequired,
+  enableGlobalOverlayBlocker: PropTypes.func.isRequired,
   hasUserPlugin: PropTypes.bool,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   pluginLoaded: PropTypes.func.isRequired,
   plugins: PropTypes.object.isRequired,
+  showGlobalAppBlocker: PropTypes.bool.isRequired,
   updatePlugin: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
+  blockApp: makeSelectBlockApp(),
   hasUserPlugin: selectHasUserPlugin(),
   plugins: selectPlugins(),
+  showGlobalAppBlocker: makeSelectShowGlobalAppBlocker(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
+    disableGlobalOverlayBlocker: () => { dispatch(disableGlobalOverlayBlocker()); },
+    enableGlobalOverlayBlocker: () => { dispatch(enableGlobalOverlayBlocker()); },
     onHideNotification: (id) => { dispatch(hideNotification(id)); },
-    updatePlugin: (pluginId, updatedKey, updatedValue) => { dispatch(updatePlugin(pluginId, updatedKey, updatedValue)); },
     pluginLoaded: (plugin) => { dispatch(pluginLoaded(plugin)); },
+    updatePlugin: (pluginId, updatedKey, updatedValue) => { dispatch(updatePlugin(pluginId, updatedKey, updatedValue)); },
     dispatch,
   };
 }

@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-settings-manager@alpha",
-  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.8",
+  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.9",
   "_inBundle": false,
-  "_integrity": "sha512-J3uutlztmCVJIu0vKGzUF/1meRwfIGg/R+B6irQ4Ze0Vm2BwBq47EoXxXrfiPSwXTJZH2G3votZHrgwvSaPR9A==",
+  "_integrity": "sha512-zG9kt1jOvC3sDBtOgbASXW3RDo0Gj/mG92ZdOAfF3ec/up1IKR4k/lV4lWtCrc9TwqHpnw3HlF4e0Mu6317W9g==",
   "_location": "/strapi-plugin-settings-manager",
   "_phantomChildren": {},
   "_requested": {
@@ -18,14 +18,17 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.8.tgz",
-  "_shasum": "31439773f58bc0196b624097bacc22cc01f526d1",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.9.tgz",
+  "_shasum": "aeca34b69acae31cadd1ba1ad260e41cd02f1ac6",
   "_spec": "strapi-plugin-settings-manager@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/projects/coucou",
+  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/test",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
     "url": "http://strapi.io"
+  },
+  "bugs": {
+    "url": "https://github.com/strapi/strapi/issues"
   },
   "bundleDependencies": false,
   "deprecated": false,
@@ -33,12 +36,13 @@
   "devDependencies": {
     "flag-icon-css": "^2.8.0",
     "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.8"
+    "strapi-helper-plugin": "3.0.0-alpha.9"
   },
   "engines": {
     "node": ">= 8.0.0",
     "npm": ">= 3.0.0"
   },
+  "homepage": "https://github.com/strapi/strapi#readme",
   "license": "MIT",
   "maintainers": [
     {
@@ -48,6 +52,10 @@
     }
   ],
   "name": "strapi-plugin-settings-manager",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/strapi/strapi.git"
+  },
   "scripts": {
     "analyze": "node ./node_modules/strapi-helper-plugin/lib/internals/scripts/analyze.js",
     "analyze:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf stats.json",
@@ -55,19 +63,18 @@
     "build:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
     "build:dev": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
     "generate": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/plop --plopfile ./node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
-    "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
+    "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern '/admin/build/' --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
     "preanalyze": "npm run analyze:clean",
     "prebuild": "npm run build:clean && npm run test",
     "prepublishOnly": "npm run build",
-    "pretest": "npm run lint",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
-    "test": "echo Tests are not implemented."
+    "test": "npm run lint"
   },
   "strapi": {
     "name": "Settings Manager",
     "icon": "wrench",
     "description": "settings-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.8"
+  "version": "3.0.0-alpha.9"
 }

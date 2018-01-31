@@ -140,14 +140,13 @@ export function* submitChanges(action) {
       }
 
       yield put(submitActionSucceeded());
-
       yield put(resetShowButtonsProps());
       // Remove loader
       yield put(unsetButtonLoader());
     }
 
   } catch(error) {
-    strapi.notification.error(get(error, ['response', 'payload', 'message'], 'notification.error'));
+    strapi.notification.error(get(error, ['response', 'payload', 'message', '0', 'messages', '0', 'id'], 'notification.error'));
     yield put(unsetButtonLoader());
   }
 }

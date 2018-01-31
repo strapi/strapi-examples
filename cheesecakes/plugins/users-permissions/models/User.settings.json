@@ -1,5 +1,5 @@
 {
-  "collectionName": "",
+  "connection": "default",
   "info": {
     "name": "user",
     "description": ""
@@ -15,7 +15,6 @@
     "email": {
       "type": "email",
       "minLength": 6,
-      "unique": true,
       "configurable": false,
       "required": true
     },
@@ -26,21 +25,21 @@
     "password": {
       "type": "password",
       "minLength": 6,
-      "configurable": false,
-      "required": true
+      "configurable": false
     },
     "resetPasswordToken": {
       "type": "string",
       "configurable": false
     },
-    "role": {
-      "type": "integer",
-      "configurable": false
-    },
     "reviews": {
       "collection": "review",
       "via": "author"
+    },
+    "role": {
+      "model": "role",
+      "via": "users",
+      "plugin": "users-permissions",
+      "configurable": false
     }
-  },
-  "connection": "default"
+  }
 }

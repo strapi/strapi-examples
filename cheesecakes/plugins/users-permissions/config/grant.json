@@ -1,0 +1,50 @@
+{
+  "grant": {
+    "email": {
+      "enabled": true,
+      "icon": "envelope"
+    },
+    "facebook": {
+      "enabled": false,
+      "icon": "facebook-official",
+      "key": "",
+      "secret": "",
+      "callback": "/auth/facebook/callback",
+      "scope": [
+        "email"
+      ]
+    },
+    "google": {
+      "enabled": false,
+      "icon": "google",
+      "key": "",
+      "secret": "",
+      "callback": "/auth/google/callback",
+      "scope": [
+        "email"
+      ]
+    },
+    "github": {
+      "enabled": false,
+      "icon": "github",
+      "key": "19d7d8d531390cea8ab5",
+      "secret": "65faada2ecbcfd14bfbab6a8613b1993111afdfb",
+      "redirect_uri": "http://localhost:1337/auth/github/callback",
+      "scope": [
+        "user",
+        "user:email"
+      ]
+    },
+    "twitter": {
+      "enabled": false,
+      "icon": "twitter",
+      "key": "",
+      "secret": "",
+      "callback": "/auth/twitter/callback"
+    },
+    "server": {
+      "protocol": "http",
+      "host": "localhost:1337"
+    }
+  }
+}
