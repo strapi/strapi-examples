@@ -16,6 +16,8 @@
    `Tags` routes, controllers, models, services, relations, auth
 - **[React Authentication Flow](./login-react) -** *Basic React App that implements the authentication flow* <br />
    `Tags` auth, react
+- **[Gatsby Strapi Tutorial](./gatsby-strapi-tutorial) -** *Source code of the tutorial "[Building a static blog using Gatsby and Strapi](https://blog.strapi.io/building-a-static-website-using-gatsby-and-strapi)".* <br />
+   `Tags` gatsby, static website, content API
 
 ## Contributing
 
