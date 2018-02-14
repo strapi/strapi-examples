@@ -1,0 +1,13 @@
+.inputCheckbox {
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.labelCheckbox {
+  /* margin-left: 12px; */
+  cursor: pointer;
+}

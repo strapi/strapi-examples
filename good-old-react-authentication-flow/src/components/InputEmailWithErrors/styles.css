@@ -1,0 +1,10 @@
+.inputEmailWithErrors {
+  min-width: 200px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  text-align: start;
+}
+
+.spacer {
+  height: 5px;
+}

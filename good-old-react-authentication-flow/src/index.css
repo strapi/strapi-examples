@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica Neue;
+  background: #FAFAFA;
+}
+
+input:focus {
+  border-color: #78caff;
+  outline: 0;
+  box-shadow: none !important;
+}
