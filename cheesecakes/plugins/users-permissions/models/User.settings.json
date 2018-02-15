@@ -25,13 +25,15 @@
     "password": {
       "type": "password",
       "minLength": 6,
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
     "resetPasswordToken": {
       "type": "string",
-      "configurable": false
+      "configurable": false,
+      "private": true
     },
-    "reviews": {
+    "comments": {
       "collection": "review",
       "via": "author"
     },

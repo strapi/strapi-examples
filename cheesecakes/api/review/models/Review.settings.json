@@ -15,7 +15,7 @@
     },
     "cake": {
       "model": "cake",
-      "via": "reviews"
+      "via": "comments"
     },
     "author": {
       "model": "user",

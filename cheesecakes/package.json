@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "lodash": "4.x.x",
-    "strapi": "3.0.0-alpha.9",
-    "strapi-mongoose": "3.0.0-alpha.9"
+    "strapi": "3.0.0-alpha.10",
+    "strapi-mongoose": "3.0.0-alpha.10"
   },
   "author": {
     "name": "jimlaurie",
@@ -36,8 +36,8 @@
     }
   ],
   "engines": {
-    "node": ">= 7.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 9.0.0",
+    "npm": ">= 5.0.0"
   },
   "license": "MIT"
 }

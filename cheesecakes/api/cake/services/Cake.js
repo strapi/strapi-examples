@@ -55,7 +55,7 @@ module.exports = {
 
     return Cake
       .findOne(_.pick(params, _.keys(Cake.schema.paths)))
-      .populate(populate);
+      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
   },
 
   /**

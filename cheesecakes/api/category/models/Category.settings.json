@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "category",
   "info": {
     "name": "category",
     "description": "Cakes category list"
@@ -12,8 +12,8 @@
       "unique": true
     },
     "cakes": {
-      "model": "cake",
-      "via": "category"
+      "collection": "cake",
+      "via": "categories"
     }
   }
 }

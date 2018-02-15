@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "cake",
   "info": {
     "name": "cake",
     "description": "This is a cake collection"
@@ -27,13 +27,16 @@
       "type": "string",
       "required": true
     },
-    "category": {
-      "model": "category",
-      "via": "cakes"
+    "categories": {
+      "collection": "category",
+      "via": "cakes",
+      "dominant": true,
+      "plugin": ""
     },
-    "reviews": {
+    "comments": {
       "collection": "review",
-      "via": "cake"
+      "via": "cake",
+      "plugin": ""
     }
   }
 }
