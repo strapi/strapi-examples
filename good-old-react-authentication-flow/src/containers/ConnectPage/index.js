@@ -40,7 +40,7 @@ class ConnectPage extends React.Component {
     return (
       <div>
         <h1>
-          Retriveing your token and checking its validity
+          Retrieving your token and checking its validity
         </h1>
       </div>
     );
