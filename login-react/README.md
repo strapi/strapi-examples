@@ -26,13 +26,25 @@ npm start
 mongod
 ```
 
-**5 -** Go to the API app and start the server
+**5 -** Create an API with Strapi:
+In a new terminal window run these commands :
 ```bash
-cd login-react/strapi-api/login
-strapi start
+npm install strapi@alpha
+strapi new my-project
+cd my-project && strapi start
 ```
 
 **6 -** [Create the Admin user](http://localhost:1337/admin/plugins/users-permissions/auth/register) by registering your first user.
+
+**7 -** [Enable Facebook provider](./doc/fb_setup.md)
+
+**8 -** [Enable GitHub provider](./doc/github_setup.md)
+
+**9 -** [Enable Google provider](./doc/google_setup.md)
+
+**10 -** [Enable Twitter provider](./doc/twitter_setup.md)
+
+> Note you may see the `Redirect URL to add in your provider's configuration` is dynamic so make sure to enter the right path in your provider's app configurations.
 
 ## Front-end App Architecture
 
@@ -41,8 +53,11 @@ We use the [React boilerplate](https://github.com/react-boilerplate/react-boiler
 ### Routing
 
 We have 3 containers associated with routes :
-- HomePage and AuthPage which are accessible without being logged in.
+- AuthPage accessible responsible for the authentication flow.
+- ConnectPage in charge of sending a request to the backend to retrieve the user's jwtToken when authenticating with a custom provider.
+- HomePage which is accessible without being logged in.
 - SecurePage that is accessible only if the user is logged in.
+- NotFoundPage the name is explicit.
 
 > [Check out the routing](./react-login-front-end-app/app/containers/App/index.js)
 

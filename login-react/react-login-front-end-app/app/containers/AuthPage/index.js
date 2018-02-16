@@ -13,18 +13,23 @@ import { get, map, replace } from 'lodash';
 import { Link } from 'react-router-dom';
 
 import Button from 'components/Button';
+import FormDivider from 'components/FormDivider';
 import Input from 'components/Input';
 import Logo from 'images/logo_strapi.png';
+import SocialLink from 'components/SocialLink';
 
+// Utils
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
 import { onChange, setForm, submit } from './actions';
 
 import form from './form.json';
+
 import makeSelectAuthPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+
 import './styles.scss';
 
 export class AuthPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -36,19 +41,6 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
     // Update the form depending on the URL's params
     if (nextProps.match.params.authType !== this.props.match.params.authType) {
       this.setForm(nextProps);
-    }
-
-    // Redirect the user to HomePage after login
-    if (nextProps.submitSuccess) {
-      switch (this.props.match.params.authType) {
-        case 'login':
-        case 'reset-password':
-        case 'register':
-          this.props.history.push('/');
-          break;
-        default:
-          // Do nothing
-      }
     }
   }
 
@@ -92,6 +84,7 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
   render() {
     const divStyle = this.props.match.params.authType === 'register' ? { marginTop: '3.2rem' } : { marginTop: '.9rem' };
     const inputs = get(form, this.props.match.params.authType) || [];
+    const providers = ['facebook', 'github', 'google', 'twitter']; // To remove a provider from the list just delete it from this array...
 
     return (
       <div className="authPage">
@@ -111,12 +104,18 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
             ) : ''}
           </div>
           <div className="formContainer" style={divStyle}>
-            <form onSubmit={(e) => {
-                e.preventDefault();
-                this.props.submit();
-              }}
-            >
-              <div className="container-fluid">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-md-12">
+                  {providers.map(provider => <SocialLink provider={provider} key={provider} />)}
+                </div>
+              </div>
+              <FormDivider />
+              <form onSubmit={(e) => {
+                  e.preventDefault();
+                  this.props.submit();
+                }}
+              >
                 <div className="row" style={{ textAlign: 'start' }}>
                   {map(inputs, (input, key) => (
                     <Input
@@ -143,8 +142,9 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
                     />
                   </div>
                 </div>
-              </div>
-            </form>
+
+              </form>
+            </div>
           </div>
           <div className="linkContainer">
           {this.renderLink()}
@@ -163,7 +163,6 @@ AuthPage.propTypes = {
   onChange: PropTypes.func.isRequired,
   setForm: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
-  submitSuccess: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = makeSelectAuthPage();

@@ -15,6 +15,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import AuthPage from 'containers/AuthPage';
+import ConnectPage from 'containers/ConnectPage';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import SecurePage from 'containers/SecurePage';
@@ -25,6 +26,7 @@ export default function App() {
     <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/connect/:provider" component={ConnectPage} />
         <Route exact path="/auth/:authType/:id?" component={AuthPage} />
         <ProtectedRoute exact path="/:foo" component={SecurePage} />
         <Route component={NotFoundPage} />

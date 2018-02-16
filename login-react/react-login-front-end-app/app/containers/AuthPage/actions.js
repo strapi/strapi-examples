@@ -8,7 +8,6 @@ import {
   ON_CHANGE,
   SET_FORM,
   SUBMIT,
-  SUBMIT_SUCCEEDED,
 } from './constants';
 
 /**
@@ -85,11 +84,5 @@ export function setForm(formType, email) {
 export function submit() {
   return {
     type: SUBMIT,
-  };
-}
-
-export function submitSucceeded() {
-  return {
-    type: SUBMIT_SUCCEEDED,
   };
 }

@@ -1,12 +1,13 @@
+import { LOCATION_CHANGE } from 'react-router-redux';
+import { all, call, fork, takeLatest, select, take, cancel } from 'redux-saga/effects';
 import { set } from 'lodash';
-import { call, fork, takeLatest, put, select } from 'redux-saga/effects';
+import { history } from 'app';
 
 // Utils
 import auth from 'utils/auth';
 import request from 'utils/request';
 
 import { makeSelectFormType, makeSelectModifiedData } from './selectors';
-import { submitSucceeded } from './actions';
 import { SUBMIT } from './constants';
 
 export function* submitForm() {
@@ -37,15 +38,27 @@ export function* submitForm() {
 
     if (response.jwt) {
       // Set the user's credentials
-      yield call(auth.setToken, response.jwt, body.rememberMe);
-      yield call(auth.setUserInfo, response.user, body.rememberMe);
+      yield all([
+        call(auth.setToken, response.jwt, body.rememberMe),
+        call(auth.setUserInfo, response.user, body.rememberMe),
+      ]);
+      yield call(forwardTo, '/');
     }
-    yield put(submitSucceeded());
   } catch(error) {
     console.log(error.response.payload.message);
   }
 }
 
 export default function* defaultSaga() {
-  yield fork(takeLatest, SUBMIT, submitForm);
+  const submitWatcher = yield fork(takeLatest, SUBMIT, submitForm);
+  yield take(LOCATION_CHANGE);
+  yield cancel(submitWatcher);
+}
+
+/**
+ * Helper to handle navigation from sagas.
+ * @param  {Sting} location The path to navigate
+ */
+function forwardTo(location) {
+  history.push(location);
 }
