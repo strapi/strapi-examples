@@ -1,12 +1,11 @@
 /**
-*
-* FormDivider
-*
-*/
+ *
+ * FormDivider
+ *
+ */
 
 import React from 'react';
 import './styles.css';
-
 
 function FormDivider() {
   return (

@@ -1,14 +1,14 @@
 /**
-*
-* SocialLink
-*
-*/
+ *
+ * SocialLink
+ *
+ */
 
 import React from 'react';
 import { capitalize } from 'lodash';
 import PropTypes from 'prop-types';
 
-import Button from '../../components/Button'
+import Button from '../../components/Button';
 
 import './styles.css';
 

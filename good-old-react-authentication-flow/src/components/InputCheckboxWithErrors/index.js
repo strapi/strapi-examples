@@ -36,7 +36,7 @@ class InputCheckboxWithErrors extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const {
       autoFocus,
       className,
@@ -65,22 +65,26 @@ class InputCheckboxWithErrors extends React.Component {
     const handleBlur = onBlur ? onBlur : () => {};
     let inputTitle = title;
 
-    let spacer = !isEmpty(inputDescription) ? <div className="spacer" /> : <div />;
+    let spacer = !isEmpty(inputDescription) ? (
+      <div className="spacer" />
+    ) : (
+      <div />
+    );
 
     if (!noErrorsDescription && !isEmpty(this.state.errors)) {
       spacer = <div />;
     }
-
 
     if (isFunction(title)) {
       inputTitle = title();
     }
 
     return (
-      <div className={cn(
+      <div
+        className={cn(
           'inputCheckboxContainer',
           customBootstrapClass,
-          !isEmpty(className) && className,
+          !isEmpty(className) && className
         )}
         style={style}
       >
@@ -100,7 +104,10 @@ class InputCheckboxWithErrors extends React.Component {
           value={value}
         />
         <InputDescription
-          className={cn('inputCheckboxDescriptionContainer', inputDescriptionClassName)}
+          className={cn(
+            'inputCheckboxDescriptionContainer',
+            inputDescriptionClassName
+          )}
           message={this.props.inputDescription}
           style={inputDescriptionStyle}
         />
@@ -109,7 +116,7 @@ class InputCheckboxWithErrors extends React.Component {
           errors={this.state.errors}
           style={errorsStyle}
         />
-      {spacer}
+        {spacer}
       </div>
     );
   }
@@ -174,10 +181,7 @@ InputCheckboxWithErrors.propTypes = {
   ]),
   name: PropTypes.string.isRequired,
   noErrorsDescription: PropTypes.bool,
-  onBlur: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.func,
-  ]),
+  onBlur: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
   placeholder: PropTypes.string,

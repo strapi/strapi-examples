@@ -62,7 +62,7 @@ class InputPasswordWithErrors extends React.Component {
       const errors = validateInput(target.value, this.props.validations);
       this.setState({ errors, hasInitialValue: true });
     }
-  }
+  };
 
   render() {
     const {
@@ -85,13 +85,16 @@ class InputPasswordWithErrors extends React.Component {
       tabIndex,
       value,
     } = this.props;
-    const handleBlur = isFunction(this.props.onBlur) ? this.props.onBlur : this.handleBlur;
+    const handleBlur = isFunction(this.props.onBlur)
+      ? this.props.onBlur
+      : this.handleBlur;
 
     return (
-      <div className={cn(
+      <div
+        className={cn(
           'inputPasswordWithErrors',
           this.props.customBootstrapClass,
-          !isEmpty(this.props.className) && this.props.className,
+          !isEmpty(this.props.className) && this.props.className
         )}
         style={style}
       >
@@ -157,7 +160,6 @@ InputPasswordWithErrors.defaultProps = {
   validations: {},
 };
 
-
 InputPasswordWithErrors.propTypes = {
   autoFocus: PropTypes.bool,
   className: PropTypes.string,
@@ -191,10 +193,7 @@ InputPasswordWithErrors.propTypes = {
   labelClassName: PropTypes.string,
   labelStyle: PropTypes.object,
   name: PropTypes.string.isRequired,
-  onBlur: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.func,
-  ]),
+  onBlur: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
   placeholder: PropTypes.string,

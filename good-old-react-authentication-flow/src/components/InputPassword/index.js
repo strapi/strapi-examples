@@ -35,33 +35,39 @@ class InputPassword extends React.Component {
       value,
     } = this.props;
 
-    const eyeColor = this.state.showPassword ? { color: 'black' }  : { color: '#9EA7B8' };
+    const eyeColor = this.state.showPassword
+      ? { color: 'black' }
+      : { color: '#9EA7B8' };
 
     return (
       <Fragment>
-          <input
-            autoComplete="new-password"
-            autoFocus={autoFocus}
-            className={cn(
-              'inputPassword',
-              'form-control',
-              !deactivateErrorHighlight && error && 'is-invalid',
-              !isEmpty(className) && className,
-            )}
-            disabled={disabled}
-            id={name}
-            name={name}
-            onBlur={onBlur}
-            onChange={onChange}
-            onFocus={onFocus}
-            placeholder={placeholder}
-            style={style}
-            tabIndex={tabIndex}
-            type={!this.state.showPassword && 'password' || 'text'}
-            value={value}
-          />
+        <input
+          autoComplete="new-password"
+          autoFocus={autoFocus}
+          className={cn(
+            'inputPassword',
+            'form-control',
+            !deactivateErrorHighlight && error && 'is-invalid',
+            !isEmpty(className) && className
+          )}
+          disabled={disabled}
+          id={name}
+          name={name}
+          onBlur={onBlur}
+          onChange={onChange}
+          onFocus={onFocus}
+          placeholder={placeholder}
+          style={style}
+          tabIndex={tabIndex}
+          type={(!this.state.showPassword && 'password') || 'text'}
+          value={value}
+        />
         <div className="iconEyeWrapper">
-          <div className="iconEyeSubWrapper" onClick={this.handleClick} style={eyeColor}>
+          <div
+            className="iconEyeSubWrapper"
+            onClick={this.handleClick}
+            style={eyeColor}
+          >
             <i className="fa fa-eye" />
           </div>
         </div>

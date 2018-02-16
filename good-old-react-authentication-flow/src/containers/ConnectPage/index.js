@@ -18,30 +18,32 @@ class ConnectPage extends React.Component {
   // NOTE: YOU can delete this container and do the logic in the HomePage formContainer
   // This implementation was just made for the sake of the example and to silmplify the logic
   componentDidMount() {
-    const { match: {params: { provider }}, location: { search } } = this.props;
+    const {
+      match: { params: { provider } },
+      location: { search },
+    } = this.props;
     const requestURL = `http://localhost:1337/auth/${provider}/callback${search}`;
 
     request(requestURL, { method: 'GET' })
-      .then((response) => {
+      .then(response => {
         auth.setToken(response.jwt, true);
         auth.setUserInfo(response.user, true);
         this.redirectUser('/');
-      }).catch(err => {
-        console.log(err.response.payload)
+      })
+      .catch(err => {
+        console.log(err.response.payload);
         this.redirectUser('/auth/login');
       });
   }
 
-  redirectUser = (path) => {
+  redirectUser = path => {
     this.props.history.push(path);
-  }
+  };
 
   render() {
     return (
       <div>
-        <h1>
-          Retrieving your token and checking its validity
-        </h1>
+        <h1>Retrieving your token and checking its validity</h1>
       </div>
     );
   }

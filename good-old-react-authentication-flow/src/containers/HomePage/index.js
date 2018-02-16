@@ -13,14 +13,14 @@ class HomePage extends React.Component {
   render() {
     return (
       <div style={{ marginTop: '15%' }}>
-        <h1>
-          You're now logged in!!!
-        </h1>
+        <h1>You're now logged in!!!</h1>
         <div style={{ marginTop: '50px' }}>
-          <Button primary onClick={() => {
-            auth.clearAppStorage();
-            this.props.history.push('/auth/login');
-          }}
+          <Button
+            primary
+            onClick={() => {
+              auth.clearAppStorage();
+              this.props.history.push('/auth/login');
+            }}
           >
             Logout
           </Button>

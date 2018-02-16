@@ -8,7 +8,7 @@ import './styles.css';
 function Label(props) {
   let content = props.children;
 
-  if (typeof(props.message) === 'string') {
+  if (typeof props.message === 'string') {
     content = props.message;
   }
 

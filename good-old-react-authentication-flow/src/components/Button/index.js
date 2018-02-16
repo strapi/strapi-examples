@@ -16,9 +16,14 @@ function Button(props) {
   const buttonProps = Object.assign({}, props);
   const propsToDelete = ['primary', 'social'];
 
-  propsToDelete.map((value) => delete buttonProps[value]);
+  propsToDelete.map(value => delete buttonProps[value]);
 
-  const label = !isEmpty(props.label) && !props.children ? <span>{props.label}</span> : props.children;
+  const label =
+    !isEmpty(props.label) && !props.children ? (
+      <span>{props.label}</span>
+    ) : (
+      props.children
+    );
 
   return (
     <button
@@ -28,7 +33,7 @@ function Button(props) {
         props.social === 'facebook' && 'primary',
         props.social === 'github' && 'github',
         props.social === 'google' && 'google',
-        props.social === 'twitter' && 'twitter',
+        props.social === 'twitter' && 'twitter'
       )}
       type={props.type || 'button'}
       {...buttonProps}

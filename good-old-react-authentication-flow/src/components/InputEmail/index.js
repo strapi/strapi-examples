@@ -13,15 +13,15 @@ import './styles.css';
 class InputEmail extends React.Component {
   state = { isFocused: false };
 
-  handleBlur = (e) => {
+  handleBlur = e => {
     this.setState({ isFocused: !this.state.isFocused });
     this.props.onBlur(e);
-  }
+  };
 
-  handleFocus = (e) => {
+  handleFocus = e => {
     this.setState({ isFocused: !this.state.isFocused });
     this.props.onFocus(e);
-  }
+  };
 
   render() {
     const {
@@ -39,12 +39,20 @@ class InputEmail extends React.Component {
     } = this.props;
 
     return (
-      <div className={cn('inputEmailContainer', 'input-group', !isEmpty(className) && className)} style={style}>
-        <span className={cn(
+      <div
+        className={cn(
+          'inputEmailContainer',
+          'input-group',
+          !isEmpty(className) && className
+        )}
+        style={style}
+      >
+        <span
+          className={cn(
             'input-group-addon',
             'addonEmail',
             this.state.isFocused && 'addonFocus',
-            !deactivateErrorHighlight && error && 'errorAddon',
+            !deactivateErrorHighlight && error && 'errorAddon'
           )}
         />
         <input
@@ -53,7 +61,10 @@ class InputEmail extends React.Component {
             'form-control',
             'inputEmail',
             !deactivateErrorHighlight && error && 'is-invalid',
-            !deactivateErrorHighlight && error && this.state.isFocused && 'invalidEmail',
+            !deactivateErrorHighlight &&
+              error &&
+              this.state.isFocused &&
+              'invalidEmail'
           )}
           disabled={disabled}
           id={name}

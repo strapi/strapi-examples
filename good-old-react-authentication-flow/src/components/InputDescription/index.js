@@ -8,7 +8,7 @@ import './styles.css';
 function InputDescription(props) {
   let content = props.children;
 
-  if (typeof(props.message) === 'string') {
+  if (typeof props.message === 'string') {
     content = props.message;
   }
 
@@ -16,15 +16,14 @@ function InputDescription(props) {
     content = props.message();
   }
   return (
-    <div className={cn(
+    <div
+      className={cn(
         'inputDescriptionContainer',
         !isEmpty(props.className) && props.className
       )}
       style={props.style}
     >
-      <small>
-        {content}
-      </small>
+      <small>{content}</small>
     </div>
   );
 }

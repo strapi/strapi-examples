@@ -55,16 +55,21 @@ class AuthPage extends React.Component {
     }
 
     return requestURL;
-  }
+  };
 
-  generateForm = (props) => {
-    const params = props.location.search ? replace(props.location.search, '?code=', '') : props.match.params.id;
+  generateForm = props => {
+    const params = props.location.search
+      ? replace(props.location.search, '?code=', '')
+      : props.match.params.id;
     this.setForm(props.match.params.authType, params);
-  }
+  };
 
-  handleChange = ({ target }) => this.setState({ value: { ...this.state.value, [target.name]: target.value } });
+  handleChange = ({ target }) =>
+    this.setState({
+      value: { ...this.state.value, [target.name]: target.value },
+    });
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     const body = this.state.value;
     const requestURL = this.getRequestURL();
@@ -74,22 +79,25 @@ class AuthPage extends React.Component {
       set(body, 'url', 'http://localhost:3000/auth/reset-password');
     }
 
-    request(requestURL, { method: 'POST', body: this.state.value})
-      .then((response) => {
+    request(requestURL, { method: 'POST', body: this.state.value })
+      .then(response => {
         auth.setToken(response.jwt, body.rememberMe);
         auth.setUserInfo(response.user, body.rememberMe);
         this.redirectUser();
-      }).catch((err) => {
+      })
+      .catch(err => {
         // TODO handle errors for other views
         // This is just an example
-        const errors = [{ name: 'identifier', errors: [err.response.payload.message] }];
+        const errors = [
+          { name: 'identifier', errors: [err.response.payload.message] },
+        ];
         this.setState({ didCheckErrors: !this.state.didCheckErrors, errors });
       });
-  }
+  };
 
   redirectUser = () => {
     this.props.history.push('/');
-  }
+  };
 
   /**
    * Function that allows to set the value to be modified
@@ -103,9 +111,9 @@ class AuthPage extends React.Component {
       set(value, 'code', email);
     }
     this.setState({ value });
-  }
+  };
 
-    /**
+  /**
    * Check the URL's params to render the appropriate links
    * @return {Element} Returns navigation links
    */
@@ -113,28 +121,25 @@ class AuthPage extends React.Component {
     if (this.props.match.params.authType === 'login') {
       return (
         <div>
-          <Link to="/auth/forgot-password">
-            Forgot Password
-          </Link>
+          <Link to="/auth/forgot-password">Forgot Password</Link>
           &nbsp;or&nbsp;
-          <Link to="/auth/register">
-            register
-          </Link>
+          <Link to="/auth/register">register</Link>
         </div>
       );
     }
 
     return (
       <div>
-        <Link to="/auth/login">
-          Ready to signin
-        </Link>
+        <Link to="/auth/login">Ready to signin</Link>
       </div>
     );
-  }
+  };
 
   render() {
-    const divStyle = this.props.match.params.authType === 'register' ? { marginTop: '3.2rem' } : { marginTop: '.9rem' };
+    const divStyle =
+      this.props.match.params.authType === 'register'
+        ? { marginTop: '3.2rem' }
+        : { marginTop: '.9rem' };
     const inputs = get(form, ['views', this.props.match.params.authType], []);
     const providers = ['facebook', 'github', 'google', 'twitter']; // To remove a provider from the list just delete it from this array...
 
@@ -150,16 +155,18 @@ class AuthPage extends React.Component {
           </div>
           <div className="headerDescription">
             {this.props.match.params.authType === 'register' ? (
-              <span>
-                Please register to access the app.
-              </span>
-            ) : ''}
+              <span>Please register to access the app.</span>
+            ) : (
+              ''
+            )}
           </div>
           <div className="formContainer" style={divStyle}>
             <div className="container-fluid">
               <div className="row">
                 <div className="col-md-12">
-                  {providers.map(provider => <SocialLink provider={provider} key={provider} />)}
+                  {providers.map(provider => (
+                    <SocialLink provider={provider} key={provider} />
+                  ))}
                 </div>
               </div>
               <FormDivider />
@@ -170,7 +177,14 @@ class AuthPage extends React.Component {
                       autoFocus={key === 0}
                       customBootstrapClass={get(input, 'customBootstrapClass')}
                       didCheckErrors={this.state.didCheckErrors}
-                      errors={get(this.state.errors, [findIndex(this.state.errors, ['name', input.name]), 'errors'], [])}
+                      errors={get(
+                        this.state.errors,
+                        [
+                          findIndex(this.state.errors, ['name', input.name]),
+                          'errors',
+                        ],
+                        []
+                      )}
                       key={get(input, 'name')}
                       label={get(input, 'label')}
                       name={get(input, 'name')}
@@ -190,19 +204,15 @@ class AuthPage extends React.Component {
                     />
                   </div>
                 </div>
-
               </form>
             </div>
           </div>
-          <div className="linkContainer">
-          {this.renderLink()}
-        </div>
+          <div className="linkContainer">{this.renderLink()}</div>
         </div>
       </div>
     );
   }
 }
-
 
 AuthPage.defaultProps = {};
 AuthPage.propTypes = {

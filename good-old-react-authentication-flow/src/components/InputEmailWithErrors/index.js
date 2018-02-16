@@ -22,7 +22,8 @@ import validateInput from '../../utils/inputsValidations';
 
 import './styles.css';
 
-class InputEmailWithErrors extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class InputEmailWithErrors extends React.Component {
+  // eslint-disable-line react/prefer-stateless-function
   state = { errors: [], hasInitialValue: false };
 
   componentDidMount() {
@@ -60,10 +61,14 @@ class InputEmailWithErrors extends React.Component { // eslint-disable-line reac
   handleBlur = ({ target }) => {
     // Prevent from displaying error if the input is initially isEmpty
     if (!isEmpty(target.value) || this.state.hasInitialValue) {
-      const errors = validateInput(target.value, this.props.validations, 'email');
+      const errors = validateInput(
+        target.value,
+        this.props.validations,
+        'email'
+      );
       this.setState({ errors, hasInitialValue: true });
     }
-  }
+  };
 
   render() {
     const {
@@ -92,17 +97,22 @@ class InputEmailWithErrors extends React.Component { // eslint-disable-line reac
     } = this.props;
     const handleBlur = isFunction(onBlur) ? onBlur : this.handleBlur;
 
-    let spacer = !isEmpty(inputDescription) ? <div className="spacer" /> : <div />;
+    let spacer = !isEmpty(inputDescription) ? (
+      <div className="spacer" />
+    ) : (
+      <div />
+    );
 
     if (!noErrorsDescription && !isEmpty(this.state.errors)) {
       spacer = <div />;
     }
 
     return (
-      <div className={cn(
+      <div
+        className={cn(
           'inputEmailWithErrors',
           this.props.customBootstrapClass,
-          !isEmpty(this.props.className) && this.props.className,
+          !isEmpty(this.props.className) && this.props.className
         )}
         style={style}
       >
@@ -134,7 +144,7 @@ class InputEmailWithErrors extends React.Component { // eslint-disable-line reac
         />
         <InputErrors
           className={errorsClassName}
-          errors={!noErrorsDescription && this.state.errors || []}
+          errors={(!noErrorsDescription && this.state.errors) || []}
           style={errorsStyle}
         />
         {spacer}
@@ -204,10 +214,7 @@ InputEmailWithErrors.propTypes = {
   labelStyle: PropTypes.object,
   name: PropTypes.string.isRequired,
   noErrorsDescription: PropTypes.bool,
-  onBlur: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.func,
-  ]),
+  onBlur: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
   placeholder: PropTypes.string,

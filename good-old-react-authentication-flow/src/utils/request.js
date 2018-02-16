@@ -51,31 +51,42 @@ function formatQueryParams(params) {
  *
  * @return {object}           The response data
  */
- export default function request(url, options = {}, shouldWatchServerRestart = false) {
-   // Set headers
-   options.headers = Object.assign({
-     'Content-Type': 'application/json',
-   }, options.headers, {});
+export default function request(
+  url,
+  options = {},
+  shouldWatchServerRestart = false
+) {
+  // Set headers
+  options.headers = Object.assign(
+    {
+      'Content-Type': 'application/json',
+    },
+    options.headers,
+    {}
+  );
 
-   const token = auth.getToken();
+  const token = auth.getToken();
 
-   if (token) {
-     options.headers = Object.assign({
-       'Authorization': `Bearer ${token}`,
-     }, options.headers);
-   }
+  if (token) {
+    options.headers = Object.assign(
+      {
+        Authorization: `Bearer ${token}`,
+      },
+      options.headers
+    );
+  }
 
-   if (options && options.params) {
-     const params = formatQueryParams(options.params);
-     url = `${url}?${params}`;
-   }
+  if (options && options.params) {
+    const params = formatQueryParams(options.params);
+    url = `${url}?${params}`;
+  }
 
-   // Stringify body object
-   if (options && options.body) {
-     options.body = JSON.stringify(options.body);
-   }
+  // Stringify body object
+  if (options && options.body) {
+    options.body = JSON.stringify(options.body);
+  }
 
-   return fetch(url, options)
+  return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON);
- }
+}

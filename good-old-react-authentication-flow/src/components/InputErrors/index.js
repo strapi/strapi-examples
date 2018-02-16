@@ -11,20 +11,20 @@ function InputErrors(props) {
   return (
     <div>
       {map(props.errors, (error, key) => {
-
         return (
-          <div className={cn(
+          <div
+            className={cn(
               'form-control-feedback',
               'invalid-feedback',
               'errorContainer',
-              !isEmpty(props.className) && props.className,
+              !isEmpty(props.className) && props.className
             )}
             key={key}
             style={divStyle}
-            >
+          >
             {error}
           </div>
-        )
+        );
       })}
     </div>
   );

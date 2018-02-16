@@ -20,7 +20,7 @@ class InputCheckbox extends React.Component {
     };
 
     this.props.onChange({ target });
-  }
+  };
 
   render() {
     const {
@@ -52,9 +52,16 @@ class InputCheckbox extends React.Component {
 
     let content = <div />;
 
-    if (typeof(label) === 'string') {
+    if (typeof label === 'string') {
       content = (
-        <label className={cn('form-check-label', 'labelCheckbox', disabled && 'disabled')} htmlFor={name}>
+        <label
+          className={cn(
+            'form-check-label',
+            'labelCheckbox',
+            disabled && 'disabled'
+          )}
+          htmlFor={name}
+        >
           {checkbox}
           {label}
         </label>
@@ -63,7 +70,10 @@ class InputCheckbox extends React.Component {
 
     if (isFunction(label)) {
       content = (
-        <label className={cn('form-check-label', disabled && 'disabled')} htmlFor={name}>
+        <label
+          className={cn('form-check-label', disabled && 'disabled')}
+          htmlFor={name}
+        >
           {checkbox}
           {label()}
         </label>
@@ -71,10 +81,11 @@ class InputCheckbox extends React.Component {
     }
 
     return (
-      <div className={cn(
+      <div
+        className={cn(
           'form-check',
           'inputCheckbox',
-          !isEmpty(className) && className,
+          !isEmpty(className) && className
         )}
         style={style}
       >
@@ -100,10 +111,7 @@ InputCheckbox.propTypes = {
   autoFocus: PropTypes.bool,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
