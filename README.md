@@ -14,10 +14,12 @@
    `Tags` routes, controllers, i18n
 - **[Cheesecakes](./cheesecakes) -** *e-commerce application* <br />
    `Tags` routes, controllers, models, services, relations, auth
-- **[React Authentication Flow](./login-react) -** *Basic React App that implements the authentication flow* <br />
-   `Tags` auth, react
 - **[Gatsby Strapi Tutorial](./gatsby-strapi-tutorial) -** *Source code of the tutorial "[Building a static blog using Gatsby and Strapi](https://blog.strapi.io/building-a-static-website-using-gatsby-and-strapi)".* <br />
    `Tags` gatsby, static website, content API
+- **[React Authentication Flow](./login-react) -** *Basic React App that implements the authentication flow* <br />
+   `Tags` auth, react
+- **[Create-React-App](./good-old-react-authentication-flow) -** *Basic React App Boilerplate that has the authentication with local and custom providers.* <br />
+   `Tags` auth, react
 
 ## Contributing
 
