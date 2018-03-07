@@ -27,6 +27,7 @@ const Table = (props) => {
               data={value}
               key={key}
               headers={props.headers}
+              onClick={props.onClick}
             />
           )
         )}
@@ -39,11 +40,13 @@ const Table = (props) => {
 Table.defaultProps = {
   data: [],
   header: [],
+  onClick: () => {},
 };
 
 Table.propTypes = {
   data: PropTypes.array,
   headers: PropTypes.array,
+  onClick: PropTypes.func,
 };
 
 

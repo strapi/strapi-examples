@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import moment from 'moment';
-import { get, isArray, isEmpty, isObject, startsWith } from 'lodash';
+import { get, isArray, isEmpty, startsWith } from 'lodash';
 
 // import IcoContainer from 'components/IcoContainer';
 
@@ -16,7 +16,14 @@ import './styles.scss';
 
 const TableRow = (props) => {
   return (
-    <tr onClick={props.onClick} className="tableRow">
+    <tr
+      className="tableRow"
+      onClick={(e) => {
+        // Handle navigation to EditPage container
+        e.preventDefault();
+        props.onClick(props.data.id);
+      }}
+    >
       {props.headers.map(header => {
         if (header === 'pictures' && !isEmpty(props.data[header])) {
           // Get the first pictures for display

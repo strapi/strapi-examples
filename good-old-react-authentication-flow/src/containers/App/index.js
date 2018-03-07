@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Components
 import AuthPage from '../../containers/AuthPage';
 import ConnectPage from '../../containers/ConnectPage';
+import EditPage from '../../containers/EditPage';
 import HomePage from '../../containers/HomePage';
 import NotFoundPage from '../../containers/NotFoundPage';
 import ProductPage from '../../containers/ProductPage';
@@ -28,9 +29,10 @@ class App extends Component {
           <Switch>
             {/* A user can't go to the HomePage if is not authenticated */}
             <PrivateRoute path="/" component={HomePage} exact />
+            <PrivateRoute path="/:contentType/:id" component={EditPage} />
+            <PrivateRoute exact path="/products" component={ProductPage} />
             <Route path="/auth/:authType/:id?" component={AuthPage} />
             <Route exact path="/connect/:provider" component={ConnectPage} />
-            <Route exact path="/products" component={ProductPage} />
             <Route path="" component={NotFoundPage} />
           </Switch>
         </div>

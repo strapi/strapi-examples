@@ -6,6 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link }  from 'react-router-dom';
 
 import Table from '../../components/Table';
 // Utils
@@ -23,6 +24,10 @@ class ProductPage extends React.Component {
     this.setState({ products });
   }
 
+  onClick = (id) => {
+    this.props.history.push(`/product/${id}`);
+  }
+
   render() {
     return (
       <div className="productPageWrapper">
@@ -32,13 +37,14 @@ class ProductPage extends React.Component {
               <h1>Products</h1>
             </div>
             <div className="col-md-4 offset-md-4 productPageLink">
-              Create a Product
+              <Link to="/product/create">Create a product</Link>
             </div>
           </div>
           <div className="row">
             <Table
               data={this.state.products}
               headers={['id', 'name', 'pictures', '']}
+              onClick={this.onClick}
             />
           </div>
         </div>
@@ -48,6 +54,9 @@ class ProductPage extends React.Component {
 }
 
 ProductPage.defaultProps = {};
-ProductPage.propTypes = {};
+
+ProductPage.propTypes = {
+  history: PropTypes.object.isRequired,
+};
 
 export default ProductPage;
