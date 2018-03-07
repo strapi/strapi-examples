@@ -27,9 +27,8 @@ class HomePage extends React.Component {
           </Button>
         </div>
         <div>
-          <Link to="/products">
+          <Link to="/product">
             See all products
-
           </Link>
         </div>
       </div>
