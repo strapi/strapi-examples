@@ -12,6 +12,7 @@ import AuthPage from '../../containers/AuthPage';
 import ConnectPage from '../../containers/ConnectPage';
 import HomePage from '../../containers/HomePage';
 import NotFoundPage from '../../containers/NotFoundPage';
+import ProductPage from '../../containers/ProductPage';
 
 // This component ios HoC that prevents the user from accessing a route if he's not logged in
 import PrivateRoute from '../../containers/PrivateRoute';
@@ -29,6 +30,7 @@ class App extends Component {
             <PrivateRoute path="/" component={HomePage} exact />
             <Route path="/auth/:authType/:id?" component={AuthPage} />
             <Route exact path="/connect/:provider" component={ConnectPage} />
+            <Route exact path="/products" component={ProductPage} />
             <Route path="" component={NotFoundPage} />
           </Switch>
         </div>
