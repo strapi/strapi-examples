@@ -28,10 +28,10 @@ class App extends Component {
         <div className="App">
           <Switch>
             {/* A user can't go to the HomePage if is not authenticated */}
-            <PrivateRoute path="/" component={HomePage} exact />
-            <PrivateRoute path="/:contentType/:id" component={EditPage} />
-            <PrivateRoute exact path="/product" component={ProductPage} />
             <Route path="/auth/:authType/:id?" component={AuthPage} />
+            <PrivateRoute path="/" component={HomePage} exact />
+            <PrivateRoute exact path="/product" component={ProductPage} />
+            <PrivateRoute path="/:contentType/:id" component={EditPage} />
             <Route exact path="/connect/:provider" component={ConnectPage} />
             <Route path="" component={NotFoundPage} />
           </Switch>
