@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 // Design
 import InputCheckboxWithErrors from '../../components/InputCheckboxWithErrors';
 import InputEmailWithErrors from '../../components/InputEmailWithErrors';
+import InputFileWithErrors from '../../components/InputFileWithErrors';
 import InputPasswordWithErrors from '../../components/InputPasswordWithErrors';
 import InputTextWithErrors from '../../components/InputTextWithErrors';
 
@@ -21,6 +22,7 @@ const DefaultInputError = ({ type }) => (
 const inputs = {
   checkbox: InputCheckboxWithErrors,
   email: InputEmailWithErrors,
+  file: InputFileWithErrors,
   password: InputPasswordWithErrors,
   string: InputTextWithErrors,
   text: InputTextWithErrors,

@@ -1,0 +1,15 @@
+{
+  "product": [
+    {
+      "name": "name",
+      "type": "string",
+      "validations": {
+        "required": true
+      }
+    },
+    {
+      "name": "pictures",
+      "type": "file"
+    }
+  ]
+}
