@@ -20,7 +20,7 @@ import layout from './layout.json';
 
 import './styles.scss';
 
-// Constant used to send the appropriate data with formData to the server
+// Constant used to when to send the files on the `/upload` instand of `/:contentType` route.
 const FILE_RELATIONS = {
   product: [{ name: 'pictures', multiple: true }],
 };
@@ -38,10 +38,12 @@ class EditPage extends React.Component {
       const { match: { params } } = this.props
       const requestURL = `http://localhost:1337/${params.contentType}/${params.id}`;
       const data = await request(requestURL, { method: 'GET' });
+
       this.setState({ inititalData: data, modifiedData: data });
     }
   }
 
+  // Reset form to its inital value
   cancel = () => this.setState({ modifiedData: this.state.inititalData });
 
   handleChange = (e) => {
@@ -73,7 +75,7 @@ class EditPage extends React.Component {
 
     const method = params.id === 'create' ? 'POST' : 'PUT';
     const requestURL =  params.id === 'create' ? `http://localhost:1337/${params.contentType}`: `http://localhost:1337/${params.contentType}/${params.id}`;
-    request(requestURL, { method, body: body })
+    return request(requestURL, { method, body: body })
       .then(resp => {
         // Send the upload request for each added file
         if (!isEmpty(FILE_RELATIONS[params.contentType])) {
@@ -100,20 +102,21 @@ class EditPage extends React.Component {
               //   console.log(pair[0]+ ', '+ pair[1]);
               // }
 
-              request('http://localhost:1337/upload', { method: 'POST', body, headers: {} }, false)
-              .catch(err => {
-                console.log('error upload', err.response);
+              return request('http://localhost:1337/upload', { method: 'POST', body, headers: {} }, false)
+                .catch(err => {
+                  console.log('error upload', err.response);
               });
             }
           });
-          this.props.history.push(`/${params.contentType}`);
-        } else {
-          this.props.history.push(`/${params.contentType}`);
         }
+
       })
       .catch(err => {
         console.log('err', err.response);
         //  TODO: Handle errors
+      }).finally(() => {
+        // TODO: make sure the redirection happens when all the files have been updated
+        this.props.history.push(`/${params.contentType}`);
       });
   }
 

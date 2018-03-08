@@ -15,6 +15,9 @@
     color: #333740;
     border-collapse: collapse;
     border-top: 1px solid #F1F1F2 !important;
+    > img {
+      max-width: 100%;
+    }
   }
 }
 
