@@ -54,16 +54,19 @@ function formatQueryParams(params) {
 export default function request(
   url,
   options = {},
-  shouldWatchServerRestart = false
+  stringify = true
 ) {
   // Set headers
-  options.headers = Object.assign(
-    {
-      'Content-Type': 'application/json',
-    },
-    options.headers,
-    {}
-  );
+  if (stringify) {
+
+    options.headers = Object.assign(
+      {
+        'Content-Type': 'application/json',
+      },
+      options.headers,
+      {}
+    );
+  }
 
   const token = auth.getToken();
 
@@ -82,7 +85,7 @@ export default function request(
   }
 
   // Stringify body object
-  if (options && options.body) {
+  if (options && options.body && stringify) {
     options.body = JSON.stringify(options.body);
   }
 

@@ -23,7 +23,7 @@
   color: #ff203c;
 }
 
-.headerContainer, span {
+.headerContainer {
   line-height: 36px;
   font-size: 24px;
   font-weight: 600;

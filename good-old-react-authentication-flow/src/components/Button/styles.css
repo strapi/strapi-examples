@@ -17,8 +17,8 @@
 }
 
 .button, span {
-  line-height: 30px !important;
-  font-size: 18px!important;
+  line-height: 30px;
+  font-size: 18px;
 }
 
 .button:focus {

@@ -98,6 +98,8 @@ class InputTextWithErrors extends React.Component {
       spacer = <div />;
     }
 
+    const lStyle = !isEmpty(labelStyle) ? labelStyle : { marginTop: '3px' };
+
     return (
       <div
         className={cn(
@@ -111,7 +113,7 @@ class InputTextWithErrors extends React.Component {
           className={labelClassName}
           htmlFor={name}
           message={label}
-          style={labelStyle}
+          style={lStyle}
         />
         <InputText
           autoFocus={autoFocus}

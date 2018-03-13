@@ -5,6 +5,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Button from '../../components/Button';
 import auth from '../../utils/auth';
@@ -24,6 +25,11 @@ class HomePage extends React.Component {
           >
             Logout
           </Button>
+        </div>
+        <div>
+          <Link to="/product">
+            See all products
+          </Link>
         </div>
       </div>
     );
