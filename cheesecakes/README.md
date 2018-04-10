@@ -18,13 +18,33 @@ git clone git@github.com:strapi/strapi-examples.git
 **2 —** Go to the `cheesecakes` example and install the dependencies.
 ```bash
 cd cheesecakes
-npm install
+npm run setup --plugins
+# It can take few minutes
 ```
 
 **3 —** Start the server.
 ```bash
 npm start
 ```
+
+**4 —** Update permissions.
+
+You have to go in your admin panel and update permission of the `Guest` role (Plugins > Users & Permissions > Guest).
+
+Allow these actions:
+  - App:
+    - Info
+  - Cake:
+    - Count
+    - Find
+    - FindOne
+  - Category:
+    - Find
+    - FindOne
+  - Review:
+    - Submit
+    - Find
+    - FindOne
 
 ## Bootstrap application data
 
