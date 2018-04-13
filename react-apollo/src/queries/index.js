@@ -13,7 +13,6 @@ export const GET_PRODUCT = gql`
 export const GET_PRODUCTS = gql`
   query {
     products {
-
       _id
       name
       description

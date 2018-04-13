@@ -23,7 +23,7 @@ const TableRow = (props) => {
         // Handle navigation to EditPage container
         e.preventDefault();
         e.stopPropagation();
-        props.onClick(props.data.id);
+        props.onClick(props.data._id || props.data.id);
       }}
     >
       {props.headers.map(header => {
@@ -47,7 +47,7 @@ const TableRow = (props) => {
               e.preventDefault()
               e.stopPropagation();
             }}>
-              <Link to={`/form/product/${props.data.id}`}>Edit</Link>
+              <Link to={`/form/product/${props.data.id || props.data._id}`}>Edit</Link>
             </td>
           );
         }

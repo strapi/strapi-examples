@@ -17,6 +17,7 @@ const ProductDetailsPage = (props) => {
         if (loading) {
           return null;
         }
+
         if (error) {
           return `Error: ${error}`;
         }
