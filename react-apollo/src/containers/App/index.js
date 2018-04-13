@@ -32,7 +32,7 @@ class App extends Component {
             {/* A user can't go to the HomePage if is not authenticated */}
             <Route path="/auth/:authType/:id?" component={AuthPage} />
             <PrivateRoute path="/" component={HomePage} exact />
-            <PrivateRoute exact path="/product" component={ProductsPage} />
+            <PrivateRoute exact path="/products" component={ProductsPage} />
             <PrivateRoute exact path="/product/:id" component={ProductDetailsPage} />
             <PrivateRoute path="/form/:contentType/:id" component={EditPage} />
             <Route exact path="/connect/:provider" component={ConnectPage} />
