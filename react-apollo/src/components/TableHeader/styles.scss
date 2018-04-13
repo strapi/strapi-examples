@@ -1,0 +1,17 @@
+.tableHeader {
+  background: #F3F3F3;
+  height: 41px;
+  overflow: hidden;
+
+  th{
+    height: 41px;
+    border: none !important;
+    letter-spacing: 0.3px;
+    font-size: 13px;
+    vertical-align: middle !important;
+    > span {
+      position: relative;
+      cursor: pointer;
+    }
+  }
+}
