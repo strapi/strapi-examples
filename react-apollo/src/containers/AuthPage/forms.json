@@ -1,0 +1,105 @@
+{
+  "views": {
+    "forgot-password": [
+      {
+        "customBootstrapClass": "col-md-12",
+        "label": "Enter your email",
+        "name": "email",
+        "type": "email",
+        "placeholder": "johndoe@gmail.com"
+      }
+    ],
+    "login": [
+      {
+        "customBootstrapClass": "col-md-12",
+        "label": "Username",
+        "name": "identifier",
+        "type": "text",
+        "placeholder": "johndoe@gmail.com"
+      },
+      {
+        "customBootstrapClass": "col-md-12",
+        "label": "Password",
+        "name": "password",
+        "type": "password"
+      },
+      {
+        "customBootstrapClass": "col-md-6",
+        "label": "Remember me",
+        "name": "rememberMe",
+        "type": "checkbox"
+      }
+    ],
+    "register": [
+      {
+        "customBootstrapClass": "col-md-12",
+        "label": "Username",
+        "name": "username",
+        "type": "text",
+        "placeholder": "Bob"
+      },
+      {
+        "customBootstrapClass": "col-md-12",
+        "label": "Password",
+        "name": "password",
+        "type": "password"
+      },
+      {
+        "customBootstrapClass": "col-md-12",
+        "label": "Confirm Password",
+        "name": "confirmPassword",
+        "type": "password"
+      },
+      {
+        "customBootstrapClass": "col-md-12",
+        "label": "Email",
+        "name": "email",
+        "placeholder": "johndoe@gmail.com",
+        "type": "email"
+      }
+    ],
+    "reset-password": [
+      {
+        "customBootstrapClass": "col-md-12",
+        "name": "password",
+        "type": "password",
+        "label": "Password"
+      },
+      {
+        "customBootstrapClass": "col-md-12",
+        "name": "passwordConfirmation",
+        "type": "password",
+        "label": "Confirm Password"
+      }
+    ]
+  },
+  "data": {
+    "login": {
+      "value": {
+        "identifier": "",
+        "password": "",
+        "rememberMe": false
+      }
+    },
+    "forgot-password": {
+      "value": {
+        "email": ""
+      }
+    },
+    "register": {
+      "value": {
+        "username": "",
+        "password": "",
+        "confirmPassword": "",
+        "email": ""
+      }
+    },
+    "reset-password": {
+      "value": {
+        "password": "",
+        "passwordConfirmation": "",
+        "code": ""
+      }
+    }
+  }
+}

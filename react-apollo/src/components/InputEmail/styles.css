@@ -1,0 +1,67 @@
+.addonEmail {
+ width: 34px;
+ height: 34px;
+ margin-top: 9px;
+ padding-left: 9px;
+ background-color: rgba(16, 22, 34, 0.02);
+ border: 1px solid #E3E9F3;
+ border-right: 0;
+ border-radius: 2.5px;
+ color: rgba(16, 22, 34, 0.5);
+ line-height: 32px;
+ font-size: 13px;
+ font-weight: 600!important;
+ text-transform: capitalize;
+ -moz-appearance: none;
+ -webkit-appearance: none;
+ -webkit-font-smoothing: antialiased;
+}
+
+.addonEmail::after {
+  content: '@';
+  display: inline-table;
+  color: #B3B5B9;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.inputEmailContainer {
+  min-width: 200px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.errorAddon {
+  border: 1px solid #ff203c!important;
+  border-right: none!important;
+}
+
+.addonFocus {
+  border-color: #78caff;
+  border-right: 0;
+}
+
+.invalidEmail {
+  border-color: #ff203c !important;
+  border-left: 0;
+}
+
+.inputEmail {
+  height: 34px;
+  margin-top: 9px;
+  padding-left: 10px;
+  background-size: 0 !important;
+  border: 1px solid #E3E9F3;
+  border-left: 0px !important;
+  border-radius: 2.5px;
+  line-height: 34px;
+  font-size: 13px;
+  font-family: 'Lato' !important;
+  box-shadow: 0px 1px 1px rgba(104, 118, 142, 0.05);
+}
+
+.inputEmail:focus {
+  border-color: #78caff;
+  outline: 0;
+  box-shadow: none !important;
+}

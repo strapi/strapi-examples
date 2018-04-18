@@ -1,0 +1,25 @@
+.inputCheckboxContainer {
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.spacer {
+  height: 5px;
+}
+
+.inputCheckboxDescriptionContainer {
+  width: 150%;
+  margin-top: 2px;
+  padding-left: 25px;
+  line-height: 12px;
+
+  small {
+    color: #9EA7B8;
+    font-size: 12px;
+  }
+}
+
+.inputTitle {
+  margin-bottom: 17px;
+  font-weight: 500;
+}
