@@ -1,12 +1,14 @@
-# React create app boilerplate
+# React Apollo
 
-This boilerplate has all the authentication flow implemented.
+This boilerplate uses the GraphQL API when the GraphQL plugin is installed in your project.
 
 ``` bash
-cd good-old-react-authentication-flow
+cd react-apollo
 npm install
 npm start
 ```
+
+> ⚠️  Make sure you're using MongoDB as a database.
 
 
 ## Testing the upload feature

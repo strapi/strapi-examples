@@ -20,6 +20,8 @@
    `Tags` auth, react
 - **[Create-React-App](./good-old-react-authentication-flow) -** *Basic React App Boilerplate that has the authentication with local and custom providers.* <br />
    `Tags` auth, react
+- **[React-Apollo](./react-apollo) -** *Basic React App Boilerplate that use the GraphQL API when the GraphQL plugin is installed in your project.* <br />
+  `Tags` auth, react
 
 ## Contributing
 
