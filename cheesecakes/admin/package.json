@@ -1,56 +1,90 @@
 {
-  "_from": "strapi-admin@3.0.0-alpha.9",
-  "_id": "strapi-admin@3.0.0-alpha.9",
-  "_inBundle": false,
-  "_integrity": "sha512-H4nR7MAktooDJJPQeqvZYSPYTz4ZxugORcpZFxSocqEXiI0Lzd8cvQaqZYC923KdRy7SYqhVsbwZ9V5qU6/eng==",
+  "_args": [
+    [
+      {
+        "raw": "strapi-admin@3.0.0-alpha.11.3",
+        "scope": null,
+        "escapedName": "strapi-admin",
+        "name": "strapi-admin",
+        "rawSpec": "3.0.0-alpha.11.3",
+        "spec": "3.0.0-alpha.11.3",
+        "type": "version"
+      },
+      "/usr/local/lib/node_modules/strapi/node_modules/strapi-generate-admin"
+    ]
+  ],
+  "_from": "strapi-admin@3.0.0-alpha.11.3",
+  "_id": "strapi-admin@3.0.0-alpha.11.3",
+  "_inCache": true,
   "_location": "/strapi/strapi-admin",
+  "_nodeVersion": "9.4.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/strapi-admin_3.0.0-alpha.11.3_1522931065403_0.4226827134256568"
+  },
+  "_npmUser": {
+    "name": "strapi",
+    "email": "support@strapi.io"
+  },
+  "_npmVersion": "5.1.0",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "strapi-admin@3.0.0-alpha.9",
-    "name": "strapi-admin",
+    "raw": "strapi-admin@3.0.0-alpha.11.3",
+    "scope": null,
     "escapedName": "strapi-admin",
-    "rawSpec": "3.0.0-alpha.9",
-    "saveSpec": null,
-    "fetchSpec": "3.0.0-alpha.9"
+    "name": "strapi-admin",
+    "rawSpec": "3.0.0-alpha.11.3",
+    "spec": "3.0.0-alpha.11.3",
+    "type": "version"
   },
   "_requiredBy": [
     "/strapi/strapi-generate-admin"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.0.0-alpha.9.tgz",
-  "_shasum": "039e62983177851e14b496c3dffa3177d2c8fd81",
-  "_spec": "strapi-admin@3.0.0-alpha.9",
-  "_where": "/Users/jimlaurie/.nvm/versions/node/v9.4.0/lib/node_modules/strapi/node_modules/strapi-generate-admin",
+  "_resolved": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.0.0-alpha.11.3.tgz",
+  "_shasum": "88626f9fc36d431a92a1c411c16506907f37fb7f",
+  "_shrinkwrap": null,
+  "_spec": "strapi-admin@3.0.0-alpha.11.3",
+  "_where": "/usr/local/lib/node_modules/strapi/node_modules/strapi-generate-admin",
   "author": {
     "name": "Strapi"
   },
   "bugs": {
     "url": "https://github.com/strapi/strapi-admin/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
+    "react-ga": "^2.4.1",
     "shelljs": "^0.7.8"
   },
-  "deprecated": false,
   "description": "Strapi Admin",
   "devDependencies": {
     "sanitize.css": "^4.1.0",
-    "strapi-helper-plugin": "3.0.0-alpha.9",
-    "strapi-utils": "3.0.0-alpha.9"
+    "strapi-helper-plugin": "3.0.0-alpha.11.3",
+    "strapi-utils": "3.0.0-alpha.11.3"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-DoMx8qY6qkPxEyp4107xtphemXUXmToj+23Qo4SrPD9VbGFomOreEIBlPjH2FnHvfxTK/hV8tD9gIPbtMZKQIQ==",
+    "shasum": "88626f9fc36d431a92a1c411c16506907f37fb7f",
+    "tarball": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.0.0-alpha.11.3.tgz",
+    "fileCount": 336,
+    "unpackedSize": 23387690
   },
   "engines": {
-    "node": ">= 8.0.0",
+    "node": ">= 9.0.0",
     "npm": ">= 3.0.0"
   },
   "homepage": "https://github.com/strapi/strapi-admin#readme",
   "license": "MIT",
   "maintainers": [
     {
-      "name": "Strapi"
+      "name": "strapi",
+      "email": "support@strapi.io"
     }
   ],
   "name": "strapi-admin",
+  "optionalDependencies": {},
+  "readme": "# Strapi built-in admin panel\n\n## Description\n\nTODO\n\n## Contribute\n\n### Setup\n\nCreate a new Strapi project: `strapi new myApp`.\n\nGo in your project: `cd myApp`.\n\nRemove the generated admin panel: `rm -rf admin`.\n\nCreate a symlink in order to be able to easily develop the admin panel from your generated\nStrapi application: `ln -s /usr/local/lib/node_modules/strapi-generate-admin admin`\n(supposing `/usr/local/lib/node_modules` is your global node modules folder).\n\n### Development\n\nStart the React application: `cd myApp/admin`, then `npm start`.\n\nThe admin panel should now be available at [http://localhost:4000](http://localhost:4000).\n\n### Build\n\nIn order to check your updates, you can build the admin panel: `cd myApp`, then `npm run build`.\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git://github.com/strapi/strapi-admin.git"
@@ -71,5 +105,5 @@
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development PORT=4000 IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/server",
     "test": "npm run lint"
   },
-  "version": "3.0.0-alpha.9"
+  "version": "3.0.0-alpha.11.3"
 }

@@ -9,6 +9,18 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/currentEnvironment",
+      "handler": "Admin.getCurrentEnvironment",
+      "policies": []
+    },
+    {
+      "method": "GET",
+      "path": "/gaConfig",
+      "handler": "Admin.getGaConfig",
+      "policies": []
+    },
+    {
       "method": "POST",
       "path": "/plugins/install",
       "handler": "Admin.installPlugin",

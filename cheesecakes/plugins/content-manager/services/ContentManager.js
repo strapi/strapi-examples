@@ -8,29 +8,70 @@ const _ = require('lodash');
 
 module.exports = {
   fetchAll: async (params, query) => {
-    const { limit, skip = 0, sort, query : request, queryAttribute, source, page } = query;
+    const { limit, skip = 0, sort, query : request, queryAttribute, source, page, populate = [] } = query;
 
     // Find entries using `queries` system
     return await strapi.query(params.model, source).find({
       limit,
       skip,
       sort,
-      query: request,
-      queryAttribute
-    });
+      where: request,
+      queryAttribute,
+    }, populate);
   },
 
   count: async (params, source) => {
     return await strapi.query(params.model, source).count();
   },
 
-  fetch: async (params, source) => {
+  fetch: async (params, source, populate, raw = true) => {
     return await strapi.query(params.model, source).findOne({
       id: params.id
-    });
+    }, populate, raw);
   },
 
   add: async (params, values, source) => {
+    // Multipart/form-data.
+    if (values.hasOwnProperty('fields') && values.hasOwnProperty('files')) {
+      // Silent recursive parser.
+      const parser = (value) => {
+        try {
+          value = JSON.parse(value);
+        } catch (e) {
+          // Silent.
+        }
+
+        return _.isArray(value) ? value.map(obj => parser(obj)) : value;
+      };
+
+      const files = values.files;
+
+      // Parse stringify JSON data.
+      values = Object.keys(values.fields).reduce((acc, current) => {
+        acc[current] = parser(values.fields[current]);
+
+        return acc;
+      }, {});
+
+      // Update JSON fields.
+      const entry = await strapi.query(params.model, source).create({
+        values
+      });
+
+      // Then, request plugin upload.
+      if (strapi.plugins.upload && Object.keys(files).length > 0) {
+        // Upload new files and attach them to this entity.
+        await strapi.plugins.upload.services.upload.uploadToEntity({
+          id: entry.id || entry._id,
+          model: params.model
+        }, files, source);
+      }
+
+      return strapi.query(params.model, source).findOne({
+        id: entry.id || entry._id
+      });
+    }
+
     // Create an entry using `queries` system
     return await strapi.query(params.model, source).create({
       values
@@ -38,6 +79,46 @@ module.exports = {
   },
 
   edit: async (params, values, source) => {
+    // Multipart/form-data.
+    if (values.hasOwnProperty('fields') && values.hasOwnProperty('files')) {
+      // Silent recursive parser.
+      const parser = (value) => {
+        try {
+          value = JSON.parse(value);
+        } catch (e) {
+          // Silent.
+        }
+
+        return _.isArray(value) ? value.map(obj => parser(obj)) : value;
+      };
+
+      const files = values.files;
+
+      // Parse stringify JSON data.
+      values = Object.keys(values.fields).reduce((acc, current) => {
+        acc[current] = parser(values.fields[current]);
+
+        return acc;
+      }, {});
+
+      // Update JSON fields.
+      await strapi.query(params.model, source).update({
+        id: params.id,
+        values
+      });
+
+      // Then, request plugin upload.
+      if (strapi.plugins.upload) {
+        // Upload new files and attach them to this entity.
+        await strapi.plugins.upload.services.upload.uploadToEntity(params, files, source);
+      }
+
+      return strapi.query(params.model, source).findOne({
+        id: params.id
+      });
+    }
+
+    // Raw JSON.
     return strapi.query(params.model, source).update({
       id: params.id,
       values

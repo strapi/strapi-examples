@@ -35,6 +35,13 @@
     }
   },
   {
+    "id": "upload",
+    "source": {
+      "development": "/upload/main.js",
+      "production": "/upload/main.js"
+    }
+  },
+  {
     "id": "users-permissions",
     "source": {
       "development": "/users-permissions/main.js",

@@ -8,7 +8,8 @@
   position: relative;
   margin: auto 0;
   text-align: center;
-  border: 1px solid rgba(28,93,231,0.1);
+  background: #FAFAFB;
+  border: 1px solid #F3F3F7;
   border-radius: 3px;
   font-size: 20px;
 
@@ -63,4 +64,11 @@
   display: inline-block;
   height: 100%;
   vertical-align: middle;
+}
+
+.icoWrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
 }

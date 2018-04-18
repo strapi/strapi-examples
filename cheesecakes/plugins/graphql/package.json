@@ -1,0 +1,71 @@
+{
+  "_from": "strapi-plugin-graphql@alpha",
+  "_id": "strapi-plugin-graphql@3.0.0-alpha.12",
+  "_inBundle": false,
+  "_integrity": "sha512-bwfuoeSrNwcrMPsa42YEheLlZ9iS4MThekiQ+X8ymUnY5wY7ZBlPOHRfbSnq6gfjk97x+RDtyRCqkeusSPR+WA==",
+  "_location": "/strapi-plugin-graphql",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "strapi-plugin-graphql@alpha",
+    "name": "strapi-plugin-graphql",
+    "escapedName": "strapi-plugin-graphql",
+    "rawSpec": "alpha",
+    "saveSpec": null,
+    "fetchSpec": "alpha"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.12.tgz",
+  "_shasum": "7d8c8a948e177c1d5701c40017223c7325d50471",
+  "_spec": "strapi-plugin-graphql@alpha",
+  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/cheesecakes",
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "apollo-server-koa": "^1.3.3",
+    "glob": "^7.1.2",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^2.23.1",
+    "graphql-type-json": "^0.2.0",
+    "pluralize": "^7.0.0",
+    "strapi-utils": "3.0.0-alpha.12"
+  },
+  "deprecated": false,
+  "description": "This is the description of the plugin.",
+  "engines": {
+    "node": ">= 9.0.0",
+    "npm": ">= 5.3.0"
+  },
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "A Strapi developer"
+    }
+  ],
+  "name": "strapi-plugin-graphql",
+  "scripts": {
+    "analyze": "node ./node_modules/strapi-helper-plugin/lib/internals/scripts/analyze.js",
+    "analyze:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf stats.json",
+    "build": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=production node node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "build:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
+    "build:dev": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "generate": "node ./node_modules/plop/plop.js --plopfile node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
+    "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern '/admin/build/' --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
+    "preanalyze": "npm run analyze:clean",
+    "prebuild": "npm run build:clean && npm run test",
+    "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
+    "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
+    "test": "npm run lint"
+  },
+  "strapi": {
+    "name": "graphql",
+    "icon": "plug",
+    "description": "Description of graphql plugin."
+  },
+  "version": "3.0.0-alpha.12"
+}

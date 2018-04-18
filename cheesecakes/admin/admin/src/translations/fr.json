@@ -1,4 +1,7 @@
 {
+  "app.components.Button.save": "Save",
+  "app.components.Button.cancel": "Cancel",
+
   "app.components.ComingSoonPage.comingSoon": "Bientôt disponible",
   "app.components.ComingSoonPage.featuresNotAvailable": "Cette fonctionnalité est toujours en cours de développement.",
 
@@ -11,8 +14,17 @@
   "app.components.HomePage.button": "Créez votre premier type de contenu",
   "app.components.HomePage.feedback": "N'hésitez pas à utiliser un des channels ci-dessous pour poser vos questions ou nous donner vos retours.",
 
-  "app.components.InstallPluginPage.helmet": "Installez des plugins",
-  "app.components.InstallPluginPage.title": "Installez des nouveaux plugins",
+  "app.components.ImgPreview.hint": "Drag & drop dans cette zone ou {browse} un fichier à télécharger",
+  "app.components.ImgPreview.hint.browse": "recherchez",
+
+  "app.components.InputFile.newFile": "Ajouter un  nouveau fichier",
+  "app.components.InputFileDetails.remove": "Supprimer ce fichier",
+  "app.components.InputFileDetails.open": "Ouvrir dans une nouvelle fenêtre",
+  "app.components.InputFileDetails.originalName": "Nom d'origine:",
+  "app.components.InputFileDetails.size": "Taille:",
+
+  "app.components.InstallPluginPage.helmet": "Marketplace - Plugins",
+  "app.components.InstallPluginPage.title": "Marketplace - Plugins",
   "app.components.InstallPluginPage.description": "Améliorez votre app sans efforts",
   "app.components.InstallPluginPage.plugin.support-us.description": "Soutenez-nous en achetant un Strapi tee shirt. Cela nous aidera a continuer de travailler sur le projet pour vous donner la meilleure expérience possible!",
   "app.components.InstallPluginPage.InputSearch.label": " ",
@@ -26,10 +38,10 @@
   "app.components.InstallPluginPopup.noDescription": "Aucune description disponible",
 
   "app.components.LeftMenuFooter.poweredBy": "Propulsé par",
-  "app.components.LeftMenuLinkContainer.configuration": "Configuration",
+  "app.components.LeftMenuLinkContainer.configuration": "Configurations",
   "app.components.LeftMenuLinkContainer.general": "Général",
-  "app.components.LeftMenuLinkContainer.installNewPlugin": "Installer un nouveau plugin",
-  "app.components.LeftMenuLinkContainer.listPlugins": "Liste des plugins",
+  "app.components.LeftMenuLinkContainer.installNewPlugin": "Marketplaces",
+  "app.components.LeftMenuLinkContainer.listPlugins": "Plugins",
   "app.components.LeftMenuLinkContainer.noPluginsInstalled": "Aucun plugin installé",
   "app.components.LeftMenuLinkContainer.plugins": "Plugins",
 
@@ -55,6 +67,10 @@
   "app.components.PluginCard.price.free": "Gratuit",
   "app.components.PluginCard.more-details": "Plus de détails",
 
+  "app.utils.placeholder.defaultMessage": "\u0020",
+  "app.utils.SelectOption.defaultMessage": "\u0020",
+  "app.utils.defaultMessage": "\u0020",
+
   "components.AutoReloadBlocker.header": "L'autoReload doit être activé pour ce plugin.",
   "components.AutoReloadBlocker.description": "Ouvrez le fichier suivant pour activer cette fonctionnalité.",
 
@@ -62,6 +78,8 @@
   "components.OverlayBlocker.description": "Vous utilisez une fonctionnalité qui nécessite le redémarrage du server. Merci d'attendre que celui-ci ait redémarré.",
 
   "components.ErrorBoundary.title": "Une erreur est survenue...",
+
+  "components.PageFooter.select": "entrées par page",
 
   "components.ProductionBlocker.header": "Ce plugin est disponible uniquement en développement.",
   "components.ProductionBlocker.description": "Pour des raisons de sécurité il est désactivé dans les autres environnements.",

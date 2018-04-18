@@ -35,6 +35,7 @@ import {
   deleteData,
   fetchData,
   onChange,
+  resetProps,
   setDataToEdit,
   setFormErrors,
   submit,
@@ -92,6 +93,7 @@ export class HomePage extends React.Component {
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyBoardShortCut);
     document.removeEventListener('keyup', this.handleKeyBoardShortCut);
+    this.props.resetProps();
   }
 
   handleKeyBoardShortCut = (e) => {
@@ -122,7 +124,7 @@ export class HomePage extends React.Component {
     e.preventDefault();
     const modifiedObject = get(this.props.modifiedData, this.props.dataToEdit);
     const initObject = get(this.props.initialData, this.props.dataToEdit);
-    const formErrors = checkFormValidity(this.props.match.params.settingType, modifiedObject);
+    const formErrors = checkFormValidity(this.props.match.params.settingType, modifiedObject, this.props.dataToEdit);
 
     if (isEqual(initObject, modifiedObject)) {
       return this.props.unsetDataToEdit();
@@ -219,6 +221,7 @@ HomePage.propTypes = {
   match: PropTypes.object.isRequired,
   modifiedData: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
+  resetProps: PropTypes.func.isRequired,
   setDataToEdit: PropTypes.func.isRequired,
   setFormErrors: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,
@@ -233,6 +236,7 @@ function mapDispatchToProps(dispatch) {
       deleteData,
       fetchData,
       onChange,
+      resetProps,
       setDataToEdit,
       setFormErrors,
       submit,

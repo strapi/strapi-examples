@@ -90,7 +90,6 @@ module.exports = {
     } catch(error) {
       ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: error.message, field: error.field }] }] : error.message);
     }
-
   },
 
   /**
@@ -131,7 +130,7 @@ module.exports = {
           email: ctx.request.body.email
         });
 
-        if ((user.id || user._id).toString() !== ctx.params.id) {
+        if (user !== null && (user.id || user._id).toString() !== ctx.params.id) {
           return ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: 'Auth.form.error.email.taken' }] }] : 'Email is already taken.');
         }
       }

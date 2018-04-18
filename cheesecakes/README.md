@@ -18,6 +18,7 @@ git clone git@github.com:strapi/strapi-examples.git
 **2 —** Go to the `cheesecakes` example and install the dependencies.
 ```bash
 cd cheesecakes
+npm install
 npm run setup --plugins
 # It can take few minutes
 ```

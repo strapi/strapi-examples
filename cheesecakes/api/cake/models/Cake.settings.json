@@ -30,13 +30,11 @@
     "categories": {
       "collection": "category",
       "via": "cakes",
-      "dominant": true,
-      "plugin": ""
+      "dominant": true
     },
     "comments": {
       "collection": "review",
-      "via": "cake",
-      "plugin": ""
+      "via": "cake"
     }
   }
 }

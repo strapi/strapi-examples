@@ -1,10 +1,16 @@
 const _ = require('lodash');
 
 module.exports = {
-  find: async function (params) {
+  find: async function (params, populate) {
     return this.query(function(qb) {
       _.forEach(params.where, (where, key) => {
-        qb.where(key, where[0].symbol, where[0].value);
+        if (_.isArray(where.value)) {
+          for (const value in where.value) {
+            qb[value ? 'where' : 'orWhere'](key, where.symbol, where.value[value])
+          }
+        } else {
+          qb.where(key, where.symbol, where.value);
+        }
       });
 
       if (params.sort) {
@@ -19,7 +25,7 @@ module.exports = {
         qb.limit(_.toNumber(params.limit));
       }
     }).fetchAll({
-      withRelated: this.associations.map(x => x.alias)
+      withRelated: populate || this.associations.map(x => x.alias)
     });
   },
 
@@ -29,36 +35,60 @@ module.exports = {
       .count();
   },
 
-  findOne: async function (params) {
+  findOne: async function (params, populate, raw = true) {
     const record = await this
       .forge({
         [this.primaryKey]: params[this.primaryKey]
       })
       .fetch({
-        withRelated: this.associations.map(x => x.alias)
+        withRelated: populate || this.associations.map(x => x.alias)
       });
 
-    return record ? record.toJSON() : record;
+    const data = record ? record.toJSON() : record;
+
+    // Retrieve data manually.
+    if (_.isEmpty(populate)) {
+      const arrayOfPromises = this.associations
+        .filter(association => ['manyMorphToOne', 'manyMorphToMany'].includes(association.nature))
+        .map(association => {
+          return this.morph.forge()
+            .where({
+              [`${this.collectionName}_id`]: params[this.primaryKey]
+            })
+            .fetchAll()
+        });
+
+      const related = await Promise.all(arrayOfPromises);
+
+      related.forEach((value, index) => {
+        data[this.associations[index].alias] = value ? value.toJSON() : value;
+      });
+    }
+
+    return data;
   },
 
   create: async function (params) {
-    const entry = await this
-      .forge(Object.keys(params.values).reduce((acc, current) => {
-      if (this._attributes[current].type) {
+    // Exclude relationships.
+    const values = Object.keys(params.values).reduce((acc, current) => {
+      if (this._attributes[current] && this._attributes[current].type) {
         acc[current] = params.values[current];
       }
 
       return acc;
-    }, {}))
-      .save()
-    .catch((err) => {
-      if (err.detail) {
-        const field = _.last(_.words(err.detail.split('=')[0]));
-        err = { message: `This ${field} is already taken`, field };
-      }
+    }, {});
 
-      throw err;
-    });
+    const entry = await this
+      .forge(values)
+      .save()
+      .catch((err) => {
+        if (err.detail) {
+          const field = _.last(_.words(err.detail.split('=')[0]));
+          err = { message: `This ${field} is already taken`, field };
+        }
+
+        throw err;
+      });
 
     return module.exports.update.call(this, {
       [this.primaryKey]: entry[this.primaryKey],
@@ -137,7 +167,7 @@ module.exports = {
           case 'oneToMany':
           case 'manyToOne':
           case 'manyToMany':
-            if (details.dominant === true) {
+            if (association.nature === 'manyToMany' && details.dominant === true) {
               acc[current] = params.values[current];
             } else if (response[current] && _.isArray(response[current]) && current !== 'id') {
               // Records to add in the relation.
@@ -174,6 +204,74 @@ module.exports = {
               acc[current] = params.values[current];
             }
 
+            break;
+          case 'manyMorphToMany':
+          case 'manyMorphToOne':
+            // Update the relational array.
+            params.values[current].forEach(obj => {
+              const model = obj.source && obj.source !== 'content-manager' ?
+                strapi.plugins[obj.source].models[obj.ref]:
+                strapi.models[obj.ref];
+
+              virtualFields.push(module.exports.addRelationMorph.call(this, {
+                id: response[this.primaryKey],
+                alias: association.alias,
+                ref: model.collectionName,
+                refId: obj.refId,
+                field: obj.field
+              }));
+            });
+            break;
+          case 'oneToManyMorph':
+          case 'manyToManyMorph':
+            const transformToArrayID = (array) => {
+              if(_.isArray(array)) {
+                return array.map(value => {
+                  if (_.isPlainObject(value)) {
+                    return value._id || value.id;
+                  }
+
+                  return value;
+                })
+              }
+
+              if (association.type === 'model') {
+                return _.isEmpty(array) ? [] : transformToArrayID([array]);
+              }
+
+              return [];
+            };
+
+            // Compare array of ID to find deleted files.
+            const currentValue = transformToArrayID(response[current]).map(id => id.toString());
+            const storedValue = transformToArrayID(params.values[current]).map(id => id.toString());
+
+            const toAdd = _.difference(storedValue, currentValue);
+            const toRemove = _.difference(currentValue, storedValue);
+
+            toAdd.forEach(id => {
+              virtualFields.push(strapi.query(details.model || details.collection, details.plugin).addRelationMorph({
+                id,
+                alias: association.via,
+                ref: this.collectionName,
+                refId: response.id,
+                field: association.alias
+              }));
+            });
+
+            // Update the relational array.
+            toRemove.forEach(id => {
+              virtualFields.push(strapi.query(details.model || details.collection, details.plugin).removeRelationMorph({
+                id,
+                alias: association.via,
+                ref: this.collectionName,
+                refId: response.id,
+                field: association.alias
+              }));
+            });
+            break;
+          case 'oneMorphToOne':
+          case 'oneMorphToMany':
             break;
           default:
         }
@@ -252,5 +350,43 @@ module.exports = {
         // Resolve silently.
         return Promise.resolve();
     }
+  },
+
+  addRelationMorph: async function (params) {
+    const record = await this.morph.forge()
+      .where({
+        [`${this.collectionName}_id`]: params.id,
+        [`${params.alias}_id`]: params.refId,
+        [`${params.alias}_type`]: params.ref,
+        field: params.field
+      })
+      .fetch({
+        withRelated: this.associations.map(x => x.alias)
+      });
+
+    const entry = record ? record.toJSON() : record;
+
+    if (entry) {
+      return Promise.resolve();
+    }
+
+    return await this.morph.forge({
+        [`${this.collectionName}_id`]: params.id,
+        [`${params.alias}_id`]: params.refId,
+        [`${params.alias}_type`]: params.ref,
+        field: params.field
+      })
+      .save();
+  },
+
+  removeRelationMorph: async function (params) {
+    return await this.morph.forge()
+      .where({
+        [`${this.collectionName}_id`]: params.id,
+        [`${params.alias}_id`]: params.refId,
+        [`${params.alias}_type`]: params.ref,
+        field: params.field
+      })
+      .destroy();
   }
 };

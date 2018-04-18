@@ -1,27 +1,50 @@
 {
+  "_args": [
+    [
+      {
+        "raw": "strapi-plugin-content-manager@alpha",
+        "scope": null,
+        "escapedName": "strapi-plugin-content-manager",
+        "name": "strapi-plugin-content-manager",
+        "rawSpec": "alpha",
+        "spec": "alpha",
+        "type": "tag"
+      },
+      "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/test"
+    ]
+  ],
   "_from": "strapi-plugin-content-manager@alpha",
-  "_id": "strapi-plugin-content-manager@3.0.0-alpha.10.1",
-  "_inBundle": false,
-  "_integrity": "sha512-kchyhR/u/RPTdEdB+FACGRES42nHVye2WvUJgO9Cxlc9dflBJIO1/R7O9BxVP+EA26TdmXwxTX0XOlmQdvUaxw==",
+  "_id": "strapi-plugin-content-manager@3.0.0-alpha.12",
+  "_inCache": true,
   "_location": "/strapi-plugin-content-manager",
+  "_nodeVersion": "9.4.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/strapi-plugin-content-manager_3.0.0-alpha.12_1524046668531_0.40241631606266814"
+  },
+  "_npmUser": {
+    "name": "strapi",
+    "email": "support@strapi.io"
+  },
+  "_npmVersion": "5.1.0",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
-    "registry": true,
     "raw": "strapi-plugin-content-manager@alpha",
-    "name": "strapi-plugin-content-manager",
+    "scope": null,
     "escapedName": "strapi-plugin-content-manager",
+    "name": "strapi-plugin-content-manager",
     "rawSpec": "alpha",
-    "saveSpec": null,
-    "fetchSpec": "alpha"
+    "spec": "alpha",
+    "type": "tag"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.10.1.tgz",
-  "_shasum": "15e8d89c9b688054423eec1f05ac26185c7747f1",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.12.tgz",
+  "_shasum": "661761901b034857d9ac6f8bd75eba96f4daff02",
+  "_shrinkwrap": null,
   "_spec": "strapi-plugin-content-manager@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/projects/test",
+  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/test",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -30,27 +53,37 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
-  "bundleDependencies": false,
-  "deprecated": false,
+  "dependencies": {},
   "description": "A powerful UI to easily manage your data.",
   "devDependencies": {
     "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.10.1"
+    "strapi-helper-plugin": "3.0.0-alpha.12"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-IS8IUoylNj0GuDAVEIhudmsNL2MZbQhATbdtC+e6dn2wlceEDFZQb03Co1SFsXfFfCYPTubokisY5t2YuzdAWA==",
+    "shasum": "661761901b034857d9ac6f8bd75eba96f4daff02",
+    "tarball": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.12.tgz",
+    "fileCount": 99,
+    "unpackedSize": 1780850,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa1xtNCRA9TVsSAnZWagAAwCoP/RShPJi9V10g3VJMMdTm\nQAcVqw+nK344lWK9UQSKGet9oC0/gT6lhIkY3zxaUmb04Wvlk8IINC2hejET\nJLRmOlF9kaHqcEBrLlD/Bwfk01K0uerTIzjxFMxKm1J4awMirW5b6SSkVnpq\ndULBLvgdIMTgzNkmRxqba6zSYPAZ3Ab6ZbziM+ZF0WAM/7R8x4PesSlO1aso\na9AFXMRrP3lsNF2zAKjgJwXxwNE1X/3sER0aBjoAxWJtE0oRm751SEotOkAz\nOma9d+mt12b6veWcj2iBWenOxZl/8sAQhPHnghb964K7+ACEsT5rOT85m+XH\n9dPrmfe6gloKlf5Zw/N6U96bRoL6gSYDMTisWDg7Hy/KxhK5Z1PNl4vKSGZW\ni7HPeJSTIINOSpt0pPcNPQNX9qmHa3t9zPHnh7vePYYvbVSJ7E2pIVpgkm2h\nL1rzzg+M33c9IJP2n17HjZBwth8HEZ/MX4MUiKThqZkZe94SekTUpp9FN+q/\nKEv0YxUOSCtnvcKRP47FCmX4xOZxENQ8i8/oM0lmD+A0KlvZqOIPnkC824SA\nkPCrlJTCZkQBsj3Op/zzQjHHzIHfyi22YbsrkCrB6hcQJd1ShfOioAYtLUin\n6OeO+mnTssSqISrw1noyCNrZ8xUYml7cgDPSXGT7VQ+DlGx7vq8FDvF1W1eI\nwhyN\r\n=eP7D\r\n-----END PGP SIGNATURE-----\r\n"
   },
   "engines": {
-    "node": ">= 8.0.0",
+    "node": ">= 9.0.0",
     "npm": ">= 3.0.0"
   },
   "homepage": "https://github.com/strapi/strapi#readme",
   "license": "MIT",
   "maintainers": [
     {
-      "name": "Strapi team",
-      "email": "hi@strapi.io",
-      "url": "http://strapi.io"
+      "name": "strapi",
+      "email": "support@strapi.io"
     }
   ],
   "name": "strapi-plugin-content-manager",
+  "optionalDependencies": {},
+  "readme": "# Strapi Content Manager\n\n## Description\n\nThis plugin allows you to manage your data through a UI.\n\n## Contributing\n\nNB: Please refers to the contributing section of the [monorepo](https://github.com/strapi/strapi)\n\n1. Create a new Strapi application: `strapi new myApp`.\n2. Go to your new Strapi app `cd myApp`.\n3. Create a symlink to the monorepo plugin's folder `ln -s /path/to/strapi/monorepo/packages/strapi-plugin-content-manager ./plugins/content-manager`\n3. Copy the layout SASS variables folder into your project from `admin/public/app/styles/variables` to `plugins/content-manager/public/app/styles/variables`\n4. Start your app `strapi start` (Don't forget to return to the root of your app's directory).\n\n\nln -s -f ./admin/public/app/styles/variables/variables.scss ./plugins/content-manager/public/app/styles/variables/variables.scss\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git://github.com/strapi/strapi.git"
@@ -75,5 +108,5 @@
     "icon": "plug",
     "description": "content-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.10.1"
+  "version": "3.0.0-alpha.12"
 }

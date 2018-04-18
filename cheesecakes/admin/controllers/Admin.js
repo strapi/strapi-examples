@@ -2,12 +2,31 @@
 
 const path = require('path');
 const exec = require('child_process').execSync;
+const _ = require('lodash');
 
 /**
  * A set of functions called "actions" for `Admin`
  */
 
 module.exports = {
+  getCurrentEnvironment: async ctx => {
+    try {
+      ctx.send({ currentEnvironment: strapi.app.env });
+    } catch(err) {
+      ctx.badRequest(null, [{ messages: [{ id: 'An error occured' }] }]);
+    }
+  },
+
+  getGaConfig: async ctx =>{
+    try {
+      const allowGa = _.get(strapi.config, 'info.customs.allowGa', true);
+      ctx.send({ allowGa });
+    } catch(err) {
+      console.log(err)
+      ctx.badRequest(null, [{ messages: [{ id: 'An error occured' }] }]);
+    }
+  },
+
   installPlugin: async ctx => {
     try {
       const { plugin, port } = ctx.request.body;
@@ -16,7 +35,7 @@ module.exports = {
       strapi.reload.isWatching = false;
 
       strapi.log.info(`Installing ${plugin}...`);
-      
+
       exec(`node ${strapiBin} install ${plugin} ${port === '4000' ? '--dev' : ''}`);
 
       ctx.send({ ok: true });
