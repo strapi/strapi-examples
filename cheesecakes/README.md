@@ -23,7 +23,14 @@ npm run setup --plugins
 # It can take few minutes
 ```
 
-**3 —** Start the server.
+**3 —** Install MongoDB.
+
+**4 —** Start a MongoDB server.
+```bash
+mongod
+```
+
+**5 —** Start the cheesecakes server.
 ```bash
 npm start
 ```
@@ -51,8 +58,6 @@ Allow these actions:
 
 When you start your application for the first time, if you don't have any data, we auto inject a dataset in your mongo database.
 You can see how we did it in the `/config/function/bootstrap.js` file. It calls the `initDatabase` function of the `/api/app/service/App.js` service's file. The dataset is in `/api/app/config/data.json`.
-
-> You have to start a mongoDB server before starting your application !
 
 ## Rendering views
 
