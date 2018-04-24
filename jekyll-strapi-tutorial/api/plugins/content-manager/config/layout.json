@@ -1,0 +1,25 @@
+{
+  "article": {
+    "attributes": {
+      "title": {
+        "appearance": ""
+      },
+      "content": {
+        "appearance": "WYSIWYG"
+      }
+    }
+  },
+  "post": {
+    "attributes": {
+      "title": {
+        "appearance": ""
+      },
+      "content": {
+        "appearance": "WYSIWYG"
+      },
+      "slug": {
+        "appearance": ""
+      }
+    }
+  }
+}

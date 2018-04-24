@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="home">
+    <h1 class="page-heading">Posts written by {{ page.document.username }}</h1>
+    {%- if strapi.collections.posts.size > 0 -%}
+    <ul class="post-list">
+        {% assign posts=strapi.collections.posts | where:"author.id",page.document.id %}
+        {%- for post in posts -%}
+        <li>
+            <span class="post-meta">{{ post.createdAt | date_to_string }} by {{ post.author.username }}</span>
+            <h3>
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                    {{ post.title }}
+                </a>
+            </h3>
+            <p>{{ post.content | markdownify | strip_html | truncatewords: 10 }}</p>
+        </li>
+        {%- endfor -%}
+    </ul>
+    {%- endif -%}
+</div>

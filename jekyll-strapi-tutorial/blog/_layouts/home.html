@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="home">
+    <h1 class="page-heading">Posts</h1>
+    {%- if strapi.collections.posts.size > 0 -%}
+    <ul class="post-list">
+        {%- for post in strapi.collections.posts -%}
+        <li>
+            <span class="post-meta">{{ post.createdAt | date_to_string }} by {{ post.author.username }}</span>
+            <h3>
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                    {{ post.title }}
+                </a>
+            </h3>
+            <!-- Display an excerpt of the article -->
+            <p>{{ post.content | markdownify | strip_html | truncatewords: 10 }}</p>
+        </li>
+        {%- endfor -%}
+    </ul>
+    {%- endif -%}
+</div>
