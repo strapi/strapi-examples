@@ -56,11 +56,11 @@ strapi:
             # Permalink used to generate the output files (eg. /posts/:id).
             permalink: /posts/:slug/
             # Layout file for this collection
-            layout: strapi_post.html
+            layout: post.html
             # Generate output files or not (default: false)
             output: true
         authors:
             type: user
             permalink: /authors/:username
-            layout: strapi_author.html
+            layout: author.html
             output: true
