@@ -18,6 +18,8 @@
    `Tags` gatsby, static website, content API
 - **[React Authentication Flow](./login-react) -** *Basic React App that implements the authentication flow* <br />
    `Tags` auth, react
+- **[Jekyll Strapi Tutorial](./jekyll-strapi-tutorial) -** *Source code of the tutorial "[Building a static blog using Jekyll and Strapi](https://blog.strapi.io/building-a-static-website-using-jekyll-and-strapi)".* <br />
+   `Tags` jekyll, static website, content API
 - **[Create-React-App](./good-old-react-authentication-flow) -** *Basic React App Boilerplate that has the authentication with local and custom providers.* <br />
    `Tags` auth, react
 - **[React-Apollo](./react-apollo) -** *Basic React App Boilerplate that use the GraphQL API when the GraphQL plugin is installed in your project.* <br />
