@@ -15,10 +15,7 @@ module.exports = {
    */
 
   find: async (ctx) => {
-    const data = await strapi.services.cake.fetchAll(ctx.query);
-
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.cake.fetchAll(ctx.query);
   },
 
   /**
@@ -28,10 +25,21 @@ module.exports = {
    */
 
   findOne: async (ctx) => {
-    const data = await strapi.services.cake.fetch(ctx.params);
+    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+      return ctx.notFound();
+    }
 
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.cake.fetch(ctx.params);
+  },
+
+  /**
+   * Count cake records.
+   *
+   * @return {Number}
+   */
+
+  count: async (ctx) => {
+    return strapi.services.cake.count(ctx.query);
   },
 
   /**
@@ -41,10 +49,7 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    const data = await strapi.services.cake.add(ctx.request.body);
-
-    // Send 201 `created`
-    ctx.created(data);
+    return strapi.services.cake.add(ctx.request.body);
   },
 
   /**
@@ -54,10 +59,7 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    const data = await strapi.services.cake.edit(ctx.params, ctx.request.body) ;
-
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.cake.edit(ctx.params, ctx.request.body) ;
   },
 
   /**
@@ -67,22 +69,6 @@ module.exports = {
    */
 
   destroy: async (ctx, next) => {
-    const data = await strapi.services.cake.remove(ctx.params);
-
-    // Send 200 `ok`
-    ctx.send(data);
-  },
-
-  /**
-   * Retrieve number of cakes.
-   *
-   * @return {Integer}
-   */
-
-  count: async (ctx) => {
-    const data = await strapi.services.cake.count();
-
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.cake.remove(ctx.params);
   }
 };

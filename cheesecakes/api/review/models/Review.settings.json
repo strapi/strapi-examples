@@ -15,11 +15,11 @@
     },
     "cake": {
       "model": "cake",
-      "via": "comments"
+      "via": "reviews"
     },
     "author": {
       "model": "user",
-      "via": "comments",
+      "via": "reviews",
       "plugin": "users-permissions"
     }
   }

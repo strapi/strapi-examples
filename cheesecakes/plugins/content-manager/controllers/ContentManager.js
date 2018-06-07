@@ -48,10 +48,8 @@ module.exports = {
   },
 
   count: async ctx => {
-    const { source } = ctx.request.query;
-
     // Count using `queries` system
-    const count = await strapi.plugins['content-manager'].services['contentmanager'].count(ctx.params, source);
+    const count = await strapi.plugins['content-manager'].services['contentmanager'].count(ctx.params, ctx.request.query);
 
     ctx.body = {
       count: _.isNumber(count) ? count : _.toNumber(count)
@@ -62,7 +60,7 @@ module.exports = {
     const { source } = ctx.request.query;
 
     // Find an entry using `queries` system
-    const entry = await strapi.plugins['content-manager'].services['contentmanager'].fetch(ctx.params, source);
+    const entry = await strapi.plugins['content-manager'].services['contentmanager'].fetch(ctx.params, source, null, false);
 
     // Entry not found
     if (!entry) {

@@ -32,7 +32,7 @@
       "via": "cakes",
       "dominant": true
     },
-    "comments": {
+    "reviews": {
       "collection": "review",
       "via": "cake"
     }

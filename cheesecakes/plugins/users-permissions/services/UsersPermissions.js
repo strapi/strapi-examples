@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs')
+const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const request = require('request');
@@ -67,7 +67,7 @@ module.exports = {
         id: user._id || user.id
       }, {
         role: publicRoleID
-      }))
+      }));
 
       return acc;
     }, []);
@@ -77,7 +77,7 @@ module.exports = {
       arrayOfPromises.push(strapi.query('permission', 'users-permissions').delete({
         id: permission._id || permission.id
       }));
-    })
+    });
 
     // Delete the role.
     arrayOfPromises.push(strapi.query('role', 'users-permissions').delete({
@@ -113,7 +113,7 @@ module.exports = {
         }
 
         return acc;
-    }, {}));
+      }, {}));
 
     const appControllers = Object.keys(strapi.api || {}).reduce((acc, key) => {
       acc.controllers[key] = generateActions(strapi.api[key].controllers[key]);
@@ -146,7 +146,7 @@ module.exports = {
       },
     };
 
-    return _.merge(permissions, pluginsPermissions);;
+    return _.merge(permissions, pluginsPermissions);
   },
 
   getRole: async (roleID, plugins) => {
@@ -174,7 +174,7 @@ module.exports = {
   },
 
   getRoles: async () => {
-    const roles = await strapi.query('role', 'users-permissions').find({ sort: 'name ASC' }, []);
+    const roles = await strapi.query('role', 'users-permissions').find({ sort: 'name' }, []);
 
     for (let i = 0; i < roles.length; ++i) {
       roles[i].id = roles[i].id || roles[i]._id;
@@ -186,11 +186,11 @@ module.exports = {
 
   getRoutes: async () => {
     const routes = Object.keys(strapi.api || {}).reduce((acc, current) => {
-      return acc.concat(strapi.api[current].config.routes);
+      return acc.concat(_.get(strapi.api[current].config, 'routes', []));
     }, []);
 
     const pluginsRoutes = Object.keys(strapi.plugins || {}).reduce((acc, current) => {
-      acc[current] = strapi.plugins[current].config.routes;
+      acc[current] = _.get(strapi.plugins[current].config, 'routes', []);
 
       return acc;
     }, []);
@@ -203,14 +203,14 @@ module.exports = {
 
     // Aggregate first level actions.
     const appActions = Object.keys(strapi.api || {}).reduce((acc, api) => {
-      Object.keys(strapi.api[api].controllers)
+      Object.keys(_.get(strapi.api[api], 'controllers', {}))
         .map(controller => {
           const actions = Object.keys(strapi.api[api].controllers[controller])
             .filter(action => _.isFunction(strapi.api[api].controllers[controller][action]))
             .map(action => `application.${controller}.${action.toLowerCase()}`);
 
           acc = acc.concat(actions);
-      });
+        });
 
       return acc;
     }, []);
@@ -224,7 +224,7 @@ module.exports = {
             .map(action => `${plugin}.${controller}.${action.toLowerCase()}`);
 
           acc = acc.concat(actions);
-      });
+        });
 
       return acc;
     }, []);
@@ -263,7 +263,7 @@ module.exports = {
       // the permissions entries in the database.
       const toRemove = _.difference(actions, currentActions).map(splitted);
       const toAdd = (permissions < 1 ? currentActions : _.difference(currentActions, actions))
-          .map(splitted);
+        .map(splitted);
 
       // Execute request to update entries in database for each role.
       await Promise.all(
@@ -275,24 +275,54 @@ module.exports = {
                 .addPermission(Object.assign(action, { role: role.id || role._id }))
               )
           )
-        ),
-        Promise.all(toRemove.map(action => strapi.query('permission', 'users-permissions').removePermission(action)))
+        ).concat([
+          Promise.all(toRemove.map(action => strapi.query('permission', 'users-permissions').removePermission(action)))
+        ])
       );
 
-      this.writeActions(currentActions);
+      return this.writeActions(currentActions, cb);
     }
 
-    if (cb) {
-      cb();
-    }
+    cb();
+  },
+
+  removeDuplicate: async function () {
+    const primaryKey = strapi.query('permission', 'users-permissions').primaryKey;
+
+    // Retrieve permissions by creation date (ID or ObjectID).
+    const permissions = await strapi.query('permission', 'users-permissions').find({
+      sort: `${primaryKey}`
+    });
+
+    const value = permissions.reduce((acc, permission) => {
+      const index = acc.toKeep.findIndex(element => element === `${permission.type}.controllers.${permission.controller}.${permission.action}.${permission.role[primaryKey]}`);
+
+      if (index === -1) {
+        acc.toKeep.push(`${permission.type}.controllers.${permission.controller}.${permission.action}.${permission.role[primaryKey]}`);
+      } else {
+        acc.toRemove.push(permission[primaryKey]);
+      }
+
+      return acc;
+    }, {
+      toKeep: [],
+      toRemove: []
+    });
+
+    return strapi.query('permission', 'users-permissions').deleteMany({
+      [primaryKey]: value.toRemove
+    });
   },
 
   initialize: async function (cb) {
     const roles = await strapi.query('role', 'users-permissions').count();
 
-    // It's has been already initialized.
+    // It has already been initialized.
     if (roles > 0) {
-      return await this.updatePermissions(cb);
+      return await this.updatePermissions(async () => {
+        await this.removeDuplicate();
+        cb();
+      });
     }
 
     // Create two first default roles.
@@ -363,7 +393,7 @@ module.exports = {
       .filter(user => user.role !== `${root._id || root.id}`.toString())
       .forEach(user => {
         arrayOfPromises.push(this.updateUserRole(user, roleID));
-      })
+      });
 
     // Remove user to this role and link him to authenticated.
     _.differenceBy(role.users, body.users, role._id ? '_id' : 'id')
@@ -384,194 +414,23 @@ module.exports = {
     });
   },
 
-  writeActions: (data) => {
+  writeActions: (data, cb) => {
     const actionsPath = path.join(strapi.config.appPath, 'plugins', 'users-permissions', 'config', 'actions.json');
 
     try {
-      // Stop auto reload.
-      strapi.reload.isReloading = false;
+      // Disable auto-reload.
+      strapi.reload.isWatching = false;
       // Rewrite actions.json file.
       fs.writeFileSync(actionsPath, JSON.stringify({ actions: data }), 'utf8');
       // Set value to AST to avoid restart.
       _.set(strapi.plugins['users-permissions'], 'config.actions', data);
-      // Restart to watch files.
-      strapi.reload.isReloading = true;
+      // Disable auto-reload.
+      strapi.reload.isWatching = true;
+
+      cb();
     } catch(err) {
       strapi.log.error(err);
     }
-  },
-
-  syncSchema: async (cb) => {
-    if (strapi.plugins['users-permissions'].models.user.orm !== 'bookshelf') {
-      return cb();
-    }
-
-    // Extract necessary information from plugin's models.
-    const {
-      user: { collectionName: userTableName, connection: userConnection, client: userClient },
-      role: { collectionName: roleTableName, connection: roleConnection, client: roleClient },
-      permission: { collectionName: permissionTableName, connection: permissionConnection, client: permissionClient }
-    } = strapi.plugins['users-permissions'].models;
-
-    const details = {
-      user: {
-        tableName: userTableName,
-        connection: userConnection,
-        client: userClient
-      },
-      role: {
-        tableName: roleTableName,
-        connection: roleConnection,
-        client: roleClient
-      },
-      permission: {
-        tableName: permissionTableName,
-        connection: permissionConnection,
-        client: permissionClient
-      }
-    };
-
-    // Check if the tables are existing.
-    const hasTables = await Promise.all(Object.keys(details).map(name =>
-      strapi.connections[details[name].connection].schema.hasTable(details[name].tableName)
-    ));
-
-    const missingTables = [];
-    const tablesToCreate = [];
-
-    for (let index = 0; index < hasTables.length; ++index) {
-      const hasTable = hasTables[index];
-      const currentModel = Object.keys(details)[index];
-      const quote = details[currentModel].client === 'pg' ? '"' : '`';
-
-      if (!hasTable) {
-        missingTables.push(`
-⚠️  TABLE \`${details[currentModel].tableName}\` DOESN'T EXIST`);
-
-        switch (currentModel) {
-          case 'user':
-            tablesToCreate.push(`
-
-CREATE TABLE ${quote}${details[currentModel].tableName}${quote} (
-  id ${details[currentModel].client === 'pg' ? 'SERIAL' : 'INT AUTO_INCREMENT'} NOT NULL PRIMARY KEY,
-  username text,
-  email text,
-  provider text,
-  role ${details[currentModel].client === 'pg' ? 'integer' : 'int'},
-  ${quote}resetPasswordToken${quote} text,
-  password text,
-  updated_at ${details[currentModel].client === 'pg' ? 'timestamp with time zone' : 'timestamp'},
-  created_at ${details[currentModel].client === 'pg' ? 'timestamp with time zone' : 'timestamp'}
-);`);
-            break;
-          case 'role':
-            tablesToCreate.push(`
-
-CREATE TABLE ${quote}${details[currentModel].tableName}${quote} (
-  id ${details[currentModel].client === 'pg' ? 'SERIAL' : 'INT AUTO_INCREMENT'} NOT NULL PRIMARY KEY,
-  name text,
-  description text,
-  type text
-);`);
-            break;
-          case 'permission':
-            tablesToCreate.push(`
-
-CREATE TABLE ${quote}${details[currentModel].tableName}${quote} (
-  id ${details[currentModel].client === 'pg' ? 'SERIAL' : 'INT AUTO_INCREMENT'} NOT NULL PRIMARY KEY,
-  role ${details[currentModel].client === 'pg' ? 'integer' : 'int'},
-  type text,
-  controller text,
-  action text,
-  enabled boolean,
-  policy text
-);`);
-            break;
-          default:
-
-        }
-      }
-    }
-
-    if (!_.isEmpty(tablesToCreate)) {
-      tablesToCreate.unshift(`
-
-1️⃣  EXECUTE THE FOLLOWING SQL QUERY`);
-
-      tablesToCreate.push(`
-
-2️⃣  RESTART YOUR SERVER`)
-      strapi.log.warn(missingTables.concat(tablesToCreate).join(''));
-
-      // Stop the server.
-      strapi.stop();
-    }
-
-    const missingColumns = [];
-    const tablesToAlter = [];
-
-    for (let index = 0; index < hasTables.length; ++index) {
-      const currentModel = Object.keys(details)[index];
-      const quote = details[currentModel].client === 'pg' ? '"' : '`';
-      const attributes = {
-        id: {
-          type: details[currentModel].client === 'pg' ? 'integer' : 'int'
-        },
-        ..._.cloneDeep(strapi.plugins['users-permissions'].models[currentModel].attributes)
-      };
-
-      // Add created_at and updated_at attributes for the model User.
-      if (currentModel === 'user') {
-        Object.assign(attributes, {
-          created_at: {
-            type: details[currentModel].client === 'pg' ? 'timestamp with time zone' : 'timestamp'
-          },
-          updated_at: {
-            type: details[currentModel].client === 'pg' ? 'timestamp with time zone' : 'timestamp'
-          }
-        });
-      }
-
-      const columns = Object.keys(attributes);
-
-      // Check if there are the required attributes.
-      const hasColumns = await Promise.all(columns.map(attribute =>
-        strapi.connections[details[currentModel].connection].schema.hasColumn(details[currentModel].tableName, attribute)
-      ));
-
-      hasColumns.forEach((hasColumn, index) => {
-        const currentColumn = columns[index];
-        const attribute = attributes[currentColumn];
-
-        if (!hasColumn && !attribute.collection) {
-          const currentType = attribute.model ? 'integer' : attribute.type;
-          const type = currentType === 'string' ? 'text' : currentType;
-
-          missingColumns.push(`
-⚠️  TABLE \`${details[currentModel].tableName}\` HAS MISSING COLUMNS`);
-
-          tablesToAlter.push(`
-
-ALTER TABLE ${quote}${details[currentModel].tableName}${quote} ADD ${details[currentModel].client === 'pg' ? `${quote}${currentColumn}${quote}` : `${currentColumn}`} ${type};`);
-        }
-      });
-    }
-
-    if (!_.isEmpty(tablesToAlter)) {
-      tablesToAlter.unshift(`
-
-1️⃣  EXECUTE THE FOLLOWING SQL QUERIES`);
-
-      tablesToAlter.push(`
-
-2️⃣  RESTART YOUR SERVER`)
-      strapi.log.warn(missingColumns.concat(tablesToAlter).join(''));
-
-      // Stop the server.
-      return strapi.stop();
-    }
-
-    cb();
   },
 
   template: (layout, data) => {

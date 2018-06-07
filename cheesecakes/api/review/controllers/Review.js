@@ -15,10 +15,7 @@ module.exports = {
    */
 
   find: async (ctx) => {
-    const data = await strapi.services.review.fetchAll(ctx.query);
-
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.review.fetchAll(ctx.query);
   },
 
   /**
@@ -28,10 +25,21 @@ module.exports = {
    */
 
   findOne: async (ctx) => {
-    const data = await strapi.services.review.fetch(ctx.params);
+    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+      return ctx.notFound();
+    }
 
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.review.fetch(ctx.params);
+  },
+
+  /**
+   * Count review records.
+   *
+   * @return {Number}
+   */
+
+  count: async (ctx) => {
+    return strapi.services.review.count(ctx.query);
   },
 
   /**
@@ -41,27 +49,7 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    const data = await strapi.services.review.add(ctx.request.body);
-
-    // Send 201 `created`
-    ctx.created(data);
-  },
-
-  /**
-   * Submit a/an review record.
-   *
-   * @return {Object}
-   */
-
-  submit: async (ctx) => {
-    // Set by default variables on submit new review
-    ctx.request.body.approved = false;
-    ctx.request.body.author = ctx.state.user.id;
-
-    const data = await strapi.services.review.add(ctx.request.body);
-
-    // Send 201 `created`
-    ctx.created(data);
+    return strapi.services.review.add(ctx.request.body);
   },
 
   /**
@@ -71,10 +59,7 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    const data = await strapi.services.review.edit(ctx.params, ctx.request.body) ;
-
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.review.edit(ctx.params, ctx.request.body) ;
   },
 
   /**
@@ -84,9 +69,21 @@ module.exports = {
    */
 
   destroy: async (ctx, next) => {
-    const data = await strapi.services.review.remove(ctx.params);
+    return strapi.services.review.remove(ctx.params);
+  },
 
-    // Send 200 `ok`
-    ctx.send(data);
+  // CUSTOM CHANGES
+  /**
+   * Submit a/an review record.
+   *
+   * @return {Object}
+   */
+
+  submit: async (ctx) => {
+    // Set by default variables on submit new review
+    ctx.request.body.approved = false;
+    ctx.request.body.author = ctx.state.user._id;
+
+    return await strapi.services.review.add(ctx.request.body);
   }
 };

@@ -6,7 +6,7 @@ $(document).ready(() => {
   const page = parseInt(url.searchParams.get('page')) || 1;
   const sort = url.searchParams.get('sort') || 'id';
 
-  const col = 4;
+  const col = 3;
 
   // Get cake data.
   const request = (params = '') => {
@@ -22,15 +22,20 @@ $(document).ready(() => {
         for (let i = 0; i < data.length; i++) {
           const item = data[i];
 
-          const first = (i % col === 0) ? 'first' : '';
-          const last = (i % col === col - 1) ? 'last' : '';
-
           const dom = `
-            <li class="entry product publish author-hwijaya has-excerpt post-37 has-post-thumbnail product_cat-clothing product_cat-t-shirts  instock shipping-taxable purchasable product-type-simple ${first} ${last}">
-              <a href="/product.html?id=${item._id}" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img src="${item.picture}" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt=""/><h2 class="woocommerce-loop-product__title">${item.name}</h2>
-                <span class="price"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>${item.price}</span></span>
-              </a>
-            </li>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card">
+                <a href="/product.html?id=${item._id}">
+                  <img class="card-img-top" src="${item.picture}" alt="">
+                </a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="/product.html?id=${item._id}">${item.name}</a>
+                  </h4>
+                  <h5>${item.price}</h5>
+                </div>
+              </div>
+            </div>
           `;
 
           $('.products').append(dom);
@@ -59,15 +64,11 @@ $(document).ready(() => {
       const pages = Math.ceil(data / col);
 
       for (let i = 1; i <= pages; i++) {
-        const item = (i === page) ? `<li><span class="page-numbers current">${i}</span></li>` : `<li><a class="page-numbers" href="?sort=${sort}&page=${i}">${i}</a></li>`
-        $('ul.page-numbers').append(item);
+        const item = (i === page) ? `<li class="page-item active"><a class="page-link">${i}</a></li>` : `<li class="page-item"><a class="page-link" href="?sort=${sort}&page=${i}">${i}</a></li>`
+        $('ul.pagination').append(item);
       }
 
-      if (page + 1 <= pages) {
-        $('ul.page-numbers').append(`<li><a class="next page-numbers" href="?sort=${sort}&page=${page + 1}">→</a></li>`);
-      }
-
-      $('.woocommerce-result-count-show').html(`${(page - 1) * col + 1} - ${(page - 1) * col + col} of ${data}`);
+      $('.nav-info').html(`Display cake ${(page - 1) * col + 1} to ${(page - 1) * col + col} on total of ${data} cakes`);
     },
     catch: (err) => {
       console.log(err);
@@ -79,8 +80,7 @@ $(document).ready(() => {
     url: '/info',
     method: 'GET',
     success: (data) => {
-      $('.site-title a').html(data.name);
-      $('.site-description span').html(data.description);
+      $('.navbar-brand').html(data.name);
     }
   });
 

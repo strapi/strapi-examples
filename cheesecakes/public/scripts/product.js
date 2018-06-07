@@ -9,33 +9,18 @@ $(document).ready(() => {
     url: `/cake/${id}`,
     method: 'GET',
     success: (data) => {
-      $('.entry-title').html(data.name);
-      $('.amount').html(`$${data.price}`);
-      $('.woocommerce-product-details__short-description p').html(data.description);
-      $('.single_add_to_cart_button').attr('href', data.link);
-      $('.woocommerce-product-gallery__image img').attr('src', data.picture);
-      const category = (data.category) ? data.category.name : 'None';
-      $('.posted_in').append(`Category: ${category}`);
-
-      $('.woocommerce-Reviews-title').html(`${data.reviews.length} review${data.reviews.length > 0 ? 's' : ''} for ${data.name}`);
+      $('.card-title').html(data.name);
+      $('h4').html(`$${data.price}`);
+      $('.card-text').html(data.description);
+      $('.img-holder img').attr('src', data.picture);
 
       for (let i = 0; i < data.reviews.length; i++) {
         let review = data.reviews[i];
 
-        $('.commentlist').append(`
-          <li class="comment even thread-even depth-1" id="li-comment-29">
-            <div id="comment-29" class="comment_container">
-              <div class="comment-text">
-                <p class="meta">
-                  <strong class="woocommerce-review__author" itemprop="author">${review.author ? review.author.username : 'Unknow'}</strong>
-                </p>
-
-                <div class="description">
-                  <p>${review.content}</p>
-                </div>
-              </div>
-            </div>
-          </li>
+        $('.card-outline-secondary .card-body').prepend(`
+          <p>${review.content}</p>
+					<small class="text-muted">Posted by ${review.author ? review.author.username : 'Anonymous'}</small>
+					<hr>
         `);
       }
     },
@@ -49,20 +34,18 @@ $(document).ready(() => {
     url: '/info',
     method: 'GET',
     success: (data) => {
-      $('.site-title a').html(data.name);
-      $('.site-description span').html(data.description);
+      $('.navbar-brand').html(data.name);
     }
   });
 
-  $('#commentform').on('submit', function (e) {
+  $('.review').on('click', function (e) {
     e.preventDefault();
 
     if (!auth) {
-      return $('.message-form').html('You have to be authenticated to submit a review !');
+      return alert('You have to be authenticated to submit a review !');
     }
 
-    const pseudo = $('#author').val();
-    const content = $('#comment').val();
+    const content = prompt('Comment:');
 
     $.ajax({
       url: '/review/submit',
@@ -75,9 +58,7 @@ $(document).ready(() => {
         cake: id
       },
       success: (data) => {
-        $('#comment').val('');
-
-        $('.message-form').html('Review has been submited. Waiting for approvment !');
+        alert('Review has been submited. Waiting for approvment !');
       }
     });
   });
@@ -85,12 +66,25 @@ $(document).ready(() => {
   // Manage authentification to submit review
   let auth = localStorage.getItem('auth');
 
+
+  const clean = () => {
+    $('.post-review p').remove();
+    $('.card-header a.auth').remove();
+    $('.card-header a.logout').removeClass('d-none');
+    $('.post-review a').removeClass('d-none');
+  };
+
+  $('.logout').on('click', () => {
+    localStorage.removeItem('auth');
+    location.reload();
+  });
+
+
   if (auth) {
     auth = JSON.parse(auth);
-    $('[action="auth"]').remove();
-    $('#author').val(auth.user.username);
+    clean();
   } else {
-    $('[action="login"]').on('click', () => {
+    $('.login').on('click', () => {
       const identifier = prompt('Login:');
       const password = prompt('Password:');
 
@@ -102,10 +96,9 @@ $(document).ready(() => {
           password
         },
         success: (data) => {
-          $('[action="auth"]').remove();
           auth = data;
           localStorage.setItem('auth', JSON.stringify(auth));
-          $('#author').val(auth.user.username);
+          clean();
         },
         error: (data) => {
           alert(data.responseJSON.message);
@@ -113,7 +106,7 @@ $(document).ready(() => {
       });
     });
 
-    $('[action="register"]').on('click', () => {
+    $('.register').on('click', () => {
       const username = prompt('Username:');
       const email = prompt('Email:');
       const password = prompt('Password:');
@@ -127,10 +120,9 @@ $(document).ready(() => {
           password
         },
         success: (data) => {
-          $('[action="auth"]').remove();
           auth = data;
           localStorage.setItem('auth', JSON.stringify(auth));
-          $('#author').val(auth.user.username);
+          clean();
         },
         error: (data) => {
           alert(data.responseJSON.message);

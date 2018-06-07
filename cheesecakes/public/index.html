@@ -1,136 +1,97 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Strapi cheesecake e-commerce example</title>
-	<meta name="viewport" content="width=device-width" />
-	<style type="text/css">
-		img.wp-smiley,
-		img.emoji {
-			display: inline !important;
-			border: none !important;
-			box-shadow: none !important;
-			height: 1em !important;
-			width: 1em !important;
-			margin: 0 .07em !important;
-			vertical-align: -0.1em !important;
-			background: none !important;
-			padding: 0 !important;
-		}
-	</style>
-	<link rel='stylesheet' id='contact-form-7-css' href='https://themehall.com/preview/shopping/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.8.1' type='text/css' media='all' />
-	<link rel='stylesheet' id='woocommerce-layout-css' href='//themehall.com/preview/shopping/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.1.1' type='text/css' media='all' />
-	<link rel='stylesheet' id='woocommerce-smallscreen-css' href='//themehall.com/preview/shopping/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=3.1.1' type='text/css' media='only screen and (max-width: 768px)' />
-	<link rel='stylesheet' id='woocommerce-general-css' href='//themehall.com/preview/shopping/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=3.1.1' type='text/css' media='all' />
-	<link rel='stylesheet' id='omega-style-css' href='https://themehall.com/preview/shopping/wp-content/themes/shopping/style.css?ver=4.8.2' type='text/css' media='all' />
-	<script type='text/javascript' src='https://themehall.com/preview/shopping/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
-	<script type='text/javascript' src='https://themehall.com/preview/shopping/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-	<script type='text/javascript' src='https://themehall.com/preview/shopping/wp-content/themes/shopping/js/tinynav.js?ver=4.8.2'></script>
-	<!--[if lt IE 9]>
-	<script src="https://themehall.com/preview/shopping/wp-content/themes/omega/js/html5.js" type="text/javascript"></script>
-	<![endif]-->
-	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
 
-	<style type="text/css" id="custom-colors-css">
-		h1.site-title a,
-		.site-description,
-		.entry-meta,
-		.header-right {
-			color: #96588a;
-		}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-		.nav-primary,
-		.tinynav,
-		.footer-widgets,
-		button,
-		input[type="button"],
-		input[type="reset"],
-		input[type="submit"] {
-			background-color: #96588a;
-		}
+	<title>Shop Homepage - Start Bootstrap Template</title>
 
-		.omega-nav-menu .current_page_item a,
-		.omega-nav-menu a:hover,
-		.omega-nav-menu li:hover,
-		.omega-nav-menu li:hover ul {
-			background-color: #AD74A2;
-		}
+	<!-- Bootstrap core CSS -->
+	<link href="https://blackrockdigital.github.io/startbootstrap-shop-homepage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-		.site-inner .entry-meta a,
-		.site-inner .entry-content a,
-		.site-inner .sidebar a,
-		.site-footer a {
-			color: #AD74A2;
-		}
-	</style>
+	<!-- Custom styles for this template -->
+	<link href="https://blackrockdigital.github.io/startbootstrap-shop-homepage/css/shop-homepage.css" rel="stylesheet">
 
-	<style type="text/css" id="custom-css"></style>
-
-	<!-- BEGIN recaptcha, injected by plugin wp-recaptcha-integration  -->
-
-	<!-- END recaptcha -->
-	<link rel='stylesheet' href='/css/style.css' type='text/css' media='all' />
 </head>
 
-<body class="wordpress ltr child-theme multisite blog-9 y2017 m10 d17 h12 tuesday logged-out plural home archive archive-product woocommerce woocommerce-page custom-colors" dir="ltr" itemscope="itemscope" itemtype="http://schema.org/WebPage">
-	<div class="site-container">
-		<header id="header" class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
-			<div class="wrap">
-				<div class="title-area">
-					<h2 class="site-title" itemprop="headline"><a href="/" title="Shopping" rel="home"></a></h2>
-					<h3 class="site-description"><span></span></h3>
-				</div>
-			</div>
-		</header>
-		<!-- .site-header -->
-		<div class="site-inner">
-			<div class="wrap">
-				<main class="content" role="main" itemprop="mainContentOfPage">
-					<h1 class="page-title">Cakes collection</h1>
+<body>
 
-					<p class="woocommerce-result-count">
-						Showing <span class="woocommerce-result-count-show"></span> results</p>
-					<form class="woocommerce-ordering" method="get">
-						<select name="orderby" class="orderby">
-							<option value="id" >Sort by newness</option>
-							<option value="price:asc" >Sort by price: low to high</option>
-							<option value="price:desc" >Sort by price: high to low</option>
-						</select>
-					</form>
-
-					<ul class="products"></ul>
-
-					<nav class="woocommerce-pagination">
-						<ul class="page-numbers">
-
-						</ul>
-					</nav>
-				</main>
-				<!-- .content -->
-			</div>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href=""></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+			 aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 		</div>
-		<!-- .site-inner -->
-		<footer id="footer" class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
-			<div class="wrap">
-				<div class="footer-content footer-insert">
-					<p class="copyright">Strapi</p>
-					<p class="copyright"><a href="/admin">Admin panel</a></p>
-					<p class="copyright"><a href="https://strapi.io">Strapi website</a></p>
-					<p class="copyright">Copyright &#169; 2017 Strapi.</p>
-					<br>
-					<p class="copyright">Theme</p>
-					<p class="copyright">Copyright &#169; 2017 Shopping.</p>
+	</nav>
 
-					<p class="credit"><a class="child-link" href="https://www.themehall.com/shopping-ecommerce-wordpress-theme" title="Shopping WordPress Theme">Shopping</a> WordPress Theme by themehall.com</p>
+	<!-- Page Content -->
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-lg-3">
+
+				<div class="list-group my-4">
+					<div class="list-group-item">
+						<select name="orderby" class="orderby">
+							<option value="id">Sort by newness</option>
+							<option value="price:asc">Sort by price: low to high</option>
+							<option value="price:desc">Sort by price: high to low</option>
+						</select>
+					</div>
+					<div class="list-group-item">
+						<nav aria-label="Page navigation example">
+							<ul class="pagination">
+							</ul>
+						</nav>
+					</div>
+					<div class="list-group-item">
+						<div class="nav-info my-4"></div>
+					</div>
 				</div>
-			</div>
-		</footer>
-		<!-- .site-footer -->
-	</div>
-	<!-- .site-container -->
 
-	<script type='text/javascript' src='/scripts/index.js'></script>
+			</div>
+			<!-- /.col-lg-3 -->
+
+			<div class="col-lg-9">
+
+				<div class="row products my-4">
+				</div>
+				<!-- /.row -->
+
+			</div>
+			<!-- /.col-lg-9 -->
+
+		</div>
+		<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">
+				<a href="https://strapi.io">
+					Strapi
+				</a> application
+			</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="https://blackrockdigital.github.io/startbootstrap-shop-homepage/vendor/jquery/jquery.min.js"></script>
+	<script src="https://blackrockdigital.github.io/startbootstrap-shop-homepage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<script src="/scripts/index.js"></script>
+
 </body>
 
 </html>

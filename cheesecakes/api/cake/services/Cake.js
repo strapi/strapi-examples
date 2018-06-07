@@ -18,15 +18,22 @@ module.exports = {
    */
 
   fetchAll: (params) => {
-    const convertedParams = strapi.utils.models.convertParams('cake', params);
+    // Convert `params` object to filters compatible with Mongo.
+    const filters = strapi.utils.models.convertParams('cake', params);
+
+    // Select field to populate.
+    const populate = Cake.associations
+      .filter(ast => ast.autoPopulate !== false)
+      .map(ast => ast.alias)
+      .join(' ');
 
     return Cake
       .find()
-      .where(convertedParams.where)
-      .sort(convertedParams.sort)
-      .skip(convertedParams.start)
-      .limit(convertedParams.limit)
-      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
+      .where(filters.where)
+      .sort(filters.sort)
+      .skip(filters.start)
+      .limit(filters.limit)
+      .populate(populate);
   },
 
   /**
@@ -36,26 +43,36 @@ module.exports = {
    */
 
   fetch: (params) => {
+    // CUSTOM CHANGES
     // Deep populate reviews to get author username
     const populate = [{
       path: 'reviews',
-      model: 'Review',
       match: {
         approved: true
       },
       populate: {
-        path: 'author',
-        model: 'User'
+        path: 'author'
       }
-    },
-    {
-      path: 'categories',
-      model: 'Category'
     }];
 
     return Cake
       .findOne(_.pick(params, _.keys(Cake.schema.paths)))
-      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
+      .populate(populate);
+  },
+
+  /**
+   * Promise to count cakes.
+   *
+   * @return {Promise}
+   */
+
+  count: (params) => {
+    // Convert `params` object to filters compatible with Mongo.
+    const filters = strapi.utils.models.convertParams('cake', params);
+
+    return Cake
+      .count()
+      .where(filters.where);
   },
 
   /**
@@ -65,9 +82,15 @@ module.exports = {
    */
 
   add: async (values) => {
-    const data = await Cake.create(_.omit(values, _.keys(_.groupBy(strapi.models.cake.associations, 'alias'))));
-    await strapi.hook.mongoose.manageRelations('cake', _.merge(_.clone(data), { values }));
-    return data;
+    // Extract values related to relational data.
+    const relations = _.pick(values, Cake.associations.map(ast => ast.alias));
+    const data = _.omit(values, Cake.associations.map(ast => ast.alias));
+
+    // Create entry with no-relational data.
+    const entry = await Cake.create(data);
+
+    // Create relational data and return the entry.
+    return Cake.updateRelations({ id: entry.id, values: relations });
   },
 
   /**
@@ -77,11 +100,15 @@ module.exports = {
    */
 
   edit: async (params, values) => {
-    // Note: The current method will return the full response of Mongo.
-    // To get the updated object, you have to execute the `findOne()` method
-    // or use the `findOneOrUpdate()` method with `{ new:true }` option.
-    await strapi.hook.mongoose.manageRelations('cake', _.merge(_.clone(params), { values }));
-    return Cake.update(params, values, { multi: true });
+    // Extract values related to relational data.
+    const relations = _.pick(values, Cake.associations.map(a => a.alias));
+    const data = _.omit(values, Cake.associations.map(a => a.alias));
+
+    // Update entry with no-relational data.
+    const entry = await Cake.update(params, data, { multi: true });
+
+    // Update relational data and return the entry.
+    return Cake.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
@@ -91,31 +118,36 @@ module.exports = {
    */
 
   remove: async params => {
+    // Select field to populate.
+    const populate = Cake.associations
+      .filter(ast => ast.autoPopulate !== false)
+      .map(ast => ast.alias)
+      .join(' ');
+
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Cake.findOneAndRemove(params, {})
-      .populate(_.keys(_.groupBy(_.reject(strapi.models.cake.associations, {autoPopulate: false}), 'alias')).join(' '));
+    const data = await Cake
+      .findOneAndRemove(params, {})
+      .populate(populate);
 
-    _.forEach(Cake.associations, async association => {
-      const search = (_.endsWith(association.nature, 'One')) ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
-      const update = (_.endsWith(association.nature, 'One')) ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
+    if (!data) {
+      return data;
+    }
 
-      await strapi.models[association.model || association.collection].update(
-        search,
-        update,
-        { multi: true });
-    });
+    await Promise.all(
+      Cake.associations.map(async association => {
+        const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
+        const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
+
+        // Retrieve model.
+        const model = association.plugin ?
+          strapi.plugins[association.plugin].models[association.model || association.collection] :
+          strapi.models[association.model || association.collection];
+
+        return model.update(search, update, { multi: true });
+      })
+    );
 
     return data;
-  },
-
-  /**
-   * Promise to count cakes.
-   *
-   * @return {Promise}
-   */
-
-  count: async (ctx) => {
-    return Cake.count();
   }
 };

@@ -31,7 +31,7 @@
 
   "button.contentType.create": "Créer un modèle",
   "button.contentType.add": "Ajouter un modèle",
-  "button.attributes.add": "Ajouter un champs",
+  "button.attributes.add": "Ajouter un champ",
 
   "error.validation.required": "Ce champ est obligatoire.",
   "error.validation.regex": "La valeur ne correspond pas au format attendu.",
@@ -44,6 +44,7 @@
   "error.attribute.key.taken": "Cette valeur existe déjà",
   "error.attribute.sameKeyAndName": "Ne peuvent pas être égaux",
   "error.validation.minSupMax": "Ne peut pas être plus grand",
+  "error.attribute.forbidden": "Cet attribut est réservé",
 
   "form.attribute.item.textarea.name": "Nom",
   "form.attribute.item.date.name": "Nom",

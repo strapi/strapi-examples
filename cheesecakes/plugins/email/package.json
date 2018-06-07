@@ -1,50 +1,27 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "strapi-plugin-email@alpha",
-        "scope": null,
-        "escapedName": "strapi-plugin-email",
-        "name": "strapi-plugin-email",
-        "rawSpec": "alpha",
-        "spec": "alpha",
-        "type": "tag"
-      },
-      "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/test"
-    ]
-  ],
   "_from": "strapi-plugin-email@alpha",
-  "_id": "strapi-plugin-email@3.0.0-alpha.11.3",
-  "_inCache": true,
+  "_id": "strapi-plugin-email@3.0.0-alpha.12.3",
+  "_inBundle": false,
+  "_integrity": "sha512-g465vNR8ulagdUhDGJ+wUwjXftRAvzxt7dZVUZkumKb+8EUqhSo4YSCNlhksKV0zxxOeqYQ+e5vr5s56Dxcs8A==",
   "_location": "/strapi-plugin-email",
-  "_nodeVersion": "9.4.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/strapi-plugin-email_3.0.0-alpha.11.3_1522931272579_0.5475697846747725"
-  },
-  "_npmUser": {
-    "name": "strapi",
-    "email": "support@strapi.io"
-  },
-  "_npmVersion": "5.1.0",
   "_phantomChildren": {},
   "_requested": {
+    "type": "tag",
+    "registry": true,
     "raw": "strapi-plugin-email@alpha",
-    "scope": null,
-    "escapedName": "strapi-plugin-email",
     "name": "strapi-plugin-email",
+    "escapedName": "strapi-plugin-email",
     "rawSpec": "alpha",
-    "spec": "alpha",
-    "type": "tag"
+    "saveSpec": null,
+    "fetchSpec": "alpha"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.11.3.tgz",
-  "_shasum": "79895a54c340ced6710307275f801c51c69d390c",
-  "_shrinkwrap": null,
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.12.3.tgz",
+  "_shasum": "f650acad58857f49a0d9a1d55a89062d0dfeb741",
   "_spec": "strapi-plugin-email@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/test",
+  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/update",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -53,37 +30,29 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "sendmail": "^1.2.0"
   },
+  "deprecated": false,
   "description": "This is the description of the plugin.",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.11.3"
-  },
-  "directories": {},
-  "dist": {
-    "integrity": "sha512-70uLre/AmE9pD840t45WQ08n7QcoO394IZLplQIdAz6+n5SWcsH/QHcUR4pk9oor7a6MNmXbjZ0R3txly6E3Cw==",
-    "shasum": "79895a54c340ced6710307275f801c51c69d390c",
-    "tarball": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.11.3.tgz",
-    "fileCount": 30,
-    "unpackedSize": 407953
+    "strapi-helper-plugin": "3.0.0-alpha.12.3"
   },
   "engines": {
-    "node": ">= 7.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 9.0.0",
+    "npm": ">= 5.0.0"
   },
   "homepage": "https://github.com/strapi/strapi#readme",
   "license": "MIT",
   "maintainers": [
     {
-      "name": "strapi",
-      "email": "support@strapi.io"
+      "name": "Strapi team",
+      "email": "hi@strapi.io",
+      "url": "http://strapi.io"
     }
   ],
   "name": "strapi-plugin-email",
-  "optionalDependencies": {},
-  "readme": "# Strapi plugin",
-  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git://github.com/strapi/strapi.git"
@@ -95,18 +64,16 @@
     "build:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
     "build:dev": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
     "generate": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/plop --plopfile ./node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
-    "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern '/admin/build/' --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
     "preanalyze": "npm run analyze:clean",
-    "prebuild": "npm run build:clean && npm run test",
-    "prepublishOnly": "npm run build",
+    "prebuild": "npm run build:clean",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
-    "test": "npm run lint"
+    "test": "echo \"Error: no test specified\""
   },
   "strapi": {
     "name": "Email",
     "icon": "paper-plane",
     "description": "email.plugin.description"
   },
-  "version": "3.0.0-alpha.11.3"
+  "version": "3.0.0-alpha.12.3"
 }

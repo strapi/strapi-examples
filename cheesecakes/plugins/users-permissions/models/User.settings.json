@@ -33,7 +33,7 @@
       "configurable": false,
       "private": true
     },
-    "comments": {
+    "reviews": {
       "collection": "review",
       "via": "author"
     },

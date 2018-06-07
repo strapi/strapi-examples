@@ -1,50 +1,27 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "strapi-plugin-analytics@alpha",
-        "scope": null,
-        "escapedName": "strapi-plugin-analytics",
-        "name": "strapi-plugin-analytics",
-        "rawSpec": "alpha",
-        "spec": "alpha",
-        "type": "tag"
-      },
-      "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/test"
-    ]
-  ],
   "_from": "strapi-plugin-analytics@alpha",
   "_id": "strapi-plugin-analytics@3.0.0-alpha.11.1",
-  "_inCache": true,
+  "_inBundle": false,
+  "_integrity": "sha512-2XzV8TfRSYyrbncPJEWIj7CdpxqCwdl8EJZg7YCUjXM2E2IXwF/304o1dNHyfGrWzKX2uRYn86u6K596l0oc1g==",
   "_location": "/strapi-plugin-analytics",
-  "_nodeVersion": "9.4.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/strapi-plugin-analytics_3.0.0-alpha.11.1_1521047257608_0.26420970738776717"
-  },
-  "_npmUser": {
-    "name": "strapi",
-    "email": "support@strapi.io"
-  },
-  "_npmVersion": "5.1.0",
   "_phantomChildren": {},
   "_requested": {
+    "type": "tag",
+    "registry": true,
     "raw": "strapi-plugin-analytics@alpha",
-    "scope": null,
-    "escapedName": "strapi-plugin-analytics",
     "name": "strapi-plugin-analytics",
+    "escapedName": "strapi-plugin-analytics",
     "rawSpec": "alpha",
-    "spec": "alpha",
-    "type": "tag"
+    "saveSpec": null,
+    "fetchSpec": "alpha"
   },
   "_requiredBy": [
     "#USER"
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-analytics/-/strapi-plugin-analytics-3.0.0-alpha.11.1.tgz",
   "_shasum": "eaa83394f93f7a82411a318768771cca38695514",
-  "_shrinkwrap": null,
   "_spec": "strapi-plugin-analytics@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/test",
+  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/update",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -53,36 +30,27 @@
   "bugs": {
     "url": "https://github.com/strapi/strapi-plugin-analytics/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {},
+  "deprecated": false,
   "description": "This is the description of the plugin.",
   "devDependencies": {
     "strapi-helper-plugin": "3.0.0-alpha.11.1"
-  },
-  "directories": {},
-  "dist": {
-    "integrity": "sha512-2XzV8TfRSYyrbncPJEWIj7CdpxqCwdl8EJZg7YCUjXM2E2IXwF/304o1dNHyfGrWzKX2uRYn86u6K596l0oc1g==",
-    "shasum": "eaa83394f93f7a82411a318768771cca38695514",
-    "tarball": "https://registry.npmjs.org/strapi-plugin-analytics/-/strapi-plugin-analytics-3.0.0-alpha.11.1.tgz",
-    "fileCount": 30,
-    "unpackedSize": 406475
   },
   "engines": {
     "node": ">= 9.0.0",
     "npm": ">= 5.3.0"
   },
-  "gitHead": "0feeb36db105488596f87d6e8fe5ecc82bda2ec5",
   "homepage": "https://github.com/strapi/strapi-plugin-analytics#readme",
   "license": "MIT",
   "maintainers": [
     {
-      "name": "strapi",
-      "email": "support@strapi.io"
+      "name": "Strapi team",
+      "email": "hi@strapi.io",
+      "url": "http://strapi.io"
     }
   ],
   "name": "strapi-plugin-analytics",
-  "optionalDependencies": {},
-  "readme": "# Strapi plugin",
-  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git://github.com/strapi/strapi-plugin-analytics.git"
@@ -107,23 +75,5 @@
     "icon": "area-chart",
     "description": "analytics.plugin.description"
   },
-  "version": "3.0.0-alpha.11.1",
-  "warnings": [
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.3.0"
-      },
-      "pkgid": "strapi-plugin-analytics@3.0.0-alpha.11.1"
-    },
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.3.0"
-      },
-      "pkgid": "strapi-plugin-analytics@3.0.0-alpha.11.1"
-    }
-  ]
+  "version": "3.0.0-alpha.11.1"
 }

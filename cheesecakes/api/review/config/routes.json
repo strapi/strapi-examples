@@ -25,14 +25,6 @@
       }
     },
     {
-      "method": "POST",
-      "path": "/review/submit",
-      "handler": "Review.submit",
-      "config": {
-        "policies": []
-      }
-    },
-    {
       "method": "PUT",
       "path": "/review/:_id",
       "handler": "Review.update",
@@ -44,6 +36,14 @@
       "method": "DELETE",
       "path": "/review/:_id",
       "handler": "Review.destroy",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/review/submit",
+      "handler": "Review.submit",
       "config": {
         "policies": []
       }
