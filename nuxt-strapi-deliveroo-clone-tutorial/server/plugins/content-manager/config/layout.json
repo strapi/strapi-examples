@@ -1,0 +1,44 @@
+{
+  "restaurant": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "description": {
+        "appearance": "WYSIWYG"
+      }
+    }
+  },
+  "dish": {
+    "attributes": {
+      "name": {
+        "appearance": ""
+      },
+      "description": {
+        "appearance": ""
+      },
+      "price": {
+        "appearance": ""
+      }
+    }
+  },
+  "order": {
+    "attributes": {
+      "address": {
+        "appearance": ""
+      },
+      "postalCode": {
+        "appearance": ""
+      },
+      "city": {
+        "appearance": ""
+      },
+      "dishes": {
+        "appearance": ""
+      },
+      "amount": {
+        "appearance": ""
+      }
+    }
+  }
+}

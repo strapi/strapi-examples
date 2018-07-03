@@ -1,0 +1,97 @@
+type Dish {
+  _id: ID!
+  createdAt: String!
+  updatedAt: String!
+  name: String
+  description: String
+  image: UploadFile
+  price: Float
+  restaurant: Restaurant
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+union Morph = Dish | Order | Restaurant | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+
+type Order {
+  _id: ID!
+  createdAt: String!
+  updatedAt: String!
+  address: String
+  postalCode: String
+  city: String
+  dishes: String
+  amount: Float
+}
+
+type Query {
+  dish(id: ID!): Dish
+  dishes(sort: String, limit: Int, start: Int, where: JSON): [Dish]
+  order(id: ID!): Order
+  orders(sort: String, limit: Int, start: Int, where: JSON): [Order]
+  restaurant(id: ID!): Restaurant
+  restaurants(sort: String, limit: Int, start: Int, where: JSON): [Restaurant]
+  files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  role(id: ID!): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
+  user(id: ID!): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type Restaurant {
+  _id: ID!
+  createdAt: String!
+  updatedAt: String!
+  name: String
+  description: String
+  image: UploadFile
+  dishes(sort: String, limit: Int, start: Int, where: JSON): [Dish]
+}
+
+type UploadFile {
+  _id: ID!
+  createdAt: String!
+  updatedAt: String!
+  name: String!
+  hash: String!
+  ext: String
+  mime: String!
+  size: String!
+  url: String!
+  provider: String!
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UsersPermissionsPermission {
+  _id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+}
+
+type UsersPermissionsUser {
+  _id: ID!
+  username: String!
+  email: String!
+  provider: String
+  role: UsersPermissionsRole
+}

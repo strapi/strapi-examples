@@ -24,6 +24,8 @@
    `Tags` auth, react
 - **[React-Apollo](./react-apollo) -** *Basic React App Boilerplate that use the GraphQL API when the GraphQL plugin is installed in your project.* <br />
   `Tags` auth, react, graphql
+  - **[Nuxt Strapi Tutorial](./nuxt-strapi-deliveroo-clone-tutorial) -** *Source code of the tutorial "[🍝 Cooking a Deliveroo clone with Nuxt (Vue.js), GraphQL, Strapi and Stripe](https://blog.strapi.io/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7/https://blog.strapi.io/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7/)".* <br />
+     `Tags` Nuxt, GraphQL, Strapi, Stripe
 
 ## Contributing
 
