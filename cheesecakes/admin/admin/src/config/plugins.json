@@ -1,12 +1,5 @@
 [
   {
-    "id": "analytics",
-    "source": {
-      "development": "/analytics/main.js",
-      "production": "/analytics/main.js"
-    }
-  },
-  {
     "id": "content-manager",
     "source": {
       "development": "/content-manager/main.js",
@@ -18,6 +11,13 @@
     "source": {
       "development": "/content-type-builder/main.js",
       "production": "/content-type-builder/main.js"
+    }
+  },
+  {
+    "id": "email",
+    "source": {
+      "development": "/email/main.js",
+      "production": "/email/main.js"
     }
   },
   {
