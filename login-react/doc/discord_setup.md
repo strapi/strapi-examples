@@ -13,7 +13,7 @@ Under OAuth2, add the redirect `http://localhost:1337/connect/discord/callback`
 
 [Go to the Admin](http://localhost:1337/admin/plugins/users-permissions/providers), enable Discord and enter your credentials.
 
-![Admin Google Setup](../assets/admin_discord_conf.png)
+![Admin Discord Setup](../assets/admin_discord_conf.png)
 
 
 > Go to localhost:3000 and try to sign up with discord
