@@ -18,12 +18,13 @@ function Button(props) {
   propsToDelete.map((value) => delete buttonProps[value]);
 
   const label = !isEmpty(props.label) && !props.children ? <span>{props.label}</span> : props.children;
-  
+
   return (
     <button
       className={`
         button
         ${props.primary && 'primary' }
+        ${props.social === 'discord' && 'discord'}
         ${props.social === 'facebook' && 'primary'}
         ${props.social === 'github' && 'github'}
         ${props.social === 'google' && 'google'}
