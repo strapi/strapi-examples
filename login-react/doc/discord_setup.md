@@ -20,6 +20,6 @@ Now that you have created your app on Discord you need to configure it within St
 > Don't forget to save your modifications...
 
 
-Now that the configuration is over [go to the front-end app](http://localhost:3000/auth/login) and try to login with Facebook 😉
+Now that the configuration is over [go to the front-end app](http://localhost:3000/auth/login) and try to login with Discord! 😉
 
 > Fill an issue if it doesn't work (https://github.com/strapi/strapi-examples/issues/new)
