@@ -1,25 +1,19 @@
-# Discord Setup
+# Discord setup
 
-Go to [Discord developers](https://discordapp.com/developers/applications/) and create an app called 'DiscordTest'.
-- Under OAuth2, add the redirect 'http://localhost:1337/connect/discord/callback'
-- Navigate back to the General Information and copy your Client ID and Client Secret
+Go to the [Discord developers](https://discordapp.com/developers/applications/) and create an app.
 
-![Discord General Information](../assets/discord_gi.png)
-![Discord OAuth2 Settings](../assets/discord_settings.png)
+Under OAuth2, add the redirect `http://localhost:1337/connect/discord/callback`
+
+![Discord General Information](../assets/discord_settings_1.png)
+![Discord OAuth2 Settings](../assets/discord_settings_2.png)
+
+
 
 ## API Setup
 
-Now that you have created your app on Discord you need to configure it within Strapi using the Client ID and Client Secret provided by Discord.
+[Go to the Admin](http://localhost:1337/admin/plugins/users-permissions/providers), enable Discord and enter your credentials.
 
-[Go to your providers settings](http://localhost:1337/admin/plugins/users-permissions/providers) and fill the form for Discord like the following:
-
-- Enable the Discord Provider
-- Client ID
-- Client Secret
-
-> Don't forget to save your modifications...
+![Admin Google Setup](../assets/admin_discord_conf.png)
 
 
-Now that the configuration is over [go to the front-end app](http://localhost:3000/auth/login) and try to login with Discord! 😉
-
-> Fill an issue if it doesn't work (https://github.com/strapi/strapi-examples/issues/new)
+> Go to localhost:3000 and try to sign up with discord
