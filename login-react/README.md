@@ -44,7 +44,9 @@ cd my-project && strapi start
 
 **10 -** [Enable Google provider](./doc/google_setup.md)
 
-**11 -** [Enable Twitter provider](./doc/twitter_setup.md)
+**11 -** [Enable Microsoft provider](./doc/microsoft_setup.md)
+
+**12 -** [Enable Twitter provider](./doc/twitter_setup.md)
 
 > Note you may see the `Redirect URL to add in your provider's configuration` is dynamic so make sure to enter the right path in your provider's app configurations.
 
