@@ -46,7 +46,9 @@ cd my-project && strapi start
 
 **11 -** [Enable Microsoft provider](./doc/microsoft_setup.md)
 
-**12 -** [Enable Twitter provider](./doc/twitter_setup.md)
+**12 -** [Enable Twitch provider](./doc/twitch_setup.md)
+
+**13 -** [Enable Twitter provider](./doc/twitter_setup.md)
 
 > Note you may see the `Redirect URL to add in your provider's configuration` is dynamic so make sure to enter the right path in your provider's app configurations.
 
