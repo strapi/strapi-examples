@@ -1,0 +1,74 @@
+{
+  "name": "apollo-upload-examples-app",
+  "private": true,
+  "engines": {
+    "node": ">=8.6"
+  },
+  "dependencies": {
+    "@zeit/next-bundle-analyzer": "^0.1.1",
+    "apollo-cache-inmemory": "^1.2.5",
+    "apollo-client": "^2.3.5",
+    "apollo-link": "^1.2.2",
+    "apollo-upload-client": "^8.1.0",
+    "babel-plugin-graphql-tag": "^1.6.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
+    "cross-fetch": "^2.2.2",
+    "dotenv-cli": "^1.4.0",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
+    "next": "^6.1.1",
+    "react": "^16.4.1",
+    "react-apollo": "^2.1.9",
+    "react-display-name": "^0.2.4",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.2.0",
+    "eslint-config-env": "^1.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
+    "prettier": "^1.13.7"
+  },
+  "scripts": {
+    "lint": "eslint . --fix && prettier '**/*.{json,md}' --write",
+    "dev": "dotenv next",
+    "build": "dotenv next build",
+    "start": "dotenv next start"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true
+    },
+    "extends": [
+      "env"
+    ],
+    "rules": {
+      "require-jsdoc": "off",
+      "node/no-unsupported-features": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off"
+    }
+  },
+  "prettier": {
+    "proseWrap": "never",
+    "singleQuote": true,
+    "semi": false
+  },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      "transform-inline-environment-variables",
+      "graphql-tag"
+    ]
+  }
+}

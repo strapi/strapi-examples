@@ -1,0 +1,15 @@
+{
+  "name": "Apollo upload examples",
+  "short_name": "Uploads",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#22a699",
+  "background_color": "#22a699",
+  "icons": [
+    {
+      "src": "apollo-launcher-icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
