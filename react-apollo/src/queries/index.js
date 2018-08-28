@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const GET_PRODUCT = gql`
-  query product($id: String!) {
+  query product($id: ID!) {
     product(id: $id) {
       _id
       name
