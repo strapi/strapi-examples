@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Contact form</title>
+  </head>
+  <body>
+    <form>
+      <span></span>
+      <p>
+        <label for="email">Email</label><br>
+        <input type="text" name="email"><br>
+      </p>
+      <p>
+        <label for="message">Message</label><br>
+        <textarea name="message" rows="8" cols="80"></textarea><br>
+      </p>
+      <input type="submit" value="Send">
+    </form>
+
+    <script type="text/javascript">
+      const $span = document.querySelector('span');
+      const $form = document.querySelector('form');
+
+      $form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const $inputs = document.forms[0].elements;
+
+        const res = await fetch('/email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            to: 'jim@strapi.io',
+            replyTo: $inputs.email.value,
+            subject: 'Contact form 👨‍💻',
+            text: $inputs.message.value
+          })
+        });
+
+        if (!res.ok) {
+          $span.innerHTML = 'Error: an error occured!';
+          return;
+        }
+
+        $span.innerHTML = 'Success: message has been send!';
+      });
+    </script>
+  </body>
+</html>
