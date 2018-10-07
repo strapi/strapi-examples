@@ -17,3 +17,11 @@ npm install
 ```bash
 npm start
 ```
+
+## Available URLs
+
+When your application is started you can visit these URLs:
+
+- `/hello`
+- `/hello/:name` - Replece `:name` with your name (eg. `/hello/strapi`)
+- `/hello/world/:name` - It use `/config/locales/**.json` files to translate `welcome` keys in your browser language.
