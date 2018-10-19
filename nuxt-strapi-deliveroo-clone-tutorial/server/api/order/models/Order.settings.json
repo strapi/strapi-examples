@@ -10,19 +10,24 @@
   },
   "attributes": {
     "address": {
+      "default": "",
       "type": "string"
     },
     "postalCode": {
+      "default": "",
       "type": "string"
     },
     "city": {
+      "default": "",
       "type": "string"
     },
     "dishes": {
+      "default": "",
       "type": "json"
     },
     "amount": {
-      "type": "float"
+      "default": "",
+      "type": "decimal"
     }
   }
 }

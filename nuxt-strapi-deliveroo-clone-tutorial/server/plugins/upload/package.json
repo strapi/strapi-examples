@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-upload@alpha",
-  "_id": "strapi-plugin-upload@3.0.0-alpha.12.6",
+  "_id": "strapi-plugin-upload@3.0.0-alpha.14.3",
   "_inBundle": false,
-  "_integrity": "sha512-gZJsO7Ro4CM4coA1Ha9/DnDhey4RAgKAQ8DHhGvYrBUmCDgb+npkR5V+PNdQIY26m00tnh2SUvjIyivW84WEPQ==",
+  "_integrity": "sha512-d9VbEmg1eS11OOI42r8eBWF2lD6Y3i35OCyuhmX3Lq8pyr9DzYZugMcprZ71i6HIuc4wQq+O/LBP6mfQgt4fIw==",
   "_location": "/strapi-plugin-upload",
   "_phantomChildren": {},
   "_requested": {
@@ -18,8 +18,8 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-upload/-/strapi-plugin-upload-3.0.0-alpha.12.6.tgz",
-  "_shasum": "43decb973dd782748c4c40bd9afe70467a368bd2",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-upload/-/strapi-plugin-upload-3.0.0-alpha.14.3.tgz",
+  "_shasum": "b8ee8b65f4583ca17c07cf81ec4e9a27dd702984",
   "_spec": "strapi-plugin-upload@alpha",
   "_where": "/Users/pierreburgy/Sites/sandbox/deliveroo-clone-tutorial/server",
   "author": {
@@ -28,14 +28,14 @@
   "bundleDependencies": false,
   "dependencies": {
     "react-copy-to-clipboard": "^5.0.1",
-    "strapi-upload-local": "3.0.0-alpha.12.6",
+    "strapi-upload-local": "3.0.0-alpha.14.3",
     "stream-to-array": "^2.3.0",
     "uuid": "^3.2.1"
   },
   "deprecated": false,
   "description": "This is the description of the plugin.",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.12.6"
+    "strapi-helper-plugin": "3.0.0-alpha.14.3"
   },
   "engines": {
     "node": ">= 7.0.0",
@@ -67,5 +67,5 @@
     "icon": "cloud-upload",
     "description": "Description of upload plugin."
   },
-  "version": "3.0.0-alpha.12.6"
+  "version": "3.0.0-alpha.14.3"
 }

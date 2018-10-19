@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-content-type-builder@alpha",
-  "_id": "strapi-plugin-content-type-builder@3.0.0-alpha.12.6",
+  "_id": "strapi-plugin-content-type-builder@3.0.0-alpha.14.3",
   "_inBundle": false,
-  "_integrity": "sha512-9NQwWvCWbU7vxAOz0TOOSRSNkfjq6PSBIQJ3D/kahvA/l2Y1mcjdeWPRqj1nvA5YR4JpGngh2Hrb37czxYif9g==",
+  "_integrity": "sha512-pvxAMogfiMegpgI1GHE3KmFGHmNG5BHehq2TML0vCnndIW051SOtoUn9ogoBOakJnG8ZOt4kXf8Uv9/fxxgypg==",
   "_location": "/strapi-plugin-content-type-builder",
   "_phantomChildren": {},
   "_requested": {
@@ -18,8 +18,8 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.0.0-alpha.12.6.tgz",
-  "_shasum": "c5e715ad96e6103cff7797fe2276a63cef851ecf",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.0.0-alpha.14.3.tgz",
+  "_shasum": "5309ae9f26c5958c8d1a3a4914aa292719d60536",
   "_spec": "strapi-plugin-content-type-builder@alpha",
   "_where": "/Users/pierreburgy/Sites/sandbox/deliveroo-clone-tutorial/server",
   "author": {
@@ -32,14 +32,15 @@
   },
   "bundleDependencies": false,
   "dependencies": {
+    "immutable": "^3.8.2",
     "pluralize": "^7.0.0",
-    "strapi-generate": "3.0.0-alpha.12.6",
-    "strapi-generate-api": "3.0.0-alpha.12.6"
+    "strapi-generate": "3.0.0-alpha.14.3",
+    "strapi-generate-api": "3.0.0-alpha.14.3"
   },
   "deprecated": false,
   "description": "Strapi plugin to create content type (API).",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.12.6"
+    "strapi-helper-plugin": "3.0.0-alpha.14.3"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -78,5 +79,5 @@
     "icon": "paint-brush",
     "description": "content-type-builder.plugin.description"
   },
-  "version": "3.0.0-alpha.12.6"
+  "version": "3.0.0-alpha.14.3"
 }

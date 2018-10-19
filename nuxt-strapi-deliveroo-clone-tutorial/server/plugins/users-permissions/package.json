@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-users-permissions@alpha",
-  "_id": "strapi-plugin-users-permissions@3.0.0-alpha.12.6",
+  "_id": "strapi-plugin-users-permissions@3.0.0-alpha.14.3",
   "_inBundle": false,
-  "_integrity": "sha512-sPM4SLyyy/J8wcG1krZDLBWBVZ4UbzZSYLA3rV+ay6XmvB4hY5L1N2GicY3Ie145R+qC2Spe5pnDl/1Ape/XeQ==",
+  "_integrity": "sha512-akRa+EyCVcQACKc3YCf2cEgkrrlB5GuKZjKYPe3YJOwBag8HjT+pR2pK1EdgCJ8JflYuZ45IaQXOguBylGOAug==",
   "_location": "/strapi-plugin-users-permissions",
   "_phantomChildren": {},
   "_requested": {
@@ -18,8 +18,8 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.0.0-alpha.12.6.tgz",
-  "_shasum": "1f08a6cb81a60bfab9f57e03dbc94a5a00544f66",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.0.0-alpha.14.3.tgz",
+  "_shasum": "593968e19df7854ac948d209d65784cb0838691d",
   "_spec": "strapi-plugin-users-permissions@alpha",
   "_where": "/Users/pierreburgy/Sites/sandbox/deliveroo-clone-tutorial/server",
   "author": {
@@ -36,6 +36,7 @@
     "grant-koa": "^3.8.1",
     "jsonwebtoken": "^8.1.0",
     "koa": "^2.1.0",
+    "koa2-ratelimit": "^0.6.1",
     "purest": "^2.0.1",
     "request": "^2.83.0",
     "uuid": "^3.1.0"
@@ -43,7 +44,7 @@
   "deprecated": false,
   "description": "Protect your API with a full-authentication process based on JWT",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.12.6"
+    "strapi-helper-plugin": "3.0.0-alpha.14.3"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -82,5 +83,5 @@
     "icon": "users",
     "description": "users-permissions.plugin.description"
   },
-  "version": "3.0.0-alpha.12.6"
+  "version": "3.0.0-alpha.14.3"
 }

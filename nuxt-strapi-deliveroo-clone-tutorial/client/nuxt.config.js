@@ -12,13 +12,16 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [{ src: 'https://js.stripe.com/v3' }]
   },
+
   /*
   ** Customize the progress bar color
   */
+
   loading: { color: '#3B8070' },
   /*
   ** Build configuration
   */
+
   build: {
     /*
     ** Run ESLint on save
@@ -34,6 +37,5 @@ module.exports = {
       }
     }
   },
-
   modules: ['bootstrap-vue/nuxt']
 }

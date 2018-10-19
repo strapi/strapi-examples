@@ -1,8 +1,8 @@
 {
   "_from": "strapi-plugin-content-manager@alpha",
-  "_id": "strapi-plugin-content-manager@3.0.0-alpha.12.6",
+  "_id": "strapi-plugin-content-manager@3.0.0-alpha.14.3",
   "_inBundle": false,
-  "_integrity": "sha512-Tv8whxZSioc92HKg8w1xsGFfSzNlK5mRXNbUsocRqpkRzmNMDAY5IM0TNjff4ynEjz3gfd+9WDH1MTmJkEclxQ==",
+  "_integrity": "sha512-YUsQ5+U9deErQ6xu68/ktUGkjrbJl9k+ngKLX4nixIAr5h6PuK2xRZ07b0ItwbCPXuX+2EK4exbfe2OGqSayNA==",
   "_location": "/strapi-plugin-content-manager",
   "_phantomChildren": {},
   "_requested": {
@@ -18,8 +18,8 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.12.6.tgz",
-  "_shasum": "5744a25ac5ee09aed4c182136028ab6d99244807",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.14.3.tgz",
+  "_shasum": "0fbda96cbcf96cbe08093f61fe4a69a67ff92db8",
   "_spec": "strapi-plugin-content-manager@alpha",
   "_where": "/Users/pierreburgy/Sites/sandbox/deliveroo-clone-tutorial/server",
   "author": {
@@ -31,11 +31,17 @@
     "url": "https://github.com/strapi/strapi/issues"
   },
   "bundleDependencies": false,
+  "dependencies": {
+    "pluralize": "^7.0.0"
+  },
   "deprecated": false,
   "description": "A powerful UI to easily manage your data.",
   "devDependencies": {
-    "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.12.6"
+    "codemirror": "^5.39.0",
+    "draft-js": "^0.10.5",
+    "react-select": "^1.2.1",
+    "showdown": "^1.8.6",
+    "strapi-helper-plugin": "3.0.0-alpha.14.3"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -74,5 +80,5 @@
     "icon": "plug",
     "description": "content-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.12.6"
+  "version": "3.0.0-alpha.14.3"
 }

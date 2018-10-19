@@ -143,7 +143,8 @@ export class Form extends React.Component { // eslint-disable-line react/prefer-
     }
 
     // Check if user is adding a relation with the same content type
-    if (includes(this.props.hash, 'attributerelation') && this.props.modifiedDataAttribute.params.target === this.props.modelName) {
+
+    if (includes(this.props.hash, 'attributerelation') && this.props.modifiedDataAttribute.params.target === this.props.modelName && get(this.props.modifiedDataAttribute, ['params', 'nature'], '') !== 'oneWay') {
       // Insert two attributes
       this.props.addAttributeRelationToContentType(this.props.modifiedDataAttribute);
     } else {
@@ -168,7 +169,8 @@ export class Form extends React.Component { // eslint-disable-line react/prefer-
     const contentType = this.props.modifiedDataEdit;
     // Add the new attribute to the content type attribute list
     const newAttribute = this.setTempAttribute();
-    contentType.attributes = compact(concat(contentType.attributes, newAttribute, this.setParallelAttribute(newAttribute)));
+    const parallelAttribute = this.props.modelName === get(newAttribute, ['params', 'target']) && get(newAttribute, ['params', 'nature'], '') === 'oneWay' ? null : this.setParallelAttribute(newAttribute);
+    contentType.attributes = compact(concat(contentType.attributes, newAttribute, parallelAttribute));
     // Reset the store and update the parent container
     this.props.contentTypeCreate(contentType);
     // Get the displayed model from the localStorage
@@ -416,7 +418,7 @@ export class Form extends React.Component { // eslint-disable-line react/prefer-
     if (includes(this.props.hash, 'choose')) {
       const { nodeToFocus } = this.state;
       let toAdd = 0;
-  
+
       switch(e.keyCode) {
         case 37: // Left arrow
         case 39: // Right arrow
@@ -444,17 +446,16 @@ export class Form extends React.Component { // eslint-disable-line react/prefer-
           toAdd = 0;
           break;
       }
-  
+
       this.setState(prevState => ({ nodeToFocus: prevState.nodeToFocus + toAdd }));
     }
   }
 
-  handleSubmit = (e, redirectToChoose = false) => {
+  handleSubmit = (e, redirectToChoose = true) => {
     e.preventDefault();
     const hashArray = split(this.props.hash, ('::'));
     const valueToReplace = includes(this.props.hash, '#create') ? '#create' : '#edit';
     const contentTypeName = replace(hashArray[0], valueToReplace, '');
-
     let cbSuccess;
     let dataSucces = null;
     let cbFail;
@@ -464,7 +465,7 @@ export class Form extends React.Component { // eslint-disable-line react/prefer-
         // Check if the user is editing the attribute
         const isAttribute = includes(hashArray[1], 'attribute');
         cbSuccess = isAttribute ? () => this.editTempContentTypeAttribute(redirectToChoose) : this.createContentType;
-        dataSucces = isAttribute ? null : this.props.modifiedDataEdit;
+        dataSucces = isAttribute ? null : this.getModelWithCamelCaseName(this.props.modifiedDataEdit);
         cbFail = isAttribute ? () => this.editContentTypeAttribute(redirectToChoose) : this.contentTypeEdit;
         return this.testContentType(contentTypeName, cbSuccess, dataSucces, cbFail);
       }
@@ -474,9 +475,22 @@ export class Form extends React.Component { // eslint-disable-line react/prefer-
         return this.testContentType(contentTypeName, cbSuccess, dataSucces, cbFail);
       }
       default: {
-        return this.createContentType(this.props.modifiedData);
+        return this.createContentType(
+          this.getModelWithCamelCaseName(this.props.modifiedData)
+        );
       }
     }
+  }
+
+  getModelWithCamelCaseName = (model = {}) => {
+    if (isEmpty(model) || isEmpty(model.name)) {
+      return;
+    }
+
+    return {
+      ...model,
+      name: camelCase(model.name),
+    };
   }
 
   initComponent = (props, condition) => {
@@ -512,12 +526,9 @@ export class Form extends React.Component { // eslint-disable-line react/prefer-
   }
 
   renderModalBodyChooseAttributes = () => {
-    const attributesDisplay = forms.attributesDisplay.items;
-
-    // Don't display the media field if the upload plugin isn't installed
-    if (!has(this.context.plugins.toJS(), 'upload')) {
-      attributesDisplay.splice(8, 1);
-    }
+    const attributesDisplay = has(this.context.plugins.toJS(), 'upload')
+      ? forms.attributesDisplay.items
+      : forms.attributesDisplay.items.filter(obj => obj.type !== 'media'); // Don't display the media field if the upload plugin isn't installed
 
     return (
       map(attributesDisplay, (attribute, key) => (

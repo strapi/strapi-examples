@@ -46,7 +46,6 @@ import Strapi from 'strapi-sdk-javascript/build/main'
 const apiUrl = process.env.API_URL || 'http://localhost:1337'
 const strapi = new Strapi(apiUrl)
 import { mapMutations } from 'vuex'
-
 export default {
   data() {
     return {
@@ -101,6 +100,11 @@ export default {
     })
   },
   methods: {
+    ...mapMutations({
+      addToCard: 'card/add',
+      removeFromCard: 'card/remove',
+      emptyCard: 'card/emptyList'
+    }),
     goToCheckout() {
       // Redirect to signin page if not logged in.
       const isConnected = this.$store.getters['auth/username']
@@ -109,12 +113,7 @@ export default {
         return
       }
       this.$router.push('/checkout')
-    },
-    ...mapMutations({
-      addToCard: 'card/add',
-      removeFromCard: 'card/remove',
-      emptyCard: 'card/emptyList'
-    })
+    }
   }
 }
 </script>

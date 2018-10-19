@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "lodash": "4.x.x",
-    "strapi": "3.0.0-alpha.12.6",
-    "strapi-mongoose": "3.0.0-alpha.12.6",
-    "stripe": "^6.2.0"
+    "strapi": "3.0.0-alpha.14.3",
+    "strapi-hook-mongoose": "3.0.0-alpha.14.3",
+    "stripe": "^6.12.1"
   },
   "author": {
     "name": "pierreburgy",
@@ -37,7 +37,8 @@
     }
   ],
   "strapi": {
-    "uuid": "20480f90-ff98-4469-99ba-ebe26b2dce8a"
+    "packageManager": "npm",
+    "uuid": "36041c67-bc5d-43d8-b291-09215dd6035a"
   },
   "engines": {
     "node": ">= 9.0.0",

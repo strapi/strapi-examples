@@ -17,18 +17,18 @@
     "bootstrap-vue": "^2.0.0-rc.11",
     "cookieparser": "^0.1.0",
     "js-cookie": "^2.2.0",
-    "nuxt": "^1.0.0",
-    "strapi-sdk-javascript": "^0.2.1",
-    "vue-stripe-elements-plus": "^0.2.8"
+    "nuxt": "^2.0.0",
+    "strapi-sdk-javascript": "^0.3.0",
+    "vue-stripe-elements-plus": "^0.2.9"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.5",
+    "babel-eslint": "^10.0.1",
     "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-prettier": "^2.6.1",
-    "eslint-plugin-vue": "^4.5.0",
-    "prettier": "^1.13.7"
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-vue": "^4.7.1",
+    "prettier": "^1.14.3"
   }
 }

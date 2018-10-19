@@ -40,7 +40,7 @@
   span {
     color: #333740;
     font-size: 11px;
-    font-family: Lato;
+    font-family: 'Lato', sans-serif;
     font-weight: 600;
     letter-spacing: 0.5;
     text-transform: uppercase;
@@ -61,7 +61,7 @@
   left: auto !important;
   right: -5px !important;
   min-width: 90px!important;
-  max-height: 162px;
+  max-height: 162px !important;
   overflow: auto !important;
   margin: 0 !important;
   padding: 0;

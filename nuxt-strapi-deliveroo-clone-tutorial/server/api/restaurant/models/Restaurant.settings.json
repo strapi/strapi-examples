@@ -10,15 +10,18 @@
   },
   "attributes": {
     "name": {
+      "default": "",
       "type": "string"
     },
     "description": {
+      "default": "",
       "type": "text"
     },
     "image": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "dishes": {
       "collection": "dish",

@@ -1,26 +1,26 @@
 {
-  "_from": "strapi-admin@3.0.0-alpha.12.6",
-  "_id": "strapi-admin@3.0.0-alpha.12.6",
+  "_from": "strapi-admin@3.0.0-alpha.14.3",
+  "_id": "strapi-admin@3.0.0-alpha.14.3",
   "_inBundle": false,
-  "_integrity": "sha512-PFvdVgvbYHXi2VSAEVjQsy3s3lQB5OWm3MaomMQv16WTBnr/Q002d0uKoZRbr+8Lp2J2SxVQtP65EF1Nm1z0ig==",
+  "_integrity": "sha512-OIu9sB6quTbK0ALYp23soVpXLtDjYJS1iBPxGru5dfUfEfow/XOr/S9728cM04GCrSXw+RAmHyAIH0AQDdJUag==",
   "_location": "/strapi/strapi-admin",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "strapi-admin@3.0.0-alpha.12.6",
+    "raw": "strapi-admin@3.0.0-alpha.14.3",
     "name": "strapi-admin",
     "escapedName": "strapi-admin",
-    "rawSpec": "3.0.0-alpha.12.6",
+    "rawSpec": "3.0.0-alpha.14.3",
     "saveSpec": null,
-    "fetchSpec": "3.0.0-alpha.12.6"
+    "fetchSpec": "3.0.0-alpha.14.3"
   },
   "_requiredBy": [
     "/strapi/strapi-generate-admin"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.0.0-alpha.12.6.tgz",
-  "_shasum": "b6b3e57c1a08765ac1f715926461340a53599310",
-  "_spec": "strapi-admin@3.0.0-alpha.12.6",
+  "_resolved": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.0.0-alpha.14.3.tgz",
+  "_shasum": "86b041c1d401de6f978c8ead30544c974a425e0c",
+  "_spec": "strapi-admin@3.0.0-alpha.14.3",
   "_where": "/Users/pierreburgy/.nvm/versions/node/v10.4.0/lib/node_modules/strapi/node_modules/strapi-generate-admin",
   "author": {
     "name": "Strapi"
@@ -38,8 +38,8 @@
   "description": "Strapi Admin",
   "devDependencies": {
     "sanitize.css": "^4.1.0",
-    "strapi-helper-plugin": "3.0.0-alpha.12.6",
-    "strapi-utils": "3.0.0-alpha.12.6"
+    "strapi-helper-plugin": "3.0.0-alpha.14.3",
+    "strapi-utils": "3.0.0-alpha.14.3"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -75,5 +75,5 @@
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development PORT=4000 IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/server",
     "test": "echo \"Error: no test specified\""
   },
-  "version": "3.0.0-alpha.12.6"
+  "version": "3.0.0-alpha.14.3"
 }

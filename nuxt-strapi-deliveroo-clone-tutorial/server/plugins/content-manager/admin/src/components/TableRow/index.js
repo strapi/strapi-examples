@@ -7,7 +7,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { isEmpty, isObject, toString } from 'lodash';
+import { isEmpty, isNull, isObject, toString } from 'lodash';
+import cn from 'classnames';
 
 import CustomInputCheckbox from 'components/CustomInputCheckbox';
 import IcoContainer from 'components/IcoContainer';
@@ -40,7 +41,7 @@ class TableRow extends React.Component {
       case 'integer':
       case 'biginteger':
       case 'decimal':
-        return value && !isEmpty(value.toString()) ? value.toString() : '-';
+        return !isNull(value) ? value.toString() : '-';
       case 'boolean':
         return value !== null ? toString(value) : '-';
       case 'date':
@@ -73,7 +74,7 @@ class TableRow extends React.Component {
     <td key='action' className={styles.actions}>
       <IcoContainer
         icons={[
-          { icoType: 'pencil', onClick: () => this.handleClick(this.props.destination) },
+          { icoType: 'pencil', onClick: this.handleClick },
           { id: this.props.record.id, icoType: 'trash', onClick: this.props.onDelete },
         ]}
       />
@@ -100,19 +101,25 @@ class TableRow extends React.Component {
       .concat([this.renderAction()]);
   }
 
-  renderDelete = () => (
-    <td onClick={(e) => e.stopPropagation()} key="i">
-      <CustomInputCheckbox
-        name={this.props.record.id}
-        onChange={this.props.onChange}
-        value={this.props.value}
-      />
-    </td>
-  );
+  renderDelete = () => {
+    if (this.props.enableBulkActions) {
+      return (
+        <td onClick={(e) => e.stopPropagation()} key="i">
+          <CustomInputCheckbox
+            name={this.props.record.id}
+            onChange={this.props.onChange}
+            value={this.props.value}
+          />
+        </td>
+      );
+    }
+
+    return null;
+  }
 
   render() {
     return (
-      <tr className={styles.tableRow} onClick={() => this.handleClick(this.props.destination)}>
+      <tr className={cn(styles.tableRow, this.props.enableBulkActions && styles.tableRowWithBulk)} onClick={this.handleClick}>
         {this.renderCells()}
       </tr>
     );
@@ -123,12 +130,9 @@ TableRow.contextTypes = {
   router: PropTypes.object.isRequired,
 };
 
-TableRow.defaultProps = {
-  value: false,
-};
-
 TableRow.propTypes = {
   destination: PropTypes.string.isRequired,
+  enableBulkActions: PropTypes.bool,
   headers: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
   onDelete: PropTypes.func,
@@ -138,7 +142,9 @@ TableRow.propTypes = {
 };
 
 TableRow.defaultProps = {
+  enableBulkActions: true,
   onDelete: () => {},
+  value: false,
 };
 
 export default TableRow;

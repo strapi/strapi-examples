@@ -1,3 +1,4 @@
+
 <template>
   <section class="container">
     <div>
@@ -77,7 +78,6 @@ import { mapMutations } from 'vuex'
 import Strapi from 'strapi-sdk-javascript/build/main'
 const apiUrl = process.env.API_URL || 'http://localhost:1337'
 const strapi = new Strapi(apiUrl)
-
 export default {
   components: {
     Card
@@ -119,9 +119,8 @@ export default {
         this.loading = false
         return
       }
-
       try {
-        await strapi.createEntry('order', {
+        await strapi.createEntry('orders', {
           amount: this.$store.getters['card/price'],
           dishes: this.$store.getters['card/items'],
           address: this.address,

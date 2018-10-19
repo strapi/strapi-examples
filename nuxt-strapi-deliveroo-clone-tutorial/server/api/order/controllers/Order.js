@@ -1,5 +1,4 @@
 'use strict';
-
 const stripe = require('stripe')('sk_test_CbI52CqMj8Cv4bXf822VOGhu');
 
 /**
@@ -17,7 +16,11 @@ module.exports = {
    */
 
   find: async (ctx) => {
-    return strapi.services.order.fetchAll(ctx.query);
+    if (ctx.query._q) {
+      return strapi.services.order.search(ctx.query);
+    } else {
+      return strapi.services.order.fetchAll(ctx.query);
+    }
   },
 
   /**

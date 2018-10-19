@@ -10,18 +10,22 @@
   },
   "attributes": {
     "name": {
+      "default": "",
       "type": "string"
     },
     "description": {
+      "default": "",
       "type": "text"
     },
     "image": {
       "model": "file",
       "via": "related",
-      "plugin": "upload"
+      "plugin": "upload",
+      "required": false
     },
     "price": {
-      "type": "float"
+      "default": "",
+      "type": "decimal"
     },
     "restaurant": {
       "model": "restaurant",

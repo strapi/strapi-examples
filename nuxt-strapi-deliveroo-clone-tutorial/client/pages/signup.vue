@@ -7,7 +7,7 @@
           <b-form-input
             id="username"
             v-model="username"
-            type="text"
+            type="username"
             autofocus="true"
             placeholder="Enter your username"
             required/>
@@ -51,7 +51,6 @@ import Strapi from 'strapi-sdk-javascript/build/main'
 const apiUrl = process.env.API_URL || 'http://localhost:1337'
 const strapi = new Strapi(apiUrl)
 import { mapMutations } from 'vuex'
-
 export default {
   data() {
     return {

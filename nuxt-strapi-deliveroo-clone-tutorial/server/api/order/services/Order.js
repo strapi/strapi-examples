@@ -83,7 +83,7 @@ module.exports = {
     const entry = await Order.create(data);
 
     // Create relational data and return the entry.
-    return Order.updateRelations({ id: entry.id, values: relations });
+    return Order.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
@@ -142,5 +142,53 @@ module.exports = {
     );
 
     return data;
+  },
+
+  /**
+   * Promise to search a/an order.
+   *
+   * @return {Promise}
+   */
+
+  search: async (params) => {
+    // Convert `params` object to filters compatible with Mongo.
+    const filters = strapi.utils.models.convertParams('order', params);
+    // Select field to populate.
+    const populate = Order.associations
+      .filter(ast => ast.autoPopulate !== false)
+      .map(ast => ast.alias)
+      .join(' ');
+
+    const $or = Object.keys(Order.attributes).reduce((acc, curr) => {
+      switch (Order.attributes[curr].type) {
+        case 'integer':
+        case 'float':
+        case 'decimal':
+          if (!_.isNaN(_.toNumber(params._q))) {
+            return acc.concat({ [curr]: params._q });
+          }
+
+          return acc;
+        case 'string':
+        case 'text':
+        case 'password':
+          return acc.concat({ [curr]: { $regex: params._q, $options: 'i' } });
+        case 'boolean':
+          if (params._q === 'true' || params._q === 'false') {
+            return acc.concat({ [curr]: params._q === 'true' });
+          }
+
+          return acc;
+        default:
+          return acc;
+      }
+    }, []);
+
+    return Order
+      .find({ $or })
+      .sort(filters.sort)
+      .skip(filters.start)
+      .limit(filters.limit)
+      .populate(populate);
   }
 };

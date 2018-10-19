@@ -118,6 +118,11 @@ module.exports = {
 
       const files = values.files;
 
+      // set empty attributes if old values was cleared
+      _.difference(Object.keys(files), Object.keys(values.fields)).forEach(attr => {
+        values.fields[attr] = [];
+      });
+
       // Parse stringify JSON data.
       values = Object.keys(values.fields).reduce((acc, current) => {
         acc[current] = parser(values.fields[current]);
@@ -182,6 +187,7 @@ module.exports = {
   deleteMany: async (params, query) => {
     const { source } = query;
     const { model } = params;
+
     const primaryKey = strapi.query(model, source).primaryKey;
     const toRemove = Object.keys(query).reduce((acc, curr) => {
       if (curr !== 'source') {

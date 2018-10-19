@@ -15,7 +15,11 @@ module.exports = {
    */
 
   find: async (ctx) => {
-    return strapi.services.restaurant.fetchAll(ctx.query);
+    if (ctx.query._q) {
+      return strapi.services.restaurant.search(ctx.query);
+    } else {
+      return strapi.services.restaurant.fetchAll(ctx.query);
+    }
   },
 
   /**
