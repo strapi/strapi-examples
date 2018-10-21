@@ -1,12 +1,14 @@
-/* _app.js */
-import React from "react";
-import App, { Container } from "next/app";
-import Head from "next/head";
+/* /pages/_app.js */
 
-export default class MyApp extends App {
+import Layout from "../components/Layout";
+import withData from "../lib/apollo";
+
+import App, { Container } from "next/app";
+import React from "react";
+
+class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
@@ -14,22 +16,35 @@ export default class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, isAuthenticated, ctx } = this.props;
     return (
-      <>
-        <Head>
-          <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossOrigin="anonymous"
-          />
-        </Head>
-
-        <Container>
+      <Container>
+        <Layout isAuthenticated={isAuthenticated} {...pageProps}>
           <Component {...pageProps} />
-        </Container>
-      </>
+        </Layout>
+
+        <style jsx global>
+          {`
+            a {
+              color: white !important;
+            }
+            a:link {
+              text-decoration: none !important;
+              color: white !important;
+            }
+            a:hover {
+              color: white;
+            }
+            .card {
+              display: inline-block !important;
+            }
+            .card-columns {
+              column-count: 3;
+            }
+          `}
+        </style>
+      </Container>
     );
   }
 }
+export default withData(MyApp);
