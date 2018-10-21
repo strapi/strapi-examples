@@ -56,7 +56,10 @@ class Restaurants extends React.Component {
                     />
                     <CardBody>
                       <CardTitle>{res.name}</CardTitle>
-                      <CardText>{res.description}</CardText>
+                      <CardText>
+                        {res.description}
+                        {res.price}
+                      </CardText>
                     </CardBody>
                     <div className="card-footer">
                       <Button

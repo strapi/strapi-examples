@@ -15,7 +15,6 @@ import {
   CardTitle,
   Badge
 } from "reactstrap";
-import uuidv1 from "uuid/v1";
 
 class Cart extends React.Component {
   constructor(props) {
@@ -51,7 +50,7 @@ class Cart extends React.Component {
                         <div
                           className="items-one"
                           style={{ marginBottom: 15 }}
-                          key={uuidv1()}
+                          key={item._id}
                         >
                           <div>
                             <span id="item-price">&nbsp; ${item.price}</span>
