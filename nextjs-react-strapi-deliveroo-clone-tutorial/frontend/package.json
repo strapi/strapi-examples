@@ -4,13 +4,16 @@
     "express": "^4.16.4",
     "gql": "^1.1.2",
     "graphql": "^14.0.2",
+    "js-cookie": "^2.2.0",
+    "jwt-decode": "^2.2.0",
     "next": "^7.0.2",
     "next-apollo": "^2.0.0",
     "react": "^16.5.2",
     "react-apollo": "^2.2.4",
     "react-dom": "^16.5.2",
     "reactstrap": "^6.5.0",
-    "recompose": "^0.30.0"
+    "recompose": "^0.30.0",
+    "strapi-sdk-javascript": "^0.3.0"
   },
   "scripts": {
     "dev": "node server.js",
