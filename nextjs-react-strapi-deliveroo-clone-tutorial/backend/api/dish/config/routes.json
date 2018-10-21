@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/dishes",
+      "handler": "Dish.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dishes/count",
+      "handler": "Dish.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dishes/:_id",
+      "handler": "Dish.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/dishes",
+      "handler": "Dish.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/dishes/:_id",
+      "handler": "Dish.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/dishes/:_id",
+      "handler": "Dish.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
