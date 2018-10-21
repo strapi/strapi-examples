@@ -29,6 +29,9 @@
 - **[Nuxt Strapi Tutorial](./nuxt-strapi-deliveroo-clone-tutorial) -** *Source code of the tutorial "[🍝 Cooking a Deliveroo clone with Nuxt (Vue.js), GraphQL, Strapi and Stripe](https://blog.strapi.io/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7/https://blog.strapi.io/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7/)".* <br />
   `Nuxt` `GraphQL` `Stripe`
 
+- **[Nextjs Strapi Tutorial](./nextjs-react-strapi-deliveroo-clone-tutorial) -** *Source code of the tutorial "[🍝 Cooking a Deliveroo clone with Nextjs (React.js), GraphQL, Strapi and Stripe](https://blog.strapi.io/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7/https://blog.strapi.io/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7/)".* <br />
+  `Next` `GraphQL` `Stripe` `React`
+
 ## Contributing
 
 We would love to add your example in this repository. Feel free to submit a Pull Request (against `master` branch) and we will merge it as soon as possible.
