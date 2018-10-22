@@ -15,7 +15,7 @@ class AppProvider extends React.Component {
     };
   }
   componentDidMount() {
-    const cart = JSON.parse(Cookie.get("cart"));
+    const cart = Cookie.getJSON("cart");
     //if items in cart, set items and total from cookie
     console.log(cart);
     let total;
