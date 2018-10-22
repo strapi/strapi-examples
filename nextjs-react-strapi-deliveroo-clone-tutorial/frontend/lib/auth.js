@@ -1,7 +1,7 @@
 /* /lib/auth.js */
 
 import jwtDecode from "jwt-decode";
-import Cookie from "js-cookie";
+import Cookies from "js-cookie";
 import Strapi from "strapi-sdk-javascript/build/main";
 
 import Router from "next/router";
@@ -35,10 +35,10 @@ export const setToken = token => {
   if (!process.browser) {
     return;
   }
-  Cookie.set("username", token.user.username);
-  Cookie.set("jwt", token.jwt);
+  Cookies.set("username", token.user.username);
+  Cookies.set("jwt", token.jwt);
 
-  if (Cookie.get("username")) {
+  if (Cookies.get("username")) {
     Router.push("/");
   }
 };
@@ -47,9 +47,9 @@ export const unsetToken = () => {
   if (!process.browser) {
     return;
   }
-  Cookie.remove("jwt");
-  Cookie.remove("username");
-  Cookie.remove("cart");
+  Cookies.remove("jwt");
+  Cookies.remove("username");
+  Cookies.remove("cart");
 
   // to support logging out from all windows
   window.localStorage.setItem("logout", Date.now());
@@ -79,7 +79,7 @@ export const getUserFromServerCookie = req => {
 };
 
 export const getUserFromLocalCookie = () => {
-  return Cookie.get("username");
+  return Cookies.get("username");
 };
 
 //these will be used if you expand to a provider such as Auth0

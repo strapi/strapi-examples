@@ -41,7 +41,7 @@ class AppProvider extends React.Component {
           items: this.state.items.concat(item),
           total: this.state.total + item.price
         },
-        () => Cookie.set("cart", this.state.items)
+        () => Cookies.set("cart", this.state.items)
       );
     } else {
       this.setState(
@@ -54,7 +54,7 @@ class AppProvider extends React.Component {
           ),
           total: this.state.total + item.price
         },
-        () => Cookie.set("cart", this.state.items)
+        () => Cookies.set("cart", this.state.items)
       );
     }
   };
@@ -74,7 +74,7 @@ class AppProvider extends React.Component {
           ),
           total: this.state.total - item.price
         },
-        () => Cookie.set("cart", this.state.items)
+        () => Cookies.set("cart", this.state.items)
       );
     } else {
       const items = [...this.state.items];
@@ -83,7 +83,7 @@ class AppProvider extends React.Component {
       items.splice(index, 1);
       this.setState(
         { items: items, total: this.state.total - item.price },
-        () => Cookie.set("cart", this.state.items)
+        () => Cookies.set("cart", this.state.items)
       );
     }
   };

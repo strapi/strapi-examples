@@ -17,7 +17,7 @@ import {
   Input,
   FormText
 } from "reactstrap";
-import Cookie from "js-cookie";
+import Cookies from "js-cookie";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class SignIn extends React.Component {
 
     this.setState({ loading: true });
 
-    strapiLogin(email, password).then(() => console.log(Cookie.get("user")));
+    strapiLogin(email, password).then(() => console.log(Cookies.get("user")));
   }
   render() {
     const { error } = this.state;
