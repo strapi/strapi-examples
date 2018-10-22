@@ -1,7 +1,7 @@
 /* /components/Context/AppProvider */
 
 import React from "react";
-import Cookie from "js-cookie";
+import Cookies from "js-cookie";
 /* First we will make a new context */
 const AppContext = React.createContext();
 
@@ -15,7 +15,7 @@ class AppProvider extends React.Component {
     };
   }
   componentDidMount() {
-    const cart = Cookie.getJSON("cart");
+    const cart = Cookies.getJSON("cart");
     //if items in cart, set items and total from cookie
     console.log(cart);
     let total;
