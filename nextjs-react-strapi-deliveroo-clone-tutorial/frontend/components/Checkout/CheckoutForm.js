@@ -37,7 +37,9 @@ class CheckoutForm extends React.Component {
     const { context } = this.props;
     const { data } = this.state;
     console.log(context);
-    this.props.stripe.createToken().then(res => {
+    console.log(this.props.stripe.createToken())
+    this.props.stripe.createToken()
+    .then(res => {
       strapi
         .createEntry("orders", {
           amount: context.total,
@@ -49,7 +51,8 @@ class CheckoutForm extends React.Component {
           token: res.token.id
         })
         .then(Router.push("/"));
-    });
+    })
+    .catch(err => this.setState({ error: err}))
   }
 
   render() {

@@ -1,5 +1,4 @@
-/* /pages/signin.js */
-
+/* /pages/signin.js */ 
 import React from "react";
 
 import defaultPage from "../hocs/defaultPage";
