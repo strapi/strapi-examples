@@ -10,4 +10,4 @@ To see it live:
 
  - Clone the repository.
  - Start the Strapi server: `cd nuxt-strapi-deliveroo-clone-tutorial/server && npm install && npm start`.
- - In an other tab, start the Nuxt server: `cd nuxt-strapi-deliveroo-clone-tutorial/client && npm install && npm run develop`.
+ - In an other tab, start the Nuxt server: `cd nuxt-strapi-deliveroo-clone-tutorial/client && npm install && npm run dev`.
