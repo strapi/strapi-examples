@@ -50,8 +50,8 @@ class CheckoutForm extends React.Component {
           stripe_id: data.stripe_id,
           token: res.token.id
         })
+        .then(Router.push("/"));
     })
-    .then(Router.push("/"))
     .catch(err => this.setState({ error: err}))
   }
 
