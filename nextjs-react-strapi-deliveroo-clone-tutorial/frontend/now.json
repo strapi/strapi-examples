@@ -1,0 +1,7 @@
+{
+    "type": "docker",
+    "public": true,
+    "features": {
+      "cloud": "v2"
+    }
+  }

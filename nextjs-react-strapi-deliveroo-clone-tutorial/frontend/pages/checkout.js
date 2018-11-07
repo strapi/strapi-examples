@@ -1,3 +1,4 @@
+
 /* pages/checkout.js */
 
 import React, { Component } from "react";
@@ -29,7 +30,7 @@ class Checkout extends Component {
       Router.push("/");
     }
     this.setState({
-      stripe: window.Stripe("pk_test_5yOGF65rhzZjobGYiOoYJoj0")
+      stripe: window.Stripe("pk_test_YOUR_STRIPE_PK_KEY")
     });
   }
 

@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-email@alpha",
-  "_id": "strapi-plugin-email@3.0.0-alpha.14.3",
+  "_from": "strapi-plugin-email@3.0.0-alpha.14.4.0",
+  "_id": "strapi-plugin-email@3.0.0-alpha.14.4.0",
   "_inBundle": false,
-  "_integrity": "sha512-u4nKEAKQmHleTwItXFM4T+CBNBnDv7ssumOLbqHHg+AP2TAaeC+qD6leX+UdYuet9DE9WYYYvCamrlTQb3QIUA==",
+  "_integrity": "sha512-uJUpQ0331IXhJkKGQCm+lXzCS/hPhFt14UXjl557IetLwUsawgA7rhZHkEjzHFyfvPCyAFa8QyHt2caV8+zLfg==",
   "_location": "/strapi-plugin-email",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-email@alpha",
+    "raw": "strapi-plugin-email@3.0.0-alpha.14.4.0",
     "name": "strapi-plugin-email",
     "escapedName": "strapi-plugin-email",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.14.4.0",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.14.4.0"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.14.3.tgz",
-  "_shasum": "2a44320d57b76e0fe9b5e046e71d834f118c6d41",
-  "_spec": "strapi-plugin-email@alpha",
-  "_where": "/Users/ryan/ReactNode/strapi-examples/nextjs-react-strapi-deliveroo-clone-tutorial/backend",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.14.4.0.tgz",
+  "_shasum": "0b3d3bc8ec3b4bde87736fde568b9bf1c3d3494b",
+  "_spec": "strapi-plugin-email@3.0.0-alpha.14.4.0",
+  "_where": "/Users/pierreburgy/Sites/sandbox/strapi-deliveroo/backend",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -32,13 +32,13 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "strapi-email-sendmail": "3.0.0-alpha.14.3"
+    "strapi-email-sendmail": "3.0.0-alpha.14.4.0"
   },
   "deprecated": false,
   "description": "This is the description of the plugin.",
   "devDependencies": {
     "react-copy-to-clipboard": "5.0.1",
-    "strapi-helper-plugin": "3.0.0-alpha.14.3"
+    "strapi-helper-plugin": "3.0.0-alpha.14.4.0"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -77,23 +77,5 @@
     "icon": "paper-plane",
     "description": "email.plugin.description"
   },
-  "version": "3.0.0-alpha.14.3",
-  "warnings": [
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.0.0"
-      },
-      "pkgid": "strapi-plugin-email@3.0.0-alpha.14.3"
-    },
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.0.0"
-      },
-      "pkgid": "strapi-plugin-email@3.0.0-alpha.14.3"
-    }
-  ]
+  "version": "3.0.0-alpha.14.4.0"
 }

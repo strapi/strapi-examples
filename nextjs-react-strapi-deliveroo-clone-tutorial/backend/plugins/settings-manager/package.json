@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-settings-manager@alpha",
-  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.14.3",
+  "_from": "strapi-plugin-settings-manager@3.0.0-alpha.14.4.0",
+  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.14.4.0",
   "_inBundle": false,
-  "_integrity": "sha512-+/6dO97loLFk/Zl9iumx5Z3+xfrsAIVHqBQsDtwuUa+lnvxU+Mw5h0EJNJvVPi/U0O6+4wCvVpMu5qAxQbCcVQ==",
+  "_integrity": "sha512-KHPqzRkxQlo7KbOQ32Qf/bbQV651pbc5ZGbP3doDkcv6C1M1d+KCW4Oc6ThDWYKbpBP1zLpI/yqTpH2cj1tkHw==",
   "_location": "/strapi-plugin-settings-manager",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-settings-manager@alpha",
+    "raw": "strapi-plugin-settings-manager@3.0.0-alpha.14.4.0",
     "name": "strapi-plugin-settings-manager",
     "escapedName": "strapi-plugin-settings-manager",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.14.4.0",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.14.4.0"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.14.3.tgz",
-  "_shasum": "08a0f81b99e93300dedc49beea1a0bc241b4cce8",
-  "_spec": "strapi-plugin-settings-manager@alpha",
-  "_where": "/Users/ryan/ReactNode/strapi-examples/nextjs-react-strapi-deliveroo-clone-tutorial/backend",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.14.4.0.tgz",
+  "_shasum": "6cdeb87758bc1cdaabaab958cfacc47107d0d7b6",
+  "_spec": "strapi-plugin-settings-manager@3.0.0-alpha.14.4.0",
+  "_where": "/Users/pierreburgy/Sites/sandbox/strapi-deliveroo/backend",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -36,7 +36,7 @@
   "devDependencies": {
     "flag-icon-css": "^2.8.0",
     "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.14.3"
+    "strapi-helper-plugin": "3.0.0-alpha.14.4.0"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -76,23 +76,5 @@
     "icon": "wrench",
     "description": "settings-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.14.3",
-  "warnings": [
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.0.0"
-      },
-      "pkgid": "strapi-plugin-settings-manager@3.0.0-alpha.14.3"
-    },
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.0.0"
-      },
-      "pkgid": "strapi-plugin-settings-manager@3.0.0-alpha.14.3"
-    }
-  ]
+  "version": "3.0.0-alpha.14.4.0"
 }

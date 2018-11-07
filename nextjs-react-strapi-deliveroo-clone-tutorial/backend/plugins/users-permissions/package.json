@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-users-permissions@alpha",
-  "_id": "strapi-plugin-users-permissions@3.0.0-alpha.14.3",
+  "_from": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0",
+  "_id": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0",
   "_inBundle": false,
-  "_integrity": "sha512-akRa+EyCVcQACKc3YCf2cEgkrrlB5GuKZjKYPe3YJOwBag8HjT+pR2pK1EdgCJ8JflYuZ45IaQXOguBylGOAug==",
+  "_integrity": "sha512-+ydSmYyDcmXGa/dJY9Pwmoy47eklvVEn0CQpJGoVThjeG92nzQ8q1Hv3bOqpam+Bi/wIV6f+02rwVUtacmEcRA==",
   "_location": "/strapi-plugin-users-permissions",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-users-permissions@alpha",
+    "raw": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0",
     "name": "strapi-plugin-users-permissions",
     "escapedName": "strapi-plugin-users-permissions",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.14.4.0",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.14.4.0"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.0.0-alpha.14.3.tgz",
-  "_shasum": "593968e19df7854ac948d209d65784cb0838691d",
-  "_spec": "strapi-plugin-users-permissions@alpha",
-  "_where": "/Users/ryan/ReactNode/strapi-examples/nextjs-react-strapi-deliveroo-clone-tutorial/backend",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.0.0-alpha.14.4.0.tgz",
+  "_shasum": "0cda9ea71fc63ba38a98fc12a663983c7e372d5a",
+  "_spec": "strapi-plugin-users-permissions@3.0.0-alpha.14.4.0",
+  "_where": "/Users/pierreburgy/Sites/sandbox/strapi-deliveroo/backend",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -44,7 +44,7 @@
   "deprecated": false,
   "description": "Protect your API with a full-authentication process based on JWT",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.14.3"
+    "strapi-helper-plugin": "3.0.0-alpha.14.4.0"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -83,23 +83,5 @@
     "icon": "users",
     "description": "users-permissions.plugin.description"
   },
-  "version": "3.0.0-alpha.14.3",
-  "warnings": [
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.0.0"
-      },
-      "pkgid": "strapi-plugin-users-permissions@3.0.0-alpha.14.3"
-    },
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.0.0"
-      },
-      "pkgid": "strapi-plugin-users-permissions@3.0.0-alpha.14.3"
-    }
-  ]
+  "version": "3.0.0-alpha.14.4.0"
 }

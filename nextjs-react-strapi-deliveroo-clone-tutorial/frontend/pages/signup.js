@@ -1,4 +1,4 @@
-/* /pages/signup.js */
+/* /pages/signup.js */ 
 
 import React from "react";
 import { strapiRegister } from "../lib/auth";

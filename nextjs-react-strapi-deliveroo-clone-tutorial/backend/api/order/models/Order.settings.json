@@ -23,7 +23,7 @@
     },
     "amount": {
       "default": "",
-      "type": "decimal"
+      "type": "integer"
     }
   }
 }

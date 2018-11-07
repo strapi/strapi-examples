@@ -47,7 +47,6 @@ class CheckoutForm extends React.Component {
           address: data.address,
           city: data.city,
           state: data.state,
-          stripe_id: data.stripe_id,
           token: res.token.id
         })
         .then(Router.push("/"));

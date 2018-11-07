@@ -1,41 +1,41 @@
 {
-  "_from": "strapi-plugin-upload@alpha",
-  "_id": "strapi-plugin-upload@3.0.0-alpha.14.3",
+  "_from": "strapi-plugin-upload@3.0.0-alpha.14.4.0",
+  "_id": "strapi-plugin-upload@3.0.0-alpha.14.4.0",
   "_inBundle": false,
-  "_integrity": "sha512-d9VbEmg1eS11OOI42r8eBWF2lD6Y3i35OCyuhmX3Lq8pyr9DzYZugMcprZ71i6HIuc4wQq+O/LBP6mfQgt4fIw==",
+  "_integrity": "sha512-xH5a0UA9Y08pkOgrs3J7cdITP878TAL86K0Oi9QDzA7Jq9bNfqOWQaWIJ2ZuijDRcwVAWd6PXZraR81YaJd5iA==",
   "_location": "/strapi-plugin-upload",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-upload@alpha",
+    "raw": "strapi-plugin-upload@3.0.0-alpha.14.4.0",
     "name": "strapi-plugin-upload",
     "escapedName": "strapi-plugin-upload",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.14.4.0",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.14.4.0"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-upload/-/strapi-plugin-upload-3.0.0-alpha.14.3.tgz",
-  "_shasum": "b8ee8b65f4583ca17c07cf81ec4e9a27dd702984",
-  "_spec": "strapi-plugin-upload@alpha",
-  "_where": "/Users/ryan/ReactNode/strapi-examples/nextjs-react-strapi-deliveroo-clone-tutorial/backend",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-upload/-/strapi-plugin-upload-3.0.0-alpha.14.4.0.tgz",
+  "_shasum": "3c4c89336debc14f9c83fbb782af96240a025647",
+  "_spec": "strapi-plugin-upload@3.0.0-alpha.14.4.0",
+  "_where": "/Users/pierreburgy/Sites/sandbox/strapi-deliveroo/backend",
   "author": {
     "name": "A Strapi developer"
   },
   "bundleDependencies": false,
   "dependencies": {
     "react-copy-to-clipboard": "^5.0.1",
-    "strapi-upload-local": "3.0.0-alpha.14.3",
+    "strapi-upload-local": "3.0.0-alpha.14.4.0",
     "stream-to-array": "^2.3.0",
     "uuid": "^3.2.1"
   },
   "deprecated": false,
   "description": "This is the description of the plugin.",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.14.3"
+    "strapi-helper-plugin": "3.0.0-alpha.14.4.0"
   },
   "engines": {
     "node": ">= 7.0.0",
@@ -67,5 +67,5 @@
     "icon": "cloud-upload",
     "description": "Description of upload plugin."
   },
-  "version": "3.0.0-alpha.14.3"
+  "version": "3.0.0-alpha.14.4.0"
 }

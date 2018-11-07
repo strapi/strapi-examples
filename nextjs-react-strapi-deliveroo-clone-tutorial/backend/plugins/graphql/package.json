@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-graphql@alpha",
-  "_id": "strapi-plugin-graphql@3.0.0-alpha.14.3",
+  "_from": "strapi-plugin-graphql@3.0.0-alpha.14.4.0",
+  "_id": "strapi-plugin-graphql@3.0.0-alpha.14.4.0",
   "_inBundle": false,
-  "_integrity": "sha512-AEuKnyYYWPtVfruOLpqTN6BcnjEf4bg3mu4P8yMvfMS+TwOREK7uYcQpdedmkL3+KoST6mCoWPahqELYnlKquQ==",
+  "_integrity": "sha512-3ZtAb2B8BwGZlPz5e58U0utkqaiBkv8hL/Q2Zu/cg+MHUaMsNlXJ3HuA5K/HigzKxF1IOUVmiYYCKNjE+K0Z7w==",
   "_location": "/strapi-plugin-graphql",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-graphql@alpha",
+    "raw": "strapi-plugin-graphql@3.0.0-alpha.14.4.0",
     "name": "strapi-plugin-graphql",
     "escapedName": "strapi-plugin-graphql",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.14.4.0",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.14.4.0"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.14.3.tgz",
-  "_shasum": "6ab75ede1cdf9030f462bff2f96a0c57973db90a",
-  "_spec": "strapi-plugin-graphql@alpha",
-  "_where": "/Users/ryan/ReactNode/strapi-examples/nextjs-react-strapi-deliveroo-clone-tutorial/backend",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.14.4.0.tgz",
+  "_shasum": "7d45eb53cc7fa48cb274e2d45e729cd0d68d2690",
+  "_spec": "strapi-plugin-graphql@3.0.0-alpha.14.4.0",
+  "_where": "/Users/pierreburgy/Sites/sandbox/strapi-deliveroo/backend",
   "author": {
     "name": "A Strapi developer"
   },
@@ -36,7 +36,7 @@
     "graphql-type-datetime": "^0.2.2",
     "graphql-type-json": "^0.2.1",
     "pluralize": "^7.0.0",
-    "strapi-utils": "3.0.0-alpha.14.3"
+    "strapi-utils": "3.0.0-alpha.14.4.0"
   },
   "deprecated": false,
   "description": "This is the description of the plugin.",
@@ -69,23 +69,5 @@
     "icon": "plug",
     "description": "Description of graphql plugin."
   },
-  "version": "3.0.0-alpha.14.3",
-  "warnings": [
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.3.0"
-      },
-      "pkgid": "strapi-plugin-graphql@3.0.0-alpha.14.3"
-    },
-    {
-      "code": "ENOTSUP",
-      "required": {
-        "node": ">= 9.0.0",
-        "npm": ">= 5.3.0"
-      },
-      "pkgid": "strapi-plugin-graphql@3.0.0-alpha.14.3"
-    }
-  ]
+  "version": "3.0.0-alpha.14.4.0"
 }

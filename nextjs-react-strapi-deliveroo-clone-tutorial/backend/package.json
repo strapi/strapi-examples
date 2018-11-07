@@ -20,25 +20,24 @@
   },
   "dependencies": {
     "lodash": "4.x.x",
-    "strapi": "3.0.0-alpha.14.2",
-    "strapi-hook-mongoose": "3.0.0-alpha.14.2",
-    "stripe": "^6.12.1"
+    "strapi": "3.0.0-alpha.14.4.0",
+    "strapi-hook-mongoose": "3.0.0-alpha.14.4.0"
   },
   "author": {
-    "name": "ryan",
+    "name": "pierreburgy",
     "email": "",
     "url": ""
   },
   "maintainers": [
     {
-      "name": "ryan",
+      "name": "pierreburgy",
       "email": "",
       "url": ""
     }
   ],
   "strapi": {
     "packageManager": "npm",
-    "uuid": "2ec475aa-0611-41bd-8b6a-0fd4e8577c24"
+    "uuid": "7d170223-ce75-4c8e-a6c7-2affb31a7e05"
   },
   "engines": {
     "node": ">= 9.0.0",

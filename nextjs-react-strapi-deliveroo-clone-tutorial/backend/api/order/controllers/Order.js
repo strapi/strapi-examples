@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Order.js controller
@@ -6,16 +6,15 @@
  * @description: A set of functions called "actions" for managing `Order`.
  */
 
-const stripe = require("stripe")("sk_test_YOUR_STRIPE_KEY");
-
 module.exports = {
+
   /**
    * Retrieve order records.
    *
    * @return {Object|Array}
    */
 
-  find: async ctx => {
+  find: async (ctx) => {
     if (ctx.query._q) {
       return strapi.services.order.search(ctx.query);
     } else {
@@ -29,7 +28,7 @@ module.exports = {
    * @return {Object}
    */
 
-  findOne: async ctx => {
+  findOne: async (ctx) => {
     if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
       return ctx.notFound();
     }
@@ -43,7 +42,7 @@ module.exports = {
    * @return {Number}
    */
 
-  count: async ctx => {
+  count: async (ctx) => {
     return strapi.services.order.count(ctx.query);
   },
 
@@ -53,28 +52,8 @@ module.exports = {
    * @return {Object}
    */
 
-  create: async ctx => {
-    const { address, amount, dishes, token, city, state } = ctx.request.body;
-
-    const charge = await stripe.charges.create({
-      // Transform cents to dollars.
-      amount: amount * 100,
-      currency: "usd",
-      description: `Order ${new Date()} by ${ctx.state.user._id}`,
-      source: token
-    });
-
-    // Register the order in the database
-    const order = await strapi.services.order.add({
-      user: ctx.state.user._id,
-      address,
-      amount,
-      dishes,
-      city,
-      state
-    });
-
-    return order;
+  create: async (ctx) => {
+    return strapi.services.order.add(ctx.request.body);
   },
 
   /**
@@ -84,7 +63,7 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    return strapi.services.order.edit(ctx.params, ctx.request.body);
+    return strapi.services.order.edit(ctx.params, ctx.request.body) ;
   },
 
   /**
