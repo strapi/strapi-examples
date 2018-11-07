@@ -27,10 +27,10 @@
 - **[GraphQL Upload with React-Apollo](./apollo-upload-graphql) -** *React App that use the GraphQL upload mutation when the GraphQL plugin is installed in your project.* <br />
   `auth` `react` `graphql`
 - **[Nuxt Strapi Tutorial](./nuxt-strapi-deliveroo-clone-tutorial) -** *Source code of the tutorial "[🍝 Cooking a Deliveroo clone with Nuxt (Vue.js), GraphQL, Strapi and Stripe](https://blog.strapi.io/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7/)".* <br />
-  `Nuxt` `GraphQL` `Stripe`
+  `Nuxt` `GraphQL` `Stripe` `Vue`
 
-- **[Nextjs Strapi Tutorial](./nextjs-react-strapi-deliveroo-clone-tutorial) -** *Source code of the tutorial "[🍝 Cooking a Deliveroo clone with Nextjs (React.js), GraphQL, Strapi and Stripe](https://blog.strapi.io/strapi-next-setup/)".* <br />
-  `Next` `GraphQL` `Stripe` `React`
+- **[Nextjs Strapi Tutorial](./nextjs-react-strapi-deliveroo-clone-tutorial) -** *Source code of the tutorial "[🍝 Cooking a Deliveroo clone with Next.js (React.js), GraphQL, Strapi and Stripe](https://blog.strapi.io/strapi-next-setup/)".* <br />
+  `Next.js` `GraphQL` `Stripe` `React`
 
 ## Contributing
 
