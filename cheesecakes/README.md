@@ -18,6 +18,7 @@ git clone git@github.com:strapi/strapi-examples.git
 ```bash
 cd cheesecakes
 npm install
+npm run setup --plugins
 # It take few minutes
 ```
 
