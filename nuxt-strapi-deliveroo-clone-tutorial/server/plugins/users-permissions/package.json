@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-users-permissions@alpha",
-  "_id": "strapi-plugin-users-permissions@3.0.0-alpha.14.3",
+  "_from": "strapi-plugin-users-permissions@3.0.0-alpha.14.5",
+  "_id": "strapi-plugin-users-permissions@3.0.0-alpha.14.5",
   "_inBundle": false,
-  "_integrity": "sha512-akRa+EyCVcQACKc3YCf2cEgkrrlB5GuKZjKYPe3YJOwBag8HjT+pR2pK1EdgCJ8JflYuZ45IaQXOguBylGOAug==",
+  "_integrity": "sha512-3+8teNuiq95qd0SznJmWs0jLYaYZC/leT80oEBCneURUVzuYuY8UI2YSsTvMJgluUfnZWr6+8Uq5j2D/AE8ljw==",
   "_location": "/strapi-plugin-users-permissions",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-users-permissions@alpha",
+    "raw": "strapi-plugin-users-permissions@3.0.0-alpha.14.5",
     "name": "strapi-plugin-users-permissions",
     "escapedName": "strapi-plugin-users-permissions",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.14.5",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.14.5"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.0.0-alpha.14.3.tgz",
-  "_shasum": "593968e19df7854ac948d209d65784cb0838691d",
-  "_spec": "strapi-plugin-users-permissions@alpha",
-  "_where": "/Users/pierreburgy/Sites/sandbox/deliveroo-clone-tutorial/server",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.0.0-alpha.14.5.tgz",
+  "_shasum": "79eec73278c0b7b5a6c3eca83abbf3fa53a9bcc9",
+  "_spec": "strapi-plugin-users-permissions@3.0.0-alpha.14.5",
+  "_where": "/Users/lauriejim/Documents/WORKSPACE/strapi/projects/deliveroo-clone-tutorial/server",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -44,7 +44,7 @@
   "deprecated": false,
   "description": "Protect your API with a full-authentication process based on JWT",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.14.3"
+    "strapi-helper-plugin": "3.0.0-alpha.14.5"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -83,5 +83,5 @@
     "icon": "users",
     "description": "users-permissions.plugin.description"
   },
-  "version": "3.0.0-alpha.14.3"
+  "version": "3.0.0-alpha.14.5"
 }

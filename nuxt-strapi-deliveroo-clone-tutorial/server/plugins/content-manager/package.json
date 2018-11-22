@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-content-manager@alpha",
-  "_id": "strapi-plugin-content-manager@3.0.0-alpha.14.3",
+  "_from": "strapi-plugin-content-manager@3.0.0-alpha.14.5",
+  "_id": "strapi-plugin-content-manager@3.0.0-alpha.14.5",
   "_inBundle": false,
-  "_integrity": "sha512-YUsQ5+U9deErQ6xu68/ktUGkjrbJl9k+ngKLX4nixIAr5h6PuK2xRZ07b0ItwbCPXuX+2EK4exbfe2OGqSayNA==",
+  "_integrity": "sha512-NDW4VB4fumxThNFypQIZJ8rT+Z5BKixh6h3jiS0Sr+IaV4TWRevZNJn/42iclE/hYHl0oEbeWCPDs5fJcW9YCA==",
   "_location": "/strapi-plugin-content-manager",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-content-manager@alpha",
+    "raw": "strapi-plugin-content-manager@3.0.0-alpha.14.5",
     "name": "strapi-plugin-content-manager",
     "escapedName": "strapi-plugin-content-manager",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.14.5",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.14.5"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.14.3.tgz",
-  "_shasum": "0fbda96cbcf96cbe08093f61fe4a69a67ff92db8",
-  "_spec": "strapi-plugin-content-manager@alpha",
-  "_where": "/Users/pierreburgy/Sites/sandbox/deliveroo-clone-tutorial/server",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.14.5.tgz",
+  "_shasum": "40c5cf0aa76c9e0fb118e00d34a52e6d0f16d3e4",
+  "_spec": "strapi-plugin-content-manager@3.0.0-alpha.14.5",
+  "_where": "/Users/lauriejim/Documents/WORKSPACE/strapi/projects/deliveroo-clone-tutorial/server",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -41,7 +41,7 @@
     "draft-js": "^0.10.5",
     "react-select": "^1.2.1",
     "showdown": "^1.8.6",
-    "strapi-helper-plugin": "3.0.0-alpha.14.3"
+    "strapi-helper-plugin": "3.0.0-alpha.14.5"
   },
   "engines": {
     "node": ">= 9.0.0",
@@ -80,5 +80,5 @@
     "icon": "plug",
     "description": "content-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.14.3"
+  "version": "3.0.0-alpha.14.5"
 }

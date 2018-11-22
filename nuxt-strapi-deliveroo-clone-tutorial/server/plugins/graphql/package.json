@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-graphql@alpha",
-  "_id": "strapi-plugin-graphql@3.0.0-alpha.14.3",
+  "_from": "strapi-plugin-graphql@3.0.0-alpha.14.5",
+  "_id": "strapi-plugin-graphql@3.0.0-alpha.14.5",
   "_inBundle": false,
-  "_integrity": "sha512-AEuKnyYYWPtVfruOLpqTN6BcnjEf4bg3mu4P8yMvfMS+TwOREK7uYcQpdedmkL3+KoST6mCoWPahqELYnlKquQ==",
+  "_integrity": "sha512-U0p44/7bVrGdSo6UEBSkKFOlvUsY7rhTBf/In8GK3Ugh9UOVvJOzonRARDfeiZcGH7bMR2jEkUtexU4TncSd9Q==",
   "_location": "/strapi-plugin-graphql",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-graphql@alpha",
+    "raw": "strapi-plugin-graphql@3.0.0-alpha.14.5",
     "name": "strapi-plugin-graphql",
     "escapedName": "strapi-plugin-graphql",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.14.5",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.14.5"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.14.3.tgz",
-  "_shasum": "6ab75ede1cdf9030f462bff2f96a0c57973db90a",
-  "_spec": "strapi-plugin-graphql@alpha",
-  "_where": "/Users/pierreburgy/Sites/sandbox/deliveroo-clone-tutorial/server",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.14.5.tgz",
+  "_shasum": "7dbae42de15782bdcea8642f2ee91d52a5e8512f",
+  "_spec": "strapi-plugin-graphql@3.0.0-alpha.14.5",
+  "_where": "/Users/lauriejim/Documents/WORKSPACE/strapi/projects/deliveroo-clone-tutorial/server",
   "author": {
     "name": "A Strapi developer"
   },
@@ -36,7 +36,7 @@
     "graphql-type-datetime": "^0.2.2",
     "graphql-type-json": "^0.2.1",
     "pluralize": "^7.0.0",
-    "strapi-utils": "3.0.0-alpha.14.3"
+    "strapi-utils": "3.0.0-alpha.14.5"
   },
   "deprecated": false,
   "description": "This is the description of the plugin.",
@@ -69,5 +69,5 @@
     "icon": "plug",
     "description": "Description of graphql plugin."
   },
-  "version": "3.0.0-alpha.14.3"
+  "version": "3.0.0-alpha.14.5"
 }

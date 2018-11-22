@@ -13,32 +13,32 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
-    "eslint": "^3.12.2",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-react": "^6.8.0"
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-react": "^7.7.0"
   },
   "dependencies": {
-    "lodash": "4.x.x",
-    "strapi": "3.0.0-alpha.14.3",
-    "strapi-hook-mongoose": "3.0.0-alpha.14.3",
-    "stripe": "^6.12.1"
+    "lodash": "^4.17.5",
+    "strapi": "3.0.0-alpha.14.5",
+    "strapi-hook-mongoose": "3.0.0-alpha.14.5",
+    "stripe": "^6.15.0"
   },
   "author": {
-    "name": "pierreburgy",
+    "name": "lauriejim",
     "email": "",
     "url": ""
   },
   "maintainers": [
     {
-      "name": "pierreburgy",
+      "name": "lauriejim",
       "email": "",
       "url": ""
     }
   ],
   "strapi": {
     "packageManager": "npm",
-    "uuid": "36041c67-bc5d-43d8-b291-09215dd6035a"
+    "uuid": "29675607-7318-41d3-925a-4f4ecc677624"
   },
   "engines": {
     "node": ">= 9.0.0",
