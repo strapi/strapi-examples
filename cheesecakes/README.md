@@ -36,7 +36,7 @@ npm start
 
 **4 —** Update permissions.
 
-You have to go in your admin panel and update permission of the `Guest` role (Plugins > Users & Permissions > Guest).
+You have to go in your admin panel and update permission of the `Public` role (Plugins > Users & Permissions > Public).
 
 Allow these actions:
   - App:
