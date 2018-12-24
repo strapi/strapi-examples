@@ -43,6 +43,8 @@ export function* submitForm() {
         call(auth.setUserInfo, response.user, body.rememberMe),
       ]);
       yield call(forwardTo, '/');
+      const submitWatcher = yield fork(takeLatest, SUBMIT, submitForm);
+      yield cancel(submitWatcher);
     }
   } catch(error) {
     console.log(error.response.payload.message);
@@ -50,9 +52,8 @@ export function* submitForm() {
 }
 
 export default function* defaultSaga() {
-  const submitWatcher = yield fork(takeLatest, SUBMIT, submitForm);
+  yield fork(takeLatest, SUBMIT, submitForm);
   yield take(LOCATION_CHANGE);
-  yield cancel(submitWatcher);
 }
 
 /**
