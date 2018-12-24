@@ -39,7 +39,7 @@ export function* login(action) {
 export default function* defaultSaga() {
   const loginWatcher = yield fork(takeLatest, LOG_USER, login);
   yield take(LOCATION_CHANGE);
-  yield cancel(loginWatcher);
+  // yield cancel(loginWatcher);
 }
 
 /**
