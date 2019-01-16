@@ -13,36 +13,27 @@ import { FormattedMessage } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { router } from 'app';
-
 // Global selectors
 import { makeSelectMenu } from 'containers/App/selectors';
 import { makeSelectContentTypeUpdated } from 'containers/Form/selectors';
-
 import AttributeRow from 'components/AttributeRow';
 import ContentHeader from 'components/ContentHeader';
-import EmptyAttributesView from 'components/EmptyAttributesView';
+import EmptyAttributesBlock from 'components/EmptyAttributesBlock';
 import Form from 'containers/Form';
 import List from 'components/List';
-import NoTableWarning from 'components/NoTableWarning';
 import PluginLeftMenu from 'components/PluginLeftMenu';
-
 import forms from 'containers/Form/forms.json';
-
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-
 import { storeData } from '../../utils/storeData';
-
 import {
   cancelChanges,
-  checkIfTableExists,
   deleteAttribute,
   modelFetch,
   modelFetchSucceeded,
   resetShowButtonsProps,
   submit,
 } from './actions';
-
 import saga from './sagas';
 import reducer from './reducer';
 import selectModelPage from './selectors';
@@ -50,9 +41,11 @@ import styles from './styles.scss';
 
 // Array of attributes that the ctb can handle at the moment
 const availableAttributes = Object.keys(forms.attribute);
+availableAttributes.push('integer', 'decimal', 'float');
 
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-wrap-multilines */
+/* eslint-disable react/jsx-curly-brace-presence */
 
 export class ModelPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
@@ -69,7 +62,7 @@ export class ModelPage extends React.Component { // eslint-disable-line react/pr
 
     this.contentHeaderButtons = [
       { label: 'content-type-builder.form.button.cancel', handleClick: this.props.cancelChanges, kind: 'secondary', type: 'button' },
-      { label: 'content-type-builder.form.button.save', handleClick: this.handleSubmit, kind: 'primary', type: 'submit' },
+      { label: 'content-type-builder.form.button.save', handleClick: this.handleSubmit, kind: 'primary', type: 'submit', id: 'saveData' },
     ];
   }
 
@@ -83,30 +76,7 @@ export class ModelPage extends React.Component { // eslint-disable-line react/pr
         this.props.modelFetchSucceeded({ model: storeData.getContentType() });
       }
     }
-
-    if (this.props.modelPage.didFetchModel !== nextProps.modelPage.didFetchModel) {
-      this.props.checkIfTableExists();
-    }
   }
-
-  // componentWillUpdate(nextProps) {
-  //   if (!isEmpty(nextProps.menu)) {
-  //     const allowedPaths = nextProps.menu.reduce((acc, current) => {
-  //       const models = current.items.reduce((acc, current) => {
-  //         acc.push(current.name);
-  //
-  //         return acc;
-  //       }, []);
-  //       return acc.concat(models);
-  //     }, []);
-  //
-  //     const shouldRedirect = allowedPaths.filter(el => el === this.props.match.params.modelName.split('&')[0]).length === 0;
-  //
-  //     if (shouldRedirect) {
-  //       this.props.history.push('/404');
-  //     }
-  //   }
-  // }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.modelName !== this.props.match.params.modelName) {
@@ -169,9 +139,12 @@ export class ModelPage extends React.Component { // eslint-disable-line react/pr
   }
 
   handleDelete = (attributeName) => {
-    const index = findIndex(this.props.modelPage.model.attributes, ['name', attributeName]);
-    const parallelAttributeIndex = findIndex(this.props.modelPage.model.attributes, (attr) => attr.params.key === attributeName);
-
+    const { modelPage: { model } } = this.props;
+    const index = findIndex(model.attributes, ['name', attributeName]);
+    const attributeToRemove = get(model, ['attributes', index]);
+    const parallelAttributeIndex = attributeToRemove.name === attributeToRemove.params.key ?
+      -1 : findIndex(model.attributes, (attr) => attr.params.key === attributeName);
+      
     this.props.deleteAttribute(index, this.props.match.params.modelName, parallelAttributeIndex !== -1);
   }
 
@@ -181,7 +154,7 @@ export class ModelPage extends React.Component { // eslint-disable-line react/pr
 
     // Display a notification if the attribute is not present in the ones that the ctb handles
     if (!has(attribute.params, 'nature') && !includes(availableAttributes, attribute.params.type)) {
-      return strapi.notification.info('content-type-builder.notification.info.enumeration');
+      return strapi.notification.info('content-type-builder.notification.info.disable');
     }
     const settingsType = attribute.params.type ? 'baseSettings' : 'defineRelation';
     const parallelAttributeIndex = findIndex(this.props.modelPage.model.attributes, ['name', attribute.params.key]);
@@ -283,11 +256,11 @@ export class ModelPage extends React.Component { // eslint-disable-line react/pr
     // Url to redirects the user if he modifies the temporary content type name
     const redirectRoute = replace(this.props.match.path, '/:modelName', '');
     const addButtons  = get(storeData.getContentType(), 'name') === this.props.match.params.modelName && size(get(storeData.getContentType(), 'attributes')) > 0 || this.props.modelPage.showButtons;
-    const showNoTableWarning = this.props.modelPage.tableExists ? '' : <NoTableWarning modelName={this.props.modelPage.model.name} />;
     const contentHeaderDescription = this.props.modelPage.model.description || 'content-type-builder.modelPage.contentHeader.emptyDescription.description';
     const content = size(this.props.modelPage.model.attributes) === 0 ?
-      <EmptyAttributesView onClickAddAttribute={this.handleClickAddAttribute} /> :
+      <EmptyAttributesBlock title="content-type-builder.home.emptyAttributes.title" description="content-type-builder.home.emptyAttributes.description" label="content-type-builder.button.attributes.add" onClick={this.handleClickAddAttribute} id="openAddAttr" /> :
       <List
+        id="attributesList"
         listContent={this.props.modelPage.model}
         renderCustomListTitle={this.renderListTitle}
         listContentMappingKey={'attributes'}
@@ -321,7 +294,6 @@ export class ModelPage extends React.Component { // eslint-disable-line react/pr
 
                 />
                 {content}
-                {showNoTableWarning}
               </div>
             </div>
           </div>
@@ -350,9 +322,7 @@ ModelPage.contextTypes = {
 
 ModelPage.propTypes = {
   cancelChanges: PropTypes.func.isRequired,
-  checkIfTableExists: PropTypes.func.isRequired,
   deleteAttribute: PropTypes.func.isRequired,
-  // history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   menu: PropTypes.array.isRequired,
@@ -374,7 +344,6 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       cancelChanges,
-      checkIfTableExists,
       deleteAttribute,
       modelFetch,
       modelFetchSucceeded,

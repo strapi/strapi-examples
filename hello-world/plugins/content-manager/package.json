@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-content-manager@alpha",
-  "_id": "strapi-plugin-content-manager@3.0.0-alpha.12",
+  "_from": "strapi-plugin-content-manager@3.0.0-alpha.19",
+  "_id": "strapi-plugin-content-manager@3.0.0-alpha.19",
   "_inBundle": false,
-  "_integrity": "sha512-IS8IUoylNj0GuDAVEIhudmsNL2MZbQhATbdtC+e6dn2wlceEDFZQb03Co1SFsXfFfCYPTubokisY5t2YuzdAWA==",
+  "_integrity": "sha512-VMweUn5uElAVHrkKotJV08ddzsfZT6Qfod4poYRVXbTO7X3EtQ9TwpmrXls1Ys+ev5r8hnNYeGa9wMlZ6DL0rg==",
   "_location": "/strapi-plugin-content-manager",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-content-manager@alpha",
+    "raw": "strapi-plugin-content-manager@3.0.0-alpha.19",
     "name": "strapi-plugin-content-manager",
     "escapedName": "strapi-plugin-content-manager",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.19",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.19"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.12.tgz",
-  "_shasum": "661761901b034857d9ac6f8bd75eba96f4daff02",
-  "_spec": "strapi-plugin-content-manager@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/cheesecakes/test",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-manager/-/strapi-plugin-content-manager-3.0.0-alpha.19.tgz",
+  "_shasum": "15287086acb07f286a90e0d2164853967f408da7",
+  "_spec": "strapi-plugin-content-manager@3.0.0-alpha.19",
+  "_where": "/Users/lauriejim/Documents/WORKSPACE/lauriejim/migration",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -31,15 +31,21 @@
     "url": "https://github.com/strapi/strapi/issues"
   },
   "bundleDependencies": false,
+  "dependencies": {
+    "pluralize": "^7.0.0"
+  },
   "deprecated": false,
   "description": "A powerful UI to easily manage your data.",
   "devDependencies": {
-    "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.12"
+    "codemirror": "^5.39.0",
+    "draft-js": "^0.10.5",
+    "react-select": "^1.2.1",
+    "showdown": "^1.8.6",
+    "strapi-helper-plugin": "3.0.0-alpha.19"
   },
   "engines": {
-    "node": ">= 9.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
   },
   "homepage": "https://github.com/strapi/strapi#readme",
   "license": "MIT",
@@ -62,18 +68,17 @@
     "build:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
     "build:dev": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
     "generate": "node ./node_modules/plop/plop.js --plopfile ./node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
-    "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern '/admin/build/' --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
     "preanalyze": "npm run analyze:clean",
-    "prebuild": "npm run build:clean && npm run test",
-    "prepublishOnly": "npm run build",
+    "prebuild": "npm run build:clean",
+    "prepublishOnly": "IS_MONOREPO=true npm run build",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development PLUGIN=true node ./node_modules/strapi-helper-plugin/lib/server",
-    "test": "npm run lint"
+    "test": "echo \"Error: no test specified\""
   },
   "strapi": {
     "name": "Content Manager",
     "icon": "plug",
     "description": "content-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.12"
+  "version": "3.0.0-alpha.19"
 }

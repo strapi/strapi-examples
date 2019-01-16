@@ -14,21 +14,30 @@ import en from 'translations/en.json';
 
 import styles from './styles.scss';
 
-class LeftMenuLink extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class LeftMenuLink extends React.Component {
+  // eslint-disable-line react/prefer-stateless-function
   render() {
     // We need to create our own active url checker,
     // because of the two levels router.
-    const isLinkActive = startsWith(window.location.pathname.replace('/admin', ''), this.props.destination);
-    const plugin = this.props.source !== 'content-manager' && this.props.source !== '' ?
-      (<div className={styles.plugin}>
-        <span>{upperFirst(this.props.source.split('-').join(' '))}</span>
-      </div>) : '';
+    const isLinkActive = startsWith(
+      window.location.pathname.replace('/admin', '').concat('/'),
+      this.props.destination.concat('/'),
+    );
+
+    const plugin =
+      this.props.source !== 'content-manager' && this.props.source !== '' ? (
+        <div className={styles.plugin}>
+          <span>{upperFirst(this.props.source.split('-').join(' '))}</span>
+        </div>
+      ) : (
+        ''
+      );
 
     // Check if messageId exists in en locale to prevent warning messages
     const content = en[this.props.label] ? (
       <FormattedMessage
         id={this.props.label}
-        defaultMessage='{label}'
+        defaultMessage="{label}"
         values={{
           label: `${this.props.label}`,
         }}
@@ -38,8 +47,22 @@ class LeftMenuLink extends React.Component { // eslint-disable-line react/prefer
       <span className={styles.linkLabel}>{this.props.label}</span>
     );
 
-    return (
-      <li className={styles.item}>
+    // Icon.
+    const icon = <i className={`${styles.linkIcon} fa-${this.props.icon} fa`} />;
+
+    // Create external or internal link.
+    const link = this.props.destination.includes('http')
+      ? (
+        <a
+          className={`${styles.link} ${isLinkActive ? styles.linkActive : ''}`}
+          href={this.props.destination}
+          target="_blank"
+        >
+          {icon}
+          {content}
+        </a>
+      )
+      : (
         <Link
           className={`${styles.link} ${isLinkActive ? styles.linkActive : ''}`}
           to={{
@@ -47,9 +70,14 @@ class LeftMenuLink extends React.Component { // eslint-disable-line react/prefer
             search: this.props.source ? `?source=${this.props.source}` : '',
           }}
         >
-          <i className={`${styles.linkIcon} fa-${this.props.icon} fa`}></i>
+          {icon}
           {content}
         </Link>
+      );
+
+    return (
+      <li className={styles.item}>
+        {link}
         {plugin}
       </li>
     );

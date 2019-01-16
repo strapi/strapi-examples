@@ -1,13 +1,5 @@
 [
   {
-    "id": "analytics",
-    "source": {
-      "development": "/analytics/main.js",
-      "production": "/analytics/main.js",
-      "staging": "/analytics/main.js"
-    }
-  },
-  {
     "id": "content-manager",
     "source": {
       "development": "/content-manager/main.js",

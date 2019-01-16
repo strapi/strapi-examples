@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-content-type-builder@alpha",
-  "_id": "strapi-plugin-content-type-builder@3.0.0-alpha.12",
+  "_from": "strapi-plugin-content-type-builder@3.0.0-alpha.19",
+  "_id": "strapi-plugin-content-type-builder@3.0.0-alpha.19",
   "_inBundle": false,
-  "_integrity": "sha512-Mj0uCzRxCLQLs4nCYYTas63lM3qW7XApnVVoT9bwdz53YxBEnFob6aSrSdWNA4TfizFanSBEx7e3xfR7j/Ey2A==",
+  "_integrity": "sha512-vte2XQbDX4VXDeZ2PhZThtPpI9++FSxFjrFItbdby7V/BSpJbvoI5EoDwoX6FZCSparg971R98w2nQ7BEfYqMw==",
   "_location": "/strapi-plugin-content-type-builder",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-content-type-builder@alpha",
+    "raw": "strapi-plugin-content-type-builder@3.0.0-alpha.19",
     "name": "strapi-plugin-content-type-builder",
     "escapedName": "strapi-plugin-content-type-builder",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.19",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.19"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.0.0-alpha.12.tgz",
-  "_shasum": "03436c7a98182c59b5038cd05f4d47e057574efd",
-  "_spec": "strapi-plugin-content-type-builder@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/cheesecakes/test",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.0.0-alpha.19.tgz",
+  "_shasum": "ccc482065b7e401651ca948368d393bcff6b1206",
+  "_spec": "strapi-plugin-content-type-builder@3.0.0-alpha.19",
+  "_where": "/Users/lauriejim/Documents/WORKSPACE/lauriejim/migration",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -32,18 +32,19 @@
   },
   "bundleDependencies": false,
   "dependencies": {
+    "immutable": "^3.8.2",
     "pluralize": "^7.0.0",
-    "strapi-generate": "3.0.0-alpha.12",
-    "strapi-generate-api": "3.0.0-alpha.12"
+    "strapi-generate": "3.0.0-alpha.19",
+    "strapi-generate-api": "3.0.0-alpha.19"
   },
   "deprecated": false,
   "description": "Strapi plugin to create content type (API).",
   "devDependencies": {
-    "strapi-helper-plugin": "3.0.0-alpha.12"
+    "strapi-helper-plugin": "3.0.0-alpha.19"
   },
   "engines": {
-    "node": ">= 9.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
   },
   "homepage": "https://github.com/strapi/strapi#readme",
   "license": "MIT",
@@ -66,18 +67,17 @@
     "build:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
     "build:dev": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
     "generate": "node ./node_modules/plop/plop.js --plopfile node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
-    "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern '/admin/build/' --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
     "preanalyze": "npm run analyze:clean",
-    "prebuild": "npm run build:clean && npm run test",
-    "prepublishOnly": "npm run build",
+    "prebuild": "npm run build:clean",
+    "prepublishOnly": "IS_MONOREPO=true npm run build",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
-    "test": "npm run lint"
+    "test": "echo \"Error: no test specified\""
   },
   "strapi": {
     "name": "Content Type Builder",
     "icon": "paint-brush",
     "description": "content-type-builder.plugin.description"
   },
-  "version": "3.0.0-alpha.12"
+  "version": "3.0.0-alpha.19"
 }

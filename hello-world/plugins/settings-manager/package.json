@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-settings-manager@alpha",
-  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.12",
+  "_from": "strapi-plugin-settings-manager@3.0.0-alpha.19",
+  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.19",
   "_inBundle": false,
-  "_integrity": "sha512-5YcAofcpvi08e3OUz5lcbXbm99UFqhHwv1zmArIRjC5Rk0sOEcQtSJc8GlUBvbiPd9yDbBMSn7yfyU5+FAyK4g==",
+  "_integrity": "sha512-gDWkWbAJAMOauJpFq4fBdaf/OwKYCvr2BdWI2NEeS0Lz3byLz5TDx9ovqv0mQWll9eAZuLxJocMy1HbAMLL65A==",
   "_location": "/strapi-plugin-settings-manager",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-settings-manager@alpha",
+    "raw": "strapi-plugin-settings-manager@3.0.0-alpha.19",
     "name": "strapi-plugin-settings-manager",
     "escapedName": "strapi-plugin-settings-manager",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.19",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.19"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.12.tgz",
-  "_shasum": "484cc73c78d813cec6c637cd9eaf7f71b5878c09",
-  "_spec": "strapi-plugin-settings-manager@alpha",
-  "_where": "/Users/jimlaurie/Documents/WORKSPACE/Strapi/examples/cheesecakes/test",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.19.tgz",
+  "_shasum": "5b317b7f7945ddb399f4157c14bd3c05dd20f7ad",
+  "_spec": "strapi-plugin-settings-manager@3.0.0-alpha.19",
+  "_where": "/Users/lauriejim/Documents/WORKSPACE/lauriejim/migration",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -36,11 +36,11 @@
   "devDependencies": {
     "flag-icon-css": "^2.8.0",
     "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.12"
+    "strapi-helper-plugin": "3.0.0-alpha.19"
   },
   "engines": {
-    "node": ">= 9.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
   },
   "homepage": "https://github.com/strapi/strapi#readme",
   "license": "MIT",
@@ -65,8 +65,8 @@
     "generate": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/plop --plopfile ./node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
     "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern '/admin/build/' --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
     "preanalyze": "npm run analyze:clean",
-    "prebuild": "npm run build:clean && npm run test",
-    "prepublishOnly": "npm run build",
+    "prebuild": "npm run build:clean",
+    "prepublishOnly": "IS_MONOREPO=true npm run build",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
     "test": "npm run lint"
@@ -76,5 +76,5 @@
     "icon": "wrench",
     "description": "settings-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.12"
+  "version": "3.0.0-alpha.19"
 }

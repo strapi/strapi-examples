@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const exec = require('child_process').execSync;
+const exec = require('child_process').spawnSync;
 const _ = require('lodash');
 
 /**
@@ -13,7 +13,7 @@ module.exports = {
     try {
       ctx.send({ currentEnvironment: strapi.app.env });
     } catch(err) {
-      ctx.badRequest(null, [{ messages: [{ id: 'An error occured' }] }]);
+      ctx.badRequest(null, [{ messages: [{ id: 'An error occurred' }] }]);
     }
   },
 
@@ -28,10 +28,9 @@ module.exports = {
 
   getGaConfig: async ctx => {
     try {
-      const allowGa = _.get(strapi.config, 'info.customs.allowGa', true);
-      ctx.send({ allowGa });
+      ctx.send({ uuid: _.get(strapi.config, 'uuid', false) });
     } catch(err) {
-      ctx.badRequest(null, [{ messages: [{ id: 'An error occured' }] }]);
+      ctx.badRequest(null, [{ messages: [{ id: 'An error occurred' }] }]);
     }
   },
 
@@ -41,7 +40,7 @@ module.exports = {
 
       return ctx.send({ layout });
     } catch(err) {
-      return ctx.badRequest(null, [{ messages: [{ id: 'An error occured' }] }]);
+      return ctx.badRequest(null, [{ messages: [{ id: 'An error occurred' }] }]);
     }
   },
 
@@ -53,15 +52,14 @@ module.exports = {
       strapi.reload.isWatching = false;
 
       strapi.log.info(`Installing ${plugin}...`);
-
-      exec(`node ${strapiBin} install ${plugin} ${port === '4000' ? '--dev' : ''}`);
+      exec('node', [strapiBin, 'install', plugin, (port === '4000') ? '--dev' : '']);
 
       ctx.send({ ok: true });
 
       strapi.reload();
     } catch(err) {
       strapi.reload.isWatching = true;
-      ctx.badRequest(null, [{ messages: [{ id: 'An error occured' }] }]);
+      ctx.badRequest(null, [{ messages: [{ id: 'An error occurred' }] }]);
     }
   },
 
@@ -75,7 +73,7 @@ module.exports = {
 
       ctx.send({ plugins });
     } catch(err) {
-      ctx.badRequest(null, [{ messages: [{ id: 'An error occured' }] }]);
+      ctx.badRequest(null, [{ messages: [{ id: 'An error occurred' }] }]);
     }
   },
 
@@ -87,14 +85,14 @@ module.exports = {
       strapi.reload.isWatching = false;
 
       strapi.log.info(`Uninstalling ${plugin}...`);
-      exec(`node ${strapiBin} uninstall ${plugin}`);
+      exec('node', [strapiBin, 'uninstall', plugin]);
 
       ctx.send({ ok: true });
 
       strapi.reload();
     } catch(err) {
       strapi.reload.isWatching = true;
-      ctx.badRequest(null, [{ messages: [{ id: 'An error occured' }] }]);
+      ctx.badRequest(null, [{ messages: [{ id: 'An error occurred' }] }]);
     }
   }
 };
