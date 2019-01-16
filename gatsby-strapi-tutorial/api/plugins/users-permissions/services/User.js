@@ -22,14 +22,6 @@ module.exports = {
       values.password = await strapi.plugins['users-permissions'].services.user.hashPassword(values);
     }
 
-    if (!values.provider) {
-      values.provider = 'local';
-    }
-
-    if (!values.role) {
-      values.role = '1';
-    }
-
     // Use Content Manager business logic to handle relation.
     if (strapi.plugins['content-manager']) {
       return await strapi.plugins['content-manager'].services['contentmanager'].add({
@@ -56,6 +48,9 @@ module.exports = {
 
     // Use Content Manager business logic to handle relation.
     if (strapi.plugins['content-manager']) {
+      params.model = 'user';
+      params.id = (params._id || params.id);
+
       return await strapi.plugins['content-manager'].services['contentmanager'].edit(params, values, 'users-permissions');
     }
 
@@ -87,8 +82,8 @@ module.exports = {
       if (!user.password || this.isHashed(user.password)) {
         resolve(null);
       } else {
-        bcrypt.hash(user.password, 10, (err, hash) => {
-          resolve(hash)
+        bcrypt.hash(`${user.password}`, 10, (err, hash) => {
+          resolve(hash);
         });
       }
     });
@@ -111,10 +106,37 @@ module.exports = {
   remove: async params => {
     // Use Content Manager business logic to handle relation.
     if (strapi.plugins['content-manager']) {
-      await strapi.plugins['content-manager'].services['contentmanager'].delete(params, 'users-permissions');
+      params.model = 'user';
+      params.id = (params._id || params.id);
+
+      await strapi.plugins['content-manager'].services['contentmanager'].delete(params, {source: 'users-permissions'});
     }
 
     return strapi.query('user', 'users-permissions').delete(params);
+  },
+
+  removeAll: async (params, query) => {
+    // Use Content Manager business logic to handle relation.
+    if (strapi.plugins['content-manager']) {
+      params.model = 'user';
+      query.source = 'users-permissions';
+
+      return await strapi.plugins['content-manager'].services['contentmanager'].deleteMany(params, query);
+    }
+
+    // TODO remove this logic when we develop plugins' dependencies
+    const primaryKey = strapi.query('user', 'users-permissions').primaryKey;
+    const toRemove = Object.keys(query).reduce((acc, curr) => {
+      if (curr !== 'source') {
+        return acc.concat([query[curr]]);
+      }
+
+      return acc;
+    }, []);
+
+    return strapi.query('user', 'users-permissions').deleteMany({
+      [primaryKey]: toRemove,
+    });
   },
 
   validatePassword: (password, hash) => {

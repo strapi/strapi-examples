@@ -50,7 +50,7 @@ export function setForm(formType, email) {
       data = {
         identifier: '',
         password: '',
-        rememberMe: false,
+        rememberMe: true,
       };
 
       break;
@@ -60,6 +60,7 @@ export function setForm(formType, email) {
         password: '',
         confirmPassword: '',
         email: '',
+        news: false,
       };
       break;
     case 'register-success':

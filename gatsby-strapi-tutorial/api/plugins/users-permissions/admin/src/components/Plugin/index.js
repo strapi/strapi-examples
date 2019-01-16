@@ -46,18 +46,22 @@ class Plugin extends React.Component { // eslint-disable-line react/prefer-state
 
   render() {
     const divStyle = this.state.collapse ? { marginBottom: '.4rem' } : {};
-    const icon = get(this.context.plugins.toJS(), [this.props.name, 'icon']);
+    const icon = get(this.props.plugin, ['information', 'logo']);
     const emptyApplication = !isEmpty(get(this.props.plugin, 'controllers'));
+
+    if (!emptyApplication) {
+      return <div />;
+    }
 
     return (
       <div className={styles.plugin} style={divStyle}>
         <div className={styles.banner} onClick={this.handleClick}>
           <div>
-            { icon ? (
+            {this.props.name !== 'application' && (
               <div className={styles.iconContainer}>
-                <img src={this.props.plugin.information.logo} alt="icon" />
+                {icon &&  <img src={icon} alt="icon" />}
               </div>
-            ) : ''}
+            )}
             <div className={styles.name}>{this.props.name}</div>
             &nbsp;—&nbsp;
             <div className={styles.description}>
@@ -73,9 +77,7 @@ class Plugin extends React.Component { // eslint-disable-line react/prefer-state
               )}
             </div>
           </div>
-          { emptyApplication ? (
-            <div className={this.state.collapse ? styles.chevronUp : styles.chevronDown}></div>
-          ) : '' }
+          { emptyApplication && <div className={this.state.collapse ? styles.chevronUp : styles.chevronDown}></div> }
         </div>
         <Collapse isOpen={this.state.collapse}>
           <div />
@@ -117,7 +119,7 @@ Plugin.propTypes = {
   plugin: PropTypes.shape({
     description: PropTypes.string,
     information: PropTypes.shape({
-      logo: PropTypes.string.isRequired,
+      logo: PropTypes.string,
     }),
   }),
   pluginSelected: PropTypes.string.isRequired,

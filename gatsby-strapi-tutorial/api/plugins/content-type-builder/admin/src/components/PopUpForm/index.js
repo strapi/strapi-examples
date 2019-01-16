@@ -9,13 +9,49 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { get, map, includes, split, isEmpty, findIndex } from 'lodash';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import Input from 'components/Input';
+import Input from 'components/InputsIndex';
 import PopUpHeaderNavLink from 'components/PopUpHeaderNavLink';
 import styles from './styles.scss';
 
 /* eslint-disable react/jsx-wrap-multilines */
 
 class PopUpForm extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  createComponent = (el) => {
+    if (get(el, ['inputDescription', 'params', 'link', 'children', 'type'], '') === 'FormattedMessage') {
+      return (
+        <FormattedMessage id={get(el, ['inputDescription', 'params', 'link', 'children', 'attr', 'id'], 'default')} defaultMessage=" ">
+          {(message) => (
+            React.createElement(
+              // Create the wrapper component
+              // This line will create the link
+              get(el, ['inputDescription', 'params', 'link', 'parent', 'type'], 'span'),
+              // Set the attributes
+              get(el, ['inputDescription', 'params', 'link', 'parent', 'attr'], ''),
+              message,
+            )
+          )}
+        </FormattedMessage>
+      );
+    }
+
+    return (
+      React.createElement(
+        get(el, ['inputDescription', 'params', 'link', 'parent', 'type'], 'span'),
+        // Set the attributes
+        get(el, ['inputDescription', 'params', 'link', 'parent', 'attr'], ''),
+        React.createElement(
+          get(el, ['inputDescription', 'params', 'link', 'children', 'type'], 'span'),
+          get(el, ['inputDescription', 'params', 'link', 'children', 'attr'], ''),
+          get(el, ['inputDescription', 'params', 'link', 'children', 'innerHTML'], ''),
+        )
+      )
+    );
+  }
+
+  handleSubmit = (e) => {
+    this.props.onSubmit(e, false);
+  }
+
   renderInput = (item, key) => {
     // const customBootstrapClass = 'col-md-6'
     let customBootstrapClass = item.type === 'textarea' ?
@@ -32,10 +68,21 @@ class PopUpForm extends React.Component { // eslint-disable-line react/prefer-st
     }
 
     const shouldOverrideHandleBlur = this.props.overrideHandleBlurCondition ? this.props.overrideHandleBlurCondition(item) : false;
-    const value = !isEmpty(this.props.values) && includes(item.name, '.') ? get(this.props.values, [split(item.name, '.')[0], split(item.name, '.')[1]]) : this.props.values[item.name];
+    // TODO: refacto this line..
+    let value = !isEmpty(this.props.values) && includes(item.name, '.') ? get(this.props.values, [split(item.name, '.')[0], split(item.name, '.')[1]]) : this.props.values[item.name];
     const handleBlur = shouldOverrideHandleBlur ? this.props.onBlur : false;
     const errorIndex = findIndex(this.props.formErrors, ['name', item.name]);
     const errors = errorIndex !== -1 ? this.props.formErrors[errorIndex].errors : [];
+    const inputDescription = {
+      id: get(item, ['inputDescription', 'id'], ''),
+      params: {
+        link: this.createComponent(item),
+      },
+    };
+
+    if (item.name === 'params.appearance.WYSIWYG') {
+      value = get(this.props.values, item.name, false);
+    }
 
     return (
       <Input
@@ -46,7 +93,7 @@ class PopUpForm extends React.Component { // eslint-disable-line react/prefer-st
         label={item.label}
         name={item.name}
         validations={item.validations}
-        inputDescription={item.inputDescription}
+        inputDescription={inputDescription}
         value={value}
         customBootstrapClass={customBootstrapClass}
         selectOptions={this.props.selectOptions || []}
@@ -54,9 +101,7 @@ class PopUpForm extends React.Component { // eslint-disable-line react/prefer-st
         title={item.title}
         errors={errors}
         didCheckErrors={this.props.didCheckErrors}
-        pluginID={this.props.pluginID}
-        linkContent={item.linkContent}
-        autoFocus={key === 0}
+        autoFocus={key === 0 && item.type !== 'date'}
       />
     );
   }
@@ -82,23 +127,29 @@ class PopUpForm extends React.Component { // eslint-disable-line react/prefer-st
     return <FormattedMessage id={this.props.popUpTitle} />;
   }
 
+  renderFooter = () => {
+    const { popUpFormType, buttonSubmitMessage, toggle, noButtons, onSubmit } = this.props;
+    const handleToggle = toggle;
+
+    if (noButtons) {
+      return <div className={styles.modalFooter} />;
+    }
+
+    return (
+      <ModalFooter className={styles.modalFooter}>
+        <Button onClick={handleToggle} className={styles.secondary}><FormattedMessage id="content-type-builder.form.button.cancel" /></Button>
+        {popUpFormType !== 'contentType' && <Button type="submit" onClick={onSubmit} className={styles.primaryAddShape}><FormattedMessage id="content-type-builder.button.attributes.add" /></Button>}
+        <Button type="button" onClick={this.handleSubmit} className={styles.primary} id="continue"><FormattedMessage id={`content-type-builder.${buttonSubmitMessage}`} /></Button>{' '}
+      </ModalFooter>
+    );
+  }
+
   render() {
     const navContainer = this.props.noNav ? '' : this.renderNavContainer();
     const modalBodyStyle = this.props.renderModalBody ? { paddingTop: '2.3rem' } : {};
     const modalBody = this.props.renderModalBody ? this.props.renderModalBody()
       : map(this.props.form.items, (item, key ) => this.renderInput(item, key));
-
-    const loader = this.props.showLoader ?
-      <Button onClick={this.props.onSubmit} type="submit" className={styles.primary} disabled={this.props.showLoader}><p className={styles.saving}><span>.</span><span>.</span><span>.</span></p></Button>
-      : <Button type="submit" onClick={this.props.onSubmit} className={styles.primary}><FormattedMessage id={`content-type-builder.${this.props.buttonSubmitMessage}`} /></Button>;
-
-    const handleToggle = this.props.toggle;
-    const modalFooter = this.props.noButtons ? <div className={styles.modalFooter} />
-      : <ModalFooter className={styles.modalFooter}>
-        <Button onClick={handleToggle} className={styles.secondary}><FormattedMessage id="content-type-builder.form.button.cancel" /></Button>
-        {loader}{' '}
-      </ModalFooter>;
-
+    
     return (
       <div className={styles.popUpForm}>
         <Modal isOpen={this.props.isOpen} toggle={this.props.toggle} className={`${styles.modalPosition}`}>
@@ -112,13 +163,13 @@ class PopUpForm extends React.Component { // eslint-disable-line react/prefer-st
           <ModalBody className={styles.modalBody} style={modalBodyStyle}>
             <form onSubmit={this.props.onSubmit}>
               <div className="container-fluid">
-                <div className={`row ${this.props.renderModalBody ? 'justify-content-center' : ''}`}>
+                <div className="row">
                   {modalBody}
                 </div>
               </div>
             </form>
           </ModalBody>
-          {modalFooter}
+          {this.renderFooter()}
         </Modal>
       </div>
     );
@@ -159,7 +210,7 @@ PopUpForm.propTypes = {
     PropTypes.bool,
     PropTypes.func,
   ]),
-  pluginID: PropTypes.string,
+  popUpFormType: PropTypes.string,
   popUpHeaderNavLinks: PropTypes.array,
   popUpTitle: PropTypes.string.isRequired,
   renderCustomPopUpHeader: PropTypes.oneOfType([
@@ -173,7 +224,6 @@ PopUpForm.propTypes = {
   ]).isRequired,
   routePath: PropTypes.string,
   selectOptions: PropTypes.array,
-  showLoader: PropTypes.bool,
   toggle: PropTypes.func.isRequired,
   values: PropTypes.object,
 };
@@ -189,12 +239,11 @@ PopUpForm.defaultProps = {
   overrideHandleBlurCondition: false,
   overrideRenderInput: false,
   overrideRenderInputCondition: false,
-  pluginID: 'content-type-builder',
+  popUpFormType: '',
   popUpHeaderNavLinks: [],
   renderCustomPopUpHeader: false,
   routePath: '',
   selectOptions: [],
-  showLoader: false,
   values: {},
 };
 

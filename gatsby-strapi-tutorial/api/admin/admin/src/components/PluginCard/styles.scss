@@ -4,6 +4,7 @@
   padding-top: 2px;
   padding-left: 15px;
   padding-right: 15px;
+  margin: 0;
   border-radius: 2px !important;
   font-size: 13px;
   font-weight: 500 !important;
@@ -88,7 +89,8 @@
   height: 36px;
   margin: auto 0;
   text-align: center;
-  border: 1px solid #E8EEFC;
+  background: #FAFAFB;
+  border: 1px solid #F3F3F7;
   border-radius: 3px;
   white-space: nowrap;
   > img {
@@ -101,7 +103,8 @@
   height: 36px;
   width: 70px;
   margin-right: 14px;
-  border: 1px solid #E8EEFC;
+  background: #FAFAFB;
+  border: 1px solid #F3F3F7;
   border-radius: 3px;
   text-align: center;
   font-size: 20px;
@@ -162,7 +165,7 @@
 
 .wrapper {
   min-height: 320px;
-  margin-bottom: 4rem;
+  margin-bottom: 3.9rem;
   padding: 1.2rem 1.5rem;
   padding-bottom: 0;
   background-color: #fff;

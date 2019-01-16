@@ -1,5 +1,5 @@
 {
-  "collectionName": "",
+  "connection": "default",
   "info": {
     "name": "user",
     "description": ""
@@ -15,7 +15,6 @@
     "email": {
       "type": "email",
       "minLength": 6,
-      "unique": true,
       "configurable": false,
       "required": true
     },
@@ -27,20 +26,32 @@
       "type": "password",
       "minLength": 6,
       "configurable": false,
-      "required": true
+      "private": true
     },
     "resetPasswordToken": {
       "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
       "configurable": false
     },
-    "role": {
-      "type": "integer",
+    "blocked": {
+      "type": "boolean",
+      "default": false,
       "configurable": false
     },
     "articles": {
       "collection": "article",
       "via": "author"
+    },
+    "role": {
+      "model": "role",
+      "via": "users",
+      "plugin": "users-permissions",
+      "configurable": false
     }
-  },
-  "connection": "default"
+  }
 }

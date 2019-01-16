@@ -5,6 +5,7 @@
 */
 
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
@@ -36,14 +37,14 @@ class Logout extends React.Component { // eslint-disable-line react/prefer-state
         <ButtonDropdown isOpen={this.state.isOpen} toggle={this.toggle}>
           <DropdownToggle>
             {get(auth.getUserInfo(), 'username')}
-            <i className={`fa fa-caret-${this.state.isOpen ? 'up' : 'down'}`} />
+            <i className="fa fa-caret-down" alt={`${this.state.isOpen}`} />
           </DropdownToggle>
           <DropdownMenu className={styles.dropDownContent}>
             <DropdownItem onClick={this.handleGoTo} className={styles.item}>
-              Profile
+              <FormattedMessage id="app.components.Logout.profile" />
             </DropdownItem>
             <DropdownItem onClick={this.handleLogout}>
-              Logout
+              <FormattedMessage id="app.components.Logout.logout" />
               <i className="fa fa-sign-out" />
             </DropdownItem>
           </DropdownMenu>

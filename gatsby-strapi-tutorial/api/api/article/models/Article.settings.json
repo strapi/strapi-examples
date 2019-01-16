@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "article",
   "info": {
     "name": "article",
     "description": ""
@@ -11,6 +11,12 @@
     },
     "content": {
       "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
     },
     "author": {
       "model": "user",

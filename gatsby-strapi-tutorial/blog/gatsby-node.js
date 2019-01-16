@@ -65,7 +65,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     })
   });
 
-  // Query for recipe nodes to use in creating pages.
+  // Queries for articles and authors nodes to use in creating pages.
   return Promise.all([
     getArticles,
     getAuthors,

@@ -1,6 +1,6 @@
 {
   "session": {
-    "enabled": false,
+    "enabled": true,
     "client": "cookie",
     "key": "strapi.sid",
     "prefix": "strapi:sess:",
@@ -19,8 +19,5 @@
   "parser": {
     "enabled": true,
     "multipart": true
-  },
-  "router": {
-    "prefix": ""
   }
 }

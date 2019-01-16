@@ -16,9 +16,11 @@ import InstallPluginPopup from 'components/InstallPluginPopup';
 import Official from 'components/Official';
 // import StarsContainer from 'components/StarsContainer';
 
+import logoTShirt from 'assets/images/logo-t-shirt.svg';
 import styles from './styles.scss';
 import Screenshot from './screenshot.png';
 
+/* eslint-disable react/no-unused-state */
 class PluginCard extends React.Component {
   state = { isOpen: false, boostrapCol: 'col-lg-4' };
 
@@ -86,13 +88,11 @@ class PluginCard extends React.Component {
       buttonLabel = 'app.components.PluginCard.Button.label.support';
     }
 
-    const pluginIcon = this.props.plugin.id !== 'email' ? (
+    const pluginIcon = (
       <div className={styles.frame}>
         <span className={styles.helper} />
-        <img src={`${this.props.plugin.logo}`} alt="icon" />
+        <img src={`${this.props.plugin.id === 'support-us' ? logoTShirt : this.props.plugin.logo}`} alt="icon" />
       </div>
-    ) : (
-      <div className={styles.iconContainer}><i className={`fa fa-${this.props.plugin.icon}`} /></div>
     );
 
     const descriptions = {

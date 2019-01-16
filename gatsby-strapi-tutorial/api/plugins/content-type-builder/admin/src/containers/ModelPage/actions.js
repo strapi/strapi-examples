@@ -10,8 +10,6 @@ import {
   ADD_ATTRIBUTE_RELATION_TO_CONTENT_TYPE,
   ADD_ATTRIBUTE_TO_CONTENT_TYPE,
   CANCEL_CHANGES,
-  CHECK_IF_TABLE_EXISTS,
-  CHECK_IF_TABLE_EXISTS_SUCCEEDED,
   EDIT_CONTENT_TYPE_ATTRIBUTE,
   EDIT_CONTENT_TYPE_ATTRIBUTE_RELATION,
   DEFAULT_ACTION,
@@ -45,19 +43,6 @@ export function addAttributeToContentType(newAttribute) {
 export function cancelChanges() {
   return {
     type: CANCEL_CHANGES,
-  };
-}
-
-export function checkIfTableExists() {
-  return {
-    type: CHECK_IF_TABLE_EXISTS,
-  };
-}
-
-export function checkIfTableExistsSucceeded({ tableExists }) {
-  return {
-    type: CHECK_IF_TABLE_EXISTS_SUCCEEDED,
-    tableExists,
   };
 }
 
@@ -120,7 +105,7 @@ export function modelFetch(modelName) {
 
 export function modelFetchSucceeded(data) {
   const model = data;
-  const defaultKeys = ['required', 'unique', 'type', 'key', 'target', 'nature', 'targetColumnName', 'columnName'];
+  const defaultKeys = ['required', 'unique', 'type', 'key', 'target', 'nature', 'targetColumnName', 'columnName', 'multiple', 'default', 'appearance'];
 
   forEach(model.model.attributes, (attribute, index) => {
     map(attribute.params, (value, key) => {
@@ -192,6 +177,18 @@ function setParallelAttribute(data) {
   parallelAttribute.params.columnName = data.params.targetColumnName;
   parallelAttribute.params.targetColumnName = data.params.columnName;
   parallelAttribute.params.dominant = false;
+  
+  switch (data.params.nature) {
+    case 'manyToOne':
+      parallelAttribute.params.nature = 'oneToMany';
+      break;
+    case 'oneToMany':
+      parallelAttribute.params.nature = 'manyToOne';
+      break;
+    default:
+    //
+  }
+
 
   return parallelAttribute;
 }

@@ -14,20 +14,23 @@ import LeftMenuFooter from 'components/LeftMenuFooter';
 
 import styles from './styles.scss';
 
-export class LeftMenu extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  render() {
-    return (
-      <div className={styles.leftMenu}>
-        <LeftMenuHeader></LeftMenuHeader>
-        <LeftMenuLinkContainer {...this.props}></LeftMenuLinkContainer>
-        <LeftMenuFooter plugins={this.props.plugins}></LeftMenuFooter>
-      </div>
-    );
-  }
+function LeftMenu(props) {
+  return (
+    <div className={styles.leftMenu}>
+      <LeftMenuHeader />
+      <LeftMenuLinkContainer {...props} />
+      <LeftMenuFooter plugins={props.plugins} version={props.version} />
+    </div>
+  );
 }
+
+LeftMenu.defaultProps = {
+  version: '3',
+};
 
 LeftMenu.propTypes = {
   plugins: PropTypes.object.isRequired,
+  version: PropTypes.string,
 };
 
 function mapDispatchToProps(dispatch) {

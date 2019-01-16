@@ -15,10 +15,11 @@ module.exports = {
    */
 
   find: async (ctx) => {
-    const data = await strapi.services.article.fetchAll(ctx.query);
-
-    // Send 200 `ok`
-    ctx.send(data);
+    if (ctx.query._q) {
+      return strapi.services.article.search(ctx.query);
+    } else {
+      return strapi.services.article.fetchAll(ctx.query);
+    }
   },
 
   /**
@@ -28,10 +29,21 @@ module.exports = {
    */
 
   findOne: async (ctx) => {
-    const data = await strapi.services.article.fetch(ctx.params);
+    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
+      return ctx.notFound();
+    }
 
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.article.fetch(ctx.params);
+  },
+
+  /**
+   * Count article records.
+   *
+   * @return {Number}
+   */
+
+  count: async (ctx) => {
+    return strapi.services.article.count(ctx.query);
   },
 
   /**
@@ -41,10 +53,7 @@ module.exports = {
    */
 
   create: async (ctx) => {
-    const data = await strapi.services.article.add(ctx.request.body);
-
-    // Send 201 `created`
-    ctx.created(data);
+    return strapi.services.article.add(ctx.request.body);
   },
 
   /**
@@ -54,10 +63,7 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    const data = await strapi.services.article.edit(ctx.params, ctx.request.body) ;
-
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.article.edit(ctx.params, ctx.request.body) ;
   },
 
   /**
@@ -67,9 +73,6 @@ module.exports = {
    */
 
   destroy: async (ctx, next) => {
-    const data = await strapi.services.article.remove(ctx.params);
-
-    // Send 200 `ok`
-    ctx.send(data);
+    return strapi.services.article.remove(ctx.params);
   }
 };

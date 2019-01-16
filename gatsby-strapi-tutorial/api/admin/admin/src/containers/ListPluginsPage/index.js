@@ -15,21 +15,32 @@ import cn from 'classnames';
 
 import PluginHeader from 'components/PluginHeader';
 import ListPlugins from 'components/ListPlugins';
+import LoadingIndicatorPage from 'components/LoadingIndicatorPage';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import { makeSelectPluginDeleteAction, makeSelectPlugins } from './selectors';
+import { makeSelectCurrentEnv, makeSelectPluginDeleteAction, makeSelectPlugins, makeSelectIsLoading } from './selectors';
 import { getPlugins, onDeletePluginClick, onDeletePluginConfirm } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import styles from './styles.scss';
 
 export class ListPluginsPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  getChildContext = () => (
+    {
+      currentEnvironment: this.props.currentEnvironment,
+    }
+  );
+
   componentDidMount() {
     this.props.getPlugins();
   }
 
   render() {
+    if (this.props.isLoading) {
+      return <LoadingIndicatorPage />;
+    }
+
     return (
       <div>
         <FormattedMessage id="app.components.ListPluginsPage.helmet.title">
@@ -63,11 +74,17 @@ export class ListPluginsPage extends React.Component { // eslint-disable-line re
   }
 }
 
+ListPluginsPage.childContextTypes = {
+  currentEnvironment: PropTypes.string.isRequired,
+};
+
 ListPluginsPage.contextTypes = {};
 
 ListPluginsPage.propTypes = {
+  currentEnvironment: PropTypes.string.isRequired,
   getPlugins: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   onDeletePluginClick: PropTypes.func.isRequired,
   onDeletePluginConfirm: PropTypes.func.isRequired,
   pluginActionSucceeded: PropTypes.bool.isRequired,
@@ -75,6 +92,8 @@ ListPluginsPage.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
+  currentEnvironment: makeSelectCurrentEnv(),
+  isLoading: makeSelectIsLoading(),
   pluginActionSucceeded: makeSelectPluginDeleteAction(),
   plugins: makeSelectPlugins(),
 });

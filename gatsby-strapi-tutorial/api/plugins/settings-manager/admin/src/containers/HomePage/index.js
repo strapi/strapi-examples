@@ -291,8 +291,9 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
   handleLanguageDelete = (languaToDelete) => this.props.languageDelete(languaToDelete);
 
   handleDatabaseDelete = (dbName) => {
+    this.context.enableGlobalOverlayBlocker();
     strapi.notification.success('settings-manager.strapi.notification.success.databaseDelete');
-    this.props.databaseDelete(dbName, this.props.match.params.env);
+    this.props.databaseDelete(dbName, this.props.match.params.env, this.context);
   }
 
   // function used for react-select option
@@ -396,8 +397,8 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
     // if custom view display render specificComponent
     const Component = this.components[specificComponent];
     const addRequiredInputDesign = this.props.match.params.slug === 'databases';
-    const listTitle = this.props.match.params.slug === 'languages' || 'databases' ? this.renderListTitle() : '';
-    const listButtonLabel = this.props.match.params.slug === 'languages' || 'databases' ? this.renderListButtonLabel() : '';
+    const listTitle = ['languages', 'databases'].includes(this.props.match.params.slug) ? this.renderListTitle() : '';
+    const listButtonLabel = ['languages', 'databases'].includes(this.props.match.params.slug) ? this.renderListButtonLabel() : '';
 
     // check if HeaderNav component needs to render a form or a list
     const renderListComponent = this.props.match.params.slug === 'databases';

@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/article",
+      "path": "/articles",
       "handler": "Article.find",
       "config": {
         "policies": []
@@ -10,7 +10,15 @@
     },
     {
       "method": "GET",
-      "path": "/article/:_id",
+      "path": "/articles/count",
+      "handler": "Article.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/articles/:_id",
       "handler": "Article.findOne",
       "config": {
         "policies": []
@@ -18,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/article",
+      "path": "/articles",
       "handler": "Article.create",
       "config": {
         "policies": []
@@ -26,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/article/:_id",
+      "path": "/articles/:_id",
       "handler": "Article.update",
       "config": {
         "policies": []
@@ -34,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/article/:_id",
+      "path": "/articles/:_id",
       "handler": "Article.destroy",
       "config": {
         "policies": []

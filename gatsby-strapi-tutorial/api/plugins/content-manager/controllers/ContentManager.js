@@ -8,41 +8,36 @@ const _ = require('lodash');
 
 module.exports = {
   models: async ctx => {
-    const pickData = (model) => _.pick(model, [
-      'info',
-      'connection',
-      'collectionName',
-      'attributes',
-      'identity',
-      'globalId',
-      'globalName',
-      'orm',
-      'loadedModel',
-      'primaryKey',
-      'associations'
-    ]);
+    const pluginsStore = strapi.store({
+      environment: '',
+      type: 'plugin',
+      name: 'content-manager',
+    });
+
+    const models = await pluginsStore.get({ key: 'schema' });
 
     ctx.body = {
-      models: _.mapValues(strapi.models, pickData),
-      plugins: Object.keys(strapi.plugins).reduce((acc, current) => {
-        acc[current] = {
-          models: _.mapValues(strapi.plugins[current].models, pickData)
-        };
-
-        return acc;
-      }, {})
+      models,
     };
   },
 
   find: async ctx => {
+    // Search
+    if (!_.isEmpty(ctx.request.query._q)) {
+      ctx.body = await strapi.plugins['content-manager'].services['contentmanager'].search(ctx.params, ctx.request.query);
+
+      return;
+    }
+
+    // Default list with filters or not.
     ctx.body = await strapi.plugins['content-manager'].services['contentmanager'].fetchAll(ctx.params, ctx.request.query);
   },
 
   count: async ctx => {
-    const { source } = ctx.request.query;
-
-    // Count using `queries` system
-    const count = await strapi.plugins['content-manager'].services['contentmanager'].count(ctx.params, source);
+    // Search
+    const count = !_.isEmpty(ctx.request.query._q)
+      ? await strapi.plugins['content-manager'].services['contentmanager'].countSearch(ctx.params, ctx.request.query)
+      : await strapi.plugins['content-manager'].services['contentmanager'].count(ctx.params, ctx.request.query);
 
     ctx.body = {
       count: _.isNumber(count) ? count : _.toNumber(count)
@@ -53,7 +48,7 @@ module.exports = {
     const { source } = ctx.request.query;
 
     // Find an entry using `queries` system
-    const entry = await strapi.plugins['content-manager'].services['contentmanager'].fetch(ctx.params, source);
+    const entry = await strapi.plugins['content-manager'].services['contentmanager'].fetch(ctx.params, source, null, false);
 
     // Entry not found
     if (!entry) {
@@ -70,6 +65,7 @@ module.exports = {
       // Create an entry using `queries` system
       ctx.body = await strapi.plugins['content-manager'].services['contentmanager'].add(ctx.params, ctx.request.body, source);
     } catch(error) {
+      strapi.log.error(error);
       ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: error.message, field: error.field }] }] : error.message);
     }
   },
@@ -82,11 +78,28 @@ module.exports = {
       ctx.body = await strapi.plugins['content-manager'].services['contentmanager'].edit(ctx.params, ctx.request.body, source);
     } catch(error) {
       // TODO handle error update
+      strapi.log.error(error);
       ctx.badRequest(null, ctx.request.admin ? [{ messages: [{ id: error.message, field: error.field }] }] : error.message);
     }
+  },
+
+  updateSettings: async ctx => {
+    const { schema } = ctx.request.body;
+    const pluginStore = strapi.store({
+      environment: '',
+      type: 'plugin',
+      name: 'content-manager'
+    });
+    await pluginStore.set({ key: 'schema', value: schema });
+
+    return ctx.body = { ok: true };
   },
 
   delete: async ctx => {
     ctx.body = await strapi.plugins['content-manager'].services['contentmanager'].delete(ctx.params, ctx.request.query);
   },
+
+  deleteAll: async ctx => {
+    ctx.body = await strapi.plugins['content-manager'].services['contentmanager'].deleteMany(ctx.params, ctx.request.query);
+  }
 };
