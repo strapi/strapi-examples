@@ -16,8 +16,7 @@
       "required": true
     },
     "price": {
-      "type": "decimal",
-      "required": true
+      "type": "decimal"
     },
     "picture": {
       "type": "string",

@@ -16,7 +16,7 @@ $(document).ready(() => {
     // _sort=id || _sort=price:asc || _sort=price:description -> To order results
     // _start=0&_limit=4 -> To get data from 0 to 4, usefull for pagination
     $.ajax({
-      url: `/cake?${params}`,
+      url: `/cakes?${params}`,
       method: 'GET',
       success: (data) => {
         for (let i = 0; i < data.length; i++) {
@@ -58,7 +58,7 @@ $(document).ready(() => {
 
   // Call custom route to get cake count to create pagination.
   $.ajax({
-    url: `/cake/count`,
+    url: `/cakes/count`,
     method: 'GET',
     success: (data) => {
       const pages = Math.ceil(data / col);

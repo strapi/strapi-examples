@@ -45,11 +45,9 @@ exports.connect = (provider, query) => {
       }
 
       try {
-        const users = await strapi.query('user', 'users-permissions').find({
-          where: {
-            email: profile.email
-          }
-        });
+        const users = await strapi.query('user', 'users-permissions').find(strapi.utils.models.convertParams('user', {
+          email: profile.email
+        }));
 
         const advanced = await strapi.store({
           environment: '',
@@ -109,6 +107,40 @@ const getProfile = async (provider, query, callback) => {
   }).get();
 
   switch (provider) {
+    case 'discord': {
+      const discord = new Purest({
+        provider: 'discord',
+        config: {
+          'discord': {
+            'https://discordapp.com/api/': {
+              '__domain': {
+                'auth': {
+                  'auth': {'bearer': '[0]'}
+                }
+              },
+              '{endpoint}': {
+                '__path': {
+                  'alias': '__default'
+                }
+              }
+            }
+          }
+        }
+      });
+      discord.query().get('users/@me').auth(access_token).request((err, res, body) => {
+        if (err) {
+          callback(err);
+        } else {
+          // Combine username and discriminator because discord username is not unique
+          var username = `${body.username}#${body.discriminator}`;
+          callback(null, {
+            username: username,
+            email: body.email
+          });
+        }
+      });
+      break;
+    }
     case 'facebook': {
       const facebook = new Purest({
         provider: 'facebook'
@@ -136,7 +168,7 @@ const getProfile = async (provider, query, callback) => {
           callback(err);
         } else {
           callback(null, {
-            username: body.displayName || body.emails[0].value,
+            username: body.emails[0].value.split("@")[0],
             email: body.emails[0].value
           });
         }
@@ -171,6 +203,40 @@ const getProfile = async (provider, query, callback) => {
             });
           }
         });
+      });
+      break;
+    }
+    case 'microsoft': {
+      const microsoft = new Purest({
+        provider: 'microsoft',
+        config:{
+          'microsoft': {
+            'https://graph.microsoft.com': {
+              '__domain': {
+                'auth': {
+                  'auth': {'bearer': '[0]'}
+                }
+              },
+              '[version]/{endpoint}': {
+                '__path': {
+                  'alias': '__default',
+                  'version': 'v1.0'
+                }
+              }
+            }
+          }
+        }
+      });
+
+      microsoft.query().get('me').auth(access_token).request((err, res, body) => {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null, {
+            username: body.userPrincipalName,
+            email: body.userPrincipalName
+          });
+        }
       });
       break;
     }

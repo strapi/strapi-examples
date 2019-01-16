@@ -6,7 +6,7 @@ $(document).ready(() => {
 
   // Get single cake data and template product.html file.
   $.ajax({
-    url: `/cake/${id}`,
+    url: `/cakes/${id}`,
     method: 'GET',
     success: (data) => {
       $('.card-title').html(data.name);
@@ -48,7 +48,7 @@ $(document).ready(() => {
     const content = prompt('Comment:');
 
     $.ajax({
-      url: '/review/submit',
+      url: '/reviews/submit',
       method: 'POST',
       headers: {
         Authorization: `Bearer ${auth.jwt}`

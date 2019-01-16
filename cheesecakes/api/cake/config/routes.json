@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/cake",
+      "path": "/cakes",
       "handler": "Cake.find",
       "config": {
         "policies": []
@@ -10,7 +10,7 @@
     },
     {
       "method": "GET",
-      "path": "/cake/count",
+      "path": "/cakes/count",
       "handler": "Cake.count",
       "config": {
         "policies": []
@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/cake/:_id",
+      "path": "/cakes/:_id",
       "handler": "Cake.findOne",
       "config": {
         "policies": []
@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/cake",
+      "path": "/cakes",
       "handler": "Cake.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/cake/:_id",
+      "path": "/cakes/:_id",
       "handler": "Cake.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/cake/:_id",
+      "path": "/cakes/:_id",
       "handler": "Cake.destroy",
       "config": {
         "policies": []

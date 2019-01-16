@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-email@alpha",
-  "_id": "strapi-plugin-email@3.0.0-alpha.13.0.1",
+  "_from": "strapi-plugin-email@3.0.0-alpha.19",
+  "_id": "strapi-plugin-email@3.0.0-alpha.19",
   "_inBundle": false,
-  "_integrity": "sha512-2MStzm3fzLWXuGyIf2evxxeEcWj2LLc8uUSC5MlD5tQ9I0mpJIukAOQLH0Tm4AwAIR22Z+H54okhsJK8ydgXqw==",
+  "_integrity": "sha512-YiDJYVdAi3n8mj+PIBprMwaxt7cQjxX/llwTQLtYPWO+G+hXi8nYkyi6ljFZe3gJX11oj0ou++fEoGaUtx1z3g==",
   "_location": "/strapi-plugin-email",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-email@alpha",
+    "raw": "strapi-plugin-email@3.0.0-alpha.19",
     "name": "strapi-plugin-email",
     "escapedName": "strapi-plugin-email",
-    "rawSpec": "alpha",
+    "rawSpec": "3.0.0-alpha.19",
     "saveSpec": null,
-    "fetchSpec": "alpha"
+    "fetchSpec": "3.0.0-alpha.19"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.13.0.1.tgz",
-  "_shasum": "7f792000927f0c9ff938b2161fb250c1908ce5f4",
-  "_spec": "strapi-plugin-email@alpha",
-  "_where": "/Users/lauriejim/Documents/WORKSPACE/strapi/strapi-examples/test",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.19.tgz",
+  "_shasum": "bd0e96d21f6e42a230d611f73bb8de6b4a621f8f",
+  "_spec": "strapi-plugin-email@3.0.0-alpha.19",
+  "_where": "/Users/lauriejim/Documents/WORKSPACE/lauriejim/migration",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -32,17 +32,17 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "strapi-email-sendmail": "3.0.0-alpha.13.0.1"
+    "strapi-provider-email-sendmail": "3.0.0-alpha.19"
   },
   "deprecated": false,
   "description": "This is the description of the plugin.",
   "devDependencies": {
     "react-copy-to-clipboard": "5.0.1",
-    "strapi-helper-plugin": "3.0.0-alpha.13.0.1"
+    "strapi-helper-plugin": "3.0.0-alpha.19"
   },
   "engines": {
-    "node": ">= 9.0.0",
-    "npm": ">= 5.0.0"
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
   },
   "homepage": "https://github.com/strapi/strapi#readme",
   "license": "MIT",
@@ -77,5 +77,5 @@
     "icon": "paper-plane",
     "description": "email.plugin.description"
   },
-  "version": "3.0.0-alpha.13.0.1"
+  "version": "3.0.0-alpha.19"
 }

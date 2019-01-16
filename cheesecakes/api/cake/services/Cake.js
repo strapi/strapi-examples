@@ -20,7 +20,6 @@ module.exports = {
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
     const filters = strapi.utils.models.convertParams('cake', params);
-
     // Select field to populate.
     const populate = Cake.associations
       .filter(ast => ast.autoPopulate !== false)
@@ -43,17 +42,11 @@ module.exports = {
    */
 
   fetch: (params) => {
-    // CUSTOM CHANGES
-    // Deep populate reviews to get author username
-    const populate = [{
-      path: 'reviews',
-      match: {
-        approved: true
-      },
-      populate: {
-        path: 'author'
-      }
-    }];
+    // Select field to populate.
+    const populate = Cake.associations
+      .filter(ast => ast.autoPopulate !== false)
+      .map(ast => ast.alias)
+      .join(' ');
 
     return Cake
       .findOne(_.pick(params, _.keys(Cake.schema.paths)))
@@ -90,7 +83,7 @@ module.exports = {
     const entry = await Cake.create(data);
 
     // Create relational data and return the entry.
-    return Cake.updateRelations({ id: entry.id, values: relations });
+    return Cake.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
@@ -136,6 +129,10 @@ module.exports = {
 
     await Promise.all(
       Cake.associations.map(async association => {
+        if (!association.via || !data._id) {
+          return true;
+        }
+
         const search = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: data._id } : { [association.via]: { $in: [data._id] } };
         const update = _.endsWith(association.nature, 'One') || association.nature === 'oneToMany' ? { [association.via]: null } : { $pull: { [association.via]: data._id } };
 
@@ -149,5 +146,53 @@ module.exports = {
     );
 
     return data;
+  },
+
+  /**
+   * Promise to search a/an cake.
+   *
+   * @return {Promise}
+   */
+
+  search: async (params) => {
+    // Convert `params` object to filters compatible with Mongo.
+    const filters = strapi.utils.models.convertParams('cake', params);
+    // Select field to populate.
+    const populate = Cake.associations
+      .filter(ast => ast.autoPopulate !== false)
+      .map(ast => ast.alias)
+      .join(' ');
+
+    const $or = Object.keys(Cake.attributes).reduce((acc, curr) => {
+      switch (Cake.attributes[curr].type) {
+        case 'integer':
+        case 'float':
+        case 'decimal':
+          if (!_.isNaN(_.toNumber(params._q))) {
+            return acc.concat({ [curr]: params._q });
+          }
+
+          return acc;
+        case 'string':
+        case 'text':
+        case 'password':
+          return acc.concat({ [curr]: { $regex: params._q, $options: 'i' } });
+        case 'boolean':
+          if (params._q === 'true' || params._q === 'false') {
+            return acc.concat({ [curr]: params._q === 'true' });
+          }
+
+          return acc;
+        default:
+          return acc;
+      }
+    }, []);
+
+    return Cake
+      .find({ $or })
+      .sort(filters.sort)
+      .skip(filters.start)
+      .limit(filters.limit)
+      .populate(populate);
   }
 };

@@ -5,13 +5,17 @@
       "connector": "strapi-hook-mongoose",
       "settings": {
         "client": "mongo",
-        "host": "localhost",
+        "host": "127.0.0.1",
+        "srv": false,
         "port": 27017,
         "database": "cheesecakes",
         "username": "",
         "password": ""
       },
-      "options": {}
+      "options": {
+        "authenticationDatabase": "",
+        "ssl": false
+      }
     }
   }
 }

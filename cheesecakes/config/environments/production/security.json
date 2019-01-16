@@ -1,14 +1,16 @@
 {
   "csrf": {
-    "enabled": true,
+    "enabled": false,
     "key": "_csrf",
     "secret": "_csrfSecret"
   },
   "csp": {
     "enabled": true,
-    "policy": {
-      "default-src": "'self'"
-    }
+    "policy": [{
+        "img-src": "'self' http:"
+      },
+      "block-all-mixed-content"
+    ]
   },
   "p3p": {
     "enabled": true,
@@ -29,7 +31,7 @@
   },
   "cors": {
     "enabled": true,
-    "origin": "http://localhost",
+    "origin": "*",
     "expose": [
       "WWW-Authenticate",
       "Server-Authorization"
@@ -48,7 +50,8 @@
     "headers": [
       "Content-Type",
       "Authorization",
-      "X-Frame-Options"
+      "X-Frame-Options",
+      "Origin"
     ]
   },
   "ip": {

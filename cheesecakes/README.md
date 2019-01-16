@@ -70,8 +70,8 @@ API endpoints are located at `/api/cake/config/routes.json`. Documentation link 
 
 ## Custom route
 
-By default the Content Type Builder doesn't provide a route to count data. So we create a new route in `/api/cake/config/routes.json` `GET /cake/count`. We have to put this route just before `GET /cake/:_id`.
-Then you have to create the associated controller's function and also in this particular case we have to create a service.
+To apply the logged user as the author of the review we have to custom the back-e,d part, we created a `/reviews/submit` route.
+In the controller function we get the user id from the session and apply the value to the review object.
 
 ## Authentication
 
