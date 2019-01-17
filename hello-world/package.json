@@ -1,8 +1,5 @@
 {
   "name": "hello-world",
-  "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application.",
   "main": "./server.js",
   "scripts": {
     "setup": "cd admin && npm run setup",
@@ -24,15 +21,17 @@
     "strapi-hook-mongoose": "3.0.0-alpha.19"
   },
   "author": {
-    "name": "lauriejim",
-    "email": "",
-    "url": ""
+    "name": "Strapi",
+    "email": "hi@strapi.io"
   },
   "maintainers": [
     {
+      "name": "pierreburgy",
+      "email": "pierre@strapi.io"
+    },
+    {
       "name": "lauriejim",
-      "email": "",
-      "url": ""
+      "email": "jim@strapi.io"
     }
   ],
   "engines": {

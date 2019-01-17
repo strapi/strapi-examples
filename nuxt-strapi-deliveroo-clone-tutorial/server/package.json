@@ -1,8 +1,5 @@
 {
   "name": "backend",
-  "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application.",
   "main": "./server.js",
   "scripts": {
     "setup": "cd admin && npm run setup",
@@ -24,21 +21,19 @@
     "strapi-hook-mongoose": "3.0.0-alpha.19"
   },
   "author": {
-    "name": "pierreburgy",
-    "email": "",
-    "url": ""
+    "name": "Strapi",
+    "email": "hi@strapi.io"
   },
   "maintainers": [
     {
       "name": "pierreburgy",
-      "email": "",
-      "url": ""
+      "email": "pierre@strapi.io"
+    },
+    {
+      "name": "lauriejim",
+      "email": "jim@strapi.io"
     }
   ],
-  "strapi": {
-    "packageManager": "npm",
-    "uuid": "7d170223-ce75-4c8e-a6c7-2affb31a7e05"
-  },
   "engines": {
     "node": ">= 10.0.0",
     "npm": ">= 6.0.0"

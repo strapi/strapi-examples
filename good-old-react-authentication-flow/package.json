@@ -1,7 +1,5 @@
 {
   "name": "good-old-react-authentication-flow",
-  "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -95,5 +93,15 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "author": {
+    "name": "Strapi",
+    "email": "hi@strapi.io"
+  },
+  "maintainers": [
+    {
+      "name": "soupette",
+      "email": "cyril@strapi.io"
+    }
+  ]
 }
