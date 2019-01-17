@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-graphql@3.0.0-alpha.14.5",
-  "_id": "strapi-plugin-graphql@3.0.0-alpha.14.5",
+  "_from": "strapi-plugin-graphql@3.0.0-alpha.19",
+  "_id": "strapi-plugin-graphql@3.0.0-alpha.19",
   "_inBundle": false,
-  "_integrity": "sha512-U0p44/7bVrGdSo6UEBSkKFOlvUsY7rhTBf/In8GK3Ugh9UOVvJOzonRARDfeiZcGH7bMR2jEkUtexU4TncSd9Q==",
+  "_integrity": "sha512-FrVTi1Qrzw+Yumj/Rx74O9S85SkVJ1NjGOmBFgOWRS7qY16QgCIIMagnNp/uvC9x9sRSeV5p+diVreQkFCTAQw==",
   "_location": "/strapi-plugin-graphql",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-graphql@3.0.0-alpha.14.5",
+    "raw": "strapi-plugin-graphql@3.0.0-alpha.19",
     "name": "strapi-plugin-graphql",
     "escapedName": "strapi-plugin-graphql",
-    "rawSpec": "3.0.0-alpha.14.5",
+    "rawSpec": "3.0.0-alpha.19",
     "saveSpec": null,
-    "fetchSpec": "3.0.0-alpha.14.5"
+    "fetchSpec": "3.0.0-alpha.19"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.14.5.tgz",
-  "_shasum": "7dbae42de15782bdcea8642f2ee91d52a5e8512f",
-  "_spec": "strapi-plugin-graphql@3.0.0-alpha.14.5",
-  "_where": "/Users/lauriejim/Documents/WORKSPACE/strapi/projects/deliveroo-clone-tutorial/server",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-graphql/-/strapi-plugin-graphql-3.0.0-alpha.19.tgz",
+  "_shasum": "d0bae18029d0ade6acf7bde7232d1c200c8e1d01",
+  "_spec": "strapi-plugin-graphql@3.0.0-alpha.19",
+  "_where": "/Users/lauriejim/Documents/WORKSPACE/strapi/strapi-examples/nextjs-react-strapi-deliveroo-clone-tutorial/backend",
   "author": {
     "name": "A Strapi developer"
   },
@@ -29,20 +29,20 @@
   "dependencies": {
     "apollo-server-koa": "^2.0.7",
     "glob": "^7.1.3",
-    "graphql": "^0.13.2",
+    "graphql": "^14.0.2",
     "graphql-depth-limit": "^1.1.0",
     "graphql-playground-middleware-koa": "^1.6.4",
     "graphql-tools": "^3.1.1",
     "graphql-type-datetime": "^0.2.2",
     "graphql-type-json": "^0.2.1",
     "pluralize": "^7.0.0",
-    "strapi-utils": "3.0.0-alpha.14.5"
+    "strapi-utils": "3.0.0-alpha.19"
   },
   "deprecated": false,
   "description": "This is the description of the plugin.",
   "engines": {
-    "node": ">= 9.0.0",
-    "npm": ">= 5.3.0"
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
   },
   "license": "MIT",
   "maintainers": [
@@ -69,5 +69,5 @@
     "icon": "plug",
     "description": "Description of graphql plugin."
   },
-  "version": "3.0.0-alpha.14.5"
+  "version": "3.0.0-alpha.19"
 }

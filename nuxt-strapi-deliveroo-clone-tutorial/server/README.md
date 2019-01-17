@@ -1,3 +1,3 @@
-# server
+# backend
 
-A quick description of server.
+A quick description of backend.

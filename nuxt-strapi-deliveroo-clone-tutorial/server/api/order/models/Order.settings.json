@@ -13,10 +13,6 @@
       "default": "",
       "type": "string"
     },
-    "postalCode": {
-      "default": "",
-      "type": "string"
-    },
     "city": {
       "default": "",
       "type": "string"
@@ -27,7 +23,7 @@
     },
     "amount": {
       "default": "",
-      "type": "decimal"
+      "type": "integer"
     }
   }
 }

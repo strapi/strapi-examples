@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-settings-manager@3.0.0-alpha.14.5",
-  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.14.5",
+  "_from": "strapi-plugin-settings-manager@3.0.0-alpha.19",
+  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.19",
   "_inBundle": false,
-  "_integrity": "sha512-P7yIY+k/WWzFWchy7NIQp+uH2fpobU9h8lK4kGTj/nFBYAK4d0fkuZ5yIVLgkwNriRgLc7ktmF2pdzS+27qDzQ==",
+  "_integrity": "sha512-gDWkWbAJAMOauJpFq4fBdaf/OwKYCvr2BdWI2NEeS0Lz3byLz5TDx9ovqv0mQWll9eAZuLxJocMy1HbAMLL65A==",
   "_location": "/strapi-plugin-settings-manager",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-settings-manager@3.0.0-alpha.14.5",
+    "raw": "strapi-plugin-settings-manager@3.0.0-alpha.19",
     "name": "strapi-plugin-settings-manager",
     "escapedName": "strapi-plugin-settings-manager",
-    "rawSpec": "3.0.0-alpha.14.5",
+    "rawSpec": "3.0.0-alpha.19",
     "saveSpec": null,
-    "fetchSpec": "3.0.0-alpha.14.5"
+    "fetchSpec": "3.0.0-alpha.19"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.14.5.tgz",
-  "_shasum": "d8aae133a75519b2732084ee31410d205a92f1aa",
-  "_spec": "strapi-plugin-settings-manager@3.0.0-alpha.14.5",
-  "_where": "/Users/lauriejim/Documents/WORKSPACE/strapi/projects/deliveroo-clone-tutorial/server",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.19.tgz",
+  "_shasum": "5b317b7f7945ddb399f4157c14bd3c05dd20f7ad",
+  "_spec": "strapi-plugin-settings-manager@3.0.0-alpha.19",
+  "_where": "/Users/lauriejim/Documents/WORKSPACE/lauriejim/migration",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -36,11 +36,11 @@
   "devDependencies": {
     "flag-icon-css": "^2.8.0",
     "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.14.5"
+    "strapi-helper-plugin": "3.0.0-alpha.19"
   },
   "engines": {
-    "node": ">= 9.0.0",
-    "npm": ">= 5.0.0"
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
   },
   "homepage": "https://github.com/strapi/strapi#readme",
   "license": "MIT",
@@ -76,5 +76,5 @@
     "icon": "wrench",
     "description": "settings-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.14.5"
+  "version": "3.0.0-alpha.19"
 }

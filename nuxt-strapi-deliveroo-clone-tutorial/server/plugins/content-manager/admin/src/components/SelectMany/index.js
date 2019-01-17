@@ -8,7 +8,7 @@ import React from 'react';
 import Select from 'react-select';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import { cloneDeep, isArray, isNull, isUndefined, get, findIndex, isEmpty } from 'lodash';
+import { cloneDeep, includes, isArray, isNull, isUndefined, get, findIndex, isEmpty } from 'lodash';
 
 // Utils.
 import request from 'utils/request';
@@ -103,6 +103,15 @@ class SelectMany extends React.PureComponent {
       });
   };
 
+  handleInputChange = (value) => {
+    const clonedOptions = this.state.options;
+    const filteredValues = clonedOptions.filter(data => includes(data.label, value));
+
+    if (filteredValues.length === 0) {
+      return this.getOptions(value);
+    }
+  }
+
   handleChange = value => {
     // Remove new added value from available option;
     this.state.options = this.state.options.filter(el => 
@@ -169,6 +178,7 @@ class SelectMany extends React.PureComponent {
           id={this.props.relation.alias}
           isLoading={this.state.isLoading}
           onChange={this.handleChange}
+          onInputChange={this.handleInputChange}
           onMenuScrollToBottom={this.handleBottomScroll}
           options={this.state.options}    
           placeholder={<FormattedMessage id='content-manager.containers.Edit.addAnItem' />}
@@ -195,6 +205,7 @@ class SelectMany extends React.PureComponent {
           keys={this.props.relation.alias}
           moveAttr={this.props.moveAttr}
           moveAttrEnd={this.props.moveAttrEnd}
+          name={this.props.relation.alias}
           onRemove={this.handleRemove}
           distance={1}
           onClick={this.handleClick}

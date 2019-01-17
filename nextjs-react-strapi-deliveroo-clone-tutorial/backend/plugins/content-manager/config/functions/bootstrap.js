@@ -17,6 +17,7 @@ const pickData = (model) => _.pick(model, [
   'globalId',
   'globalName',
   'orm',
+  'options.timestamps',
   'loadedModel',
   'primaryKey',
   'associations'
@@ -51,6 +52,12 @@ module.exports = async cb => {
 
     return acc;
   }, {});
+  // Reference all current models
+  const appModels = Object.keys(pluginsModel).reduce((acc, curr) => {
+    const models = Object.keys(_.get(pluginsModel, [curr, 'models'], {}));
+
+    return acc.concat(models);
+  }, Object.keys(strapi.models).filter(m => m !== 'core_store'));
   // Init schema
   const schema = {
     generalSettings: {
@@ -78,6 +85,7 @@ module.exports = async cb => {
       pageEntries: 10,
       defaultSort: model.primaryKey,
       sort: 'ASC',
+      options: model.options,
       editDisplay: {
         availableFields: {},
         fields: [],
@@ -102,9 +110,11 @@ module.exports = async cb => {
         disabled: false,
       };
     });
-    
+
     // Don't display fields that are hidden by default like the resetPasswordToken for the model user
-    _.unset(fields, fieldsToRemove);
+    fieldsToRemove.forEach(field => {
+      _.unset(fields, field);
+    });
     schemaModel.attributes = _.omit(schemaModel.attributes, fieldsToRemove);
 
     schemaModel.fields = fields;
@@ -233,6 +243,16 @@ module.exports = async cb => {
       pluginStore.set({ key: 'schema', value: schema });
 
       return cb();
+    } else {
+      const modelsLayout = Object.keys(_.get(prevSchema, 'layout', {}));
+
+      // Remove previous model from the schema.layout
+      // Usually needed when renaming a model
+      modelsLayout.forEach(model => {
+        if (!appModels.includes(model)) {
+          _.unset(prevSchema, ['layout', model]);
+        }
+      });
     }
 
     // Here we do the difference between the previous schema from the database and the new one
@@ -291,6 +311,15 @@ module.exports = async cb => {
       // Update the displayed fields
       const updatedListDisplay = prevListDisplay.filter(obj => obj.name !== currentAttr.join());
 
+      // Retrieve the model's displayed fields for the `EditPage`
+      const fieldsPath = getEditDisplayFieldsPath(attrPath);
+      // Retrieve the previous settings
+      const prevEditDisplayFields = _.get(prevSchema.models, fieldsPath);
+      // Update the fields
+      const updatedEditDisplayFields = prevEditDisplayFields.filter(field => field !== currentAttr.join());
+      // Set the new layout
+      _.set(prevSchema.models, fieldsPath, updatedEditDisplayFields);
+
       if (updatedListDisplay.length === 0) {
         // Update it with the one from the generated schema
         _.set(prevSchema.models, listDisplayPath, _.get(schema.models, listDisplayPath, []));
@@ -303,8 +332,9 @@ module.exports = async cb => {
     // Here we just need to add the data from the current schema Object
     apisToAdd.map(apiPath => {
       const api = _.get(schema.models, apiPath);
-      const { search, filters, bulkActions, pageEntries } = _.get(prevSchema, 'generalSettings');
+      const { search, filters, bulkActions, pageEntries, options } = _.get(prevSchema, 'generalSettings');
 
+      _.set(api, 'options', options);
       _.set(api, 'filters', filters);
       _.set(api, 'search', search);
       _.set(api, 'bulkActions', bulkActions);
@@ -330,16 +360,16 @@ module.exports = async cb => {
     });
 
     // Update other keys
-    sameApis.map(apiPath => {
+    sameApis.forEach(apiPath => {
       // This doesn't keep the prevSettings for the relations,  the user will have to reset it.
       // We might have to improve this if we want the order of the relations to be kept
-      const keysToUpdate = ['relations', 'loadedModel', 'associations', 'attributes', ['editDisplay', 'relations']].map(key => apiPath.concat(key));
+      ['relations', 'loadedModel', 'associations', 'attributes', ['editDisplay', 'relations']]
+        .map(key => apiPath.concat(key))
+        .forEach(keyPath => {
+          const newValue = _.get(schema.models, keyPath);
 
-      keysToUpdate.map(keyPath => {
-        const newValue = _.get(schema.models, keyPath);
-
-        _.set(prevSchema.models, keyPath, newValue);
-      });
+          _.set(prevSchema.models, keyPath, newValue);
+        });
     });
 
     // Special handler for the upload relations
@@ -354,6 +384,7 @@ module.exports = async cb => {
     });
 
     await pluginStore.set({ key: 'schema', value: prevSchema });
+
   } catch(err) {
     console.log('error', err);
   }

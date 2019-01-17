@@ -25,7 +25,7 @@
     },
     "price": {
       "default": "",
-      "type": "decimal"
+      "type": "integer"
     },
     "restaurant": {
       "model": "restaurant",

@@ -34,8 +34,8 @@ module.exports = {
   amountLimiting: params => {
     if (params.limit && params.limit < 0) {
       params.limit = 0;
-    } else if (params.limit && params.limit > 100) {
-      params.limit = 100;
+    } else if (params.limit && params.limit > strapi.plugins.graphql.config.amountLimit) {
+      params.limit = strapi.plugins.graphql.config.amountLimit;
     }
 
     return params;
@@ -95,10 +95,7 @@ module.exports = {
         const [name, action] = handler.split('.');
 
         const controller = plugin
-          ? _.get(
-              strapi.plugins,
-              `${plugin}.controllers.${_.toLower(name)}.${action}`,
-            )
+          ? _.get(strapi.plugins, `${plugin}.controllers.${_.toLower(name)}.${action}`)
           : _.get(strapi.controllers, `${_.toLower(name)}.${action}`);
 
         if (!controller) {
@@ -199,10 +196,7 @@ module.exports = {
       const [name, action] = resolverOf.split('.');
 
       const controller = plugin
-        ? _.get(
-            strapi.plugins,
-            `${plugin}.controllers.${_.toLower(name)}.${action}`,
-          )
+        ? _.get(strapi.plugins, `${plugin}.controllers.${_.toLower(name)}.${action}`)
         : _.get(strapi.controllers, `${_.toLower(name)}.${action}`);
 
       if (!controller) {

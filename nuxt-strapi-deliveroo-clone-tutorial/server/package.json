@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "backend",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application.",
@@ -20,29 +20,28 @@
   },
   "dependencies": {
     "lodash": "^4.17.5",
-    "strapi": "3.0.0-alpha.14.5",
-    "strapi-hook-mongoose": "3.0.0-alpha.14.5",
-    "stripe": "^6.15.0"
+    "strapi": "3.0.0-alpha.19",
+    "strapi-hook-mongoose": "3.0.0-alpha.19"
   },
   "author": {
-    "name": "lauriejim",
+    "name": "pierreburgy",
     "email": "",
     "url": ""
   },
   "maintainers": [
     {
-      "name": "lauriejim",
+      "name": "pierreburgy",
       "email": "",
       "url": ""
     }
   ],
   "strapi": {
     "packageManager": "npm",
-    "uuid": "29675607-7318-41d3-925a-4f4ecc677624"
+    "uuid": "7d170223-ce75-4c8e-a6c7-2affb31a7e05"
   },
   "engines": {
-    "node": ">= 9.0.0",
-    "npm": ">= 5.0.0"
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
   },
   "license": "MIT"
 }
