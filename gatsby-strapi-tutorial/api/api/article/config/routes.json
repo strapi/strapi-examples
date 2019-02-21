@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/articles/:_id",
+      "path": "/articles/:id",
       "handler": "Article.findOne",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/articles/:_id",
+      "path": "/articles/:id",
       "handler": "Article.update",
       "config": {
         "policies": []
@@ -42,7 +42,7 @@
     },
     {
       "method": "DELETE",
-      "path": "/articles/:_id",
+      "path": "/articles/:id",
       "handler": "Article.destroy",
       "config": {
         "policies": []

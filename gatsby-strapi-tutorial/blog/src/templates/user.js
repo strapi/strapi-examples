@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../components/layout' 
 
 const UserTemplate = ({ data }) => (
   <Layout>
@@ -9,7 +9,7 @@ const UserTemplate = ({ data }) => (
       {data.strapiUser.articles.map(article => (
         <li key={article.id}>
           <h2>
-            <Link to={`/${article.id}`}>{article.title}</Link>
+            <Link to={`/Article_${article.id}`}>{article.title}</Link>
           </h2>
           <p>{article.content}</p>
         </li>

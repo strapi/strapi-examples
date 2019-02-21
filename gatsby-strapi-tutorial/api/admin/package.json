@@ -1,27 +1,31 @@
 {
-  "_from": "strapi-admin@3.0.0-alpha.19",
-  "_id": "strapi-admin@3.0.0-alpha.19",
+  "_from": "strapi-admin@3.0.0-alpha.24.1",
+  "_id": "strapi-admin@3.0.0-alpha.24.1",
   "_inBundle": false,
-  "_integrity": "sha512-Xd/9zp9+rzwg3tQpnVarzIdXTRQQc5RZE+JKIxW/DG4DtKsD96IyDDM2LuB0/M5s2/J7/59tfT9qO/uTRF9qfg==",
+  "_integrity": "sha512-3/R/eenIu0LA9UWiKrSj0eRr4dzvbMqkXc3ZMJQnVTRs4yk9QVHb5OoDp1wgLCv0YhgQvsjISQwUTcH8p/usDQ==",
   "_location": "/strapi/strapi-admin",
-  "_phantomChildren": {},
+  "_phantomChildren": {
+    "glob": "7.1.3",
+    "interpret": "1.2.0",
+    "rechoir": "0.6.2"
+  },
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "strapi-admin@3.0.0-alpha.19",
+    "raw": "strapi-admin@3.0.0-alpha.24.1",
     "name": "strapi-admin",
     "escapedName": "strapi-admin",
-    "rawSpec": "3.0.0-alpha.19",
+    "rawSpec": "3.0.0-alpha.24.1",
     "saveSpec": null,
-    "fetchSpec": "3.0.0-alpha.19"
+    "fetchSpec": "3.0.0-alpha.24.1"
   },
   "_requiredBy": [
     "/strapi/strapi-generate-admin"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.0.0-alpha.19.tgz",
-  "_shasum": "e5eaf126382e72e79730fd648c7bab3ccd7a125b",
-  "_spec": "strapi-admin@3.0.0-alpha.19",
-  "_where": "/Users/lauriejim/.nvm/versions/node/v10.14.2/lib/node_modules/strapi/node_modules/strapi-generate-admin",
+  "_resolved": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.0.0-alpha.24.1.tgz",
+  "_shasum": "301c88f170b8a788750ea97184deee660f133a93",
+  "_spec": "strapi-admin@3.0.0-alpha.24.1",
+  "_where": "/Users/pierreburgy/.nvm/versions/node/v11.6.0/lib/node_modules/strapi/node_modules/strapi-generate-admin",
   "author": {
     "name": "Strapi"
   },
@@ -30,6 +34,7 @@
   },
   "bundleDependencies": false,
   "dependencies": {
+    "intl": "^1.2.5",
     "react-ga": "^2.4.1",
     "remove-markdown": "^0.2.2",
     "shelljs": "^0.7.8"
@@ -37,9 +42,10 @@
   "deprecated": false,
   "description": "Strapi Admin",
   "devDependencies": {
+    "cross-env": "^5.0.5",
     "sanitize.css": "^4.1.0",
-    "strapi-helper-plugin": "3.0.0-alpha.19",
-    "strapi-utils": "3.0.0-alpha.19"
+    "strapi-helper-plugin": "3.0.0-alpha.24.1",
+    "strapi-utils": "3.0.0-alpha.24.1"
   },
   "engines": {
     "node": ">= 10.0.0",
@@ -60,20 +66,30 @@
   "scripts": {
     "analyze": "node ./node_modules/strapi-helper-plugin/lib/internals/scripts/analyze.js",
     "analyze:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf stats.json",
-    "build": "APP_PATH=$APP_PATH npm run build:dll && node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=production IS_ADMIN=true node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config ./node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
-    "build:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
-    "build:dev": "npm run build:dll && node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development IS_ADMIN=true node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config ./node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
-    "build:dll": "APP_PATH=$APP_PATH node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=production IS_ADMIN=true node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config ./node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.dll.babel.js --color -p --progress",
+    "build": "cross-env APP_PATH=$APP_PATH npm run build:dll && cross-env NODE_ENV=production IS_ADMIN=true ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config ./node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "build:clean": "cross-env node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
+    "build:dev": "cross-env npm run build:dll && NODE_ENV=development IS_ADMIN=true node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config ./node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "build:dll": "cross-env APP_PATH=$APP_PATH NODE_ENV=production IS_ADMIN=true ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config ./node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.dll.babel.js --color -p --progress",
     "generate": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/plop --plopfile ./node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
     "preanalyze": "npm run analyze:clean",
-    "prebuild": "APP_PATH=$APP_PATH node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=production IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/internals/scripts/loadAdminConfigurations.js",
+    "prebuild": "cross-env NODE_ENV=production IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/internals/scripts/loadAdminConfigurations.js",
     "prepublishOnly": "IS_MONOREPO=true npm run build",
     "presetup": "node ./scripts/preSetup.js",
-    "prestart": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development PORT=4000 IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/internals/scripts/loadAdminConfigurations.js",
+    "prestart": "cross-env NODE_ENV=development PORT=4000 IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/internals/scripts/loadAdminConfigurations.js",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
     "setup": "node ./scripts/setup.js",
-    "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development PORT=4000 IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/server",
+    "start": "cross-env NODE_ENV=development PORT=4000 IS_ADMIN=true node ./node_modules/strapi-helper-plugin/lib/server",
     "test": "echo \"Error: no test specified\""
   },
-  "version": "3.0.0-alpha.19"
+  "version": "3.0.0-alpha.24.1",
+  "warnings": [
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "node": ">= 10.0.0",
+        "npm": ">= 6.0.0"
+      },
+      "pkgid": "strapi-admin@3.0.0-alpha.24.1"
+    }
+  ]
 }

@@ -20,7 +20,8 @@ module.exports = {
         contentTypes: [ // List of the Content Types you want to be able to request from Gatsby.
           'article',
           'user'
-        ]
+        ],
+        queryLimit: 1000,
       },
     },
     'gatsby-transformer-sharp',

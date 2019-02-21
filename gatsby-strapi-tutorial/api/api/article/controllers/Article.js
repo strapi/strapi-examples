@@ -29,10 +29,6 @@ module.exports = {
    */
 
   findOne: async (ctx) => {
-    if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
-      return ctx.notFound();
-    }
-
     return strapi.services.article.fetch(ctx.params);
   },
 

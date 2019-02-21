@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => (
 
 export default IndexPage
 
-export const pageQuery = graphql`
+export const pageQuery = graphql`  
   query IndexQuery {
     allStrapiArticle {
       edges {

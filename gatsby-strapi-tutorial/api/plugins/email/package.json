@@ -1,27 +1,27 @@
 {
-  "_from": "strapi-plugin-email@3.0.0-alpha.19",
-  "_id": "strapi-plugin-email@3.0.0-alpha.19",
+  "_from": "strapi-plugin-email@3.0.0-alpha.24.1",
+  "_id": "strapi-plugin-email@3.0.0-alpha.24.1",
   "_inBundle": false,
-  "_integrity": "sha512-YiDJYVdAi3n8mj+PIBprMwaxt7cQjxX/llwTQLtYPWO+G+hXi8nYkyi6ljFZe3gJX11oj0ou++fEoGaUtx1z3g==",
+  "_integrity": "sha512-d7SJl6EwyaOEvrwRHyZISl20MsH8uMvz1BfuKMX9dWnyNHRJxZhkbAacA5UA0wFdR6lmfWmd4/VnW6LSgXGgHw==",
   "_location": "/strapi-plugin-email",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-email@3.0.0-alpha.19",
+    "raw": "strapi-plugin-email@3.0.0-alpha.24.1",
     "name": "strapi-plugin-email",
     "escapedName": "strapi-plugin-email",
-    "rawSpec": "3.0.0-alpha.19",
+    "rawSpec": "3.0.0-alpha.24.1",
     "saveSpec": null,
-    "fetchSpec": "3.0.0-alpha.19"
+    "fetchSpec": "3.0.0-alpha.24.1"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.19.tgz",
-  "_shasum": "bd0e96d21f6e42a230d611f73bb8de6b4a621f8f",
-  "_spec": "strapi-plugin-email@3.0.0-alpha.19",
-  "_where": "/Users/lauriejim/Documents/WORKSPACE/lauriejim/migration",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.0.0-alpha.24.1.tgz",
+  "_shasum": "0d774504c8a2a205c27edc2d79a7d41311028cef",
+  "_spec": "strapi-plugin-email@3.0.0-alpha.24.1",
+  "_where": "/Users/pierreburgy/Desktop/gatsby-strapi-tutorial/api",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",
@@ -32,13 +32,14 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "strapi-provider-email-sendmail": "3.0.0-alpha.19"
+    "strapi-provider-email-sendmail": "3.0.0-alpha.24.1"
   },
   "deprecated": false,
   "description": "This is the description of the plugin.",
   "devDependencies": {
     "react-copy-to-clipboard": "5.0.1",
-    "strapi-helper-plugin": "3.0.0-alpha.19"
+    "rimraf": "^2.6.3",
+    "strapi-helper-plugin": "3.0.0-alpha.24.1"
   },
   "engines": {
     "node": ">= 10.0.0",
@@ -60,16 +61,16 @@
   },
   "scripts": {
     "analyze": "node ./node_modules/strapi-helper-plugin/lib/internals/scripts/analyze.js",
-    "analyze:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf stats.json",
-    "build": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=production node node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
-    "build:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
-    "build:dev": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "analyze:clean": "rimraf stats.json",
+    "build": "cross-env NODE_ENV=production node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "build:clean": "rimraf admin/build",
+    "build:dev": "cross-env NODE_ENV=development ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
     "generate": "node ./node_modules/plop/plop.js --plopfile node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
     "preanalyze": "npm run analyze:clean",
     "prebuild": "npm run build:clean",
     "prepublishOnly": "IS_MONOREPO=true npm run build",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
-    "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
+    "start": "cross-env NODE_ENV=development ./node_modules/strapi-helper-plugin/lib/server",
     "test": "echo \"Error: no test specified\""
   },
   "strapi": {
@@ -77,5 +78,23 @@
     "icon": "paper-plane",
     "description": "email.plugin.description"
   },
-  "version": "3.0.0-alpha.19"
+  "version": "3.0.0-alpha.24.1",
+  "warnings": [
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "node": ">= 10.0.0",
+        "npm": ">= 6.0.0"
+      },
+      "pkgid": "strapi-plugin-email@3.0.0-alpha.24.1"
+    },
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "node": ">= 10.0.0",
+        "npm": ">= 6.0.0"
+      },
+      "pkgid": "strapi-plugin-email@3.0.0-alpha.24.1"
+    }
+  ]
 }

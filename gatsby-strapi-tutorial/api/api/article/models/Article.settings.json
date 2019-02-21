@@ -1,27 +1,34 @@
 {
   "connection": "default",
-  "collectionName": "article",
+  "collectionName": "articles",
   "info": {
     "name": "article",
     "description": ""
   },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
   "attributes": {
     "title": {
+      "default": "",
       "type": "string"
     },
     "content": {
+      "default": "",
       "type": "text"
+    },
+    "author": {
+      "model": "user",
+      "via": "articles",
+      "plugin": "users-permissions"
     },
     "image": {
       "model": "file",
       "via": "related",
       "plugin": "upload",
       "required": false
-    },
-    "author": {
-      "model": "user",
-      "via": "articles",
-      "plugin": "users-permissions"
     }
   }
 }
