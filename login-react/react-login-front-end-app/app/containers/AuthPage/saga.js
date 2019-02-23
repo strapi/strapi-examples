@@ -58,7 +58,7 @@ export default function* defaultSaga() {
 
 /**
  * Helper to handle navigation from sagas.
- * @param  {Sting} location The path to navigate
+ * @param  {String} location The path to navigate
  */
 function forwardTo(location) {
   history.push(location);
