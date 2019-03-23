@@ -26,7 +26,7 @@ export const query = graphql`
           }
         }
         }
-      author {
+      user {
         id
         username
       }
