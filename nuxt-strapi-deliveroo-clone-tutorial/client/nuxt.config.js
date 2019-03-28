@@ -14,14 +14,20 @@ module.exports = {
   },
 
   /*
+  ** Expose env variables
+  */
+  env: {
+    API_URL: process.env.API_URL
+  },
+
+  /*
   ** Customize the progress bar color
   */
-
   loading: { color: '#3B8070' },
+
   /*
   ** Build configuration
   */
-
   build: {
     /*
     ** Run ESLint on save
