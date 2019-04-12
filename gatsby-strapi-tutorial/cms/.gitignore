@@ -102,3 +102,6 @@ node_modules
 
 testApp
 coverage
+
+
+package-lock.json

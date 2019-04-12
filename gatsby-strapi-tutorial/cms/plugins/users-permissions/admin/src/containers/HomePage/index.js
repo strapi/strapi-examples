@@ -12,16 +12,15 @@ import { bindActionCreators, compose } from 'redux';
 import cn from 'classnames';
 import { clone, get, includes, isEqual, isEmpty } from 'lodash';
 
-// Design
-import EditForm from 'components/EditForm';
 import HeaderNav from 'components/HeaderNav';
-import List from 'components/List';
 import PluginHeader from 'components/PluginHeader';
-import PopUpForm from 'components/PopUpForm';
 
-// Utils
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+import pluginId from '../../pluginId';
+
+// Design
+import EditForm from '../../components/EditForm';
+import List from '../../components/List';
+import PopUpForm from '../../components/PopUpForm';
 
 // Selectors
 import selectHomePage from './selectors';
@@ -116,6 +115,7 @@ export class HomePage extends React.Component {
   handleButtonClick = () => {
     // TODO change open modal URL
     if (this.props.match.params.settingType === 'roles') {
+      this.context.emitEvent('willCreateRole');
       this.props.history.push(`${this.props.location.pathname}/create`);
     } else if (this.props.match.params.settingType === 'providers') {
       this.props.history.push(`${this.props.location.pathname}#add::${this.props.match.params.settingType}`);
@@ -134,7 +134,7 @@ export class HomePage extends React.Component {
 
     if (isEmpty(formErrors)) {
       this.setState({ showModalEdit: false });
-      this.props.submit(this.props.match.params.settingType);
+      this.props.submit(this.props.match.params.settingType, this.context);
     } else {
       this.props.setFormErrors(formErrors);
     }
@@ -177,7 +177,7 @@ export class HomePage extends React.Component {
   showLoaders = () => {
     const { data, isLoading, modifiedData } = this.props;
     const isAdvanded = this.getEndPoint() === 'advanced';
-    
+
     return isLoading && get(data, this.getEndPoint()) === undefined && !isAdvanded || isLoading && isAdvanded &&  get(modifiedData, this.getEndPoint()) === undefined;
   }
 
@@ -198,7 +198,7 @@ export class HomePage extends React.Component {
           values={get(modifiedData, this.getEndPoint(), {})}
         />
       );
-    
+
     return (
       <div>
         <form onSubmit={(e) => e.preventDefault()}>
@@ -231,6 +231,10 @@ export class HomePage extends React.Component {
 HomePage.childContextTypes = {
   setDataToEdit: PropTypes.func,
   unsetDataToEdit: PropTypes.func,
+};
+
+HomePage.contextTypes = {
+  emitEvent: PropTypes.func,
 };
 
 HomePage.defaultProps = {};
@@ -279,9 +283,8 @@ function mapDispatchToProps(dispatch) {
 const mapStateToProps = selectHomePage();
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
-
-const withReducer = injectReducer({ key: 'homePage', reducer });
-const withSaga = injectSaga({ key: 'homePage', saga });
+const withReducer = strapi.injectReducer({ key: 'homePage', reducer, pluginId });
+const withSaga = strapi.injectSaga({ key: 'homePage', saga, pluginId });
 
 export default compose(
   withReducer,
