@@ -33,7 +33,7 @@ GEM
       sass (~> 3.4)
     jekyll-seo-tag (2.4.0)
       jekyll (~> 3.3)
-    jekyll-strapi (0.1.1)
+    jekyll-strapi (0.1.2)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
     kramdown (1.16.2)
