@@ -20,7 +20,7 @@
     "react": "^16.4.1",
     "react-apollo": "^2.1.9",
     "react-display-name": "^0.2.4",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
