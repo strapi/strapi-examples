@@ -11,15 +11,15 @@ Content:
 
 Travelers seeking a personal touch and insider stories would do well to consider staying at a local bed and breakfast (B&B). B&Bs "are more intimate, with much more personal attention," says Sharon Scruggs, who operates the Fife and Drum Inn with her husband, Billy. Both are lifetime residents of Williamsburg, Virginia, and provide a unique and in-depth perspective on the history of the area for their guests. The bed-and-breakfast experience offers many other benefits beyond what travelers find in a chain- hotel setting.
 
-Location
+## Location
 
 Many bed and breakfasts are historic properties, often located in the center of scenic areas.The Fife and Drum Inn has been part of Sharon’s family for generations. The building was constructed in 1933 by her grandfather as a combination of stores with apartments above, and is a short walk to the sights and sounds of Colonial Williamsburg, including the holiday Grand Illumination fireworks display.- Character. Part of the charm of a bed and breakfast is the uniqueness; art, décor, and food are integrated to create a complete experience. For example, the Fife and Drum retains the colonial feel of the area in all its guest rooms. Special features include antique furnishings, elegant four poster beds in some guest rooms, as well folk art and artifacts from the restoration period of the historic area available for guests to enjoy.
 
-Food 
+## Food 
 
 Bed and breakfasts don’t shirk the breakfast half of the equation, and the best of them reflect the local cuisine. The Fife and Drum features daily breakfast casseroles based on family recipes to reflect the southern cooking of the area; other items include fresh biscuits, Virginia ham, fruit, and a unique blend of granola to fuel a day of sightseeing.
 
-Customization. 
+## Customization. 
 
 Not only do visitors to a bed and breakfast get a unique perspective on the place they are visiting, they have options for special packages not available in other hotel settings. 
 
@@ -55,15 +55,15 @@ Welcome to real travel. What does that mean exactly? While we would all like to 
 
 Danielle Smith, wife, mother, and creator of the Pretty Extraordinary website, "A place where you can ditch perfection, embrace the juggle and come away celebrating the small victories," believes there are some simple ways to get the best out of real travel.* 
 
-Make Practical Trips Fun and Fun Trips Practical: 
+## Make Practical Trips Fun and Fun Trips Practical: 
 
 Whether you are obligated to visit a family member or simply travel for business, seek out a few opportunities to enjoy the time away. Find a new restaurant that serves your favorite type of food, take in a show or visit a local treasure. Alternatively, if you have the opportunity to steal away for vacation, take the time to do a college tour with your kids: even if they aren’t looking yet, you never know what doors you may open.* 
 
-Seek the Perks: 
+## Seek the Perks: 
 
 For any type of travel, always look for hotels that offer the amenities that will make your stay both more comfortable and affordable. When traveling for business, chances are you’re visiting clients in various cities, so it’s important to find a hotel brand that consistently offers what you need. Hampton by Hilton, for instance, has more than 2,240 properties around the world and offers free amenities to make your stay more pleasurable. To help fuel up for those long days on the road or endless meetings, the hotel provides On the Run breakfast bags as a perk. Need to stay up late working into the evening? There’s free Wi-Fi for that.* 
 
-Plan for Disruption: 
+### Plan for Disruption: 
 
 We all know that real travel involves real life moments — lost luggage, delayed flights, rainstorms when you were planning on a sunny day. So take the time to monitor the weather before you head to your destination, and keep a few extra items in your carry-on or purse (such as a rain hat, sweater or umbrella).While travel can be stressful, if you are prepared and plan ahead, it doesn’t have to be. You may even be able to enjoy a few moments.
 
@@ -93,7 +93,7 @@ Fall in Love with Greater Fort Lauderdale
 
 Content:
 
-Travelers may think of summer and beach activities when they think of Florida, but Greater Fort Lauderdale takes its relaxing vibe into the fall season.With options for off-season savings, visitors can enjoy a VIP experience for less and make the most of a fall visit to the destination, including deals on fine dining, outdoor activities, and indulgent spa experiences, just before heading into winter.
+Travellers may think of summer and beach activities when they think of Florida, but Greater Fort Lauderdale takes its relaxing vibe into the fall season.With options for off-season savings, visitors can enjoy a VIP experience for less and make the most of a fall visit to the destination, including deals on fine dining, outdoor activities, and indulgent spa experiences, just before heading into winter.
 
 -Food: Greater Fort Lauderdale Restaurant Month is back by popular demand with a new name and improved dining deals. 
 
@@ -131,3 +131,146 @@ https://unsplash.com
 Unsplash
 
 
+
+=======================
+
+Article 4:
+
+Title: 
+
+The Big Appeal of Small City Vacations
+
+Content:
+
+# The Big Appeal of Small City Vacations
+
+If you live or work in a big city, you may be reluctant to travel across the ocean to another bustling metropolis. There’s only one Paris but getting from the Louvre to Notre-Dame to the Arc de Triomphe via the Paris Metro doesn’t feel a whole lot like a vacation if your typical day includes the New York City subway, for example.The good news is that there are many places outside of major cities for great culture and cuisine, but with a more laid-back feel.Blue-Roads, a world leader in small group touring, specializes in taking you to these more intimate destinations where you get the best of both worlds. 
+
+Here are a few ideas for authentic experiences coupled with a relaxed pace that allow you to truly decompress and better enjoy your travels:
+
+## Bilbao, Spain. 
+
+Millions of tourists flock annually to Catalonia’s capital, Barcelona, for its world-class art museums, its imposing gothic architecture and Northern Spanish delights such as paella. In Bilbao, you’ll find equally appealing character and ambiance. In this rugged coastal city, steep yourself in Basque culture, history and cuisine. It’s renowned for its fresh seafood and Basque foodways, its world-class Guggenheim Museum, and it’s amazing indoor food market and contemporary architecture. On Blue-Roads’ Highlights of Northern Spain tour, you’ll explore the iconic Frank Gehry-designed Guggenheim and dine at a Michelin-starred restaurant.
+
+## Granada, Spain. 
+
+Madrid may be famous for its great European masterworks and breathtaking architecture, notably the Royal Palace and Plaza Mayor, but Granada is a jewel in its own right. You’ll marvel at Granada’s equally breathtaking Moorish architecture, a distinctive mix of Islamic and Arabic influences. No visit to Granada is complete without seeing the splendor of the Alhambra’s palace and gardens from its plateau in the Sierra Nevada Mountains, with a sweeping vista overlooking the city. Included in the Iberian Inspiration tour is an exploration of this famed place, considered one of the finest masterpieces in Islamic architecture.
+
+## York, England. 
+
+While few cities can match the lure of London, it is a very crowded destination. About three and a half hours north is York, one of the best-preserved ancient walled cities in the world. It dates back to Roman times. It’s also one of the most picturesque places in England. The Heart of Britain tour brings you into the heart of Old Town York. Steps built in the middle ages bring you to the top of the city wall where you can take in dazzling views before sitting down to enjoy a pint or a meal.
+
+## Galway, Ireland. 
+
+Ireland is famous for its rugged coastline, majestic castles and emerald green hills. Be sure not to limit yourself to Dublin or Belfast, though. Don’t miss Galway, considered Ireland’s cultural heart and designated the European Cultural Capital 2020. Known for its traditional Irish music, Galway is rich in medieval history, street art and is the birthplace of the traditional Claddagh ring. On Blue-Roads’ Emerald Isle tour, you’ll soak in the vibrant energy of this eclectic city, including a walking tour of the harbor city of Galway, where fisherman have lived and worked for centuries.Who says you can’t have it all? When you visit one of these less-traveled cities featured in Blue-Roads Tours, you’ll replace the day-to-day with a getaway to remember.
+
+Image:
+
+the-big-appeal-of-small-city-vacations.jpg
+
+Photo by Chang Duong
+https://unsplash.com/photos/3D57xfaWekY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+
+
+on 
+
+https://unsplash.com
+Unsplash
+
+
+
+=======================
+
+Article 5:
+
+Title: 
+
+Stylish Carrying Case Corrals Handbag Essentials in Style
+
+Content:
+
+Despite their best efforts, most women have had the experience of frantically digging into the bottom of a large purse or handbag for an essential item such as eyeglasses, cellphone, keys, or passport. A separate case to corral these important possessions makes sense, especially if it combines fashion with function.Being able to protect, carry, and access these items in a reliable, convenient, safe way makes women’s lives easier and better, according to the creator of TravelEyez, a unique, stylish accessory that holds not only eyeglasses, but other essentials including phones and keys.
+
+The **TravelEyez** products are double-sided and designed to zip around the strap or handle of any purse, handbag, or backpack.This stylish accessory is available in black mesh with six different-colored zipper options, as well as black leather and caramel leather for a dressier look, and are sold in sets of two cases that may be zipped together or used separately. 
+
+## Identical designs
+
+The designs are identical regardless of color, so they can mix and match, or stay consistent."Each TravelEyez case can hold a pair of glasses or car keys, money, credit cards, jewelry or a smart phone. You can zip cases together to connect as many as you need, and attach them to your purse or bag handle to keep your personal items organized and close at hand for easy access," says Yvonne Graber, creator of TravelEyez.
+
+TravelEyez also gives women peace of mind. The case cancels the need to keep valuables such as a phone or keys in a pants or jacket pocket where they might fall out.
+
+Some of the most popular uses include:
+
+- Travel. Whether you’re traveling for business or pleasure, the case provides a secure way to monitor a phone, wallet, credit cards and passport. Try it on a suitcase, travel tote, or carry-on bag.
+- Shopping. As mundane as it may sound, don’t underestimate the value of a handy way to easily access your phone and wallet when shopping, especially for moms toting small children along.
+- On the go. This is an ideal accessory for students, fitness fanatics, or those on the go. The cases attach easily to bike bars, gym bags, and backpack straps. With the holidays just around the corner, TravelEyez also makes a great gift or stocking stuffer.
+
+The patent on the TravelEyez design is pending.
+
+For more information, visit [traveleyez.com](traveleyez.com).
+
+Image:
+
+stylish-carrying-case-corrals-handbag-essentials-in-style.jpg
+
+Photo by SOCIAL . CUT
+https://unsplash.com/photos/bHCeSytrid4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+
+
+on 
+
+https://unsplash.com
+Unsplash
+
+
+
+=======================
+
+Article 6:
+
+Title: 
+
+Creative Gift Giving Is Easier Than You Think
+
+Content:
+
+It’s no secret that shopping for holiday gifts can be overwhelming.The answer to alleviating the stress of thoughtful gift giving comes in a cardboard box.Seriously.Subscription box services are popular options for a "gift that keeps on giving," providing a personalized experience delivered safely every month.
+
+In fact, in a survey conducted by the Paper and Packaging Board from August 2015 to November 2016, 82 percent of those surveyed agreed that they could rely on corrugated cardboard boxes to get their merchandise shipped and delivered safely. And 60 percent feel that products that come in paper-packaging tend to feel more premium.Innovations in box and packaging design allow these boxes to delight well past delivery with extended use and upcycling options.
+
+Find the perfect gift for your loved one this season with one of these favorites:
+
+## KiwiCo (Kiwico.com):
+
+For the Kid Who Is Going to Run the World. KiwiCo develops monthly STEAM educational hands-on projects and activities to spark curiosity and creativity in kids aged 0-16+. Each eco-friendly corrugated box is filled with interactive projects to fit a child’s respective age group. As your child or loved one grows, so do the boxes!
+
+## Loot Crate (LootCrate.com): 
+
+For the Pop-Culture Obsessed. Loot Crate is a pop culture- themed subscription box featuring a changing monthly theme that covers all fandoms.These corrugated boxes hit every interest from video games to television and movies. Loot Crate offers an additional perk – the box is part of the monthly theme itself, which is to say, the box transforms into a "bonus" gift with some simple cuts and folds. You have to see it to believe it.
+
+## Graze (Graze.com): 
+
+For the Foodie. Graze is a subscription box that uses high-quality, nutritionist- approved ingredients to provide wholesome snacks. Graze uses responsibly resourced paper-based packaging to ensure that its products are safe and fresh for consumption. Foodies can subscribe for weekly, bi-weekly or monthly deliveries of personalized Graze boxes based on their custom-snack profile.
+
+## KitNipBox (KitNipBox.com): 
+
+For the Cat Lover. KitNipBox is uniquely themed so cats (and their humans!) have something fresh, fun and new to look forward to each month. The design of the box, which can be recycled, is specifically made to fit 95 percent of cats, so they can play with the box and fit inside of it.Additionally, KitNipBox uses specially designed crinkling tissue paper in the boxes, so that the unwrapping experience is even more special for cats and their owners.
+
+## Cratejoy (Cratejoy.com): 
+
+For Everyone. Cratejoy is the world’s premier subscription box website, providing a global marketplace of products. Cratejoy offers a vast selection of uniquely crafted corrugated boxes suited to virtually any hobby, interest or taste.Gifting a subscription box service is an easy yet thoughtful option for anyone on your shopping list! Unbox an experience that will last long past this holiday season. 
+
+Find out more by visiting [HowLifeUnfolds.com](HowLifeUnfolds.com)
+
+Image:
+
+creative-gift-giving-easier-than-you-think.jpg
+
+Photo by FreeStocks.org
+https://unsplash.com/photos/spP6LqxN0-g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+
+
+on 
+
+https://unsplash.com
+Unsplash
