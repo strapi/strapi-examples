@@ -2,7 +2,7 @@
 
 Go to the [Google developers console](https://console.developers.google.com/) and create a project.
 
-In the Library section add Google + API and then in the credentials section set the Authorized redirect URI to `http://localhost:1337/connect/google/callback`
+Then in the credentials section set the Authorized redirect URI to `http://localhost:1337/connect/google/callback`
 
 ![Google setup](../assets/google_settings.png)
 
