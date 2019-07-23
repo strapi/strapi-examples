@@ -2,7 +2,6 @@
 
 Go to [Facebook developers](https://developers.facebook.com/) and create an app called 'test'.
 - In the product section add `Facebook login`
-- Set 'http://localhost:3000' as your website URL
 - Copy for App Id and App Secret
 - In the `Facebook login` > `Advanced settings` add: `http://localhost:1337/connect/facebook/callback` in the `Valid OAuth redirect URIs` field.
 
