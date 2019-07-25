@@ -1,6 +1,6 @@
 # Microsoft Setup
 
-Go to the [Microsoft Developers](https://apps.dev.microsoft.com/) site and create an app, leaving the **Guided Setup** box unchecked.
+Go to the [Azure Applications List](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) site and create an app, leaving the **Guided Setup** box unchecked.
 - Under **Platforms**, click `Add Platform` and select `Web`
 - In the **Redirect URLs** field, put `http://localhost:1337/connect/microsoft/callback`
 - Click `Save` at the bottom of the screen
