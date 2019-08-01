@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/restaurants/:_id",
+      "path": "/restaurants/:id",
       "handler": "Restaurant.findOne",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/restaurants/:_id",
+      "path": "/restaurants/:id",
       "handler": "Restaurant.update",
       "config": {
         "policies": []
@@ -42,8 +42,8 @@
     },
     {
       "method": "DELETE",
-      "path": "/restaurants/:_id",
-      "handler": "Restaurant.destroy",
+      "path": "/restaurants/:id",
+      "handler": "Restaurant.delete",
       "config": {
         "policies": []
       }

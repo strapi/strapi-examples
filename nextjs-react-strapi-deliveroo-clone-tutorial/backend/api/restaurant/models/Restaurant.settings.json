@@ -1,27 +1,26 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "restaurants",
   "info": {
     "name": "restaurant",
     "description": ""
   },
   "options": {
-    "timestamps": true
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
   },
   "attributes": {
     "name": {
-      "default": "",
       "type": "string"
     },
     "description": {
-      "default": "",
       "type": "text"
     },
     "image": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "dishes": {
       "collection": "dish",
