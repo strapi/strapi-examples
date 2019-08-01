@@ -9,5 +9,5 @@ This example is the result of the tutorial series "[Cooking a Deliveroo clone wi
 To see it live:
 
  - Clone the repository.
- - Start the Strapi server: `cd nuxt-strapi-deliveroo-clone-tutorial/server && npm install && npm start`.
- - In an other tab, start the Nuxt server: `cd nuxt-strapi-deliveroo-clone-tutorial/client && npm install && npm run dev`.
+ - Start the Strapi server: `cd nuxt-strapi-deliveroo-clone-tutorial/server && yarn && yarn dev`.
+ - In an other tab, start the Nuxt server: `cd nuxt-strapi-deliveroo-clone-tutorial/client && yarn && yarn dev`.

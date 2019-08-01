@@ -6,12 +6,16 @@
         <div class="col-md-8">
           <div class="card-columns">
             <div v-for="dish in dishes" :key="dish.id" class="card">
-              <img :src="dish.image.url" class="card-img-top">
+              <img :src="dish.image.url" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title">{{ dish.name }}</h5>
-                <p class="card-text">{{ dish.description || 'No description provided.' }}</p>
+                <p class="card-text">
+                  {{ dish.description || 'No description provided.' }}
+                </p>
                 <p class="card-text">${{ dish.price }}</p>
-                <button class="btn btn-primary" @click="addToCard(dish)">Add to card</button>
+                <button class="btn btn-primary" @click="addToCard(dish)">
+                  Add to card
+                </button>
               </div>
             </div>
           </div>
@@ -22,17 +26,37 @@
               <h5 class="card-title">Card</h5>
               <p class="card-text">{{ numberOfItems }} items selected:</p>
               <ul>
-                <li v-for="dish in selectedDishes" :key="dish.id" class="card-text mb-2">
-                  Name: {{ dish.name }} (${{ dish.price }}) ({{ dish.quantity }})
-                  <button class="btn btn-sm btn-success" @click="addToCard(dish)">+</button>
-                  <button class="btn btn-sm btn-warning ml-2" @click="removeFromCard(dish)">-</button>
+                <li
+                  v-for="dish in selectedDishes"
+                  :key="dish.id"
+                  class="card-text mb-2"
+                >
+                  Name: {{ dish.name }} (${{ dish.price }}) ({{
+                    dish.quantity
+                  }})
+                  <button
+                    class="btn btn-sm btn-success"
+                    @click="addToCard(dish)"
+                  >
+                    +
+                  </button>
+                  <button
+                    class="btn btn-sm btn-warning ml-2"
+                    @click="removeFromCard(dish)"
+                  >
+                    -
+                  </button>
                 </li>
               </ul>
-              <h5 class="card-text">
-                Total: ${{ price }}
-              </h5>
+              <h5 class="card-text">Total: ${{ price }}</h5>
               <p v-if="!selectedDishes.length">Please select some items.</p>
-              <button :disabled="!selectedDishes.length" class="btn btn-primary" @click="goToCheckout">Order</button>
+              <button
+                :disabled="!selectedDishes.length"
+                class="btn btn-primary"
+                @click="goToCheckout"
+              >
+                Order
+              </button>
             </div>
           </div>
         </div>
@@ -75,10 +99,10 @@ export default {
       data: {
         query: `query {
             restaurant(id: "${params.id}") {
-              _id
+              id
               name
               dishes {
-                _id
+                id
                 name
                 description
                 price
@@ -94,7 +118,7 @@ export default {
     response.data.restaurant.dishes.forEach(dish => {
       dish.image.url = `${apiUrl}${dish.image.url}`
       store.commit('dishes/add', {
-        id: dish.id || dish._id,
+        id: dish.id,
         ...dish
       })
     })

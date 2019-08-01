@@ -1,4 +1,3 @@
-
 <template>
   <section class="container">
     <div>
@@ -10,15 +9,29 @@
               <h5 class="card-title">Card</h5>
               <p class="card-text">{{ numberOfItems }} items selected:</p>
               <ul>
-                <li v-for="dish in selectedDishes" :key="dish.id" class="card-text mb-2">
-                  Name: {{ dish.name }} (${{ dish.price }}) ({{ dish.quantity }})
-                  <button class="btn btn-sm btn-success" @click="addToCard(dish)">+</button>
-                  <button class="btn btn-sm btn-warning ml-2" @click="removeFromCard(dish)">-</button>
+                <li
+                  v-for="dish in selectedDishes"
+                  :key="dish.id"
+                  class="card-text mb-2"
+                >
+                  Name: {{ dish.name }} (${{ dish.price }}) ({{
+                    dish.quantity
+                  }})
+                  <button
+                    class="btn btn-sm btn-success"
+                    @click="addToCard(dish)"
+                  >
+                    +
+                  </button>
+                  <button
+                    class="btn btn-sm btn-warning ml-2"
+                    @click="removeFromCard(dish)"
+                  >
+                    -
+                  </button>
                 </li>
               </ul>
-              <h5 class="card-text">
-                Total: ${{ price }}
-              </h5>
+              <h5 class="card-text">Total: ${{ price }}</h5>
               <p v-if="!selectedDishes.length">Please select some items.</p>
             </div>
           </div>
@@ -35,7 +48,8 @@
                 type="text"
                 autofocus="true"
                 placeholder="Enter your address"
-                required/>
+                required
+              />
             </div>
             <div class="form-group">
               <label for="postalCode">Postal Code</label>
@@ -45,7 +59,8 @@
                 type="text"
                 autofocus="true"
                 placeholder="Enter your postal code"
-                required/>
+                required
+              />
             </div>
             <div class="form-group">
               <label for="city">City</label>
@@ -55,16 +70,20 @@
                 type="text"
                 autofocus="true"
                 placeholder="Enter your city"
-                required/>
+                required
+              />
             </div>
             <div class="form-group">
               <label for="card">Card</label>
-              <card
-                class="form-control"
-                stripe="pk_test_4nobp9tCdjhXC4JPrmgqKnsk"
-              />
+              <card class="form-control" stripe="pk_test_stripe" />
             </div>
-            <button :disabled="loading" type="submit" class="btn btn-primary btn-block mt-3">Submit</button>
+            <button
+              :disabled="loading"
+              type="submit"
+              class="btn btn-primary btn-block mt-3"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </div>

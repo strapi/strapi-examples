@@ -10,7 +10,8 @@
             type="username"
             autofocus="true"
             placeholder="Enter your username"
-            required/>
+            required
+          />
         </div>
         <div class="form-group">
           <label for="email">Email</label>
@@ -20,7 +21,8 @@
             type="email"
             autofocus="true"
             placeholder="Enter your email"
-            required/>
+            required
+          />
         </div>
         <div class="form-group">
           <label for="password">Password</label>
@@ -32,12 +34,19 @@
             class="form-control"
             autofocus="true"
             placeholder="Enter your password"
-            required/>
+            required
+          />
         </div>
-        <button :disabled="loading" type="submit" class="btn btn-primary btn-block mt-3">Submit</button>
+        <button
+          :disabled="loading"
+          type="submit"
+          class="btn btn-primary btn-block mt-3"
+        >
+          Submit
+        </button>
         <p class="text-center mt-3">
           Already have an account?
-          <router-link :to="{ name: 'signin'}" tag="a">
+          <router-link :to="{ name: 'signin' }" tag="a">
             Login
           </router-link>
         </p>
