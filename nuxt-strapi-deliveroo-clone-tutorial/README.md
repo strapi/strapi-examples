@@ -10,4 +10,4 @@ To see it live:
 
  - Clone the repository.
  - Start the Strapi server: `cd nuxt-strapi-deliveroo-clone-tutorial/server && yarn && yarn dev`.
- - In an other tab, start the Nuxt server: `cd nuxt-strapi-deliveroo-clone-tutorial/client && yarn && yarn dev`.
+ - In an other tab, start the Nuxt server: `cd nuxt-strapi-deliveroo-clone-tutorial/frontend && yarn && yarn dev`.

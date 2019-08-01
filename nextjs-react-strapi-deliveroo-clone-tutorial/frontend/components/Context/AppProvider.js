@@ -31,7 +31,7 @@ class AppProvider extends React.Component {
     let { items } = this.state;
     //check for item already in cart
     //if not in cart, add item if item is found increase quanity ++
-    const newItem = items.find(i => i._id === item._id);
+    const newItem = items.find(i => i.id === item.id);
 
     if (!newItem) {
       //set quantity property to 1
@@ -48,7 +48,7 @@ class AppProvider extends React.Component {
         {
           items: this.state.items.map(
             item =>
-              item._id === newItem._id
+              item.id === newItem.id
                 ? Object.assign({}, item, { quantity: item.quantity + 1 })
                 : item
           ),
@@ -62,13 +62,13 @@ class AppProvider extends React.Component {
     let { items } = this.state;
     //check for item already in cart
     //if not in cart, add item if item is found increase quanity ++
-    const newItem = items.find(i => i._id === item._id);
+    const newItem = items.find(i => i.id === item.id);
     if (newItem.quantity > 1) {
       this.setState(
         {
           items: this.state.items.map(
             item =>
-              item._id === newItem._id
+              item.id === newItem.id
                 ? Object.assign({}, item, { quantity: item.quantity - 1 })
                 : item
           ),
@@ -78,7 +78,7 @@ class AppProvider extends React.Component {
       );
     } else {
       const items = [...this.state.items];
-      const index = items.findIndex(i => i._id === newItem._id);
+      const index = items.findIndex(i => i.id === newItem.id);
 
       items.splice(index, 1);
       this.setState(

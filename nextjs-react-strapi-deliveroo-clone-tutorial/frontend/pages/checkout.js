@@ -30,7 +30,7 @@ class Checkout extends Component {
       Router.push("/");
     }
     this.setState({
-      stripe: window.Stripe("pk_test_YOUR_STRIPE_PK_KEY")
+      stripe: window.Stripe("pk_test_stripe")
     });
   }
 
