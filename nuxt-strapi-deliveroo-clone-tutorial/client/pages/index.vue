@@ -3,19 +3,34 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group mt-3">
-          <input v-model="query" type="text" class="form-control" placeholder="Search...">
+          <input
+            v-model="query"
+            type="text"
+            class="form-control"
+            placeholder="Search..."
+          />
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <ul class="card-columns list-unstyled">
-          <li v-for="restaurant in filteredList" :key="restaurant.id" class="card">
-            <img :src="restaurant.image.url" class="card-img-top">
+          <li
+            v-for="restaurant in filteredList"
+            :key="restaurant.id"
+            class="card"
+          >
+            <img :src="restaurant.image.url" class="card-img-top" />
             <div class="card-body">
               <h5 class="card-title">{{ restaurant.name }}</h5>
-              <p class="card-text">{{ restaurant.description || 'No description provided' }}.</p>
-              <router-link :to="{ name: 'restaurants-id', params: { id: restaurant.id }}" tag="a" class="btn btn-primary">
+              <p class="card-text">
+                {{ restaurant.description || 'No description provided' }}.
+              </p>
+              <router-link
+                :to="{ name: 'restaurants-id', params: { id: restaurant.id } }"
+                tag="a"
+                class="btn btn-primary"
+              >
                 See dishes
               </router-link>
             </div>
@@ -53,7 +68,7 @@ export default {
       data: {
         query: `query {
             restaurants {
-              _id
+              id
               name
               description
               image {
@@ -67,7 +82,7 @@ export default {
     response.data.restaurants.forEach(restaurant => {
       restaurant.image.url = `${apiUrl}${restaurant.image.url}`
       store.commit('restaurants/add', {
-        id: restaurant.id || restaurant._id,
+        id: restaurant.id,
         ...restaurant
       })
     })
