@@ -1,28 +1,30 @@
-# Nuxt.js Strapi Delivroo clone
+## Install and start the **Nuxt Client**:
 
+- Keep Strapi running, or restart Strapi with either `yarn dev` or `yarn start`.
 
-### Install dependencies
-```bash
-$ yarn
+(**NOTE:** You will not be able to test making an order unless you have configured your [Stripe Token](https://stripe.com/docs/stripe-js/elements/payment-request-button#using-with-connect), **pk_test** token. Search and replace **pk_test_stripe** with your Stripe API token found in the ./pages/checkout.vue file.)
+
+- Open another terminal window and navigate to `Path: ./Projects/strapi-examples/nuxt-strapi-deliveroo-clone-tutorial`.
+
+```
+cd client
+yarn
 ```
 
-### Serve with hot reload at localhost:3000
-```bash
-$ yarn dev
+If you would like to serve in development mode with hot reloading on [http://localhost:3000](http://localhost:3000).
+
+```
+yarn dev
 ```
 
-### build for production and launch server
-```bash
-$ yarn build
-$ yarn start
+You will now be able to test the functionality of this demonstration app using Strapi and Nuxt.
+
+**NOTE:** If you would like to actually serve it on a production server, follow these commands instead.
+
 ```
+yarn build
+yarn start
 
-### Stripe configuration
-
-To be able to create an order you will have to configure your `pk_test` token.
-Search and replace `pk_test_stripe` by your Stripe API token in the `./pages/checkout.vue` file.
-
----
+```
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
-
