@@ -1,4 +1,7 @@
 {
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
@@ -21,14 +24,7 @@
     "recompose": "^0.30.0",
     "strapi-sdk-javascript": "^0.3.0"
   },
-  "author": {
-    "name": "Strapi",
-    "email": "hi@strapi.io"
-  },
-  "maintainers": [
-    {
-      "name": "pierreburgy",
-      "email": "pierre@strapi.io"
-    }
-  ]
+  "engines": {
+    "node": "10.x.x"
+  }
 }

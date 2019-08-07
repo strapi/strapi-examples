@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/orders/:_id",
+      "path": "/orders/:id",
       "handler": "Order.findOne",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/orders/:_id",
+      "path": "/orders/:id",
       "handler": "Order.update",
       "config": {
         "policies": []
@@ -42,8 +42,8 @@
     },
     {
       "method": "DELETE",
-      "path": "/orders/:_id",
-      "handler": "Order.destroy",
+      "path": "/orders/:id",
+      "handler": "Order.delete",
       "config": {
         "policies": []
       }

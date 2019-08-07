@@ -33,7 +33,7 @@ const RestaurantList = (
               <Card
                 style={{ width: "30%", margin: "0 10px" }}
                 className="h-100"
-                key={res._id}
+                key={res.id}
               >
                 <CardImg
                   top={true}
@@ -46,8 +46,8 @@ const RestaurantList = (
                 </CardBody>
                 <div className="card-footer">
                   <Link
-                    as={`/restaurants/${res._id}`}
-                    href={`/restaurants?id=${res._id}`}
+                    as={`/restaurants/${res.id}`}
+                    href={`/restaurants?id=${res.id}`}
                   >
                     <a className="btn btn-primary">View</a>
                   </Link>
@@ -85,7 +85,7 @@ const RestaurantList = (
 const query = gql`
   {
     restaurants {
-      _id
+      id
       name
       description
       image {
