@@ -5,19 +5,23 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.1.11",
-    "gatsby-image": "^2.0.29",
-    "gatsby-plugin-manifest": "^2.0.18",
-    "gatsby-plugin-offline": "^2.0.24",
-    "gatsby-plugin-react-helmet": "^3.0.6",
-    "gatsby-plugin-sharp": "^2.0.21",
-    "gatsby-source-filesystem": "^2.0.21",
+    "gatsby": "^2.3.16",
+    "gatsby-cli": "^2.5.6",
+    "gatsby-image": "^2.0.37",
+    "gatsby-plugin-manifest": "^2.0.28",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sharp": "^2.0.32",
+    "gatsby-source-filesystem": "^2.0.29",
     "gatsby-source-strapi": "0.0.7",
-    "gatsby-transformer-sharp": "^2.1.14",
+    "gatsby-transformer-sharp": "^2.1.17",
     "prop-types": "^15.7.2",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4"
   },
   "keywords": [
     "gatsby"
@@ -26,9 +30,10 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
     "type": "git",

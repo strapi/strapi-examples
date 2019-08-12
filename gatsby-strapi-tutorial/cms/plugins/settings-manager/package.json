@@ -1,26 +1,26 @@
 {
-  "_from": "strapi-plugin-settings-manager@3.0.0-alpha.23.1",
-  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.23.1",
+  "_from": "strapi-plugin-settings-manager@3.0.0-alpha.25.2",
+  "_id": "strapi-plugin-settings-manager@3.0.0-alpha.25.2",
   "_inBundle": false,
-  "_integrity": "sha512-sTY9mUqmLxj60Ny3153a5LZtfIPWO79S7MzvbB+UuJyoMGShTwpbD3P1UbFWsgAI1kaq70rieDGQ1Z7mEMi4Gw==",
+  "_integrity": "sha512-Cp0imP0hAxZbeC0UNtxKULcH6jZiHraiNRJyqe//UMFKLz/r2F9jtZOVdyXl8vvBrTPGLXKbZjOR8UxAYc29mQ==",
   "_location": "/strapi-plugin-settings-manager",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "strapi-plugin-settings-manager@3.0.0-alpha.23.1",
+    "raw": "strapi-plugin-settings-manager@3.0.0-alpha.25.2",
     "name": "strapi-plugin-settings-manager",
     "escapedName": "strapi-plugin-settings-manager",
-    "rawSpec": "3.0.0-alpha.23.1",
+    "rawSpec": "3.0.0-alpha.25.2",
     "saveSpec": null,
-    "fetchSpec": "3.0.0-alpha.23.1"
+    "fetchSpec": "3.0.0-alpha.25.2"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.23.1.tgz",
-  "_shasum": "9e52468a4b8304dc875cc74078c1d86691074927",
-  "_spec": "strapi-plugin-settings-manager@3.0.0-alpha.23.1",
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-settings-manager/-/strapi-plugin-settings-manager-3.0.0-alpha.25.2.tgz",
+  "_shasum": "edab30ea90319a73ea4f54b408e8b8a5a5524267",
+  "_spec": "strapi-plugin-settings-manager@3.0.0-alpha.25.2",
   "_where": "/Users/david/Desktop/tutorial/cms",
   "author": {
     "name": "Strapi team",
@@ -31,12 +31,17 @@
     "url": "https://github.com/strapi/strapi/issues"
   },
   "bundleDependencies": false,
+  "dependencies": {
+    "shelljs": "^0.7.8"
+  },
   "deprecated": false,
   "description": "Strapi plugin to manage settings.",
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "flag-icon-css": "^2.8.0",
     "react-select": "^1.0.0-rc.5",
-    "strapi-helper-plugin": "3.0.0-alpha.23.1"
+    "rimraf": "^2.6.3",
+    "strapi-helper-plugin": "3.0.0-alpha.25.2"
   },
   "engines": {
     "node": ">= 10.0.0",
@@ -58,23 +63,23 @@
   },
   "scripts": {
     "analyze": "node ./node_modules/strapi-helper-plugin/lib/internals/scripts/analyze.js",
-    "analyze:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf stats.json",
-    "build": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=production node node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
-    "build:clean": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/rimraf admin/build",
-    "build:dev": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
-    "generate": "node ./node_modules/strapi-helper-plugin/node_modules/plop --plopfile ./node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
-    "lint": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern '/admin/build/' --config ./node_modules/strapi-helper-plugin/lib/internals/eslint/.eslintrc.json admin",
+    "analyze:clean": "rimraf stats.json",
+    "build": "cross-env NODE_ENV=production node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "build:clean": "rimraf admin/build",
+    "build:dev": "cross-env NODE_ENV=development ./node_modules/strapi-helper-plugin/node_modules/.bin/webpack --config node_modules/strapi-helper-plugin/lib/internals/webpack/webpack.prod.babel.js --color -p --progress",
+    "generate": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/plop --plopfile ./node_modules/strapi-helper-plugin/lib/internals/generators/index.js",
+    "lint": "node ./node_modules/strapi-lint/node_modules/.bin/eslint --ignore-path .gitignore --ignore-pattern '/admin/build/' --config ./node_modules/strapi-lint/lib/internals/eslint/.eslintrc.json admin",
     "preanalyze": "npm run analyze:clean",
     "prebuild": "npm run build:clean",
     "prepublishOnly": "IS_MONOREPO=true npm run build",
     "prettier": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/prettier --single-quote --trailing-comma es5 --write \"{admin,__{tests,mocks}__}/**/*.js\"",
-    "start": "node ./node_modules/strapi-helper-plugin/node_modules/.bin/cross-env NODE_ENV=development node ./node_modules/strapi-helper-plugin/lib/server",
-    "test": "npm run lint"
+    "start": "cross-env NODE_ENV=development ./node_modules/strapi-helper-plugin/lib/server",
+    "test": "echo \"no tests yet\""
   },
   "strapi": {
     "name": "Settings Manager",
     "icon": "wrench",
     "description": "settings-manager.plugin.description"
   },
-  "version": "3.0.0-alpha.23.1"
+  "version": "3.0.0-alpha.25.2"
 }

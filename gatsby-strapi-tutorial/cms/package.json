@@ -19,12 +19,13 @@
     "eslint-plugin-react": "^7.7.0"
   },
   "dependencies": {
-    "lodash": "^4.17.5",
-    "strapi": "3.0.0-alpha.23.1",
-    "strapi-hook-bookshelf": "3.0.0-alpha.23.1",
-    "strapi-hook-knex": "3.0.0-alpha.23.1",
     "knex": "latest",
-    "sqlite3": "4.0.6"
+    "lodash": "^4.17.5",
+    "pg": "^7.9.0",
+    "sqlite3": "latest",
+    "strapi": "3.0.0-alpha.25.2",
+    "strapi-hook-bookshelf": "3.0.0-alpha.25.2",
+    "strapi-hook-knex": "3.0.0-alpha.25.2"
   },
   "author": {
     "name": "david",
@@ -40,7 +41,7 @@
   ],
   "strapi": {
     "packageManager": "npm",
-    "uuid": "360a9f56-e25d-4722-801c-2afcdc6d60bf"
+    "uuid": "fd40cfea-419c-4207-95bf-54df441ec1a3"
   },
   "engines": {
     "node": ">= 10.0.0",
