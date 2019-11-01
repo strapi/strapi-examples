@@ -24,9 +24,9 @@ npm start
 **4 -** Create an API with Strapi:
 In a new terminal window run these commands :
 ```bash
-npm install strapi@alpha
-strapi new my-project
-cd my-project && strapi start
+yarn create strapi-app my-project --quickstart
+# or
+npx create-strapi-app my-project --quickstart
 ```
 
 **5 -** [Create the Admin user](http://localhost:1337/admin/plugins/users-permissions/auth/register) by registering your first user.
