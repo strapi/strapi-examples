@@ -21,12 +21,7 @@ npm start
 ```
 [Open the app in your browser](http://localhost:3000)
 
-**4 -** In a new terminal window start mongo to register your first user
-```bash
-mongod
-```
-
-**5 -** Create an API with Strapi:
+**4 -** Create an API with Strapi:
 In a new terminal window run these commands :
 ```bash
 npm install strapi@alpha
@@ -34,23 +29,23 @@ strapi new my-project
 cd my-project && strapi start
 ```
 
-**6 -** [Create the Admin user](http://localhost:1337/admin/plugins/users-permissions/auth/register) by registering your first user.
+**5 -** [Create the Admin user](http://localhost:1337/admin/plugins/users-permissions/auth/register) by registering your first user.
 
-**7 -** [Enable Discord provider](./doc/discord_setup.md)
+**6 -** [Enable Discord provider](./doc/discord_setup.md)
 
-**8 -** [Enable Facebook provider](./doc/fb_setup.md)
+**7 -** [Enable Facebook provider](./doc/fb_setup.md)
 
-**9 -** [Enable GitHub provider](./doc/github_setup.md)
+**8 -** [Enable GitHub provider](./doc/github_setup.md)
 
-**10 -** [Enable Google provider](./doc/google_setup.md)
+**9 -** [Enable Google provider](./doc/google_setup.md)
 
-**11 -** [Enable Microsoft provider](./doc/microsoft_setup.md)
+**10 -** [Enable Microsoft provider](./doc/microsoft_setup.md)
 
-**12 -** [Enable Twitch provider](./doc/twitch_setup.md)
+**11 -** [Enable Twitch provider](./doc/twitch_setup.md)
 
-**13 -** [Enable Twitter provider](./doc/twitter_setup.md)
+**12 -** [Enable Twitter provider](./doc/twitter_setup.md)
 
-**14 -** [Enable Instagram provider](./doc/instagram_setup.md)
+**13 -** [Enable Instagram provider](./doc/instagram_setup.md)
 
 > Note you may see the `Redirect URL to add in your provider's configuration` is dynamic so make sure to enter the right path in your provider's app configurations.
 
