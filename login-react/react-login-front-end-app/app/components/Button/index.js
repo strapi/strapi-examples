@@ -31,6 +31,7 @@ function Button(props) {
         ${props.social === 'microsoft' && 'microsoft'}
         ${props.social === 'twitch' && 'twitch'}
         ${props.social === 'twitter' && 'twitter'}
+        ${props.social === 'vk' && 'vk'}
       `}
       type={props.type || 'button'}
       {...buttonProps}

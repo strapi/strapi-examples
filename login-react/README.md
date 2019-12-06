@@ -47,6 +47,8 @@ npx create-strapi-app my-project --quickstart
 
 **13 -** [Enable Instagram provider](./doc/instagram_setup.md)
 
+**14 -** [Enable VK provider](./doc/vk_setup.md)
+
 > Note you may see the `Redirect URL to add in your provider's configuration` is dynamic so make sure to enter the right path in your provider's app configurations.
 
 ## Front-end App Architecture
