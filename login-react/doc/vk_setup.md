@@ -1,11 +1,10 @@
 # VK setup
 
-Go to the [VK developers](https://vk.com/apps?act=manage) and create app.
+Go to the [VK developers](https://vk.com/apps?act=manage) and create a **standalone** app.
 
 ![VK setup](../assets/vk_settings__01.png)
 
-Then in the credentials section set the Authorized redirect URI to `http://localhost:1337/connect/vk/callback`
-
+Then in the **settings** section, enable the `Open API` option and set the information as in the screenshot bellow.
 ![VK setup](../assets/vk_settings__02.png)
 
 ## API Setup
