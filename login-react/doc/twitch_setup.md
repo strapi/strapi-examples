@@ -1,6 +1,6 @@
 # Twitch Setup
 
-Go to the [Twitch Developers](https://glass.twitch.tv/console/apps) console and create an app.
+Go to the [Twitch Developers](https://dev.twitch.tv/console/apps) console and create an app.
 - For **OAuth Redirect URL**, use `http://localhost:1337/connect/twitch/callback`
 - Under **Category** select `Website Integration`
 - Once you save the form, click `Manage` for the application you just created
