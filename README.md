@@ -10,8 +10,6 @@
 
 ## Examples
 
-- **[Hello World](./hello-world) -** *Basic app to say hello to everyone* <br />
-   `routes` `controllers` `i18n`
 - **[Cheesecakes](./cheesecakes) -** *e-commerce application* <br />
    `routes` `controllers` `models` `services` `relations` `auth`
 - **[Gatsby Strapi Tutorial](./gatsby-strapi-tutorial) -** *Source code of the tutorial "[Building a static blog using Gatsby and Strapi](https://blog.strapi.io/building-a-static-website-using-gatsby-and-strapi)".* <br />
