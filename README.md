@@ -16,7 +16,7 @@
    `routes` `controllers` `models` `services` `relations` `auth`
 - **[Gatsby Strapi Tutorial](./gatsby-strapi-tutorial) -** *Source code of the tutorial "[Building a static blog using Gatsby and Strapi](https://blog.strapi.io/building-a-static-website-using-gatsby-and-strapi)".* <br />
    `gatsby` `static website` `content API`
-- **[React Authentication Flow](./login-react) -** *Basic React App that implements the authentication flow* <br />
+- **[React Login Flow](./login-react) -** *Basic React App that implements the login flow with third party login providers* <br />
    `auth` `react`
 - **[Jekyll Strapi Tutorial](./jekyll-strapi-tutorial) -** *Source code of the tutorial "[Building a static blog using Jekyll and Strapi](https://blog.strapi.io/building-a-static-website-using-jekyll-and-strapi)".* <br />
    `jekyll` `static website` `content API`
