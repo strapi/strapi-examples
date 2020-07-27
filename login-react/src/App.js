@@ -13,9 +13,11 @@ import authRequired from './HOCs/authRequired';
 const App = () => {
   if (!process.env.REACT_APP_BACKEND_URL) {
     return <p>
-        Please specify your backend url with the environment variable <b>REACT_APP_BACKEND_URL</b>.<br />
+        Please specify your backend url with the <a href="https://create-react-app.dev/docs/adding-custom-environment-variables/" target="_blank" rel="noopener noreferrer">environment variable</a>:<br />
+        <b>REACT_APP_BACKEND_URL</b>.<br />
         <br />
-        For example launch this app with: <b>REACT_APP_BACKEND_URL=http://localhost:1337 yarn start</b>
+        For example launch this app with:<br />
+        <b>REACT_APP_BACKEND_URL=http://localhost:1337 yarn start</b>
       </p>;
   }
 
