@@ -24,7 +24,18 @@ npx create-strapi-app my-project --quickstart
 
 **4 —** Configure one or several providers by following the instructions there: https://strapi.io/documentation/v3.x/plugins/users-permissions.html#providers
 
+**5 -** Launch the app
+```bash
+REACT_APP_BACKEND_URL=http://localhost:1337 yarn start
+```
+NB: If you use ngrok, use the ngrok url for `REACT_APP_BACKEND_URL` instead of `http://localhost:1337`
+
+## Env vars
+| Name | Description | Example |
+| - | - | - |
+| **REACT_APP_BACKEND_URL** | **Required.** The absolute url of your Strapi app. | `http://localhost:1337` |
+
 ## Troubleshooting
 
 Make sure you have set the correct backend url using the env variable `REACT_APP_BACKEND_URL`.
-If you're using ngrok, the backend url should be a ngrok url, otherwise it should probably be `http://localhost:1337`.
+If you're using ngrok, the backend url should be the ngrok url, otherwise it should probably be `http://localhost:1337`.
