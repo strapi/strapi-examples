@@ -23,3 +23,8 @@ npx create-strapi-app my-project --quickstart
 **3 —** Create the Admin user: http://localhost:1337/admin/auth/register
 
 **4 —** Configure one or several providers by following the instructions there: https://strapi.io/documentation/v3.x/plugins/users-permissions.html#providers
+
+## Troubleshooting
+
+Make sure you have set the correct backend url using the env variable `REACT_APP_BACKEND_URL`.
+If you're using ngrok, the backend url should be a ngrok url, otherwise it should probably be `http://localhost:1337`.

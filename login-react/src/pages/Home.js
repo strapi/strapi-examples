@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import config from '../config';
+import { Link } from 'react-router-dom';
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const providersNames = [
   'github',
@@ -12,7 +14,7 @@ const providersNames = [
   'vk',
 ];
 
-const LoginButton = (props) => <a href={`${config.BACKEND_URL}/connect/${props.providerName}`}>
+const LoginButton = (props) => <a href={`${backendUrl}/connect/${props.providerName}`}>
     <button style={{ width: '150px' }}>Connect to {props.providerName}</button>
   </a>;
 
@@ -29,17 +31,19 @@ const Home = (props) => {
   };
 
   let buttons;
+
   if (isLogged) {
     buttons = <LogoutButton onClick={logout} />;
   } else {
     buttons = <ul style={{ listStyleType: 'none' }}>
-      {providersNames.map((providerName, i) => <li key={`login-button-${i}`}>
+      {providersNames.map((providerName, i) => <li key={providerName}>
         <LoginButton providerName={providerName}/>
         </li>)}
     </ul>;
   }
 
   let text;
+
   if (isLogged) {
     text = `Welcome ${localStorage.getItem('username')}, you are connected!`;
   } else {
@@ -49,6 +53,10 @@ const Home = (props) => {
   return <div>
     <p>{text}</p>
     {buttons}
+
+    <p>
+      This page <Link to='/protected'>/protected</Link> is only accessibled if you are logged in.
+    </p>
   </div>;
 }
 

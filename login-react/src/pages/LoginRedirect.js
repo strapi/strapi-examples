@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from "react-router-dom";
-import config from '../config';
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const LoginRedirect = (props) => {
   const [text, setText] = useState('Loading...');
@@ -8,7 +9,7 @@ const LoginRedirect = (props) => {
   useEffect(() => {
     // Successfully logged with the provider
     // Now logging with strapi by using the access_token in props.location.search
-    fetch(`${config.BACKEND_URL}/auth/${props.match.params.providerName}/callback${props.location.search}`)
+    fetch(`${backendUrl}/auth/${props.match.params.providerName}/callback${props.location.search}`)
       .then(res => {
         if (res.status !== 200) {
           throw new Error(`Couldn't login to Strapi. Status: ${res.status}`);
