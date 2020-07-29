@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const LoginRedirect = (props) => {
   const [text, setText] = useState('Loading...');
+  const location = useLocation();
+  const params = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     // Successfully logged with the provider
     // Now logging with strapi by using the access_token in props.location.search
-    fetch(`${backendUrl}/auth/${props.match.params.providerName}/callback${props.location.search}`)
+    fetch(`${backendUrl}/auth/${params.providerName}/callback${location.search}`)
       .then(res => {
         if (res.status !== 200) {
           throw new Error(`Couldn't login to Strapi. Status: ${res.status}`);
@@ -23,15 +26,15 @@ const LoginRedirect = (props) => {
         localStorage.setItem('jwt', res.jwt);
         localStorage.setItem('username', res.user.username);
         setText('You have been successfully logged in. You will be redirected in a few seconds...');
-        setTimeout(() => props.history.push('/'), 3000); // Redirect to homepage after 3 sec
+        setTimeout(() => history.push('/'), 3000); // Redirect to homepage after 3 sec
       })
       .catch(err => {
         console.log(err);
         setText('An error occured, please see the developper console.')
       });
-  }, [props.history, props.location.search, props.match.params.providerName]);
+  }, [history, location.search, params.providerName]);
 
   return <p>{text}</p>
 };
 
-export default withRouter(LoginRedirect);
+export default LoginRedirect;

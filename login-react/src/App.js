@@ -6,9 +6,6 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import LoginRedirect from './pages/LoginRedirect';
-import Protected from './pages/Protected';
-import Unauthorized from './pages/Unauthorized';
-import ProtectedRoute from './layouts/ProtectedRoute';
 
 const App = () => {
   if (!process.env.REACT_APP_BACKEND_URL) {
@@ -26,8 +23,6 @@ const App = () => {
         <Switch>
           <Route exact path="/connect/:providerName/redirect" component={LoginRedirect} />
           <Route exact path="/" component={Home} />
-          <ProtectedRoute exact path="/protected" component={Protected} />
-          <Route exact path="/unauthorized" component={Unauthorized} />
         </Switch>
     </Router>
   );

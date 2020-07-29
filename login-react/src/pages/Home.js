@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -53,10 +52,6 @@ const Home = (props) => {
   return <div>
     <p>{text}</p>
     {buttons}
-
-    <p>
-      This page <Link to='/protected'>/protected</Link> is only accessibled if you are logged in.
-    </p>
   </div>;
 }
 
