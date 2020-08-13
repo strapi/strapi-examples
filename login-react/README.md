@@ -22,7 +22,7 @@ npx create-strapi-app my-project --quickstart
 
 **3 —** Create the Admin user: http://localhost:1337/admin/auth/register
 
-**4 —** Configure one or several providers by following the instructions there: https://strapi.io/documentation/v3.x/plugins/users-permissions.html#providers
+**4 —** Configure one or several providers by following the instructions here: https://strapi.io/documentation/v3.x/plugins/users-permissions.html#providers
 
 **5 -** Launch the app
 ```bash
