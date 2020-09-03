@@ -68,7 +68,7 @@ After allowing access to the API and inputting content, you are ready to install
 -   Open another terminal window and navigate to `Path: ./Projects/strapi-examples/nuxt-strapi-deliveroo-clone-tutorial`.
 
 ```
-cd client
+cd frontend
 yarn
 ```
 
