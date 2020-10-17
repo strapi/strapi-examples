@@ -11,6 +11,7 @@ const providersNames = [
   'twitch',
   'instagram',
   'vk',
+  'auth0',
 ];
 
 const LoginButton = (props) => <a href={`${backendUrl}/connect/${props.providerName}`}>
