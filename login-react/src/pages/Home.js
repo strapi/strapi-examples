@@ -3,15 +3,16 @@ import React, { useState } from 'react';
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const providersNames = [
-  'github',
-  'facebook',
-  'google',
-  'twitter',
   'discord',
-  'twitch',
+  'facebook',
+  'github',
+  'google',
   'instagram',
-  'vk',
+  'linkedin',
   'reddit',
+  'twitch',
+  'twitter',
+  'vk',
 ];
 
 const LoginButton = (props) => <a href={`${backendUrl}/connect/${props.providerName}`}>
