@@ -3,14 +3,17 @@ import React, { useState } from 'react';
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const providersNames = [
-  'github',
-  'facebook',
-  'google',
-  'twitter',
   'discord',
-  'twitch',
+  'facebook',
+  'github',
+  'google',
   'instagram',
+  'linkedin',
+  'reddit',
+  'twitch',
+  'twitter',
   'vk',
+  'auth0',
   'cas'
 ];
 
