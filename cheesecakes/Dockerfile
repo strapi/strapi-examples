@@ -1,10 +1,10 @@
-FROM node:16
+FROM strapi/base:latest
 
-COPY . /app
+COPY . /srv/app
 
-WORKDIR /app
+WORKDIR /srv/app
 
-RUN npm install --force
+RUN npm install --legacy-peer-deps
 
 RUN npm run setup --plugins
 
