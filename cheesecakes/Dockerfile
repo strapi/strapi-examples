@@ -1,8 +1,20 @@
-FROM strapi/base:latest
+FROM node:14
 
-COPY . /srv/app
+USER app
 
-WORKDIR /srv/app
+RUN mkdir -p ~/.local/bin
+
+RUN npm config set prefix ~/.local/
+
+RUN export PATH=$PATH:~/.local/bin
+
+WORKDIR /home/app
+
+COPY . ./srv/app
+
+WORKDIR ./srv/app
+
+# RUN cd admin && npm link strapi-helper-plugin && cd ../
 
 RUN npm install --legacy-peer-deps
 
