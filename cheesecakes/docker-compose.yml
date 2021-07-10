@@ -20,6 +20,8 @@ services:
     build:
       dockerfile: ./Dockerfile
       context: .
+    ports:
+      - 1337:1337
     environment:
       NODE_ENV: production
       DATABASE_HOST: mongo

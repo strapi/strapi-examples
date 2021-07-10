@@ -1,6 +1,8 @@
 FROM node:14
 
-USER app
+RUN adduser appuser
+
+USER appuser
 
 RUN mkdir -p ~/.local/bin
 
@@ -8,9 +10,9 @@ RUN npm config set prefix ~/.local/
 
 RUN export PATH=$PATH:~/.local/bin
 
-WORKDIR /home/app
+WORKDIR /home/appuser
 
-COPY . ./srv/app
+COPY --chown=appuser:appuser . ./srv/app
 
 WORKDIR ./srv/app
 
