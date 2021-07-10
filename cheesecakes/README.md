@@ -18,6 +18,8 @@ git clone git@github.com:strapi/strapi-examples.git
 ```bash
 cd cheesecakes
 npm install
+# If you face version resolution issues, try
+# npm install --legacy-peer-deps
 npm run setup --plugins
 # It take few minutes
 ```
