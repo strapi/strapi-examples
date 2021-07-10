@@ -16,8 +16,6 @@ COPY --chown=appuser:appuser . ./srv/app
 
 WORKDIR ./srv/app
 
-# RUN cd admin && npm link strapi-helper-plugin && cd ../
-
 RUN npm install --legacy-peer-deps
 
 RUN npm run setup --plugins
