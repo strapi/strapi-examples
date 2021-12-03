@@ -14,9 +14,10 @@ const providersNames = [
   'twitter',
   'vk',
   'auth0',
+  'crossid'
 ];
 
-const LoginButton = (props) => <a href={`${backendUrl}/connect/${props.providerName}`}>
+const LoginButton = (props) => <a href={`${backendUrl}/api/connect/${props.providerName}`}>
     <button style={{ width: '150px' }}>Connect to {props.providerName}</button>
   </a>;
 
