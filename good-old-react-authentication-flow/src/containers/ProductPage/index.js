@@ -18,7 +18,7 @@ class ProductPage extends React.Component {
   state = { products: [] };
 
   async componentDidMount() {
-    const requestURL = 'http://localhost:1337/product';
+    const requestURL = 'http://localhost:1337/api/product';
 
     const products = await request(requestURL, { method: 'GET' });
     this.setState({ products });
