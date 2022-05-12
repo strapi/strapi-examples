@@ -36,7 +36,7 @@ class EditPage extends React.Component {
   async componentDidMount() {
     if (this.props.match.params.id !== 'create') {
       const { match: { params } } = this.props
-      const requestURL = `http://localhost:1337/${params.contentType}/${params.id}`;
+      const requestURL = `http://localhost:1337/api/${params.contentType}/${params.id}`;
       const data = await request(requestURL, { method: 'GET' });
 
       this.setState({ inititalData: data, modifiedData: data });
@@ -74,7 +74,7 @@ class EditPage extends React.Component {
     }, {});
 
     const method = params.id === 'create' ? 'POST' : 'PUT';
-    const requestURL =  params.id === 'create' ? `http://localhost:1337/${params.contentType}`: `http://localhost:1337/${params.contentType}/${params.id}`;
+    const requestURL =  params.id === 'create' ? `http://localhost:1337/api/${params.contentType}`: `http://localhost:1337/api/${params.contentType}/${params.id}`;
     return request(requestURL, { method, body: body })
       .then(resp => {
         // Send the upload request for each added file
@@ -102,7 +102,7 @@ class EditPage extends React.Component {
               //   console.log(pair[0]+ ', '+ pair[1]);
               // }
 
-              return request('http://localhost:1337/upload', { method: 'POST', body, headers: {} }, false)
+              return request('http://localhost:1337/api/upload', { method: 'POST', body, headers: {} }, false)
                 .catch(err => {
                   console.log('error upload', err.response);
               });
