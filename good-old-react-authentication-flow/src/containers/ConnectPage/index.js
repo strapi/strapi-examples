@@ -22,7 +22,7 @@ class ConnectPage extends React.Component {
       match: { params: { provider } },
       location: { search },
     } = this.props;
-    const requestURL = `http://localhost:1337/auth/${provider}/callback${search}`;
+    const requestURL = `http://localhost:1337/api/auth/${provider}/callback${search}`;
 
     request(requestURL, { method: 'GET' })
       .then(response => {
