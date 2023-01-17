@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -7,7 +7,7 @@ const LoginRedirect = (props) => {
   const [text, setText] = useState('Loading...');
   const location = useLocation();
   const params = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Successfully logged with the provider
@@ -26,13 +26,13 @@ const LoginRedirect = (props) => {
         localStorage.setItem('jwt', res.jwt);
         localStorage.setItem('username', res.user.username);
         setText('You have been successfully logged in. You will be redirected in a few seconds...');
-        setTimeout(() => history.push('/'), 3000); // Redirect to homepage after 3 sec
+        setTimeout(() => navigate('/'), 3000); // Redirect to homepage after 3 sec
       })
       .catch(err => {
         console.log(err);
         setText('An error occurred, please see the developer console.')
       });
-  }, [history, location.search, params.providerName]);
+  }, [navigate, location.search, params.providerName]);
 
   return <p>{text}</p>
 };
