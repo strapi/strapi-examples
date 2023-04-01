@@ -1,7 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
 import Home from './pages/Home';
@@ -19,12 +18,10 @@ const App = () => {
   }
 
   return (
-    <Router>
-        <Switch>
-          <Route exact path="/connect/:providerName/redirect" component={LoginRedirect} />
-          <Route exact path="/" component={Home} />
-        </Switch>
-    </Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/connect/:providerName/redirect" element={<LoginRedirect />} />
+        </Routes>
   );
 }
 
