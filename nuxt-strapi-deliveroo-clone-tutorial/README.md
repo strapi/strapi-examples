@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is an updated version of the example from the tutorial series "[Cooking a Deliveroo clone with Nuxt (Vue.js), GraphQL, Strapi and Stripe](https://blog.strapi.io/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7)".
+This is an updated version of the example from the tutorial series "[Cooking a Deliveroo clone with Nuxt (Vue.js), GraphQL, Strapi and Stripe](https://strapi.io/blog/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7)".
 
 You may use this repo to compare your code against this version which has been tested in the Beta version of Strapi.
 
