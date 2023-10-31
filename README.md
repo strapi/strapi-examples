@@ -18,10 +18,22 @@
 
 **Looking for examples** to understand how Strapi works? **You're in the right place!** <br />
 
+## Best Practices
+
+Coming soon!
+
 ## Examples
 
-- **[React Login Flow](./login-react) - Last Updated: Feb 2023 -** *Basic React App that implements the login flow with third party login providers* <br />
-   `auth` `react`
+- **[React Login Flow](./examples/login-react) - Last Updated: Feb 2023 -** *Basic React App that implements the login flow with third party login providers* <br />
+  `auth` `react`
+
+## Projects
+
+Coming Soon!
+
+## Recipes
+
+Coming Soon!
 
 ## Archive
 
