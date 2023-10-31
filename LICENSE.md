@@ -1,4 +1,12 @@
-Copyright (c) 2015-2019 Strapi Solutions.
+Copyright (c) 2015-present Strapi Solutions SAS
+
+Portions of the Strapi software are licensed as follows:
+
+* If you are accessing or using any component of the software that resides under an "ee/" directory, then you are deemed to be using our “Enterprise Edition” of the software and you understand and agree that the software is not licensed under the "MIT Expat" license as set forth below but instead, all the software you access is licensed under the license defined in "strapi/packages/core/admin/ee/LICENSE" and located at https://github.com/strapi/strapi/blob/a76b557047e9ef1c168dbf1b6cf879bcc3022de6/packages/core/admin/ee/LICENSE, unless (a) you or the company you represent has signed an alternative agreement referencing this code, then such signed agreement applies or (b) you are using the software in connection with a subscription to our cloud offering, then the terms of the agreement relevant to the cloud offering which you have assented to apply and the software licenses included in that agreement shall apply.
+
+* If (a) you are not accessing or using the software that resides under an “ee/” directory and therefore you are only accessing or using our “Community Edition” of the Software and (b) you have no registered account on our cloud offering, then we are providing you the software under the "MIT Expat" license as set forth below.
+
+MIT Expat License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

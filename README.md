@@ -1,6 +1,16 @@
-<p align="center"><img src="https://cldup.com/7umchwdUBh.png" /></p>
-<h3 align="center">API creation made simple, secure and fast.</h3>
-<p align="center">The most advanced open-source Content Management Framework to build powerful API with no effort.</p>
+<p align="center">
+  <a href="https://strapi.io/#gh-light-mode-only">
+    <img src="https://strapi.io/assets/strapi-logo-dark.svg" width="318px" alt="Strapi logo" />
+  </a>
+  <a href="https://strapi.io/#gh-dark-mode-only">
+    <img src="https://strapi.io/assets/strapi-logo-light.svg" width="318px" alt="Strapi logo" />
+  </a>
+</p>
+
+<h3 align="center">Open-source headless CMS, self-hosted or Cloud you’re in control.</h3>
+<p align="center">The leading open-source headless CMS, 100% JavaScript/TypeScript, flexible and fully customizable.</p>
+<p align="center"><a href="https://cloud.strapi.io/signups?source=github1">Cloud</a> · <a href="https://strapi.io/demo">Try live demo</a></p>
+<br />
 
 ***
 
@@ -8,28 +18,29 @@
 
 **Looking for examples** to understand how Strapi works? **You're in the right place!** <br />
 
+## Best Practices
+
+Coming soon!
+
 ## Examples
 
-- **[Cheesecakes](./cheesecakes) -** *e-commerce application* <br />
-   `routes` `controllers` `models` `services` `relations` `auth`
-- **[Gatsby Strapi Tutorial](./gatsby-strapi-tutorial) -** *Source code of the tutorial "[Building a static blog using Gatsby and Strapi](https://blog.strapi.io/building-a-static-website-using-gatsby-and-strapi)".* <br />
-   `gatsby` `static website` `content API`
-- **[React Login Flow](./login-react) -** *Basic React App that implements the login flow with third party login providers* <br />
-   `auth` `react`
-- **[Jekyll Strapi Tutorial](./jekyll-strapi-tutorial) -** *Source code of the tutorial "[Building a static blog using Jekyll and Strapi](https://blog.strapi.io/building-a-static-website-using-jekyll-and-strapi)".* <br />
-   `jekyll` `static website` `content API`
-- **[Create-React-App](./good-old-react-authentication-flow) -** *Basic React App Boilerplate that has the authentication with local and custom providers.* <br />
-   `auth` `react`
-- **[React-Apollo](./react-apollo) -** *Basic React App Boilerplate that use the GraphQL API when the GraphQL plugin is installed in your project.* <br />
-  `auth` `react` `graphql`
-- **[GraphQL Upload with React-Apollo](./apollo-upload-graphql) -** *React App that use the GraphQL upload mutation when the GraphQL plugin is installed in your project.* <br />
-  `auth` `react` `graphql`
-- **[Nuxt Strapi Tutorial](./nuxt-strapi-deliveroo-clone-tutorial) -** *Source code of the tutorial "[🍝 Cooking a Deliveroo clone with Nuxt (Vue.js), GraphQL, Strapi and Stripe](https://blog.strapi.io/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7/)".* <br />
-  `Nuxt` `GraphQL` `Stripe` `Vue`
+- **[React Login Flow](./examples/login-react) - Last Updated: Feb 2023 -** *Basic React App that implements the login flow with third party login providers* <br />
+  `auth` `react`
 
-- **[Nextjs Strapi Tutorial](./nextjs-react-strapi-deliveroo-clone-tutorial) -** *Source code of the tutorial "[🍝 Cooking a Deliveroo clone with Next.js (React.js), GraphQL, Strapi and Stripe](https://blog.strapi.io/strapi-next-setup/)".* <br />
-  `Next.js` `GraphQL` `Stripe` `React`
+## Projects
+
+Coming Soon!
+
+## Recipes
+
+Coming Soon!
+
+## Archive
+
+Looking for older examples that have been archived? Check out the archive branches:
+
+- [October 2023](https://github.com/strapi/strapi-examples/tree/archive/oct23)
 
 ## Contributing
 
-We would love to add your example in this repository. Feel free to submit a Pull Request (against `master` branch) and we will merge it as soon as possible.
+We would love to add your example in this repository. Feel free to submit a Pull Request (against `master` branch) and we will review and merge it as soon as possible.
