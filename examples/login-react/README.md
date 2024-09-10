@@ -7,7 +7,7 @@ Basic app that shows how to implement login with a third party login provider.
 **1 —** Clone this repository and install the dependencies
 ```bash
 git clone git@github.com:strapi/strapi-examples.git
-cd strapi-examples/login-react
+cd strapi-examples/examples/login-react
 yarn install
 ```
 
